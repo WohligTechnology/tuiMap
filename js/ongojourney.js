@@ -4,10 +4,10 @@ var ongojourney = angular.module('ongojourney', [])
     return {
       getOneJourney: function (formData, callback, errorCallback) {
         TravelibroService.http({
-          url: adminURL + "/journey/getOneWeb",
-          // url: "/demo.json",
-          method: "POST",
-          // method: "GET",
+          // url: adminURL + "/journey/getOneWeb",
+          url: "/mapData.json",
+          // method: "POST",
+          method: "GET",
           data: formData
         }, 'allLoader').success(function (data) {
           var journey = data.data;

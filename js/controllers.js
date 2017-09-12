@@ -20,7 +20,7 @@ var map;
 var center = {};
 var centers = [];
 markers[0] = {};
-angular.module('phonecatControllers', ['templateservicemod', 'mylife', 'ongojourney', 'locallife', 'itinerary', 'agent', 'commontask', 'anchorSmoothScroll', 'activity', 'infinite-scroll', 'navigationservice', 'travelibroservice', 'cfp.loadingBar', 'ui.bootstrap', 'ui.select', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angularFileUpload', 'ngImgCrop', 'mappy', 'wu.masonry', 'ngScrollbar', 'ksSwiper', 'ui.tinymce', 'ngFadeImgLoading', 'internationalPhoneNumber', 'ngIntlTelInput'])
+angular.module('phonecatControllers', ['templateservicemod', 'mylife', 'ongojourney', 'commontask', 'anchorSmoothScroll', 'infinite-scroll', 'navigationservice', 'travelibroservice', 'cfp.loadingBar', 'ui.bootstrap', 'ui.select', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angularFileUpload', 'ngImgCrop', 'mappy', 'wu.masonry', 'ngScrollbar', 'ksSwiper', 'ui.tinymce', 'ngFadeImgLoading', 'internationalPhoneNumber', 'ngIntlTelInput'])
     .run(['$anchorScroll', function ($anchorScroll) {
         $anchorScroll.yOffset = 50; // always scroll by 50 extra pixels
     }])
@@ -1070,7 +1070,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'mylife', 'ongojour
 
 })
 
-.controller('MylifeCtrl', function ($scope, $state, $stateParams, TemplateService, NavigationService, cfpLoadingBar, TravelibroService, $timeout, $uibModal, $location, $filter, MyLife, OnGoJourney, localLife, LikesAndComments, $anchorScroll, anchorSmoothScroll, $location) {
+.controller('MylifeCtrl', function ($scope, $state, $stateParams, TemplateService, NavigationService, cfpLoadingBar, TravelibroService, $timeout, $uibModal, $location, $filter, MyLife, OnGoJourney, localLife, LikesAndComments, $anchorScroll, anchorSmoothScroll) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("mylife");
     $scope.menutitle = NavigationService.makeactive("Mylife");
@@ -3328,7 +3328,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'mylife', 'ongojour
     };
     // SWITCHING TO PROFILE END
 })
-
 
 .controller('languageCtrl', function ($scope, TemplateService, $translate, $rootScope) {
     $scope.changeLanguage = function () {

@@ -1,0 +1,2804 @@
+{
+  "data": {
+    "_id": "59899166ef2fb75f7149c987",
+    "createdAt": "2017-08-08T10:24:38.124Z",
+    "updatedAt": "2017-09-10T07:10:01.433Z",
+    "user": {
+      "_id": "597a6bbaaa616e1b1bc68261",
+      "name": "Marcel Lesch",
+      "urlSlug": "marcel-lesch",
+      "gender": "male",
+      "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+      "email": "marcel.lesch@icloud.com"
+    },
+    "startTime": "2017-08-08T10:24:36.000Z",
+    "startLocationPic": "58d5616344d7173884133447.jpg",
+    "uniqueId": "59899166ef2fb75f7149c986",
+    "journeyCreator": "597a6bbaaa616e1b1bc68261",
+    "urlSlug": "iceland-2",
+    "userReview": [],
+    "location": {
+      "lat": "51.2806938586165",
+      "long": "6.75886959402161"
+    },
+    "review": [],
+    "countryVisited": [{
+      "country": {
+        "_id": "58d41839f1d9302d29ea3d95",
+        "name": "Germany",
+        "flag": "58d41837f1d9302d29ea3d84.jpg"
+      },
+      "date": "2017-08-08T10:24:38.104Z",
+      "counter": 1,
+      "_id": "59899166ef2fb75f7149c988"
+    }, {
+      "country": {
+        "_id": "58d41823f1d9302d29ea3cd9",
+        "name": "Iceland",
+        "flag": "58d41822f1d9302d29ea3cce.jpg"
+      },
+      "date": "2017-08-08T14:28:21.359Z",
+      "counter": 13,
+      "_id": "5989ca85ccda58605d9ddc2c"
+    }],
+    "buddies": [],
+    "post": [{
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "5989ca85ccda58605d9ddc29",
+      "location": "Southern Peninsula Region",
+      "UTCModified": "2017-08-08T14:28:19.958Z",
+      "status": true,
+      "type": "cityChange",
+      "likeCount": 0,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/undefined"
+    }, {
+      "_id": "5989ca85ccda58605d9ddc2a",
+      "createdAt": "2017-08-08T14:28:21.334Z",
+      "updatedAt": "2017-08-31T18:20:03.099Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "Finally arrived in Iceland!! ",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-08T14:28:19.960Z",
+      "UTC": "2017-08-08T14:28:19.960Z",
+      "loc": [-22, 63],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "5989ca85ccda58605d9ddc29",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "5989cd53ef2fb75f7149dd05",
+        "createdAt": "2017-08-08T14:40:19.639Z",
+        "post": "5989ca85ccda58605d9ddc2a",
+        "postUnique": "5989ca85ccda58605d9ddc29",
+        "UTCModified": "2017-08-08T14:28:19.960Z",
+        "name": "5989cd51ccda58605d9ddc8c.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4a17319d015419b62f9ff", "58d49f7a19d015419b62f112", "58d4473b3a425254b81f3895", "58d49f3e19d015419b62f006", "58d43d013a425254b81f19cc", "58d4a30c19d015419b630185", "58d4a2de19d015419b630095", "58d4a83019d015419b631bf6", "592448189b614c58f8c2b1dc", "58d442423a425254b81f265b", "58d43ba93a425254b81f1742", "58d43d553a425254b81f1a97"]
+      }],
+      "latlong": {
+        "lat": "63.9868",
+        "long": "-22.628"
+      },
+      "checkIn": {
+        "city": {
+          "_id": "5989ca6fa4cf635f2f79ef2d",
+          "name": "Southern Peninsula Region"
+        },
+        "location": "Keflavik International Airport",
+        "long": "-22.628",
+        "lat": "63.9868",
+        "category": "Transportation",
+        "country": "58d41823f1d9302d29ea3cd9"
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Southern Peninsula Region",
+      "likeCount": 22,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/5989ca85ccda58605d9ddc2a"
+    }, {
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "598a27dca4cf635f2f79f6d5",
+      "location": "Akranes",
+      "UTCModified": "2017-08-08T21:06:27.908Z",
+      "status": true,
+      "type": "cityChange",
+      "likeCount": 0,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/undefined"
+    }, {
+      "_id": "598a27dca4cf635f2f79f6d6",
+      "createdAt": "2017-08-08T21:06:36.684Z",
+      "updatedAt": "2017-09-09T07:20:02.215Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "On the way to the first stop: Kirkjufell! ",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-08T21:06:27.910Z",
+      "UTC": "2017-08-08T21:06:27.910Z",
+      "loc": [-22, 64],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "598a27dca4cf635f2f79f6d5",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "598a27dca4cf635f2f79f6d7",
+        "createdAt": "2017-08-08T21:06:36.695Z",
+        "UTCModified": "2017-08-08T21:06:27.910Z",
+        "post": "598a27dca4cf635f2f79f6d6",
+        "postUnique": "598a27dca4cf635f2f79f6d5",
+        "name": "598a27dadad0a060771563fc.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d442a13a425254b81f2737", "58d4a23519d015419b62fdbf", "58d4421b3a425254b81f2633", "58d450313a425254b81f62c0", "58d43af43a425254b81f15fb", "58d44a8a3a425254b81f4747", "58d4aacf19d015419b632429", "58d448973a425254b81f3ea0", "58d442693a425254b81f2695", "58d458f33a425254b81f900b", "58d43dc73a425254b81f1c07", "58d44cff3a425254b81f5334", "58d43c6e3a425254b81f18b5"]
+      }],
+      "latlong": {
+        "lat": "64.3219",
+        "long": "-22.0703"
+      },
+      "checkIn": {
+        "city": {
+          "_id": "593b6445bc7a83712881daa2",
+          "name": "Akranes"
+        },
+        "location": "Akranes",
+        "long": "-22.0703",
+        "lat": "64.3219",
+        "category": "City",
+        "country": "58d41823f1d9302d29ea3cd9"
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Akranes",
+      "likeCount": 30,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/598a27dca4cf635f2f79f6d6"
+    }, {
+      "_id": "598a51c6a4cf635f2f79f8be",
+      "createdAt": "2017-08-09T00:05:26.562Z",
+      "updatedAt": "2017-09-05T21:20:01.280Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "We made it to our first and last stop for today! Spending the night in our car and waiting for a great sunset in the morning! ",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-09T00:05:19.530Z",
+      "UTC": "2017-08-09T00:05:19.530Z",
+      "loc": [-23, 64],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "598a51c6a4cf635f2f79f8bd",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "598a51c6a4cf635f2f79f8bf",
+        "createdAt": "2017-08-09T00:05:26.574Z",
+        "UTCModified": "2017-08-09T00:05:19.530Z",
+        "post": "598a51c6a4cf635f2f79f8be",
+        "postUnique": "598a51c6a4cf635f2f79f8bd",
+        "name": "598a51c3b6478b5f6b429161.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d44af93a425254b81f49e8", "58d443543a425254b81f2a40", "58d4a00919d015419b62f386", "58d444dd3a425254b81f2fbe", "58d43c4a3a425254b81f1888", "58d44b223a425254b81f4a85", "58d4ac7119d015419b6329be", "58d4a22119d015419b62fd4b", "58d4a2f519d015419b630101", "59afe074a1662b6aa796c50e"]
+      }],
+      "latlong": {
+        "lat": "64.9262",
+        "long": "-23.3114"
+      },
+      "checkIn": {
+        "location": "",
+        "long": "-23.3114",
+        "lat": "64.9262",
+        "category": "Beaches",
+        "city": null
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Akranes",
+      "likeCount": 22,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/598a51c6a4cf635f2f79f8be"
+    }, {
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "598af803893a68106039ec36",
+      "location": "Arnarstapi",
+      "UTCModified": "2017-08-09T11:54:25.178Z",
+      "status": true,
+      "type": "cityChange",
+      "likeCount": 0,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/undefined"
+    }, {
+      "_id": "598af803893a68106039ec37",
+      "createdAt": "2017-08-09T11:54:43.298Z",
+      "updatedAt": "2017-09-06T22:20:02.193Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "Natural bridge - our planet is so unique ",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-09T11:54:25.180Z",
+      "UTC": "2017-08-09T11:54:25.180Z",
+      "loc": [-23, 64],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "598af803893a68106039ec36",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [{
+        "_id": "598af803893a68106039ec38",
+        "createdAt": "2017-08-09T11:54:43.311Z",
+        "UTCModified": "2017-08-09T11:54:25.180Z",
+        "post": "598af803893a68106039ec37",
+        "postUnique": "598af803893a68106039ec36",
+        "name": "https://storage.googleapis.com/travelibro-fileupload/598af7fcdbe0a610949387f1.mp4",
+        "caption": "",
+        "thumbnail": "598af800dbe0a610949387f2.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4a48619d015419b6309c6", "58d4a90b19d015419b631e69", "58d43f673a425254b81f2014", "58d440653a425254b81f21bd", "58d4a2ad19d015419b62fff5", "58d450853a425254b81f648c", "58d44acf3a425254b81f4900", "58d43cb63a425254b81f192c", "58d43add3a425254b81f15c1", "58d43ba93a425254b81f1742", "58d43c2c3a425254b81f1834", "58d49fc019d015419b62f23a"]
+      }],
+      "photos": [],
+      "latlong": {
+        "lat": "64.7664",
+        "long": "-23.6304"
+      },
+      "checkIn": {
+        "city": {
+          "_id": "598af7d855ab66105a1e2b88",
+          "name": "Arnarstapi"
+        },
+        "location": "",
+        "long": "-23.6304",
+        "lat": "64.7664",
+        "category": "Restaurants & Bars",
+        "country": "58d41823f1d9302d29ea3cd9"
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Arnarstapi",
+      "likeCount": 22,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/598af803893a68106039ec37"
+    }, {
+      "_id": "598b0127dbe0a610949388ce",
+      "createdAt": "2017-08-09T12:33:43.148Z",
+      "updatedAt": "2017-09-10T07:20:01.435Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "We found this cute little church!",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-09T12:33:36.020Z",
+      "UTC": "2017-08-09T12:33:36.020Z",
+      "loc": [-23, 64],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "598b0127dbe0a610949388cd",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "598b0127dbe0a610949388cf",
+        "createdAt": "2017-08-09T12:33:43.153Z",
+        "UTCModified": "2017-08-09T12:33:36.020Z",
+        "post": "598b0127dbe0a610949388ce",
+        "postUnique": "598b0127dbe0a610949388cd",
+        "name": "598b01249dd61010e465b3b7.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4406d3a425254b81f21cf", "58d4a16e19d015419b62f9ef", "58d44af93a425254b81f49e8", "58d440543a425254b81f217f", "58d440203a425254b81f2106", "58d43c6e3a425254b81f18b5", "58d4492b3a425254b81f4127", "58d43f1f3a425254b81f1f82"]
+      }],
+      "latlong": {
+        "lat": "64.7506",
+        "long": "-23.6525"
+      },
+      "checkIn": {
+        "location": "Hellnar - Primus Kaffi",
+        "long": "-23.6525",
+        "lat": "64.7506",
+        "category": "Restaurants & Bars",
+        "city": null
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Arnarstapi",
+      "likeCount": 13,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/598b0127dbe0a610949388ce"
+    }, {
+      "_id": "598b0d80f9f5ad50e89bff93",
+      "createdAt": "2017-08-09T13:26:24.817Z",
+      "updatedAt": "2017-09-08T06:20:01.952Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "On the way to the westfjords. ",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-09T13:23:04.750Z",
+      "UTC": "2017-08-09T13:23:04.750Z",
+      "loc": [-23, 64],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "598b0d80f9f5ad50e89bff92",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [{
+        "_id": "598b0d80f9f5ad50e89bff94",
+        "createdAt": "2017-08-09T13:26:24.834Z",
+        "UTCModified": "2017-08-09T13:23:04.750Z",
+        "post": "598b0d80f9f5ad50e89bff93",
+        "postUnique": "598b0d80f9f5ad50e89bff92",
+        "name": "https://storage.googleapis.com/travelibro-fileupload/598b0d783304471134d43a69.mp4",
+        "caption": "",
+        "thumbnail": "598b0d7d3304471134d43a6a.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d43fc13a425254b81f2099", "58d4421b3a425254b81f2633", "58d450313a425254b81f62c0", "58d43e933a425254b81f1e4a", "58d49fc019d015419b62f23a"]
+      }],
+      "photos": [],
+      "latlong": {
+        "lat": "64.8232",
+        "long": "-23.3846"
+      },
+      "checkIn": {
+        "location": "",
+        "long": "-23.3846",
+        "lat": "64.8232",
+        "category": "Hotels & Accomodations",
+        "city": null
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Arnarstapi",
+      "likeCount": 21,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/598b0d80f9f5ad50e89bff93"
+    }, {
+      "_id": "598b8e503304471134d441fa",
+      "createdAt": "2017-08-09T22:36:00.598Z",
+      "updatedAt": "2017-09-10T07:20:01.436Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "One huge recommendation for everyone who wants to see the puffins!",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-09T22:35:36.740Z",
+      "UTC": "2017-08-09T22:35:36.740Z",
+      "loc": [-24, 65],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "598b8e503304471134d441f9",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "598b8e503304471134d441fb",
+        "createdAt": "2017-08-09T22:36:00.613Z",
+        "UTCModified": "2017-08-09T22:35:36.740Z",
+        "post": "598b8e503304471134d441fa",
+        "postUnique": "598b8e503304471134d441f9",
+        "name": "598b8e447f10d64d9e080fd1.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4a90b19d015419b631e69", "58d4a16e19d015419b62f9ef", "58d440653a425254b81f21bd", "58d43d9c3a425254b81f1b63", "58d43e4d3a425254b81f1d54", "58d49f5919d015419b62f0a6"]
+      }, {
+        "_id": "598b8e503304471134d441fc",
+        "createdAt": "2017-08-09T22:36:00.616Z",
+        "UTCModified": "2017-08-09T22:35:36.740Z",
+        "post": "598b8e503304471134d441fa",
+        "postUnique": "598b8e503304471134d441f9",
+        "name": "598b8e4821f65410ea4c37c8.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4a17319d015419b62f9ff", "58d43d9c3a425254b81f1b63", "58d43f1f3a425254b81f1f82"]
+      }, {
+        "_id": "598b8e503304471134d441fd",
+        "createdAt": "2017-08-09T22:36:00.618Z",
+        "UTCModified": "2017-08-09T22:35:36.740Z",
+        "post": "598b8e503304471134d441fa",
+        "postUnique": "598b8e503304471134d441f9",
+        "name": "598b8e4df9f5ad50e89c0748.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4a4e319d015419b630b9e", "58d4a9f919d015419b63212f"]
+      }],
+      "latlong": {
+        "lat": "65.5026",
+        "long": "-24.5317"
+      },
+      "checkIn": {
+        "location": "",
+        "long": "-24.5317",
+        "lat": "65.5026",
+        "category": "Beaches",
+        "city": null
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Arnarstapi",
+      "likeCount": 19,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/598b8e503304471134d441fa"
+    }, {
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "598c1ddf174b3a21a0680b52",
+      "location": "Bíldudalur",
+      "UTCModified": "2017-08-10T08:48:02.528Z",
+      "status": true,
+      "type": "cityChange",
+      "likeCount": 0,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/undefined"
+    }, {
+      "_id": "598c1ddf174b3a21a0680b53",
+      "createdAt": "2017-08-10T08:48:31.103Z",
+      "updatedAt": "2017-09-06T19:20:03.031Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "Good Morning iceland 🇮🇸",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-10T08:48:02.530Z",
+      "UTC": "2017-08-10T08:48:02.530Z",
+      "loc": [-23, 65],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "598c1ddf174b3a21a0680b52",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "598c1ddf174b3a21a0680b54",
+        "createdAt": "2017-08-10T08:48:31.118Z",
+        "UTCModified": "2017-08-10T08:48:02.530Z",
+        "post": "598c1ddf174b3a21a0680b53",
+        "postUnique": "598c1ddf174b3a21a0680b52",
+        "name": "598c1dd118e22321a6229e8d.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4a90b19d015419b631e69", "58d4a2c819d015419b630055", "58d49f9e19d015419b62f18e", "58d49f3e19d015419b62f006", "58d4496f3a425254b81f4203", "58d49f3d19d015419b62eff6", "58d443e13a425254b81f2c7c"]
+      }, {
+        "_id": "598c1ddf174b3a21a0680b55",
+        "createdAt": "2017-08-10T08:48:31.121Z",
+        "UTCModified": "2017-08-10T08:48:02.530Z",
+        "post": "598c1ddf174b3a21a0680b53",
+        "postUnique": "598c1ddf174b3a21a0680b52",
+        "name": "598c1ddc8dc71420fd914738.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4a90b19d015419b631e69", "58d4a9f919d015419b63212f", "58d4454c3a425254b81f3141", "58d44acf3a425254b81f4900", "58d443e13a425254b81f2c7c", "58d447fd3a425254b81f3bcb", "58d4a18019d015419b62fa43"]
+      }],
+      "latlong": {
+        "lat": "65.6864",
+        "long": "-23.6006"
+      },
+      "checkIn": {
+        "city": {
+          "_id": "598c1dae70f2be214e85c87d",
+          "name": "Bíldudalur"
+        },
+        "location": "",
+        "long": "-23.6006",
+        "lat": "65.6864",
+        "category": "City",
+        "country": "58d41823f1d9302d29ea3cd9"
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Bíldudalur",
+      "likeCount": 21,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/598c1ddf174b3a21a0680b53"
+    }, {
+      "_id": "598c44ea9cbefe79cc1bea1d",
+      "createdAt": "2017-08-10T11:35:06.267Z",
+      "updatedAt": "2017-09-10T04:20:01.907Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "Natural wonders ",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-10T11:33:52.010Z",
+      "UTC": "2017-08-10T11:33:52.010Z",
+      "loc": [-23, 65],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "598c44ea9cbefe79cc1bea1c",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [{
+        "_id": "598c44ea9cbefe79cc1bea1e",
+        "createdAt": "2017-08-10T11:35:06.280Z",
+        "UTCModified": "2017-08-10T11:33:52.010Z",
+        "post": "598c44ea9cbefe79cc1bea1d",
+        "postUnique": "598c44ea9cbefe79cc1bea1c",
+        "name": "https://storage.googleapis.com/travelibro-fileupload/598c44e2a8c5df7b49e8d5da.mp4",
+        "caption": "",
+        "thumbnail": "598c44e7a8c5df7b49e8d5db.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4a2ad19d015419b62fff5", "58d49f5919d015419b62f0a6"]
+      }, {
+        "_id": "598c54cbda7b3d7a04669ad3",
+        "createdAt": "2017-08-10T12:42:51.217Z",
+        "post": "598c44ea9cbefe79cc1bea1d",
+        "postUnique": "598c44ea9cbefe79cc1bea1c",
+        "UTCModified": "2017-08-10T11:33:52.010Z",
+        "name": "https://storage.googleapis.com/travelibro-fileupload/598c44e2a8c5df7b49e8d5da.mp4",
+        "caption": "",
+        "thumbnail": "59a9654f811ecc2e7744ed14.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4a2c419d015419b630045", "58d4a2ad19d015419b62fff5", "58d4a79519d015419b631a39", "58d4a83019d015419b631bf6", "58d4a0e519d015419b62f72f", "58d442693a425254b81f2695"]
+      }],
+      "photos": [{
+        "_id": "598c54cbda7b3d7a04669ad1",
+        "createdAt": "2017-08-10T12:42:51.195Z",
+        "post": "598c44ea9cbefe79cc1bea1d",
+        "postUnique": "598c44ea9cbefe79cc1bea1c",
+        "UTCModified": "2017-08-10T11:33:52.010Z",
+        "name": "598c54c2fffbb17cc251b3f0.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d43b153a425254b81f1636"]
+      }, {
+        "_id": "598c54cbda7b3d7a04669ad2",
+        "createdAt": "2017-08-10T12:42:51.206Z",
+        "post": "598c44ea9cbefe79cc1bea1d",
+        "postUnique": "598c44ea9cbefe79cc1bea1c",
+        "UTCModified": "2017-08-10T11:33:52.010Z",
+        "name": "598c54c80511837b43397eff.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d44acf3a425254b81f4900", "58d4abb319d015419b63274c", "58d4434a3a425254b81f2a0c", "58d43b153a425254b81f1636"]
+      }],
+      "latlong": {
+        "lat": "65.7328",
+        "long": "-23.1998"
+      },
+      "checkIn": {
+        "location": "Dynjandi",
+        "long": "-23.1998",
+        "lat": "65.7328",
+        "category": "Beaches",
+        "city": null
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Bíldudalur",
+      "likeCount": 20,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/598c44ea9cbefe79cc1bea1d"
+    }, {
+      "_id": "598cdca7da7b3d7a0466a2d0",
+      "createdAt": "2017-08-10T22:22:31.984Z",
+      "updatedAt": "2017-09-09T07:20:02.216Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-10T22:22:24.970Z",
+      "UTC": "2017-08-10T22:22:24.970Z",
+      "loc": [-20, 65],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "598cdca7da7b3d7a0466a2cf",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "598cdca7da7b3d7a0466a2d1",
+        "createdAt": "2017-08-10T22:22:31.998Z",
+        "UTCModified": "2017-08-10T22:22:24.970Z",
+        "post": "598cdca7da7b3d7a0466a2d0",
+        "postUnique": "598cdca7da7b3d7a0466a2cf",
+        "name": "598cdca5a8c5df7b49e8e2b3.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4470b3a425254b81f37d5", "58d4406d3a425254b81f21cf", "58d4a2c819d015419b630055", "58d440543a425254b81f217f", "58d44c0f3a425254b81f4ef9", "58d43d433a425254b81f1a3a", "58d447403a425254b81f38a9", "58d43af33a425254b81f15f7", "58d43c6e3a425254b81f18b5"]
+      }],
+      "latlong": {
+        "lat": "65.6063",
+        "long": "-20.6352"
+      },
+      "checkIn": {
+        "location": "Hvitserkur",
+        "long": "-20.6352",
+        "lat": "65.6063",
+        "category": "Others",
+        "city": null
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Bíldudalur",
+      "likeCount": 20,
+      "commentCount": 1,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/598cdca7da7b3d7a0466a2d0"
+    }, {
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "598d755da6e17b7a5a770150",
+      "location": "Akranes",
+      "UTCModified": "2017-08-11T09:13:47.278Z",
+      "status": true,
+      "type": "cityChange",
+      "likeCount": 0,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/undefined"
+    }, {
+      "_id": "598d755da6e17b7a5a770151",
+      "createdAt": "2017-08-11T09:14:05.084Z",
+      "updatedAt": "2017-09-06T19:20:02.315Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "Such an incredible spot! ",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-11T09:13:47.280Z",
+      "UTC": "2017-08-11T09:13:47.280Z",
+      "loc": [-21, 64],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "598d755da6e17b7a5a770150",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "598d755da6e17b7a5a770152",
+        "createdAt": "2017-08-11T09:14:05.101Z",
+        "UTCModified": "2017-08-11T09:13:47.280Z",
+        "post": "598d755da6e17b7a5a770151",
+        "postUnique": "598d755da6e17b7a5a770150",
+        "name": "598d7553a8c5df7b49e8f081.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4a79519d015419b631a39", "58d4a10a19d015419b62f813", "58d4a9f919d015419b63212f", "58d442a93a425254b81f2744", "58d43c6e3a425254b81f18bd", "58d4aba519d015419b632708"]
+      }, {
+        "_id": "598d755da6e17b7a5a770153",
+        "createdAt": "2017-08-11T09:14:05.107Z",
+        "UTCModified": "2017-08-11T09:13:47.280Z",
+        "post": "598d755da6e17b7a5a770151",
+        "postUnique": "598d755da6e17b7a5a770150",
+        "name": "598d755547cd787a5475c6d0.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4a79519d015419b631a39", "58d43b4b3a425254b81f1692", "58d4434a3a425254b81f2a0c", "58d449f13a425254b81f4473", "58d4aba519d015419b632708", "58d458f33a425254b81f900b", "58d44a8a3a425254b81f474b", "58d44afc3a425254b81f4a00"]
+      }, {
+        "_id": "598d755da6e17b7a5a770154",
+        "createdAt": "2017-08-11T09:14:05.110Z",
+        "UTCModified": "2017-08-11T09:13:47.280Z",
+        "post": "598d755da6e17b7a5a770151",
+        "postUnique": "598d755da6e17b7a5a770150",
+        "name": "598d7557da7b3d7a0466aeae.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4a6df19d015419b6317b5", "58d4a2c419d015419b630045", "58d43b4b3a425254b81f1692", "58d4434a3a425254b81f2a0c", "58d45a063a425254b81f958b", "58d43d933a425254b81f1b52", "58d442fd3a425254b81f2883", "58d44a8a3a425254b81f474b", "58d44afc3a425254b81f4a00"]
+      }, {
+        "_id": "598d755da6e17b7a5a770155",
+        "createdAt": "2017-08-11T09:14:05.113Z",
+        "UTCModified": "2017-08-11T09:13:47.280Z",
+        "post": "598d755da6e17b7a5a770151",
+        "postUnique": "598d755da6e17b7a5a770150",
+        "name": "598d75590511837b43399391.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4a79519d015419b631a39", "58d4a9f919d015419b63212f", "58d4434a3a425254b81f2a0c", "58d43c6e3a425254b81f18bd", "58d449f13a425254b81f4473", "58d442fd3a425254b81f2883", "58d44afc3a425254b81f4a00"]
+      }],
+      "latlong": {
+        "lat": "64.391",
+        "long": "-21.252"
+      },
+      "checkIn": {
+        "city": {
+          "_id": "593b6445bc7a83712881daa2",
+          "name": "Akranes"
+        },
+        "location": "Glynn",
+        "long": "-21.252",
+        "lat": "64.391",
+        "category": "Nature & Parks",
+        "country": "58d41823f1d9302d29ea3cd9"
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Akranes",
+      "likeCount": 23,
+      "commentCount": 1,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/598d755da6e17b7a5a770151"
+    }, {
+      "_id": "598de98a0511837b4339abe7",
+      "createdAt": "2017-08-11T17:29:46.795Z",
+      "updatedAt": "2017-09-09T21:20:02.917Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "The famous streams of iceland. ",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-11T17:29:36.140Z",
+      "UTC": "2017-08-11T17:29:36.140Z",
+      "loc": [-19, 64],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "598de98a0511837b4339abe6",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "598de98a0511837b4339abe8",
+        "createdAt": "2017-08-11T17:29:46.801Z",
+        "UTCModified": "2017-08-11T17:29:36.140Z",
+        "post": "598de98a0511837b4339abe7",
+        "postUnique": "598de98a0511837b4339abe6",
+        "name": "598de9869cbefe79cc1c16d1.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d43fc13a425254b81f2099", "58d43ded3a425254b81f1c74", "58d44c0b3a425254b81f4ee5", "58d43f543a425254b81f1feb", "58d4a2d019d015419b630071", "58d43add3a425254b81f15c1", "58d43bd13a425254b81f17a1", "58d44cff3a425254b81f5334", "58d441563a425254b81f2438"]
+      }, {
+        "_id": "598de98a0511837b4339abe9",
+        "createdAt": "2017-08-11T17:29:46.804Z",
+        "UTCModified": "2017-08-11T17:29:36.140Z",
+        "post": "598de98a0511837b4339abe7",
+        "postUnique": "598de98a0511837b4339abe6",
+        "name": "598de988da7b3d7a0466c1d3.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4a16e19d015419b62f9ef", "58d443d73a425254b81f2c60", "58d4a2c419d015419b630045", "58d4473b3a425254b81f3895", "58d44acf3a425254b81f4900", "58d4abb319d015419b63274c", "58d4a2d019d015419b630071", "58d442ad3a425254b81f275c", "58d43d7a3a425254b81f1ade", "58d44cff3a425254b81f5334", "58d447e23a425254b81f3b3b", "58d44a753a425254b81f46d3"]
+      }],
+      "latlong": {
+        "lat": "64.6834",
+        "long": "-19.3008"
+      },
+      "checkIn": {
+        "location": "",
+        "long": "-19.3008",
+        "lat": "64.6834",
+        "category": "Others",
+        "city": null
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Akranes",
+      "likeCount": 24,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/598de98a0511837b4339abe7"
+    }, {
+      "_id": "598e3e99ebc0af71413d0eae",
+      "createdAt": "2017-08-11T23:32:41.389Z",
+      "updatedAt": "2017-09-10T02:20:01.776Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "we found a new world!",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-11T23:32:18.160Z",
+      "UTC": "2017-08-11T23:32:18.160Z",
+      "loc": [-19, 64],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "598e3e99ebc0af71413d0ead",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "598e3e99ebc0af71413d0eaf",
+        "createdAt": "2017-08-11T23:32:41.407Z",
+        "UTCModified": "2017-08-11T23:32:18.160Z",
+        "post": "598e3e99ebc0af71413d0eae",
+        "postUnique": "598e3e99ebc0af71413d0ead",
+        "name": "598e3e88ebc0af71413d0ea1.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4a23519d015419b62fdbf", "58d4415e3a425254b81f2460", "58d448a03a425254b81f3ed8", "58d43cc53a425254b81f1953", "58d43d553a425254b81f1a97", "58d441e73a425254b81f25a6", "58d44afc3a425254b81f4a00"]
+      }, {
+        "_id": "598e3e99ebc0af71413d0eb0",
+        "createdAt": "2017-08-11T23:32:41.412Z",
+        "UTCModified": "2017-08-11T23:32:18.160Z",
+        "post": "598e3e99ebc0af71413d0eae",
+        "postUnique": "598e3e99ebc0af71413d0ead",
+        "name": "598e3e8aebc0af71413d0ea6.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4a23519d015419b62fdbf", "58d441e73a425254b81f25a6", "58d4406f3a425254b81f21d7"]
+      }, {
+        "_id": "598e3e99ebc0af71413d0eb1",
+        "createdAt": "2017-08-11T23:32:41.414Z",
+        "UTCModified": "2017-08-11T23:32:18.160Z",
+        "post": "598e3e99ebc0af71413d0eae",
+        "postUnique": "598e3e99ebc0af71413d0ead",
+        "name": "598e3e8b0511837b4339b067.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4415e3a425254b81f2460", "58d43c4a3a425254b81f1888", "58d4443b3a425254b81f2db4", "58d443e13a425254b81f2c7c", "58d4406f3a425254b81f21d7", "58d43da93a425254b81f1b9f"]
+      }, {
+        "_id": "598e3e99ebc0af71413d0eb2",
+        "createdAt": "2017-08-11T23:32:41.416Z",
+        "UTCModified": "2017-08-11T23:32:18.160Z",
+        "post": "598e3e99ebc0af71413d0eae",
+        "postUnique": "598e3e99ebc0af71413d0ead",
+        "name": "598e3e919cbefe79cc1c1b83.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d49f7a19d015419b62f112", "592448189b614c58f8c2b1dc", "58d443d43a425254b81f2c54", "58d43c4a3a425254b81f1888", "58d4a6d019d015419b631728", "58d43cc53a425254b81f1953", "58d4a2f519d015419b630101"]
+      }, {
+        "_id": "598e3e99ebc0af71413d0eb3",
+        "createdAt": "2017-08-11T23:32:41.419Z",
+        "UTCModified": "2017-08-11T23:32:18.160Z",
+        "post": "598e3e99ebc0af71413d0eae",
+        "postUnique": "598e3e99ebc0af71413d0ead",
+        "name": "598e3e9447cd787a5475dfc2.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d49f9e19d015419b62f18e", "58d43d7a3a425254b81f1ade", "58d43c4a3a425254b81f1888", "58d43d553a425254b81f1a97", "58d441e73a425254b81f25a6", "58d443e13a425254b81f2c7c", "58d43da93a425254b81f1b9f"]
+      }, {
+        "_id": "598e3e99ebc0af71413d0eb4",
+        "createdAt": "2017-08-11T23:32:41.421Z",
+        "UTCModified": "2017-08-11T23:32:18.160Z",
+        "post": "598e3e99ebc0af71413d0eae",
+        "postUnique": "598e3e99ebc0af71413d0ead",
+        "name": "598e3e96f7fa2379fefdb832.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d443d73a425254b81f2c60", "592448189b614c58f8c2b1dc", "58d4a6d019d015419b631728", "58d448a03a425254b81f3ed8", "58d43d553a425254b81f1a97"]
+      }],
+      "latlong": {
+        "lat": "64.6366",
+        "long": "-19.2694"
+      },
+      "checkIn": {
+        "location": "Kerlingarfjöll",
+        "long": "-19.2694",
+        "lat": "64.6366",
+        "category": "Beaches",
+        "city": null
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Akranes",
+      "likeCount": 29,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/598e3e99ebc0af71413d0eae"
+    }, {
+      "_id": "598f208eda7b3d7a0466db14",
+      "createdAt": "2017-08-12T15:36:46.283Z",
+      "updatedAt": "2017-09-09T20:20:01.731Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "Found this hidden gem!",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-12T15:36:24.240Z",
+      "UTC": "2017-08-12T15:36:24.240Z",
+      "loc": [-19, 64],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "598f208eda7b3d7a0466db13",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "598f208eda7b3d7a0466db15",
+        "createdAt": "2017-08-12T15:36:46.296Z",
+        "UTCModified": "2017-08-12T15:36:24.240Z",
+        "post": "598f208eda7b3d7a0466db14",
+        "postUnique": "598f208eda7b3d7a0466db13",
+        "name": "598f2082a8c5df7b49e91de4.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d449e83a425254b81f442f", "58d442a93a425254b81f2744", "58d4496f3a425254b81f4203", "58d4a48119d015419b6309ae", "58d442fd3a425254b81f2883", "58d49e6519d015419b62ec8e"]
+      }, {
+        "_id": "598f208eda7b3d7a0466db16",
+        "createdAt": "2017-08-12T15:36:46.299Z",
+        "UTCModified": "2017-08-12T15:36:24.240Z",
+        "post": "598f208eda7b3d7a0466db14",
+        "postUnique": "598f208eda7b3d7a0466db13",
+        "name": "598f2084da7b3d7a0466db07.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d450853a425254b81f648c", "58d449e83a425254b81f442f", "58d4434a3a425254b81f2a0c", "58d4a48119d015419b6309ae", "58d49fc019d015419b62f23a"]
+      }, {
+        "_id": "598f208eda7b3d7a0466db17",
+        "createdAt": "2017-08-12T15:36:46.300Z",
+        "UTCModified": "2017-08-12T15:36:24.240Z",
+        "post": "598f208eda7b3d7a0466db14",
+        "postUnique": "598f208eda7b3d7a0466db13",
+        "name": "598f2089a8c5df7b49e91dec.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d453553a425254b81f7354", "58d4a48119d015419b6309ae", "58d44abf3a425254b81f489c", "58d49e6519d015419b62ec8e"]
+      }, {
+        "_id": "598f208eda7b3d7a0466db18",
+        "createdAt": "2017-08-12T15:36:46.301Z",
+        "UTCModified": "2017-08-12T15:36:24.240Z",
+        "post": "598f208eda7b3d7a0466db14",
+        "postUnique": "598f208eda7b3d7a0466db13",
+        "name": "598f208bebc0af71413d24dc.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d450853a425254b81f648c", "58d441783a425254b81f24bf", "58d4496f3a425254b81f4203", "58d44abf3a425254b81f489c"]
+      }],
+      "latlong": {
+        "lat": "64.2081",
+        "long": "-19.6882"
+      },
+      "checkIn": {
+        "location": "Haifoss Waterfall",
+        "long": "-19.6882",
+        "lat": "64.2081",
+        "category": "Others",
+        "city": null
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Akranes",
+      "likeCount": 18,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/598f208eda7b3d7a0466db14"
+    }, {
+      "_id": "598f7180fffbb17cc251f9fb",
+      "createdAt": "2017-08-12T21:22:08.958Z",
+      "updatedAt": "2017-09-09T23:20:02.563Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "A great destination for everyone with a F-road vehicle!",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-12T21:21:54.900Z",
+      "UTC": "2017-08-12T21:21:54.900Z",
+      "loc": [-19, 63],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "598f7180fffbb17cc251f9fa",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "598f7180fffbb17cc251f9fc",
+        "createdAt": "2017-08-12T21:22:08.971Z",
+        "UTCModified": "2017-08-12T21:21:54.900Z",
+        "post": "598f7180fffbb17cc251f9fb",
+        "postUnique": "598f7180fffbb17cc251f9fa",
+        "name": "598f7179da7b3d7a0466de7e.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4abb219d015419b632748", "58d444dd3a425254b81f2fbe", "58d44b223a425254b81f4a85", "58d43b003a425254b81f161d", "58d4485b3a425254b81f3d57", "58d441563a425254b81f2438", "58d4ab6119d015419b632650"]
+      }, {
+        "_id": "598f7180fffbb17cc251f9fd",
+        "createdAt": "2017-08-12T21:22:08.974Z",
+        "UTCModified": "2017-08-12T21:21:54.900Z",
+        "post": "598f7180fffbb17cc251f9fb",
+        "postUnique": "598f7180fffbb17cc251f9fa",
+        "name": "598f717e47cd787a5475f823.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d443543a425254b81f2a40", "58d449f13a425254b81f4473", "58d4412c3a425254b81f240e", "58d4485b3a425254b81f3d57", "58d440203a425254b81f2106", "58d45a0e3a425254b81f95b3", "58d4ab6119d015419b632650"]
+      }],
+      "latlong": {
+        "lat": "63.983",
+        "long": "-19.067"
+      },
+      "checkIn": {
+        "location": "Landmannalaugar",
+        "long": "-19.067",
+        "lat": "63.983",
+        "category": "Beaches",
+        "city": null
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Akranes",
+      "likeCount": 19,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/598f7180fffbb17cc251f9fb"
+    }, {
+      "_id": "599032a1a8c5df7b49e92a9d",
+      "createdAt": "2017-08-13T11:06:09.362Z",
+      "updatedAt": "2017-09-08T16:20:01.856Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "The most iconic one ! ",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-13T11:05:46.340Z",
+      "UTC": "2017-08-13T11:05:46.340Z",
+      "loc": [-19, 63],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "599032a1a8c5df7b49e92a9c",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "599032a1a8c5df7b49e92a9e",
+        "createdAt": "2017-08-13T11:06:09.376Z",
+        "UTCModified": "2017-08-13T11:05:46.340Z",
+        "post": "599032a1a8c5df7b49e92a9d",
+        "postUnique": "599032a1a8c5df7b49e92a9c",
+        "name": "59903294fffbb17cc252038b.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4421b3a425254b81f2633", "58d4abb219d015419b632748", "58d4a35119d015419b630329", "58d44a623a425254b81f4627", "58d43ef43a425254b81f1f43", "58d4aba519d015419b632708"]
+      }, {
+        "_id": "599032a1a8c5df7b49e92a9f",
+        "createdAt": "2017-08-13T11:06:09.379Z",
+        "UTCModified": "2017-08-13T11:05:46.340Z",
+        "post": "599032a1a8c5df7b49e92a9d",
+        "postUnique": "599032a1a8c5df7b49e92a9c",
+        "name": "5990329e47cd787a547601e7.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d45a373a425254b81f968b", "58d4a6c219d015419b6316fb", "58d4a82f19d015419b631bf2", "58d4460f3a425254b81f3335", "5914d51a61c6c46fe243423d", "58d44a623a425254b81f4627", "58d45a0e3a425254b81f95b3"]
+      }],
+      "latlong": {
+        "lat": "63.5321",
+        "long": "-19.5114"
+      },
+      "checkIn": {
+        "location": "Skógafoss",
+        "long": "-19.5114",
+        "lat": "63.5321",
+        "category": "Beaches",
+        "city": null
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Akranes",
+      "likeCount": 23,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/599032a1a8c5df7b49e92a9d"
+    }, {
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "59918003ebc0af71413d4797",
+      "location": "Kirkjubæjarklaustur",
+      "UTCModified": "2017-08-13T13:42:27.998Z",
+      "status": true,
+      "type": "cityChange",
+      "likeCount": 0,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/undefined"
+    }, {
+      "_id": "59918003ebc0af71413d4798",
+      "createdAt": "2017-08-14T10:48:35.838Z",
+      "updatedAt": "2017-09-09T21:20:02.280Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "Hidden gems everywhere !",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-13T13:42:28.000Z",
+      "UTC": "2017-08-14T06:42:28.070Z",
+      "loc": [-18, 63],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "59918003ebc0af71413d4797",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "59918003ebc0af71413d4799",
+        "createdAt": "2017-08-14T10:48:35.852Z",
+        "UTCModified": "2017-08-13T13:42:28.000Z",
+        "post": "59918003ebc0af71413d4798",
+        "postUnique": "59918003ebc0af71413d4797",
+        "name": "59914677fffbb17cc25212cd.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d441783a425254b81f24bf", "58d4415e3a425254b81f2460", "58f474e02ec0bc7c6e1b5b7c", "58d45c2c3a425254b81f9fa3", "58d4416f3a425254b81f249a", "58d4ac7119d015419b6329be", "58d43e933a425254b81f1e4a", "58d4485b3a425254b81f3d57", "58d441563a425254b81f2438"]
+      }, {
+        "_id": "59918003ebc0af71413d479a",
+        "createdAt": "2017-08-14T10:48:35.858Z",
+        "UTCModified": "2017-08-13T13:42:28.000Z",
+        "post": "59918003ebc0af71413d4798",
+        "postUnique": "59918003ebc0af71413d4797",
+        "name": "599147aca8c5df7b49e93afc.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d43de53a425254b81f1c50", "58d45a013a425254b81f9563", "58d441783a425254b81f24bf", "58d4a30c19d015419b630185", "58d4415e3a425254b81f2460", "58d45c2c3a425254b81f9fa3", "58d4ac7119d015419b6329be", "58d4a01f19d015419b62f3f6", "58d43e933a425254b81f1e4a", "58d4485b3a425254b81f3d57", "58d441563a425254b81f2438"]
+      }, {
+        "_id": "59918003ebc0af71413d479b",
+        "createdAt": "2017-08-14T10:48:35.860Z",
+        "UTCModified": "2017-08-13T13:42:28.000Z",
+        "post": "59918003ebc0af71413d4798",
+        "postUnique": "59918003ebc0af71413d4797",
+        "name": "59918001f7fa2379fefdf350.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d43de53a425254b81f1c50", "58d45a013a425254b81f9563", "58d441783a425254b81f24bf", "58d49fc019d015419b62f23a", "58d441563a425254b81f2438"]
+      }],
+      "latlong": {
+        "lat": "63.7939",
+        "long": "-18.0401"
+      },
+      "checkIn": {
+        "city": {
+          "_id": "594116088f98ff6c9263b897",
+          "name": "Kirkjubæjarklaustur"
+        },
+        "location": "Skaftárskáli",
+        "long": "-18.0401",
+        "lat": "63.7939",
+        "category": "Restaurants & Bars",
+        "country": "58d41823f1d9302d29ea3cd9"
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Kirkjubæjarklaustur",
+      "likeCount": 23,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/59918003ebc0af71413d4798"
+    }, {
+      "_id": "59919a0febc0af71413d4bc4",
+      "createdAt": "2017-08-14T12:39:43.918Z",
+      "updatedAt": "2017-09-10T04:20:01.906Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "See the world from above ! ",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-13T15:39:32.000Z",
+      "UTC": "2017-08-14T12:39:32.990Z",
+      "loc": [-16, 64],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "59919a0febc0af71413d4bc3",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "59919a0febc0af71413d4bc5",
+        "createdAt": "2017-08-14T12:39:43.924Z",
+        "UTCModified": "2017-08-13T15:39:32.000Z",
+        "post": "59919a0febc0af71413d4bc4",
+        "postUnique": "59919a0febc0af71413d4bc3",
+        "name": "59919a0a9cbefe79cc1c566a.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d45a373a425254b81f968b", "58d4ac4119d015419b632986", "58d443363a425254b81f299b", "58d43c2c3a425254b81f1834", "58d445533a425254b81f3169"]
+      }, {
+        "_id": "59919a0febc0af71413d4bc6",
+        "createdAt": "2017-08-14T12:39:43.927Z",
+        "UTCModified": "2017-08-13T15:39:32.000Z",
+        "post": "59919a0febc0af71413d4bc4",
+        "postUnique": "59919a0febc0af71413d4bc3",
+        "name": "59919a0c0511837b4339e97a.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d442a93a425254b81f2744", "58d45a013a425254b81f9563", "58d4415e3a425254b81f2460", "58d443363a425254b81f299b", "58d43c2c3a425254b81f1834"]
+      }, {
+        "_id": "59919a0febc0af71413d4bc7",
+        "createdAt": "2017-08-14T12:39:43.930Z",
+        "UTCModified": "2017-08-13T15:39:32.000Z",
+        "post": "59919a0febc0af71413d4bc4",
+        "postUnique": "59919a0febc0af71413d4bc3",
+        "name": "59919a0dfffbb17cc2521bb5.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4ac4119d015419b632986"]
+      }],
+      "latlong": {
+        "lat": "64.0163",
+        "long": "-16.9681"
+      },
+      "checkIn": {
+        "location": "Glacier Goodies",
+        "long": "-16.9681",
+        "lat": "64.0163",
+        "category": "Others",
+        "city": null
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Kirkjubæjarklaustur",
+      "likeCount": 14,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/59919a0febc0af71413d4bc4"
+    }, {
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "59919a489cbefe79cc1c566f",
+      "location": "Vik",
+      "UTCModified": "2017-08-13T20:40:29.998Z",
+      "status": true,
+      "type": "cityChange",
+      "likeCount": 0,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/undefined"
+    }, {
+      "_id": "59919a489cbefe79cc1c5670",
+      "createdAt": "2017-08-14T12:40:40.982Z",
+      "updatedAt": "2017-09-09T19:20:01.604Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "Beautiful sunset in vik !",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-13T20:40:30.000Z",
+      "UTC": "2017-08-14T12:40:30.860Z",
+      "loc": [-19, 63],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "59919a489cbefe79cc1c566f",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "59919a489cbefe79cc1c5671",
+        "createdAt": "2017-08-14T12:40:40.993Z",
+        "UTCModified": "2017-08-13T20:40:30.000Z",
+        "post": "59919a489cbefe79cc1c5670",
+        "postUnique": "59919a489cbefe79cc1c566f",
+        "name": "59919a43da7b3d7a0466fffc.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4abb319d015419b63274c", "58d4a94419d015419b631ee1", "58d442683a425254b81f2691", "58d4415e3a425254b81f2460", "58d43d933a425254b81f1b52", "58d44a1e3a425254b81f451c", "58d4406f3a425254b81f21d7"]
+      }, {
+        "_id": "59919a489cbefe79cc1c5672",
+        "createdAt": "2017-08-14T12:40:40.995Z",
+        "UTCModified": "2017-08-13T20:40:30.000Z",
+        "post": "59919a489cbefe79cc1c5670",
+        "postUnique": "59919a489cbefe79cc1c566f",
+        "name": "59919a45a8c5df7b49e9423d.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4473b3a425254b81f3895", "58d4a94419d015419b631ee1", "58d4415e3a425254b81f2460", "58d43d933a425254b81f1b52", "58d49f5919d015419b62f0a6", "58d448d83a425254b81f3fc4"]
+      }, {
+        "_id": "59919a489cbefe79cc1c5673",
+        "createdAt": "2017-08-14T12:40:40.998Z",
+        "UTCModified": "2017-08-13T20:40:30.000Z",
+        "post": "59919a489cbefe79cc1c5670",
+        "postUnique": "59919a489cbefe79cc1c566f",
+        "name": "59919a46f7fa2379fefdf77d.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4a7b319d015419b631a9c", "58d4a94419d015419b631ee1", "58d442683a425254b81f2691", "58d4a2de19d015419b630095", "58d49f5919d015419b62f0a6"]
+      }],
+      "latlong": {
+        "lat": "63.4186",
+        "long": "-19.006"
+      },
+      "checkIn": {
+        "city": {
+          "_id": "58d508546ca235413f903705",
+          "name": "Vik"
+        },
+        "location": "Vik",
+        "long": "-19.006",
+        "lat": "63.4186",
+        "category": "City",
+        "country": "58d41823f1d9302d29ea3cd9"
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Vik",
+      "likeCount": 17,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/59919a489cbefe79cc1c5670"
+    }, {
+      "_id": "59919accebc0af71413d4bd6",
+      "createdAt": "2017-08-14T12:42:52.456Z",
+      "updatedAt": "2017-09-09T21:20:02.281Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "Most exciting canyon of all !",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-14T07:42:00.000Z",
+      "UTC": "2017-08-14T12:42:38.750Z",
+      "loc": [-18, 63],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "59919accebc0af71413d4bd5",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "59919accebc0af71413d4bd7",
+        "createdAt": "2017-08-14T12:42:52.469Z",
+        "UTCModified": "2017-08-14T07:42:00.000Z",
+        "post": "59919accebc0af71413d4bd6",
+        "postUnique": "59919accebc0af71413d4bd5",
+        "name": "59919ac3ebc0af71413d4bd0.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d43b4b3a425254b81f1692", "58d4a00919d015419b62f386", "58d44a8a3a425254b81f474b"]
+      }, {
+        "_id": "59919accebc0af71413d4bd8",
+        "createdAt": "2017-08-14T12:42:52.472Z",
+        "UTCModified": "2017-08-14T07:42:00.000Z",
+        "post": "59919accebc0af71413d4bd6",
+        "postUnique": "59919accebc0af71413d4bd5",
+        "name": "59919ac59cbefe79cc1c567b.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d43b4b3a425254b81f1692", "58d4a00919d015419b62f386", "58d44a8a3a425254b81f474b", "58d441563a425254b81f2438"]
+      }, {
+        "_id": "59919accebc0af71413d4bd9",
+        "createdAt": "2017-08-14T12:42:52.474Z",
+        "UTCModified": "2017-08-14T07:42:00.000Z",
+        "post": "59919accebc0af71413d4bd6",
+        "postUnique": "59919accebc0af71413d4bd5",
+        "name": "59919ac70511837b4339e982.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d43dc63a425254b81f1c03", "58d43eae3a425254b81f1e7f", "58d44a1e3a425254b81f451c"]
+      }, {
+        "_id": "59919accebc0af71413d4bda",
+        "createdAt": "2017-08-14T12:42:52.475Z",
+        "UTCModified": "2017-08-14T07:42:00.000Z",
+        "post": "59919accebc0af71413d4bd6",
+        "postUnique": "59919accebc0af71413d4bd5",
+        "name": "59919ac9fffbb17cc2521bbc.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d43b4b3a425254b81f1692", "58d43eae3a425254b81f1e7f", "58d449403a425254b81f413e", "58d458f33a425254b81f900b", "58d44a8a3a425254b81f474b"]
+      }],
+      "latlong": {
+        "lat": "63.7713",
+        "long": "-18.1718"
+      },
+      "checkIn": {
+        "location": "Fjaðrárgljúfur",
+        "long": "-18.1718",
+        "lat": "63.7713",
+        "category": "Others",
+        "city": null
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Vik",
+      "likeCount": 18,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/59919accebc0af71413d4bd6"
+    }, {
+      "_id": "59922e19fffbb17cc2523519",
+      "createdAt": "2017-08-14T23:11:21.181Z",
+      "updatedAt": "2017-09-09T20:20:01.734Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "Found the ice of iceland ",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-14T23:11:13.600Z",
+      "UTC": "2017-08-14T23:11:13.600Z",
+      "loc": [-16, 64],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "59922e19fffbb17cc2523518",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "59922e19fffbb17cc252351a",
+        "createdAt": "2017-08-14T23:11:21.194Z",
+        "UTCModified": "2017-08-14T23:11:13.600Z",
+        "post": "59922e19fffbb17cc2523519",
+        "postUnique": "59922e19fffbb17cc2523518",
+        "name": "59922e1647cd787a547630b7.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4454c3a425254b81f3141", "58d49e1219d015419b62eace", "58d43dc63a425254b81f1c03", "58d4a9f719d015419b632127", "58d4496e3a425254b81f41ff", "58d43bd13a425254b81f17a1", "58d441bc3a425254b81f254c"]
+      }],
+      "latlong": {
+        "lat": "64.0784",
+        "long": "-16.2306"
+      },
+      "checkIn": {
+        "location": "Jökulsárlón",
+        "long": "-16.2306",
+        "lat": "64.0784",
+        "category": "Beaches",
+        "city": null
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Vik",
+      "likeCount": 18,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/59922e19fffbb17cc2523519"
+    }, {
+      "_id": "59922e42ebc0af71413d64b8",
+      "createdAt": "2017-08-14T23:12:02.891Z",
+      "updatedAt": "2017-09-09T20:20:01.730Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "Good Night from iceland 🇮🇸 ",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-14T23:11:53.940Z",
+      "UTC": "2017-08-14T23:11:53.940Z",
+      "loc": [-14, 64],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "59922e42ebc0af71413d64b7",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "59922e42ebc0af71413d64b9",
+        "createdAt": "2017-08-14T23:12:02.902Z",
+        "UTCModified": "2017-08-14T23:11:53.940Z",
+        "post": "59922e42ebc0af71413d64b8",
+        "postUnique": "59922e42ebc0af71413d64b7",
+        "name": "59922e409cbefe79cc1c6de5.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4aa1119d015419b632197", "58d43af33a425254b81f15f7"]
+      }],
+      "latlong": {
+        "lat": "64.255",
+        "long": "-14.9933"
+      },
+      "checkIn": {
+        "location": "Viking Cafe",
+        "long": "-14.9933",
+        "lat": "64.255",
+        "category": "Restaurants & Bars",
+        "city": null
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Vik",
+      "likeCount": 16,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/59922e42ebc0af71413d64b8"
+    }, {
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "5992b84eda7b3d7a046725c1",
+      "location": "Southern Region",
+      "UTCModified": "2017-08-15T09:00:21.358Z",
+      "status": true,
+      "type": "cityChange",
+      "likeCount": 0,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/undefined"
+    }, {
+      "_id": "5992b84eda7b3d7a046725c2",
+      "createdAt": "2017-08-15T09:01:02.237Z",
+      "updatedAt": "2017-09-08T16:20:01.856Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "Enjoy driving on route 1 while in iceland ! ",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-15T09:00:21.360Z",
+      "UTC": "2017-08-15T09:00:21.360Z",
+      "loc": [-18, 64],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "5992b84eda7b3d7a046725c1",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [{
+        "_id": "5992b84eda7b3d7a046725c3",
+        "createdAt": "2017-08-15T09:01:02.261Z",
+        "UTCModified": "2017-08-15T09:00:21.360Z",
+        "post": "5992b84eda7b3d7a046725c2",
+        "postUnique": "5992b84eda7b3d7a046725c1",
+        "name": "https://storage.googleapis.com/travelibro-fileupload/5992b842f7fa2379fefe2037.mp4",
+        "caption": "",
+        "thumbnail": "5992b84bf7fa2379fefe2038.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d448973a425254b81f3ea0", "58d4412c3a425254b81f240e", "58d43b003a425254b81f161d", "58d44a8a3a425254b81f474b", "58d440203a425254b81f2106"]
+      }],
+      "photos": [],
+      "latlong": {
+        "long": "-18.8158",
+        "lat": "64.2661"
+      },
+      "checkIn": {
+        "city": {
+          "_id": "5992b815f7fa2379fefe2034",
+          "name": "Southern Region"
+        },
+        "location": "South",
+        "long": "-18.8158",
+        "lat": "64.2661",
+        "category": "City",
+        "country": "58d41823f1d9302d29ea3cd9"
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Southern Region",
+      "likeCount": 16,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/5992b84eda7b3d7a046725c2"
+    }, {
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "5993364447cd787a547651cb",
+      "location": "Vik",
+      "UTCModified": "2017-08-15T17:58:13.408Z",
+      "status": true,
+      "type": "cityChange",
+      "likeCount": 0,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/undefined"
+    }, {
+      "_id": "5993364447cd787a547651cc",
+      "createdAt": "2017-08-15T17:58:28.533Z",
+      "updatedAt": "2017-09-09T19:20:01.602Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "Found this cute little church !",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-15T17:58:13.410Z",
+      "UTC": "2017-08-15T17:58:13.410Z",
+      "loc": [-19, 63],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "5993364447cd787a547651cb",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "5993364447cd787a547651cd",
+        "createdAt": "2017-08-15T17:58:28.547Z",
+        "UTCModified": "2017-08-15T17:58:13.410Z",
+        "post": "5993364447cd787a547651cc",
+        "postUnique": "5993364447cd787a547651cb",
+        "name": "5993363df7fa2379fefe307b.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d44c0b3a425254b81f4ee5", "58d449453a425254b81f4156", "58d443663a425254b81f2a98", "58d4406f3a425254b81f21d7"]
+      }, {
+        "_id": "5993364447cd787a547651ce",
+        "createdAt": "2017-08-15T17:58:28.550Z",
+        "UTCModified": "2017-08-15T17:58:13.410Z",
+        "post": "5993364447cd787a547651cc",
+        "postUnique": "5993364447cd787a547651cb",
+        "name": "5993363f0511837b433a2661.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d44c0b3a425254b81f4ee5", "58d449453a425254b81f4156", "58d4406f3a425254b81f21d7"]
+      }, {
+        "_id": "5993364447cd787a547651cf",
+        "createdAt": "2017-08-15T17:58:28.552Z",
+        "UTCModified": "2017-08-15T17:58:13.410Z",
+        "post": "5993364447cd787a547651cc",
+        "postUnique": "5993364447cd787a547651cb",
+        "name": "59933641fffbb17cc2525482.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4abb319d015419b63274c", "58d4416f3a425254b81f249a", "58d449453a425254b81f4156", "58d445533a425254b81f3169", "58d443663a425254b81f2a98"]
+      }],
+      "latlong": {
+        "lat": "63.4186",
+        "long": "-19.006"
+      },
+      "checkIn": {
+        "city": {
+          "_id": "58d508546ca235413f903705",
+          "name": "Vik"
+        },
+        "location": "Vik",
+        "long": "-19.006",
+        "lat": "63.4186",
+        "category": "City",
+        "country": "58d41823f1d9302d29ea3cd9"
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Vik",
+      "likeCount": 14,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/5993364447cd787a547651cc"
+    }, {
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "59938de90511837b433a2b3b",
+      "location": "Mýrdalshreppur",
+      "UTCModified": "2017-08-16T00:12:16.428Z",
+      "status": true,
+      "type": "cityChange",
+      "likeCount": 0,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/undefined"
+    }, {
+      "_id": "59938de90511837b433a2b3c",
+      "createdAt": "2017-08-16T00:12:25.267Z",
+      "updatedAt": "2017-09-06T01:20:02.232Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "Definitely go and check out this abounded plane! Recommendation: in the evening hours! ",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-16T00:12:16.430Z",
+      "UTC": "2017-08-16T00:12:16.430Z",
+      "loc": [-19, 63],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "59938de90511837b433a2b3b",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "59938de90511837b433a2b3d",
+        "createdAt": "2017-08-16T00:12:25.280Z",
+        "UTCModified": "2017-08-16T00:12:16.430Z",
+        "post": "59938de90511837b433a2b3c",
+        "postUnique": "59938de90511837b433a2b3b",
+        "name": "59938de4a8c5df7b49e981d6.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d44acf3a425254b81f4900", "58d43d0c3a425254b81f19ef", "58d4a48119d015419b6309ae", "58d4443b3a425254b81f2db4", "58d446ab3a425254b81f3620"]
+      }, {
+        "_id": "59938de90511837b433a2b3e",
+        "createdAt": "2017-08-16T00:12:25.282Z",
+        "UTCModified": "2017-08-16T00:12:16.430Z",
+        "post": "59938de90511837b433a2b3c",
+        "postUnique": "59938de90511837b433a2b3b",
+        "name": "59938de6ebc0af71413d8638.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d44acf3a425254b81f4900", "58d43d0c3a425254b81f19ef", "58d4a2de19d015419b630095", "58d4a2df19d015419b630099", "58d4443b3a425254b81f2db4", "58d448a03a425254b81f3ed8", "58d446ab3a425254b81f3620", "58d441e73a425254b81f25a6", "58d445533a425254b81f3169"]
+      }],
+      "latlong": {
+        "lat": "63.4194",
+        "long": "-19.0097"
+      },
+      "checkIn": {
+        "city": {
+          "_id": "59938dc647cd787a54765602",
+          "name": "Mýrdalshreppur"
+        },
+        "location": "Mýrdalshreppur",
+        "long": "-19.0097",
+        "lat": "63.4194",
+        "category": "City",
+        "country": "58d41823f1d9302d29ea3cd9"
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Mýrdalshreppur",
+      "likeCount": 18,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/59938de90511837b433a2b3c"
+    }, {
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "59941679f7fa2379fefe4165",
+      "location": "Hvolsvöllur",
+      "UTCModified": "2017-08-16T09:54:55.728Z",
+      "status": true,
+      "type": "cityChange",
+      "likeCount": 0,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/undefined"
+    }, {
+      "_id": "59941679f7fa2379fefe4166",
+      "createdAt": "2017-08-16T09:55:05.705Z",
+      "updatedAt": "2017-09-07T08:20:01.831Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "Found this hot spring pool! So cool!",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-16T09:54:55.730Z",
+      "UTC": "2017-08-16T09:54:55.730Z",
+      "loc": [-19, 63],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "59941679f7fa2379fefe4165",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "59941679f7fa2379fefe4167",
+        "createdAt": "2017-08-16T09:55:05.716Z",
+        "UTCModified": "2017-08-16T09:54:55.730Z",
+        "post": "59941679f7fa2379fefe4166",
+        "postUnique": "59941679f7fa2379fefe4165",
+        "name": "59941674fffbb17cc2526969.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4a82f19d015419b631bf2", "58d45a8f3a425254b81f9857", "58d45a063a425254b81f958b"]
+      }, {
+        "_id": "59941679f7fa2379fefe4168",
+        "createdAt": "2017-08-16T09:55:05.718Z",
+        "UTCModified": "2017-08-16T09:54:55.730Z",
+        "post": "59941679f7fa2379fefe4166",
+        "postUnique": "59941679f7fa2379fefe4165",
+        "name": "599416779cbefe79cc1c9ef9.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4443b3a425254b81f2db4", "58d4a01f19d015419b62f3f6", "58d44a753a425254b81f46d3"]
+      }],
+      "latlong": {
+        "lat": "63.5429",
+        "long": "-19.6678"
+      },
+      "checkIn": {
+        "city": {
+          "_id": "5994165e0511837b433a38a0",
+          "name": "Hvolsvöllur"
+        },
+        "location": "Eyjafjallajökull Erupts",
+        "long": "-19.6678",
+        "lat": "63.5429",
+        "category": "Museums & Galleries",
+        "country": "58d41823f1d9302d29ea3cd9"
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Hvolsvöllur",
+      "likeCount": 15,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/59941679f7fa2379fefe4166"
+    }, {
+      "_id": "599488fada7b3d7a04675b09",
+      "createdAt": "2017-08-16T18:03:38.538Z",
+      "updatedAt": "2017-09-10T07:20:01.436Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "Great experience: driving on F-Roads",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-16T18:03:27.020Z",
+      "UTC": "2017-08-16T18:03:27.020Z",
+      "loc": [-19, 63],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "599488fada7b3d7a04675b08",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "599488fada7b3d7a04675b0a",
+        "createdAt": "2017-08-16T18:03:38.550Z",
+        "UTCModified": "2017-08-16T18:03:27.020Z",
+        "post": "599488fada7b3d7a04675b09",
+        "postUnique": "599488fada7b3d7a04675b08",
+        "name": "599488f4fffbb17cc2527a5f.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d45afa3a425254b81f994b", "58d4a86a19d015419b631cd6", "58d4ac7119d015419b6329be", "58d4a2f519d015419b630101", "58d442533a425254b81f266c", "58d45a0e3a425254b81f95b3"]
+      }, {
+        "_id": "599488fada7b3d7a04675b0b",
+        "createdAt": "2017-08-16T18:03:38.553Z",
+        "UTCModified": "2017-08-16T18:03:27.020Z",
+        "post": "599488fada7b3d7a04675b09",
+        "postUnique": "599488fada7b3d7a04675b08",
+        "name": "599488f89cbefe79cc1cb262.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4a2df19d015419b630099", "58d445533a425254b81f3169", "58d448d83a425254b81f3fc4", "58d442533a425254b81f266c"]
+      }],
+      "latlong": {
+        "lat": "63.6907",
+        "long": "-19.5418"
+      },
+      "checkIn": {
+        "city": {
+          "_id": "5994165e0511837b433a38a0",
+          "name": "Hvolsvöllur"
+        },
+        "location": "Volcano Huts Þórsmörk",
+        "long": "-19.5418",
+        "lat": "63.6907",
+        "category": "Nature & Parks",
+        "country": "58d41823f1d9302d29ea3cd9"
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Hvolsvöllur",
+      "likeCount": 19,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/599488fada7b3d7a04675b09"
+    }, {
+      "_id": "5994d142f7fa2379fefe589c",
+      "createdAt": "2017-08-16T23:12:02.960Z",
+      "updatedAt": "2017-09-05T20:20:02.366Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "Had a gorgeous evening ! ",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-16T23:11:46.920Z",
+      "UTC": "2017-08-16T23:11:46.920Z",
+      "loc": [-19, 63],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "5994d142f7fa2379fefe589b",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "5994d142f7fa2379fefe589d",
+        "createdAt": "2017-08-16T23:12:02.973Z",
+        "UTCModified": "2017-08-16T23:11:46.920Z",
+        "post": "5994d142f7fa2379fefe589c",
+        "postUnique": "5994d142f7fa2379fefe589b",
+        "name": "5994d138fffbb17cc2527efd.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d449a43a425254b81f42d9"]
+      }, {
+        "_id": "5994d142f7fa2379fefe589e",
+        "createdAt": "2017-08-16T23:12:02.975Z",
+        "UTCModified": "2017-08-16T23:11:46.920Z",
+        "post": "5994d142f7fa2379fefe589c",
+        "postUnique": "5994d142f7fa2379fefe589b",
+        "name": "5994d13ada7b3d7a04675e8b.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d43d933a425254b81f1b52", "58d4a67a19d015419b63157b"]
+      }, {
+        "_id": "5994d142f7fa2379fefe589f",
+        "createdAt": "2017-08-16T23:12:02.978Z",
+        "UTCModified": "2017-08-16T23:11:46.920Z",
+        "post": "5994d142f7fa2379fefe589c",
+        "postUnique": "5994d142f7fa2379fefe589b",
+        "name": "5994d13ca8c5df7b49e9a41f.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d441783a425254b81f24bf", "58d43d7a3a425254b81f1ade", "58d449a43a425254b81f42d9"]
+      }, {
+        "_id": "5994d142f7fa2379fefe58a0",
+        "createdAt": "2017-08-16T23:12:02.980Z",
+        "UTCModified": "2017-08-16T23:11:46.920Z",
+        "post": "5994d142f7fa2379fefe589c",
+        "postUnique": "5994d142f7fa2379fefe589b",
+        "name": "5994d140fffbb17cc2527f01.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d449a43a425254b81f42d9", "58d43bd13a425254b81f17a1", "58d4a67a19d015419b63157b"]
+      }],
+      "latlong": {
+        "lat": "63.6156",
+        "long": "-19.9886"
+      },
+      "checkIn": {
+        "location": "Seljalandsfoss",
+        "long": "-19.9886",
+        "lat": "63.6156",
+        "category": "Beaches",
+        "city": null
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Hvolsvöllur",
+      "likeCount": 17,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/5994d142f7fa2379fefe589c"
+    }, {
+      "_id": "59959940fffbb17cc2529c07",
+      "createdAt": "2017-08-17T13:25:20.505Z",
+      "updatedAt": "2017-08-29T13:20:03.226Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "We found this hidden gem right next to the world famous skogafoss ! ",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-17T13:24:58.900Z",
+      "UTC": "2017-08-17T13:24:58.900Z",
+      "loc": [-19, 63],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "59959940fffbb17cc2529c06",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "59959940fffbb17cc2529c08",
+        "createdAt": "2017-08-17T13:25:20.513Z",
+        "UTCModified": "2017-08-17T13:24:58.900Z",
+        "post": "59959940fffbb17cc2529c07",
+        "postUnique": "59959940fffbb17cc2529c06",
+        "name": "599599320511837b433a6649.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d449f13a425254b81f4473", "5998b1b81fad1c55fb9052bc", "58d443363a425254b81f299b", "58d4496e3a425254b81f41ff"]
+      }, {
+        "_id": "59959940fffbb17cc2529c09",
+        "createdAt": "2017-08-17T13:25:20.515Z",
+        "UTCModified": "2017-08-17T13:24:58.900Z",
+        "post": "59959940fffbb17cc2529c07",
+        "postUnique": "59959940fffbb17cc2529c06",
+        "name": "59959934ebc0af71413dc439.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d442683a425254b81f2691", "58d4496f3a425254b81f4203", "58d4496e3a425254b81f41ff"]
+      }, {
+        "_id": "59959940fffbb17cc2529c0a",
+        "createdAt": "2017-08-17T13:25:20.517Z",
+        "UTCModified": "2017-08-17T13:24:58.900Z",
+        "post": "59959940fffbb17cc2529c07",
+        "postUnique": "59959940fffbb17cc2529c06",
+        "name": "59959937f7fa2379fefe7043.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d442683a425254b81f2691", "58d4a2de19d015419b630095", "58d4496e3a425254b81f41ff"]
+      }, {
+        "_id": "59959940fffbb17cc2529c0b",
+        "createdAt": "2017-08-17T13:25:20.518Z",
+        "UTCModified": "2017-08-17T13:24:58.900Z",
+        "post": "59959940fffbb17cc2529c07",
+        "postUnique": "59959940fffbb17cc2529c06",
+        "name": "5995993da8c5df7b49e9c06e.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d441e73a425254b81f25a6"]
+      }],
+      "latlong": {
+        "lat": "63.5287",
+        "long": "-19.4805"
+      },
+      "checkIn": {
+        "location": "Kvernufoss Falls",
+        "long": "-19.4805",
+        "lat": "63.5287",
+        "category": "Others",
+        "city": null
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Hvolsvöllur",
+      "likeCount": 12,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/59959940fffbb17cc2529c07"
+    }, {
+      "_id": "599605eea8c5df7b49e9d421",
+      "createdAt": "2017-08-17T21:09:02.317Z",
+      "updatedAt": "2017-09-09T19:20:01.603Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "A great place to visit in the heart of the Icelandic highlands! ",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-17T21:08:36.870Z",
+      "UTC": "2017-08-17T21:08:36.870Z",
+      "loc": [-19, 63],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "599605eea8c5df7b49e9d420",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "599605eea8c5df7b49e9d422",
+        "createdAt": "2017-08-17T21:09:02.324Z",
+        "UTCModified": "2017-08-17T21:08:36.870Z",
+        "post": "599605eea8c5df7b49e9d421",
+        "postUnique": "599605eea8c5df7b49e9d420",
+        "name": "599605ddf6219104e92bb48e.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d43d433a425254b81f1a3a", "58d442693a425254b81f2695"]
+      }, {
+        "_id": "599605eea8c5df7b49e9d423",
+        "createdAt": "2017-08-17T21:09:02.330Z",
+        "UTCModified": "2017-08-17T21:08:36.870Z",
+        "post": "599605eea8c5df7b49e9d421",
+        "postUnique": "599605eea8c5df7b49e9d420",
+        "name": "599605dfebc0af71413dd4b4.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d43b3a3a425254b81f168b", "58d445533a425254b81f3169", "58d49fc019d015419b62f23a"]
+      }, {
+        "_id": "599605eea8c5df7b49e9d424",
+        "createdAt": "2017-08-17T21:09:02.332Z",
+        "UTCModified": "2017-08-17T21:08:36.870Z",
+        "post": "599605eea8c5df7b49e9d421",
+        "postUnique": "599605eea8c5df7b49e9d420",
+        "name": "599605e1da7b3d7a04678c6c.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d449a43a425254b81f42d9", "58d4a01f19d015419b62f3f6", "58d4406f3a425254b81f21d7"]
+      }, {
+        "_id": "599605eea8c5df7b49e9d425",
+        "createdAt": "2017-08-17T21:09:02.334Z",
+        "UTCModified": "2017-08-17T21:08:36.870Z",
+        "post": "599605eea8c5df7b49e9d421",
+        "postUnique": "599605eea8c5df7b49e9d420",
+        "name": "599605e8ebc0af71413dd4bc.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4412c3a425254b81f240e", "58d4a01f19d015419b62f3f6", "58d442693a425254b81f2695"]
+      }, {
+        "_id": "599605eea8c5df7b49e9d426",
+        "createdAt": "2017-08-17T21:09:02.336Z",
+        "UTCModified": "2017-08-17T21:08:36.870Z",
+        "post": "599605eea8c5df7b49e9d421",
+        "postUnique": "599605eea8c5df7b49e9d420",
+        "name": "599605eafffbb17cc252aebe.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d43e4d3a425254b81f1d54", "58d4a01f19d015419b62f3f6"]
+      }],
+      "latlong": {
+        "lat": "63.983",
+        "long": "-19.067"
+      },
+      "checkIn": {
+        "location": "Landmannalaugar",
+        "long": "-19.067",
+        "lat": "63.983",
+        "category": "Beaches",
+        "city": null
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Hvolsvöllur",
+      "likeCount": 14,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/599605eea8c5df7b49e9d421"
+    }, {
+      "_id": "5997483e6c438255ac1017b1",
+      "createdAt": "2017-08-18T20:04:14.937Z",
+      "updatedAt": "2017-09-09T20:20:01.734Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "Enjoying the last evening in iceland 🇮🇸 ",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-18T20:04:05.830Z",
+      "UTC": "2017-08-18T20:04:05.830Z",
+      "loc": [-23, 64],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "5997483e6c438255ac1017b0",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "5997483e6c438255ac1017b2",
+        "createdAt": "2017-08-18T20:04:14.951Z",
+        "UTCModified": "2017-08-18T20:04:05.830Z",
+        "post": "5997483e6c438255ac1017b1",
+        "postUnique": "5997483e6c438255ac1017b0",
+        "name": "5997483a3f349d54c26b736f.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d43f493a425254b81f1fdf", "58d43d743a425254b81f1aca", "58d440553a425254b81f2187", "58d49e6519d015419b62ec8e"]
+      }, {
+        "_id": "5997483e6c438255ac1017b3",
+        "createdAt": "2017-08-18T20:04:14.953Z",
+        "UTCModified": "2017-08-18T20:04:05.830Z",
+        "post": "5997483e6c438255ac1017b1",
+        "postUnique": "5997483e6c438255ac1017b0",
+        "name": "5997483c5c23f954821bbdfb.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4a2de19d015419b630095", "58d4a83019d015419b631bf6", "58d43bfe3a425254b81f17df", "58d43f493a425254b81f1fdf", "58d43c9b3a425254b81f18fc", "58d445533a425254b81f3169", "58d44a1e3a425254b81f451c", "58d440553a425254b81f2187"]
+      }],
+      "latlong": {
+        "lat": "64.9262",
+        "long": "-23.3114"
+      },
+      "checkIn": {
+        "location": "Kirkjufellsfoss",
+        "long": "-23.3114",
+        "lat": "64.9262",
+        "category": "Beaches",
+        "city": null
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Hvolsvöllur",
+      "likeCount": 15,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/5997483e6c438255ac1017b1"
+    }, {
+      "_id": "599787058ad87454bc3f3078",
+      "createdAt": "2017-08-19T00:32:05.665Z",
+      "updatedAt": "2017-09-06T17:20:02.303Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "Goodbye iceland 🇮🇸 ",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-19T00:31:34.800Z",
+      "UTC": "2017-08-19T00:31:34.800Z",
+      "loc": [-23, 64],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "599787058ad87454bc3f3077",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [{
+        "_id": "599787058ad87454bc3f3079",
+        "createdAt": "2017-08-19T00:32:05.679Z",
+        "UTCModified": "2017-08-19T00:31:34.800Z",
+        "post": "599787058ad87454bc3f3078",
+        "postUnique": "599787058ad87454bc3f3077",
+        "name": "https://storage.googleapis.com/travelibro-fileupload/599786fc3f349d54c26b7656.mp4",
+        "caption": "",
+        "thumbnail": "599787023f349d54c26b7657.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4abbb19d015419b63276c", "58d449453a425254b81f4156", "58d448293a425254b81f3c57"]
+      }],
+      "photos": [],
+      "latlong": {
+        "lat": "64.9417",
+        "long": "-23.3069"
+      },
+      "checkIn": {
+        "location": "Kirkjufell",
+        "long": "-23.3069",
+        "lat": "64.9417",
+        "category": "Beaches",
+        "city": null
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Hvolsvöllur",
+      "likeCount": 11,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/599787058ad87454bc3f3078"
+    }, {
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "59979362fcc3b555b22c5f66",
+      "location": "Southern Peninsula Region",
+      "UTCModified": "2017-08-19T01:24:44.348Z",
+      "status": true,
+      "type": "cityChange",
+      "likeCount": 0,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/undefined"
+    }, {
+      "_id": "59979362fcc3b555b22c5f67",
+      "createdAt": "2017-08-19T01:24:50.287Z",
+      "updatedAt": "2017-09-10T07:20:01.437Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "Couldn't believe my eyes when I looked out the window of the car and spotted some northern lights ! ",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-19T01:24:44.350Z",
+      "UTC": "2017-08-19T01:24:44.350Z",
+      "loc": [-22, 63],
+      "showMap": false,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "59979362fcc3b555b22c5f66",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [{
+        "_id": "59979362fcc3b555b22c5f68",
+        "createdAt": "2017-08-19T01:24:50.303Z",
+        "UTCModified": "2017-08-19T01:24:44.350Z",
+        "post": "59979362fcc3b555b22c5f67",
+        "postUnique": "59979362fcc3b555b22c5f66",
+        "name": "5997935f5c23f954821bc090.jpg",
+        "buddies": ["597a6bbaaa616e1b1bc68261"],
+        "comment": [],
+        "like": ["58d4a4e019d015419b630b8a", "58d443d43a425254b81f2c54", "58d43bae3a425254b81f174e", "58d4a48119d015419b6309ae", "58d43add3a425254b81f15c1", "58d443663a425254b81f2a98", "58d447923a425254b81f39e1"]
+      }],
+      "latlong": {
+        "lat": "63.9868",
+        "long": "-22.628"
+      },
+      "checkIn": {
+        "city": {
+          "_id": "5989ca6fa4cf635f2f79ef2d",
+          "name": "Southern Peninsula Region"
+        },
+        "location": "KEF",
+        "long": "-22.628",
+        "lat": "63.9868",
+        "category": "Transportation",
+        "country": "58d41823f1d9302d29ea3cd9"
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Southern Peninsula Region",
+      "likeCount": 16,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/59979362fcc3b555b22c5f67"
+    }, {
+      "_id": "599860325ef96442a4591734",
+      "createdAt": "2017-08-19T15:58:42.632Z",
+      "updatedAt": "2017-09-09T07:20:02.216Z",
+      "user": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "thoughts": "",
+      "journey": "59899166ef2fb75f7149c986",
+      "UTCModified": "2017-08-19T15:58:41.340Z",
+      "UTC": "2017-08-19T15:58:41.340Z",
+      "showMap": true,
+      "postCreator": {
+        "_id": "597a6bbaaa616e1b1bc68261",
+        "name": "Marcel Lesch",
+        "urlSlug": "marcel-lesch",
+        "profilePicture": "597a6bb9aa616e1b1bc6825e.jpg",
+        "email": "marcel.lesch@icloud.com"
+      },
+      "uniqueId": "599860325ef96442a4591733",
+      "status": true,
+      "hashtag": [],
+      "shareURL": "",
+      "link": "",
+      "buddies": [],
+      "videos": [],
+      "photos": [],
+      "checkIn": {
+        "location": "Cologne",
+        "long": "",
+        "lat": "",
+        "category": "Others"
+      },
+      "type": "travel-life",
+      "__v": 0,
+      "city": "Southern Peninsula Region",
+      "likeCount": 20,
+      "sharingUrl": "https://travelibro.com/users/marcel-lesch/post/599860325ef96442a4591734"
+    }],
+    "kindOfJourney": ["Adventure"],
+    "onGoing": false,
+    "isPopular": true,
+    "status": true,
+    "startLocation": "Cologne",
+    "name": "Iceland ",
+    "__v": 0,
+    "popularRank": 2,
+    "likeFromPrivate": -1,
+    "likeFromFollow": 0,
+    "totalLike": 321,
+    "coverPhoto": "5998605f8ad87454bc3f3e55.jpg",
+    "endTime": "2017-08-19T15:59:29.443Z",
+    "count": {
+      "photos": 72,
+      "videos": 6,
+      "checkIns": 28,
+      "thoughts": 32
+    },
+    "sharingUrl": "https://travelibro.com/users/marcel-lesch/journeys/iceland-2"
+  },
+  "value": true
+}
