@@ -1,0 +1,34 @@
+<footer ng-controller=headerctrl>
+<div class="app-icons ab hidden-xs">
+    <div class="container-fluid m-plr0">
+            <div class="col-md-12">
+                    <ul class="list-unstyled list-inline text-right color-white">
+                        <li class="">
+                            Download App
+                        </li>
+                        <li>
+                            <a href="https://itunes.apple.com/in/app/travelibro/id1056641759" target="_blank" class="color-white">
+                                <i class="fa fa-apple"></i>
+                            </a>
+                        </li>
+                        <li>|</li>
+                        <li>
+                            <a href="https://play.google.com/store/apps/details?id=com.ascra.app.travellibro" class="color-white" target="_blank">
+                                <i class="fa fa-android"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+</div>
+<div class="visible-xs">
+    <div class="download-app text-center uppercase download-app-footer" ng-class="{'close-download': isopen} ">
+  <div class="pull-right">
+    <a ng-click="opendownload();"><i class="fa fa-times color-white" aria-hidden="true"></i></a>
+  </div>
+  <a ng-click="customLink()">
+  Download App
+</a>
+</div>
+</div>
+</footer>

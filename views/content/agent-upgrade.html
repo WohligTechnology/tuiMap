@@ -1,0 +1,124 @@
+<div class="agent-upgrade">
+  <div class="container">
+    <div class="upgrade-card">
+      <!-- table head row -->
+      <div class="upgradetable-head">
+        <div class="row">
+          <div class="col-md-offset-6 col-md-2 col-sm-offset-6 col-sm-2 col-xs-4">
+            <div class="package-holder">
+              <div class="package-img">
+                <img src="img/basic-icon.png" alt="" class="img-responsive m-center">
+              </div>
+              <p class="avenir-heavy">Basic</p>
+              <p class="avenir-medium">Free</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-2 col-xs-4">
+            <div class="package-holder">
+              <div class="package-img">
+                <img src="img/advanced-icon.png" alt="" class="img-responsive m-center">
+              </div>
+              <p class="avenir-heavy">Advanced</p>
+              <p class="avenir-heavy">$149</p>
+              <p class="avenir-medium">for 3 Months</p>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-2 col-xs-4">
+            <div class="package-holder">
+              <div class="package-img">
+                <img src="img/premium-icon.png" alt="" class="img-responsive m-center">
+              </div>
+              <p class="avenir-heavy">Premium</p>
+              <p class="avenir-heavy">$249</p>
+              <p class="avenir-medium">for 3 Months</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- table head row end -->
+
+
+      <!-- upgrade list on ng-repeat -->
+      <div class="upgrade-list" ng-repeat="plan in agentUpgradeFeature track by $index">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="upgrade-title">
+              <span> {{plan.upgradeFeature}} </span>
+              <div class="badge" ng-click="showTip($index)"> ?
+                <div class="hover-tip" ng-if="variables.tooltips[$index]" ng-mouseleave='variables.tooltips[$index] = false'><p>{{plan.upgradetool}}</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-2 col-xs-4">
+            <div class="upgrade-feature">
+              <p ng-bind-html="plan.basicValue"></p>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-2 col-xs-4">
+            <div class="upgrade-feature">
+              <p ng-bind-html="plan.advValue"> </p>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-2 col-xs-4">
+            <div class="upgrade-feature">
+              <p ng-bind-html="plan.premValue">Unlimited </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- upgrade list on ng-repeat end -->
+
+      <!-- upgrade list on ng-repeat -->
+      <!-- <div class="upgrade-list">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="upgrade-title">
+              <span> Itineraries </span>
+                <div class="badge"> ?
+                  <div class="hover-tip"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est praesentium modi cum odit reprehenderit cupiditate</p></div>
+                </div>
+
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="upgrade-feature">
+              <p> <i class="fa fa-check-circle-o" aria-hidden="true"></i> </p>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="upgrade-feature">
+              <p> <i class="fa fa-check-circle-o" aria-hidden="true"></i> </p>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="upgrade-feature">
+              <p> <i class="fa fa-check-circle-o" aria-hidden="true"></i> </p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- upgrade list on ng-repeat end -->
+
+      <!-- upgrade buy buttons -->
+      <div class="agt-upgradebtn">
+        <div class="row">
+          <div class="col-md-offset-6 col-md-2 col-sm-offset-6 col-sm-2 col-xs-4">
+            <div class="text-center mt10 mb10"></div>
+          </div>
+          <div class="col-md-2 col-sm-2 col-xs-4">
+            <div class="text-center mt10 mb10">
+              <button class="btn btn-cyan btn-more">Buy Now</button>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-2 col-xs-4">
+            <div class="text-center mt10 mb10">
+              <button class="btn btn-cyan btn-more">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- upgrade buy buttons end  -->
+
+    </div>
+  </div>
+</div>

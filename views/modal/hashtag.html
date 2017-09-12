@@ -1,0 +1,64 @@
+<div class="relate">
+  <!--<textarea id='enterComment' placeholder='Write a comment' class='form-control' ng-model='ngModel'></textarea>-->
+  <!-- <div class="hashtag-dropdown">
+    <ul>
+      <li ng-click="appendComment(flag,ngModel,tag.title,hashTag,startTagIndex,endTagIndex)" ng-repeat="tag in hashTags track by $index"><a href="">{{tag.title}}</a></li>
+    </ul>
+  </div> -->
+  <div class="dropdown-hashtag">
+    <div ng-show="showBuddies">
+      <!-- <ui-select ng-model="buddy.name" theme="bootstrap" on-select="appendComment(flag,ngModel,$select.selected.urlSlug,hashTag,startTagIndex,endTagIndex)">
+        <ui-select-match placeholder="Search" ></ui-select-match>
+        <ui-select-choices repeat="tag._id as tag in buddies | filter:$select.search" track by $index ng-click="$parent.goNext=3"><img ng-src="{{nation.flag|uploadpath:30}}" width="30" class="mr10 v-mid inline-block" alt="{{nation.name}}">
+
+        </ui-select-choices>
+      </ui-select> -->
+
+      <ul>
+        <li ng-repeat="tag in buddies track by $index">
+          <div class="at-hash-holder" ng-click="appendComment(flag,ngModel,tag.urlSlug,hashTag,startTagIndex,endTagIndex)">
+            <div class="at-hashimg-holder">
+              <img ng-src="{{tag.profilePicture|uploadpath:30:30:'cover'}}" alt="" class="img-responsive">
+            </div>
+            <div class="at-hashname-holder">
+              <span class="color-light-grey block" ng-bind="tag.name"></span>
+              <span class="color-light-grey">@{{tag.urlSlug}}</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!--hashtag-->
+    <div ng-show="showTags">
+      <!-- <ui-select ng-model="tag.title" theme="selectize" on-select="appendComment(flag,ngModel,$select.selected.title,hashTag,startTagIndex,endTagIndex)">
+        <ui-select-match placeholder="Search" ></ui-select-match>
+        <ui-select-choices repeat="tag.title as tag in hashTags | filter:$select.search" track by $index>
+          <div class="hashtag-option clearfix">
+            <div class="pull-left">
+              <span class="color-light-grey tag-name" ng-bind="tag.title"></span>
+            </div>
+            <div class="pull-right">
+              <span class="color-light-grey tag-count">{{tag.count}}</span>
+            </div>
+          </div>
+        </ui-select-choices>
+      </ui-select> -->
+
+
+      <ul>
+        <!-- {{hashTags}} -->
+        <li ng-repeat="tag in hashTags track by $index">
+          <div class="hashtag-option clearfix" ng-click="appendComment(flag,ngModel,tag.title,hashTag,startTagIndex,endTagIndex)">
+            <div class="pull-left">
+              <span class="color-light-grey tag-name" ng-bind="tag.title"></span>
+            </div>
+            <div class="pull-right">
+              <span class="color-light-grey tag-count">{{tag.count}}</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!--hashtag end-->
+  </div>
+</div>

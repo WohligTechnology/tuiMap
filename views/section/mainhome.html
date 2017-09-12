@@ -1,0 +1,61 @@
+<div class="web-layer layer"></div>
+<div id="scene" class="scene unselectable" data-friction-x="0.1" data-friction-y="0.1" data-scalar-x="25" data-scalar-y="15"
+  style="width: 100%; transform: translate3d(0px, 0px, 0px); transform-style: preserve-3d; backface-visibility: hidden;" data-mode="cursor" ng-class="{'know-more-travelibro': viewModal == true,'': viewModal == false}">
+  <div class="fullscreen-bg hidden-xs">
+    <video poster="img/libro-home/slide/1.jpg" class='videoPlayer' autoplay muted loop id="movie1">
+      <source src='img/libro-home/videos/Homevideo.mp4' type='video/mp4'>
+    </video>
+    <div class="overlay colorblue"></div>
+  </div>
+  <div class="layer" data-depth="0.15">
+    <div class="img-holder" auto-height>
+      <div class="container">
+        <div class="text-left-ab color-white">
+          <!-- <ul class="list-unstyled dot-icon list-inline uppercase fnt-32 avenir-heavy">
+            <li>Capture</li>
+            <li>Inspire</li>
+            <li>Relive</li>
+          </ul> -->
+          <span class="quote-one">CAPTURE & DISCOVER</span>
+          <span class="tagline avenir-heavy dot-icon">THE BEST TRAVEL STORIES</span>
+          <ul class="list-unstyled list-inline text-center avenir-heavy quote-sec">
+            <li class="">
+              <!-- <span class="img-section1"><img src="img/libro-home/ballon-orange.png" alt=""/></span> -->
+              Inspire Others
+            </li>
+            <li class="no-pad ">
+              |
+            </li>
+            <li class="">Relive Your Stories
+              <!-- <span class="img-section1"><img src="img/libro-home/cycle-green.png" alt=""/></span> -->
+            </li>
+          </ul>
+          <div class="know-watch-more text-center" ng-init="viewModal=false" >
+            <img src="img/know-more.png" alt="Know More" class="pointer" height ="70" ng-click="viewModal = true">
+            <a class="various fancybox.iframe vimeo" href="https://player.vimeo.com/video/222624906?title=0&amp;byline=0&amp;portrait=0"
+              fancybox-box width='500' height='281' webkitallowfullscreen mozallowfullscreen allowfullscreen><img src="img/watch-more.png" alt="Watch More" class="pointer" height ="70"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div ng-include="template.footer" class="template footer"></div>
+</div>
+<div class="know-more-modal" >
+  <div class="modal-main">
+    <div class="modal-imgholder"><img src="img/libro-home/login-phone.png" alt="" class="img-responsive"></div>
+    <div class="modal-descp">
+      <div class="close-btn"><i class="fa fa-times pointer" ng-click="viewModal=false"></i></div>
+      <h3 class="avenir-heavy">Capture and Relive Your Travel Stories</h3>
+      <div class="modal-scroll-descp">
+        <p>We have witnessed a change in the way travel experiences are being shared from writing a blog about a holiday to sharing a few selected moments on social media for instant likes and gratification. </p>
+        <p>We believe that this sudden migration has led to a gap in the market, a need to capture and share travel experiences differently. </p>
+        <p>TraveLibro is your own personalised Travel Diary. </p>
+        <p>Now capture each trip live using the TraveLibro app and record every activity on-the-go to showcase a beautiful timeline of your journey. Here's a detailed travel log of your travel stories, moments and reviews to relive a lifetime of memories, which makes it a must-have travel tracker.</p>
+        <p>Additionally, some of the world's best travel bloggers use our app as their travel journal. Discover their travel stories and get inspired to explore the world.</p>
+      </div>
+      <h4 class="text-uppercase avenir-heavy">Sign up now to tell your stories differently.</h4>
+      <a href="" ui-sref="login" class="btn btn-pink">Sign Up</a>
+    </div>
+  </div>
+</div>

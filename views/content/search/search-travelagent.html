@@ -1,0 +1,44 @@
+<div class="search-traveller clearfix" infinite-scroll="loadMoreSearch('search-travelAgent');" infinite-scroll-disabled='searchScroll.busy'>
+    <div class="following-container" ng-repeat="list in viewSearchedAgent track by $index">
+        <div class="following-holder">
+            <div class="follow-imgholder pointer" ng-click="searchProfile(list);">
+                <img ng-src="{{list.profilePicture|uploadpath:80:80:'cover'}}" class="img-responsive">
+            </div>
+            <div class="following-detail text-center">
+                <h4 class="color-blue avenir-heavy text-capitalize pointer" title="{{list.name}}" ng-click="searchProfile(list);">{{list.name | truncate:15}}</h4>
+                <h5 class="color-pink avenir-medium text-capitalize text-ellipsis" ng-if="list.homeCity && list.homeCountry.name"><i class="fa fa-map-marker mr5 color-pink"></i> <span title="{{list.homeCity}}, {{list.homeCountry.name}}">{{list.homeCity}}, {{list.homeCountry.name}}</span></h5>
+            </div>
+            <div class="photos-location-sec clearfix">
+                <div class="pull-left">
+                    <div class="photo-loc">
+                        <img src="img/camera-blue.png" alt="Photos" width="16" class="v-mid">
+                        <span class="avenir-heavy color-dark-blue v-mid">{{list.count.photoCount}}</span> |
+                        <img src="img/location-blue.png" alt="Location" width="14" class="v-mid"> <span class="avenir-heavy color-dark-blue v-mid">{{list.count.checkInCount}}</span>
+                    </div>
+                </div>
+                <div class="pull-right">
+                    <button class="btn btn-pink following-btn" ng-click="followFollowing(list)">{{list.following|followFollowingStatus}}</button>
+                </div>
+            </div>
+            <div class="following-user-info">
+                <ul>
+                    <li>
+                        <span class="block user-count">{{list.count.countriesVisited}}</span>
+                        <span class="listing-text">Countries Visited</span>
+                    </li>
+                    <li>
+                        <span class="block user-count">{{list.count.followers}}</span>
+                        <span class="listing-text">Followers</span>
+                    </li>
+                    <li>
+                        <span class="block user-count">{{list.count.journeysCreatedCount}}</span>
+                        <span class="listing-text">Journeys</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pagination-loader" ng-if="paginationLoader">
+    <img src="img/page.svg" alt="Loading..." width="50px" class="img-responsive m-center">
+</div>

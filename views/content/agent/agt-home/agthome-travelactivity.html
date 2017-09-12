@@ -1,0 +1,233 @@
+<div class="agt-home-travelactivity bg-white">
+    <div class="" infinite-scroll="getMoreTravelActivity();" infinite-scroll-disabled="scroll.busy">
+        <!-- ADD BUTTON -->
+        <div class="add-agentbutton travel-addbtn" ng-class="{'bg-white' : travelActivity.length==0}" ng-if="template.isLoggedIn && template.isMine">
+            <div class="container">
+                <div class="clearfix">
+                    <div class="pull-right">
+                        <div class="add-agtitinerary" ng-if="template.isLoggedIn && template.isMine">
+                            <span class="pointer add-holder" ng-click="addItinerary();" ng-class="{'close-more' : showItinerary == true}"><i class="fa fa-plus"></i></span>
+                            <div id="addStatus" class="add-more-itinerary agentModal" ng-show="showItinerary">
+                                <p class="color-cyan bord-bot">Update</p>
+                                <form name="agentStatus">
+                                    <div class="form-group">
+                                        <div class="a">
+                                            <!-- <input type="text" class="form-control color-white" placeholder="Status" id="postStatus" ng-model="status.status"> -->
+                                            <textarea id="postStatus" cols="30" class="agent-statustext form-control" placeholder="Status" ng-model="status.status" row="2" required></textarea>
+                                            <!-- <span class="pull-right font-sz10" id="postcount"></span> -->
+                                        </div>
+                                    </div>￼
+                                    <button class="btn btn-pink tourupload-position" ng-click="sendStatus(status);" ng-disabled="agentStatus.$invalid">POST</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ADD BUTTON END -->
+        <!-- EMPTY USER INTRO -->
+        <div class="empty-intro emptyuser-travel bg-white avenir-roman" ng-if="!template.isMine && travelActivity.length==0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-8">
+                        <div class="agt-user-intro">
+                            <h3 class="color-blue avenir-heavy text-capitalize">{{userData.name}}</h3>
+                            <p class="color-blue">is still to post the first activity on their page.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- EMPTY USER INTRO END -->
+        <!-- EMPTY AGENT INTRO -->
+        <div class="empty-intro bg-white" ng-if="travelActivity.length==0 && template.isLoggedIn && template.isMine">
+            <div class="text-center avenir-roman">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-6">
+                            <h3 class="color-blue">Your social space to let your followers get a sense of what your company has to offer.</h3>
+                            <p class="color-blue">Regularly updating your library with new itineraries,tours & packages, photos, videos, status and offers keeps travellers interested in following you and informed about your services all the time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- EMPTY AGENT INTRO END -->
+        <!-- TRAVEL ACTIVITY CARD -->
+        <div class="agent-travelcards">
+            <div class="container">
+                <div class="sec-travel-activity masonry-main" masonry preserve-order>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 masonry-brick" ng-repeat="activity in travelActivity track by $index">
+                            <div class="travel-activity bg-white">
+                                <!-- header travel sec -->
+                                <div class="header-travel-sec" ng-if="activity.type =='album' || activity.type == 'agentStatus' || activity.type == 'quick-itinerary' || activity.type == 'detail-itinerary'">
+                                    <!-- STATUS AND ALBUM header -->
+                                    <div class="agent-travel-header" ng-if="activity.type=='album' || activity.type=='agentStatus'">
+                                        <div class="agent-traveller-imgholder v-mid">
+                                            <img ng-src="{{activity.user.profilePicture | uploadpath}}" alt="{{activity.user.name}}" class="img-responsive">
+                                        </div>
+                                        <div class="agent-traveller-detail v-mid">
+                                            <h4 class="color-blue avenir-heavy text-capitalize">{{activity.user.name}}</h4>
+                                            <p class="m-clear color-grey"><i class="fa fa-calendar"></i><span class="ml5  ng-binding">{{activity.createdAt| date : 'dd MMM, yyyy'}}</span> | <i class="fa fa-clock-o mr5"></i> <span class="ng-binding">{{activity.createdAt | date :'hh:mm a'}}</span></p>
+                                        </div>
+                                    </div>
+                                    <!-- STATUS AND ALBUM  header end-->
+                                    <!-- itinerary header-->
+                                    <div class="travel-itinerary-header" ng-if="activity.type == 'detail-itinerary' || activity.type == 'quick-itinerary'">
+                                        <p class="m-clear color-blue travelitinerary-title"><span class="text-capitalize">{{activity.name|truncate:'30'}} </span> - <span><span ng-if="activity.type == 'quick-itinerary'">Quick </span> Itinerary</span> <span>( {{activity.duration}} {{activity.duration| singularPlural: 'Days'}} )</span></p>
+                                    </div>
+                                    <!-- itinerary header end-->
+                                </div>
+                                <!-- header travel sec end-->
+                                <!-- main travel sec -->
+                                <div class="activitiy-card-sec">
+                                    <!-- ALBUM AND STATUS card -->
+                                    <div class="agent-traveller-card" ng-if="activity.type == 'agentStatus' || activity.type == 'album'">
+                                        <div class="traveller-post color-blue">
+                                            <p ng-if="activity.type == 'agentStatus'">{{activity.status}}</p>
+                                            <p ng-if="activity.type == 'album'" class="m-clear">Has uploaded an album - <span class="avenir-heavy text-capitalize">{{activity.name}}</span></p>
+                                        </div>
+                                        <div class="travel-albumcover pointer" ng-if="activity.type == 'album'" ng-click="getPhotoPopup(activity._id);">
+                                            <span class="get-center photovideo-play color-white" ng-if="activity.photos== ''"><i class="fa fa-play-circle"></i></span>
+                                            <img ng-src="{{activity.photos[0].name|uploadpath}}" alt="{{activity.name}}" class="img-responsive" ng-if="activity.photos!= ''">
+                                            <img ng-src="{{activity.videos[0].thumbnail|uploadpath}}" alt="{{activity.name}}" class="img-responsive" ng-if="activity.photos== ''">
+                                        </div>
+                                    </div>
+                                    <!-- ALBUM AND STATUS end-->
+                                    <!-- tour package card -->
+                                    <div class="agent-tourcard tour-package-card" ng-if="activity.type=='toursPackage'">
+                                        <div class="itinerary-img traveltour-img" style="background: url('{{activity.displayPic|uploadpath}}') no-repeat 50% 50%; background-size: cover;">
+                                            <div class="theme">
+                                                <div class="theme-img ">
+                                                    <img ng-src="{{activity.typeOfHoliday[0]| kindOfJourney:'white'}}" class="img-responsive tour-img" alt="activity.typeOfHoliday[0]">
+                                                </div>
+                                                <div class="theme-name">
+                                                    <p class="ng-binding">{{activity.typeOfHoliday[0]}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="country-badges">
+                                                <div class="country-holder ng-scope" ng-repeat="flag in activity.country | limitTo : 3">
+                                                    <img ng-src="{{flag.flag|uploadpath}}" alt="{{flag.name}}" class="img-responsive doneLoading">
+                                                </div>
+                                                <span class="country-count" ng-if="tourcard.country.length>3">+{{activity.country.length-3}}</span>
+                                            </div>
+                                            <!-- <img ng-src="{{activity.displayPic|uploadpath}}" alt="{{activity.name}} | TravelLibro" class="img-responsive">-->
+                                            <div class="itinerary-imgfoot tour-imgfoot">
+                                                <div class="imgfoot-top  clearfix">
+                                                    <div class="pull-left">
+                                                        <h4 class="avenir-heavy text-capitalize font-sz18 m-clear">{{activity.title}}</h4>
+                                                        <!-- <p class="day-night" ng-if="activity.nights && activity.days"><span class="ng-binding">{{activity.nights}} Nights</span> | <span class="ng-binding">{{activity.days}} Days</span></p>
+                                                        <p class="day-night" ng-if="activity.hours && activity.minutes"><span>{{activity.hours}} Hours</span> | <span>{{activity.minutes}} Minutes</span></p> -->
+                                                        <p class="font-sz10"><i class="fa fa-calendar"></i><span class="ml5  ng-binding">{{activity.UTCModified|formatDate:'date'}}</span> | <i class="fa fa-clock-o mr5"></i> <span class="ng-binding">{{activity.UTCModified|formatDate:'time'}}</span></p>
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <p class="font-sz18 cost-posi ng-binding">{{activity.currency}} {{activity.price}}</p>
+                                                    </div>
+                                                    <div class="tour-btns">
+                                                        <button class="btn btn-pink btn-download" ng-if="activity.pdf"><a class="btn-link" ng-href="{{activity.pdf|downloadLink:'tours&packages':activity._id:activity.title}}" download>Download</a></button>
+                                                        <button class="btn btn-pink btn-book" ng-if="activity.bookingUrl" ng-click="countAdder(activity);"><a class="btn-link" href="{{activity.bookingUrl}}" target="_blank">Book</a></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="call-btn" ng-click="viewContact = !viewContact">
+                      <i class="fa fa-phone" aria-hidden="true"></i>
+                    </div> -->
+                                        </div>
+                                    </div>
+                                    <!-- tour package card end -->
+                                    <!-- itinerary activity card  -->
+                                    <div class="itinerary-activity-card" ng-if="activity.type=='quick-itinerary' || activity.type == 'detail-itinerary'">
+                                        <div class="itinerary-img">
+                                            <img ng-src="{{activity.coverPhoto|uploadpath}}" alt="{{activity.name}}" class="img-responsive">
+                                            <div class="country-badges">
+                                                <div class="country-holder ng-scope" ng-repeat="flag in activity.countryVisited|limitTo:3">
+                                                    <img ng-src="{{flag.country.flag|uploadpath}}" alt="{{flag.country.name}}" class="img-responsive doneLoading">
+                                                </div>
+                                                <span class="country-count" ng-if="activity.countryVisited.length>3">+{{activity.countryVisited.length-3}}</span>
+                                            </div>
+                                            <div class="date-itinerary">
+                                                <span class="view-date text-center">
+                        {{activity.createdAt|date:'MMM'}}<br>{{activity.createdAt|date:'yyyy'}}
+                      </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- itinerary activity card end -->
+                                </div>
+                                <!-- main travel sec end-->
+                                <!-- footer travel sec -->
+                                <div class="footer-travel-sec">
+                                    <div class="travel-albumfooter" ng-if="activity.type == 'album'">
+                                    </div>
+                                    <div class="social-field-types" ng-if="activity.type=='agentStatus' || activity.type == 'quick-itinerary' || activity.type == 'detail-itinerary'">
+                                        <div class="user-social-item clearfix">
+                                            <div class="pull-left">
+                                                <ul>
+                                                    <li ng-click="likeUnlikeActivity(activity);" like-sound>
+                                                        <a href="" class="relate pointer">
+                                                            <i class="fa color-blue" ng-class="activity.likeDone ? 'fa-heart like-animate' : 'fa-heart-o'"></i>
+                                                            <span></span>
+                                                            <audio id="like-play">
+                                                                <source src="img/tiny1.mp3" type="audio/mp3">
+                                                            </audio>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a ng-click="getCommentsData(activity)">
+                                                            <img src="img/comments.png" alt="" height="18" class="if-blue doneLoading">
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="">
+                                                            <img src="img/share.png" alt="" height="18" class="if-blue doneLoading">
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="pull-right">
+                                                <div class="options inline-block">
+                                                    <span ng-click="editOption(activity);" class="inline-block pl10 pointer">
+                                                        <img src="img/options.png" alt="">
+                                                    </span>
+                                                    <div class="own-trip" ng-if="activity.backgroundClick">
+                                                        <ul>
+                                                            <li ng-click="editStatus(activity);"><a href="" title="Edit">Edit</a></li>
+                                                            <li ng-click="deleteStatus(activity);"><a href="" title="Delete">Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="social-likes-reviews" ng-if="activity.likeCount!=0 || activity.commentCount!=0">
+                                            <div class="clearfix">
+                                                <div class="pull-left">
+                                                    <span class="color-blue mr10 pointer" ng-click="getLikesData(activity);"><i class="fa fa-heart color-blue mr5"></i><b class="mr5">{{activity.likeCount}}</b>Likes</span>
+                                                    <span class="color-blue mr10 pointer" ng-click="getCommentsData(activity)"><img src="img/comments.png" alt="" height="14"><b class=""> {{activity.commentCount}} </b> Comments </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- footer travel sec end-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- TRAVEL ACTIVITY CARD END -->
+    </div>
+    <!-- PAGINATION LOADER -->
+    <div class="" ng-if="template.paginationLoader">
+        <img src="img/page.svg" alt="" class="m-center img-responsive" width="25px">
+    </div>
+    <!-- PAGINATION LOADER END -->
+    <!-- COMMENT LIKE SECTION -->
+    <div class="" ng-if="postScrollData.viewList">
+      <comment-like-section post="post" user-data='userData' post-scroll-data="postScrollData" view-card-comment="viewCardComment" view-card-like='viewCardLike' list-of-comments="listOfComments" list-of-likes="listOfLikes" get-card="getCard" show-like-show='showLikeShow'></comment-like-section>
+    </div>
+    <div class="backdrop-close" ng-class="{'view-backdrop':viewCardComment==true || viewCardLike==true,'':viewCardComment==false || viewCardLike==false}" ng-click="closeBackDrop();"></div>
+    <!-- COMMENT LIKE SECTION END -->
+</div>

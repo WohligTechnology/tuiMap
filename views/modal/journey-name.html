@@ -1,0 +1,25 @@
+<div class="journey-name avenir-roman">
+  <div class="journey-name-heading clearfix">
+    <div class="pull-left">
+      <span class="color-white popup-title avenir-light">Edit Journey Name</span>
+    </div>
+    <div class="pull-right">
+       <span class="close pop-close-btn " ng-click="$dismiss();"><img src="img/cancel.png" alt="Cancel" class="img-responsive"></span>
+    </div>
+  </div>
+  <div class="journey-content-main">
+    <div class="popup-journey-img relate">
+      <img ng-src="{{journey.coverPhoto|uploadpath}}" alt="{{editName.name}}" class="img-responsive get-center">
+      <div class="put-journey-name">
+        <form>
+          <div class="input-holder">
+            <input type="text" class="form-control" ng-model="editName.name">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="text-right mt20">
+    <button class="btn btn-pink btn-more" type="submit" ng-click="editJourneyName(journey._id,editName)">Save</button>
+  </div>
+</div>

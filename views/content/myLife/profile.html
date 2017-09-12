@@ -1,0 +1,434 @@
+<div class="">
+    <div class="container-fluid m-p0">
+        <div class="profile-photo-section relate">
+            <div class="profile-pic relate">
+                <a ui-sref="setting({'path':'settings'})" ng-if="template.isMine">
+                    <div class="profile-imgholder ">
+                        <img ng-src="{{userData.profilePicture|uploadpath:140:150:'cover'}}" alt="{{userData.name}}" class="img-responsive" style="border-radius:'50px';">
+                    </div>
+                </a>
+                <a href="{{userData.profilePicture|uploadpath}}" fancybox-box class="fancybox" ng-if="!template.isMine">
+                    <div class="profile-imgholder ">
+                        <img ng-src="{{userData.profilePicture|uploadpath:140:150:'cover'}}" alt="{{userData.name}}" class="img-responsive">
+                    </div>
+                </a>
+                <img ng-src="{{userData.homeCountry.flag|uploadpath:40}}" alt="" width="40" class="flag img-responsive" ng-if="userData.homeCountry && userData.homeCountry.flag">
+                <img src="img/wave-profile.png" alt="" width="40" class="wave img-responsive">
+            </div>
+            <div class="profile-more-detail text-center">
+                <h3 class="color-blue m-clear font-bold avenir-medium ">{{userData.name}}</h3>
+                <h5 class="color-pink avenir-roman">Lives In : <i class="fa fa-map-marker mr5"></i><span>{{userData.homeCity}}</span></h5>
+                <button ng-if="!template.isMine" class="btn btn-pink btn-more" ng-click="followFollowing(userData)">{{userData.following | followFollowingStatus}}</button>
+            </div>
+        </div>
+        <div class="user-travel-detail relate">
+            <div class="scroll-user-travel">
+                <ul>
+                    <li class="text-center pointer" ng-click="profileListRedirect('following',activeUrlSlug)">
+                        <!-- ui-sref="ProfileList({'urlSlug':activeUrlSlug,'active':'following'})" -->
+                        <div class="travel-inside">
+                            <span class="avenir-heavy color-blue">{{userData.following_count}}</span>
+                            <span class="block avenir-roman color-blue mt5">Following</span>
+                        </div>
+                    </li>
+                    <li class="text-center pointer" ng-click="profileListRedirect('followers',activeUrlSlug)">
+                        <!-- ui-sref="ProfileList({'urlSlug':activeUrlSlug,'active':'followers'})" -->
+                        <div class="travel-inside">
+                            <span class="avenir-heavy color-blue">{{userData.followers_count}}</span>
+                            <span class="block avenir-roman color-blue mt5">Followers</span>
+                        </div>
+                    </li>
+                    <li class="text-center pointer" ng-click="profileListRedirect('countries-visited',activeUrlSlug)">
+                        <!-- ui-sref="ProfileList({'urlSlug':activeUrlSlug,'active':'countries-visited'})" -->
+                        <div class="travel-inside">
+                            <span class="avenir-heavy color-blue">{{userData.countriesVisited_count}}</span>
+                            <span class="block avenir-roman color-blue mt5">Countries Visited</span>
+                        </div>
+                    </li>
+                    <li class="text-center pointer" ng-click="profileListRedirect('bucket-list',activeUrlSlug)">
+                        <!-- ui-sref="ProfileList({'urlSlug':activeUrlSlug,'active':'bucket-list'})" -->
+                        <div class="travel-inside">
+                            <span class="avenir-heavy color-blue">{{userData.bucketList_count}}</span>
+                            <span class="block avenir-roman color-blue mt5">Bucket List</span>
+                        </div>
+                    </li>
+                    <li class="text-center pointer" ng-click="getTab(0);">
+                        <div class="travel-inside">
+                            <span class="avenir-heavy color-blue">{{userData.journeysCreated_count}}</span>
+                            <span class="block avenir-roman color-blue mt5">Journeys Created</span>
+                        </div>
+                    </li>
+                    <li class="text-center pointer" ng-click="getTab(0);">
+                        <div class="travel-inside">
+                            <span class="avenir-heavy color-blue">{{userData.checkins_count}}</span>
+                            <span class="block avenir-roman color-blue mt5">Check-Ins</span>
+                        </div>
+                    </li>
+                    <li class="text-center pointer" ng-click="getTab(1);">
+                        <div class="travel-inside">
+                            <span class="avenir-heavy color-blue">{{userData.photos_count}}</span>
+                            <span class="block avenir-roman color-blue mt5">Photos</span>
+                        </div>
+                    </li>
+                    <li class="text-center pointer" ng-click="getTab(2);">
+                        <div class="travel-inside">
+                            <span class="avenir-heavy color-blue">{{userData.reviews_count}}</span>
+                            <span class="block avenir-roman color-blue mt5">Reviews</span>
+                        </div>
+                    </li>
+                    <li class="text-center pointer" ng-click="getTab(0);">
+                        <div class="travel-inside">
+                            <span class="avenir-heavy color-blue">{{userData.itinerary_count}}</span>
+                            <span class="block avenir-roman color-blue mt5">Itineraries</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="all-profile-detail">
+            <!-- <div class="more-about-me" ng-if="userData.travelConfig.holidayType !='' && userData.travelConfig.kindOfHoliday != '' && userData.travelConfig.preferToTravel != '' && userData.travelConfig.usuallyGo !=''">
+        <div class="row m-m0">
+          <div class="col-md-offset-2 col-md-8">
+            <div class="text-center">
+              <div class="more-detail" ng-init="getMore=false" ng-show="getMore">
+                <p class="avenir-roman" ng-if="userData.alreadyLoggedIn==true"><span class="avenir-heavy">{{userName}}</span> loves to travel and explore <span class="avenir-heavy">{{kindOfHoliday}}</span>.
+                  {{pronoun | capitalize}} usually <span>{{pronoun ==='They'? 'go': 'goes' }}</span> <span class="avenir-heavy">{{usuallyGo}}{{usuallyGo1}}</span>, {{pronoun}}
+                  {{intermediate}}
+                  <span class="avenir-heavy">{{preferToTravel}}</span>. <span class="avenir-heavy">{{userName}}'s</span>                  ideal holiday type is <span class="avenir-heavy">{{idealHoliday}}</span>.</p>
+                <p ng-if="userData.alreadyLoggedIn==false"> - </p>
+              </div>
+              <span class="djb-font get-more pointer" ng-click="getMore = !getMore">more about me... <img src="img/more-about-me.png" alt="" height="35" class="" ng-class="{'abt-me': getMore == true}"></span>
+            </div>
+          </div>
+        </div>
+      </div> -->
+            <div class="bg-white">
+                <div class="vector-section ">
+                    <div class="row m-m0">
+                        <div class="col-lg-9 col-md-8">
+                            <div class="vector-map hidden-xs">
+                                <mappy data="data" map-data="mapPathData" key="metric" colors="heatmapColors"></mappy>
+                                <div class="travel-badge">
+                                    <img ng-src="{{userBadgeName}}" alt="Newbie" class="img-responsive">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4">
+                            <div class="wish-country-visit" ng-if="template.isMine">
+                                <div class="text-right">
+                                    <span class="color-blue fz12 mr10 avenir-roman"><i class="fa fa-check color-pink mr5"></i> Been There {{wishCountry}}</span>
+                                    <span class="color-blue fz12 ml10 avenir-roman"><i class="fa fa-heart color-blue mr5"></i> Would Love To Go</span>
+                                </div>
+                                <form>
+                                    <div class="visit-inputholder">
+                                        <input type="text" class="visit-input" placeholder="Add Country Visited" ng-model="input">
+                                    </div>
+                                    <!-- <button class="btn btn-pink">Add</button> -->
+                                    <div class="visited-country-list avenir-roman">
+                                        <ul>
+                                            <li ng-repeat="list in  nationality | filter:input">
+                                                <div class="country-list clearfix">
+                                                    <span class="color-blue inline-block country-name pull-left">{{list.name}} </span>
+                                                    <div class="get-right pull-right">
+                                                        <div class="relate inline-block mr10">
+                                                            <div class="custom-checkbox">
+                                                                <input type="checkbox" id="{{list._id}}" ng-model="list.countryVisited" ng-disabled="!template.isMine">
+                                                                <label for="{{list._id}}" ng-click="!template.isMine||updateCountryVisited(list);"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="relate inline-block mr10 ">
+                                                            <div class="bucket-list custom-checkbox-heart ">
+                                                                <input type="checkbox" id="wish{{list._id}}" ng-model="list.bucketList" ng-click="!template.isMine||updateBucketList(list)" ng-disabled="!template.isMine">
+                                                                <label for="wish{{list._id}}"></label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- horizontal time line -->
+                <div class="travel-life-level ">
+                    <div class="scroll-travel-level">
+                        <div class="row m-m0">
+                            <div class="col-md-offset-1 col-md-10 ">
+                                <div class="travel-progress-bar avenir-roman relate ">
+                                    <div class="row-flex ">
+                                        <div class="col-flex ">
+                                            <div class="level1" ng-class="{'active-bar' : level==1}">
+                                                <span class=" name ">Newbie</span>
+                                                <div class="relate">
+                                                    <div class="progress-grey-bg"></div>
+                                                    <div class="progress-bar-strip" ng-style="mystyle1" ng-class="{'completed-step': level>=1}">
+                                                    </div>
+                                                </div>
+                                                <span class="progress-range ">1-3</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-flex ">
+                                            <div class="level2" ng-class="{'active-bar' : level==2}">
+                                                <span class=" name ">Just Got Wings</span>
+                                                <div class="relate">
+                                                    <div class="progress-grey-bg"></div>
+                                                    <div class="progress-bar-strip" ng-style="mystyle2" ng-class="{'completed-step': level>=2}"></div>
+                                                </div>
+                                                <span class="progress-range ">4-7</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-flex ">
+                                            <div class="level3" ng-class="{'active-bar' : level==3}">
+                                                <span class="name ">Globe Trotter</span>
+                                                <div class="relate">
+                                                    <div class="progress-grey-bg"></div>
+                                                    <div class="progress-bar-strip" ng-style="mystyle3" ng-class="{'completed-step': level>=3}"></div>
+                                                </div>
+                                                <span class="progress-range ">8-15</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-flex ">
+                                            <div class="level4" ng-class="{'active-bar' : level==4}">
+                                                <span class="name ">Wayfarer</span>
+                                                <div class="relate">
+                                                    <div class="progress-grey-bg"></div>
+                                                    <div class="progress-bar-strip" ng-style="mystyle4" ng-class="{'completed-step': level>=4}"></div>
+                                                </div>
+                                                <span class="progress-range ">16-24</span>
+                                                <div class="last-level5 " ng-class="{'last-active-bar' : level==5}">
+                                                    <span class="last-name">Nomad</span>
+                                                    <div class="last-progress-strip" ng-style="mystyle5" ng-class="{'completed-step': level>=5}"></div>
+                                                    <span class="progress-range ">25 above</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- horizontal time line end -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="" ng-if="!template.isMine" hidden>
+    <div class="container-fluid m-p0">
+        <div class="profile-photo-section relate">
+            <div class="profile-pic relate">
+                <a ui-sref="setting({'path':'settings'})" ng-if="template.isMine">
+                    <div class="profile-imgholder ">
+                        <img ng-src="{{userViewingData.profilePicture|uploadpath:140:150:'cover'}}" alt="{{userViewingData.name}}" class="img-responsive" style="border-radius:'50px';">
+                    </div>
+                </a>
+                <a href="{{userViewingData.profilePicture|uploadpath}}" fancybox-box class="fancybox" ng-if="!template.isMine">
+                    <div class="profile-imgholder ">
+                        <img ng-src="{{userViewingData.profilePicture|uploadpath:140:150:'cover'}}" alt="{{userViewingData.name}}" class="img-responsive">
+                    </div>
+                </a>
+                <img src="{{userViewingData.homeCountry.flag|uploadpath:40}}" alt="" width="40" class="flag img-responsive">
+                <img src="img/wave-profile.png" alt="" width="40" class="wave img-responsive">
+            </div>
+            <div class="profile-more-detail text-center">
+                <h3 class="color-blue m-clear font-bold avenir-medium ">{{userViewingData.name}}</h3>
+                <h5 class="color-pink avenir-roman">Lives In : <i class="fa fa-map-marker mr5"></i><span>{{userViewingData.homeCity}}</span></h5>
+                <button ng-if="!template.isMine" class="btn btn-pink btn-more" ng-click="followFollowing(userViewingData)">{{userViewingData.following | followFollowingStatus}}</button>
+            </div>
+        </div>
+        <div class="user-travel-detail relate">
+            <div class="scroll-user-travel">
+                <ul>
+                    <li class="text-center pointer" ng-click="profileListRedirect('following',activeUrlSlug)">
+                        <!-- ui-sref="ProfileList({'urlSlug':activeUrlSlug,'active':'following'})" -->
+                        <div class="travel-inside">
+                            <span class="avenir-heavy color-blue">{{userViewingData.following_count}}</span>
+                            <span class="block avenir-roman color-blue mt5">Following</span>
+                        </div>
+                    </li>
+                    <li class="text-center pointer" ng-click="profileListRedirect('followers',activeUrlSlug)">
+                        <!-- ui-sref="ProfileList({'urlSlug':activeUrlSlug,'active':'followers'})" -->
+                        <div class="travel-inside">
+                            <span class="avenir-heavy color-blue">{{userViewingData.followers_count}}</span>
+                            <span class="block avenir-roman color-blue mt5">Followers</span>
+                        </div>
+                    </li>
+                    <li class="text-center pointer" ng-click="profileListRedirect('countries-visited',activeUrlSlug)">
+                        <!-- ui-sref="ProfileList({'urlSlug':activeUrlSlug,'active':'countries-visited'})" -->
+                        <div class="travel-inside">
+                            <span class="avenir-heavy color-blue">{{userViewingData.countriesVisited_count}}</span>
+                            <span class="block avenir-roman color-blue mt5">Countries Visited</span>
+                        </div>
+                    </li>
+                    <li class="text-center pointer" ng-click="profileListRedirect('bucket-list',activeUrlSlug)">
+                        <!-- ui-sref="ProfileList({'urlSlug':activeUrlSlug,'active':'bucket-list'})" -->
+                        <div class="travel-inside">
+                            <span class="avenir-heavy color-blue">{{userViewingData.bucketList_count}}</span>
+                            <span class="block avenir-roman color-blue mt5">Bucket List</span>
+                        </div>
+                    </li>
+                    <li class="text-center pointer" ng-click="getTab(0);">
+                        <div class="travel-inside">
+                            <span class="avenir-heavy color-blue">{{userViewingData.journeysCreated_count}}</span>
+                            <span class="block avenir-roman color-blue mt5">Journeys Created</span>
+                        </div>
+                    </li>
+                    <li class="text-center pointer" ng-click="getTab(0);">
+                        <div class="travel-inside">
+                            <span class="avenir-heavy color-blue">{{userViewingData.checkins_count}}</span>
+                            <span class="block avenir-roman color-blue mt5">Check-Ins</span>
+                        </div>
+                    </li>
+                    <li class="text-center pointer" ng-click="getTab(1);">
+                        <div class="travel-inside">
+                            <span class="avenir-heavy color-blue">{{userViewingData.photos_count}}</span>
+                            <span class="block avenir-roman color-blue mt5">Photos</span>
+                        </div>
+                    </li>
+                    <li class="text-center pointer" ng-click="getTab(2);">
+                        <div class="travel-inside">
+                            <span class="avenir-heavy color-blue">{{userViewingData.reviews_count}}</span>
+                            <span class="block avenir-roman color-blue mt5">Reviews</span>
+                        </div>
+                    </li>
+                    <li class="text-center pointer" ng-click="getTab(0);">
+                        <div class="travel-inside">
+                            <span class="avenir-heavy color-blue">{{userViewingData.itinerary_count}}</span>
+                            <span class="block avenir-roman color-blue mt5">Itineraries</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="all-profile-detail">
+            <div class="more-about-me" ng-init="">
+                <div class="row m-m0">
+                    <div class="col-md-offset-2 col-md-8">
+                        <div class="text-center">
+                            <div class="more-detail" ng-init="getMore=false" ng-show="getMore">
+                                <p class="avenir-roman" ng-if="userViewingData.alreadyLoggedIn==true"><span class="avenir-heavy">{{userName}}</span> loves to travel and explore <span class="avenir-heavy">{{kindOfHoliday}}</span>. {{pronoun | capitalize}} usually goes <span class="avenir-heavy">{{usuallyGo}}{{usuallyGo1}}</span>, {{pronoun}} {{intermediate}}
+                                    <span class="avenir-heavy">{{preferToTravel}}</span>. <span class="avenir-heavy">{{userName}}'s</span> ideal holiday type is <span class="avenir-heavy">{{idealHoliday}}</span>.</p>
+                                <p ng-if="userViewingData.alreadyLoggedIn==false"> - </p>
+                            </div>
+                            <span class="djb-font get-more pointer" ng-click="getMore = !getMore">more about me... <img src="img/more-about-me.png" alt="" height="35" class="" ng-class="{'abt-me': getMore == true}"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white">
+                <div class="vector-section ">
+                    <div class="row m-m0">
+                        <div class="col-lg-9 col-md-8">
+                            <div class="vector-map hidden-xs">
+                                <mappy data="data" map-data="mapPathData" key="metric" colors="heatmapColors"></mappy>
+                                <div class="travel-badge">
+                                    <img ng-src="{{userBadgeName}}" alt="Newbie" class="img-responsive">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4">
+                            <div class="wish-country-visit" ng-if="template.isMine">
+                                <div class="text-right">
+                                    <span class="color-blue fz12 mr10 avenir-roman"><i class="fa fa-check color-pink mr5"></i> Been There {{wishCountry}}</span>
+                                    <span class="color-blue fz12 ml10 avenir-roman"><i class="fa fa-heart color-blue mr5"></i> Would Love To Go</span>
+                                </div>
+                                <form>
+                                    <div class="visit-inputholder">
+                                        <input type="text" class="visit-input" placeholder="Add Country Visited" ng-model="input">
+                                    </div>
+                                    <!-- <button class="btn btn-pink">Add</button> -->
+                                    <div class="visited-country-list avenir-roman">
+                                        <ul>
+                                            <li ng-repeat="list in  nationality | filter:input">
+                                                <div class="country-list clearfix">
+                                                    <span class="color-blue inline-block country-name pull-left">{{list.name}} </span>
+                                                    <div class="get-right pull-right">
+                                                        <div class="relate inline-block mr10">
+                                                            <div class="custom-checkbox">
+                                                                <input type="checkbox" id="{{list._id}}" ng-model="list.countryVisited" ng-disabled="!template.isMine">
+                                                                <label for="{{list._id}}" ng-click="!template.isMine||updateCountryVisited(list);"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="relate inline-block mr10 ">
+                                                            <div class="bucket-list custom-checkbox-heart ">
+                                                                <input type="checkbox" id="wish{{list._id}}" ng-model="list.bucketList" ng-click="!template.isMine||updateBucketList(list)" ng-disabled="!template.isMine">
+                                                                <label for="wish{{list._id}}"></label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- horizontal time line -->
+                <div class="travel-life-level ">
+                    <div class="scroll-travel-level">
+                        <div class="row m-m0">
+                            <div class="col-md-offset-1 col-md-10 ">
+                                <div class="travel-progress-bar avenir-roman relate ">
+                                    <div class="row-flex ">
+                                        <div class="col-flex ">
+                                            <div class="level1" ng-class="{'active-bar' : level==1}">
+                                                <span class=" name ">Newbie</span>
+                                                <div class="relate">
+                                                    <div class="progress-grey-bg"></div>
+                                                    <div class="progress-bar-strip" ng-style="mystyle1" ng-class="{'completed-step': level>=1}">
+                                                    </div>
+                                                </div>
+                                                <span class="progress-range ">1-3</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-flex ">
+                                            <div class="level2" ng-class="{'active-bar' : level==2}">
+                                                <span class=" name ">Just Got Wings</span>
+                                                <div class="relate">
+                                                    <div class="progress-grey-bg"></div>
+                                                    <div class="progress-bar-strip" ng-style="mystyle2" ng-class="{'completed-step': level>=2}"></div>
+                                                </div>
+                                                <span class="progress-range ">4-7</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-flex ">
+                                            <div class="level3" ng-class="{'active-bar' : level==3}">
+                                                <span class="name ">Globe Trotter</span>
+                                                <div class="relate">
+                                                    <div class="progress-grey-bg"></div>
+                                                    <div class="progress-bar-strip" ng-style="mystyle3" ng-class="{'completed-step': level>=3}"></div>
+                                                </div>
+                                                <span class="progress-range ">8-15</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-flex ">
+                                            <div class="level4" ng-class="{'active-bar' : level==4}">
+                                                <span class="name ">Wayfarer</span>
+                                                <div class="relate">
+                                                    <div class="progress-grey-bg"></div>
+                                                    <div class="progress-bar-strip" ng-style="mystyle4" ng-class="{'completed-step': level>=4}"></div>
+                                                </div>
+                                                <span class="progress-range ">16-24</span>
+                                                <div class="last-level5 " ng-class="{'last-active-bar' : level==5}">
+                                                    <span class="last-name">Nomad</span>
+                                                    <div class="last-progress-strip" ng-style="mystyle5" ng-class="{'completed-step': level>=5}"></div>
+                                                    <span class="progress-range ">25 above</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- horizontal time line end -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="delete-post">
+    <div class="delete-pop">
+        <h4>Delete - {{tourDel.title |capitalize}} Package?</h4>
+        <p ng-if="delete">Deleted successfully.</p>
+        <div class="row-flex" ng-if="delete === false">
+            <div class="col-flex">
+                <span class="delete-confirmation" ng-click="callDelete();">YES</span>
+            </div>
+            <div class="col-flex">
+                <span class="delete-confirmation" ng-click="$dismiss();">NO</span>
+            </div>
+        </div>
+    </div>
+</div>

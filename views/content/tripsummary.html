@@ -1,0 +1,175 @@
+<div class="tripsummary-main">
+  <div class="container-fluid">
+    <!-- trip summary strip -->
+    <div class="journey-info-strip trip-summary-strip get-otgstrip clearfix">
+      <div class="pull-left">
+        <!-- own journey -->
+        <div class="own-journey">
+          <div class="profile-info">
+            <div class="user-img-ongo" ui-sref="mylife({'urlSlug':trip.user.urlSlug})">
+              <img src="{{trip.user.profilePicture | uploadpath:35:37:'cover'}}" alt="{{userData.name}}" class="img-responsive">
+            </div>
+            <h4 class="avenir-heavy color-white" ui-sref="mylife({'urlSlug':trip.user.urlSlug})">{{trip.user.name}}</h4>
+          </div>
+        </div>
+        <!-- own journey end -->
+        <!-- trip list -->
+        <div class="trip-list">
+          <ul>
+            <li>
+              <a href="">
+                <div class="trip-info">
+                  <span class="avenir-roman">Trip Travellers :</span>
+                  <span class="avenir-heavy">{{trip.count.buddies+1}}</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="trip-info">
+                  <img src="img/camera.png" alt="camera">
+                  <span class="avenir-heavy">{{trip.count.photos}}</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="trip-info">
+                  <img src="img/video.png" alt="camera">
+                  <span class="avenir-heavy">{{trip.count.videos}}</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="trip-info">
+                  <img src="img/location.png" alt="camera">
+                  <span class="avenir-heavy">{{trip.count.checkIns}}</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="trip-info">
+                  <img src="img/thought-white.png" alt="camera">
+                  <span class="avenir-heavy">{{trip.count.thoughts}}</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- trip list end-->
+        <div class="btn-summary">
+          <button class="btn btn-white-outline avenir-heavy btn-trip"
+          ng-click="routeOngo(trip);">Back To Journey</button>
+          <!-- ui-sref="ongojourney({id:trip.urlSlug})" -->
+        </div>
+      </div>
+      <div class="pull-right">
+        <!-- <div class="following">
+          <span class="color-white avenir-medium">Following</span>
+        </div> -->
+        <div class="edit-journey hide">
+          <span>Edit This Journey</span>
+          <div class="edit-journey-dropdown">
+            <ul>
+              <li><a href="">Journey Cover Photo</a></li>
+              <li><a href="">Journey Name</a></li>
+              <li><a href="">Reviews Countries Visited</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- trip summary strip end -->
+  </div>
+  <div class="container">
+    <!-- trip summary detail -->
+    <div class="trip-summary-detail bg-white">
+      <div class="heading text-center">
+        <h4 class="avenir-medium color-blue m-clear">Trip Summary</h4>
+      </div>
+      <!-- trip day like -->
+      <div class="trip-days-count">
+        <div class="text-center">
+          <ul>
+            <li>
+              <div class="days-count" ng-init="count=(trip.endTime|dateDifference: trip.startTime)">
+                <span class="color-blue avenir-roman block">{{trip.startTime|formatDate:'date'}}</span>
+                <p class="m-clear"><span class="color-blue avenir-black">{{trip.endTime|dateDifference: trip.startTime}}</span> <span>{{(trip.endTime|dateDifference: trip.startTime)|singularPlural:'Days'}}</span></p>
+              </div>
+            </li>
+            <!-- <li>
+              <div class="mileage-count">
+                <span class="color-blue avenir-roman block">Mileage</span>
+                <p class="m-clear"><span class="color-blue avenir-black">{{trip.mileage}}</span> <span>km</span></p>
+              </div>
+            </li> -->
+            <li>
+              <div class="like-count">
+                <span class="color-blue avenir-roman block">Likes</span>
+                <span class="color-blue avenir-black">{{trip.likeCount}}</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- trip day like end-->
+      <!-- trip type icon  -->
+      <div class="trip-type text-center">
+        <ul>
+          <li ng-repeat="journeyType in trip.checkInCount track by $index">
+            <div class="icon-type">
+              <figure>
+                <!--{{journeyType.name|kindOfCheckIn}}-->
+                <img ng-src="{{journeyType.name|kindOfCheckIn}}" alt="" class="img-responsive m-center">
+                <figcaption class="avenir-roman color-blue"><span class="color-pink avenir-black">{{journeyType.count}}</span> <span class="color-blue" ng-bind-html="journeyType.name"></span></figcaption>
+              </figure>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- trip type icon end -->
+      <!-- .trip type country img -->
+      <div class="trip-country text-center">
+        <ul>
+          <li ng-repeat="country in trip.countryVisited">
+            <div class="country-img">
+              <figure>
+                <img ng-src="{{country.country.flag|uploadpath}}" alt="" class="">
+                <figcaption class="color-blue avenir-roman">{{country.country.name}}</figcaption>
+              </figure>
+            </div>
+          </li>
+        </ul>
+        <div class="country-list-count mt10" ng-init="count=trip.countryVisited.length">
+          <span class="color-blue avenir-black">{{count}}</span>
+          <span class="avenir-roman color-blue">{{count|singularPlural:'Countries Visited'}}</span>
+        </div>
+      </div>
+      <!-- trip type country img end-->
+      <div class="trip-visited-detail">
+        <div class="row">
+          <div class="col-lg-6 col-md-6" ng-repeat="checkIns in trip.checkIn track by $index">
+            <div class="trip-day-detail">
+              <div class="day text-center avenir-roman">
+                <span class="watch-day">DAY</span>
+                <span class="travel-day">{{checkIns.UTCModified|dateDifference: trip.startTime}}</span>
+              </div>
+              <!-- <div class="trip-type-icon">
+                <img ng-src="{{trip.travelTypeIcon}}" alt="" class="img-responsive">
+                <img src="img/ongojourney/otg-location.png" alt="CheckIn" class="img-responsive">
+              </div> -->
+              <div class="trip-status">
+                <span class="color-blue avenir-roman status" ng-bind-html="checkIns|postString:true| truncate:310"></span>
+                <span class="avenir-roman trip-photo-added pointer">{{trip.photoAdd}}</span>
+                <p class="avenir-roman trip-time-day"><i class="fa fa-calendar mr5"></i><span>{{checkIns.UTCModified|formatDate:"date"}}</span> | <i class="fa fa-clock-o mr5"></i><span>{{checkIns.UTCModified|formatDate:"time"}}</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- trip summary detail end-->
+  </div>
+</div>

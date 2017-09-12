@@ -1,0 +1,134 @@
+<div class="agent-user {{getBackdrop}} relate mt-80" scrolladd1class>
+  <div scrolldown>
+    <div class="img-holder-agent bg-agent-user-img avenir-roman">
+      <div class="agt-card-posi">
+        <div class="agt-title-card get-center">
+          <a href="img/default_Images_2.jpg" fancybox-box class="fancybox">
+            <div class="circ-agtimg">
+              <img src="img/default_Images_2.jpg" alt="" class="img-responsive">
+            </div>
+          </a>
+          <h4 class="font-bold avenir-heavy">Lifestyle Holidays</h4>
+          <p>Mumbai, India</p>
+          <button class="btn btn-white-outline mr5">Following</button>
+          <span><span class="font-bold"> 255 </span> Followers </span>
+        </div>
+      </div>
+    </div>
+    <!-- agent-user-fixednav -->
+    <div class="agent-user-nav avenir-roman">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8 col-sm-8">
+            <div class="agent-scroll">
+              <ul class="list-inline">
+                <li ng-click="getTab(0)" ng-class="{'active': agtuseroptions.active=='usr-itinerary'}">Itineraries </li>
+                <li ng-click="getTab(1)" ng-class="{'active': agtuseroptions.active=='usr-tourpackages'}">Tours &amp; Packages</li>
+                <li ng-click="getTab(2)" ng-class="{'active': agtuseroptions.active=='usr-photovideos'}"> Photos &amp; Videos</li>
+                <li ng-click="getTab(3)" ng-class="{'active': agtuseroptions.active=='usr-testimonialreviews'}">Testimonials &amp; Reviews</li>
+                <li ng-click="getTab(4)" ng-class="{'active': agtuseroptions.active=='usr-travelactivity'}">Travel Activity</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4">
+            <div class="mob-ml5">
+              <ul class="list-inline pull-right  mob-left">
+                <li ng-click="getTab(5)" ng-class="{'active': agtuseroptions.active=='usr-aboutus'}">About Us | Speciality</li>
+                <!-- <li ng-click="getTab(5)" ng-class="{'active': agtuseroptions.active=='usr-aboutus'}">Speciality</li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="agent-user-content" ng-include="agtuser.innerView"></div>
+
+    <!-- Enquiry side tab -->
+    <div class="side-enquiry">
+      <div class="enquiry-sidetab" ng-show="viewEnquiry" ng-class="{'view-enquiry-list' : viewEnquiry ,  ' ' : !viewEnquiry}">
+        <div class="enquirytab-head">
+          <h4 class="avenir-roman color-blue">Enquire</h4>
+        </div>
+        <div class="user-enquireform">
+          <form>
+            <div class="form-group">
+              <div class="enquirytab-cmpny-inputholder">
+                <input type="text" class="form-control color-blue" placeholder="Travelling To">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="enquirytab-cmpny-inputholder">
+                <input type="text" class="form-control color-blue" placeholder="Name">
+                <div class="enquirytab-input-icon">
+                  <i class="fa fa-user color-grey"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-5 col-sm-5">
+                <div class="form-group">
+                  <div class="enquirytab-cmpny-inputholder">
+                    <input type="tel" class="form-control color-blue" placeholder="Contact No">
+                    <div class="enquirytab-input-icon">
+                      <i class="fa fa-phone color-grey"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-7 col-sm-7">
+                <div class="form-group">
+                  <div class="enquirytab-cmpny-inputholder">
+                    <input type="email" class="form-control color-blue" placeholder="Email">
+                    <div class="enquirytab-input-icon">
+                      <i class="fa fa-envelope color-grey"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="enquirytab-cmpny-inputholder">
+                <textarea class="form-control color-blue" placeholder="Further Instructions"></textarea>
+              </div>
+            </div>
+
+            <div class="enquirebutton">
+              <button class="btn btn-pink btn-more"><i class="fa fa-share"></i> Send
+          </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+      <div class="enquirytab-btn" ng-click="showEnquiry();">
+        <a class="btn-transparent-dark-blue btn" ng-class="{'hide' : viewEnquiry}">Enquire</a>
+        <a class="btn-dark-blue btn close-size" ng-class="{'hide': !viewEnquiry}"><i class="fa fa-chevron-down mr5"></i> Close</a>
+      </div>
+    </div>
+    <!-- Enquiry side tab enD-->
+
+    <!-- Contact Us side tab -->
+    <div class="side-contact avenir-roman">
+      <div class="contact-sidetab" ng-show="viewContact" ng-class="{'view-contact-list' : viewContact ,  ' ' : !viewContact}">
+        <div class="contacttab-head">
+          <h4 class="avenir-heavy color-white">Contact</h4>
+        </div>
+        <div class="user-contactdetail">
+          <h4 class="color-cyan avenir-heavy"> Andrea Travels</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit saepe architecto officia asperiores quod atque delectus nostrum dolore.</p>
+          <p><i class="fa fa-phone"></i> <a href="tel:+910224567890"> 022 456 7890 </a> | <a href="tel:+910224567320"> 022 456 7320</a> | <a href="tel:+9102224569823"> 0222 456 9823</a></p>
+          <p><i class="fa fa-envelope"></i> <a href="mailto:info@andreatravels.com"> info@andreatravels.com</a></p>
+          <p><i class="fa fa-globe" aria-hidden="true"></i> <a href="http://www.andreatravels.com" target="_blank"> www.andreatravels.com</a></p>
+        </div>
+      </div>
+      <div class="contacttab-btn" ng-click="showContact();">
+        <a class="btn-transparent-dark-blue btn" ng-class="{'hide' : viewContact}">Contact Us</a>
+        <a class="btn-dark-blue btn close-size" ng-class="{'hide': !viewContact}"><i class="fa fa-chevron-down mr5"></i> Close</a>
+      </div>
+    </div>
+    <!-- Contact Us tab enD-->
+  </div>
+</div>

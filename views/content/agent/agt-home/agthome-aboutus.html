@@ -1,0 +1,54 @@
+<div class="agt-home-aboutus">
+  <div class="container">
+    <div class="clearfix" ng-if="template.isMine">
+      <button ui-sref="agent-setting" class="btn btn-outline-blue btn-more pull-right">Edit</button>
+    </div>
+    <section>
+      <h3 class="color-pink">About Us</h3>
+      <p class="color-blue">{{userData.company.about}}</p>
+    </section>
+
+    <section>
+      <!-- itinerary type -->
+      <div class="agtcategory-type">
+        <h3 class="color-pink">Categories</h3>
+        <div class="select-category-type" ng-repeat="agtcategory in userData.company.categoryOfSpeacilization">
+          <figure class="pointer">
+            <div class="category-iconholder {{agtcategory.activeClass}}" >
+              <img ng-src="{{agtcategory|kindOfJourney:'white'}}" alt="{{agtcategory.caption}}" class="img-responsive" width="24px">
+            </div>
+            <figcaption class="color-dark-blue avenir-roman">{{agtcategory}}</figcaption>
+          </figure>
+        </div>
+      </div>
+      <!-- itinerary type end -->
+    </section>
+
+    <section>
+      <!-- Services type -->
+      <div class="agtcategory-type agentservices">
+        <h3 class="color-pink">Services</h3>
+        <p class="agentservices-list text-capitalize" ng-repeat="service in userData.company.services track by $index"> {{service}}</p>
+      </div>
+      <!-- Services end -->
+    </section>
+
+    <section>
+      <h3 class="color-pink">Speciality - Countries</h3>
+      <div class="row">
+        <div class="col-md-4 col-sm-6" ng-repeat="specialcountry in userData.company.countryOf track by $index">
+          <div class="speciality-imgholder relate">
+            <!-- <fade-img-loading blur="{{specialcountry.countryBackgroundImage|uploadpath:10:10:'cover'}}" image="{{specialcountry.countryBackgroundImage|uploadpath:750:750:'cover'}}"></fade-img-loading> -->
+            <img ng-src="{{specialcountry.countryBackgroundImage|uploadpath:600:600:'cover'}}" alt="{{specialcountry.name | capitalize}}" class="img-responsive">
+            <div class="country-textholder clearfix">
+              <p class="pull-left spclcountry-name text-capitalize">{{specialcountry.name}}</p>
+              <div class="pull-right spclcountry-stamp">
+                <img ng-src="{{specialcountry.flag|uploadpath}}" alt="{{specialcountry.name | capitalize}}" class="img-responsive">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

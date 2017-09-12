@@ -1,0 +1,227 @@
+<div class="checkin-main">
+  <div class="checkin-heading">
+    <p class="avenir-roman m-clear color-white text-center">Edit Your Travel Life Check In</p>
+  </div>
+  <div class="clearfix mt10 mb10">
+    <div class="pull-right">
+      <div class="close pop-close-btn" ng-click="$dismiss();"><img src="img/cancel.png" alt="Cancel" class="img-responsive"></div>
+    </div>
+  </div>
+  <div class="checkin-main">
+    <form>
+      <!--<div class="checkin-input-holder">
+        <div class="form-group">
+          <input type="text" class="form-control">
+        </div>
+      </div>-->
+      <!--<div class="row">
+        <div class="col-md-4">
+          <div class="checkin-input-holder">
+            <div class="form-group">
+              <input type="text" class="form-control" ng-click="showJourneyIcon = !showJourneyIcon">
+              <i class="fa fa-angle-down color-white"></i>
+            </div>
+            <div class="journeytype-dropdown" ng-show="showJourneyIcon">
+              <ul>
+                <li><a href="" title=""><img src="img/island.png" alt="" class="img-responsive" width="25"></a></li>
+                <li><a href="" title=""><img src="img/more-road.png" alt="" class="img-responsive" width="25"></a></li>
+                <li><a href="" title=""><img src="img/bus.png" alt="" class="img-responsive" width="25"></a></li>
+                <li><a href="" title=""><img src="img/dj.png" alt="" class="img-responsive" width="25"></a></li>
+                <li><a href="" title=""><img src="img/island.png" alt="" class="img-responsive" width="25"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="checkin-input-holder">
+            <div class="form-group">
+              <input type="text" class="form-control" ng-click="showLocation = !showLocation">
+              <i class="fa fa-angle-down color-white"></i>
+            </div>
+            <div class="location-dropdown" ng-show="showLocation">
+              <ul>
+                <li><a href="" title="Gujarat">at Gujarat</a></li>
+                <li><a href="" title="Mumbai">at Mumbai</a></li>
+                <li><a href="" title="Delhi">at Delhi</a></li>
+                <li><a href="" title="West Bengal">at West Bengal</a></li>
+                <li><a href="" title="Ladakh">at Ladakh</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>-->
+      <!-- uploaded file -->
+      <div class="file-input">
+        <div class="row">
+          <div class="col-md-4" ng-repeat="files in checkinUpload">
+            <div class="upload-file-main">
+              <div class="upload-file" ng-show="uploadImage">
+                <!-- <input type="file"> -->
+                <input id="upload{{$index}}" type="file" ng-click="previewFile($index)" ><br>
+                <!-- <img id="img1" src="" height="200" alt="Image preview..."> -->
+                <div class="get-center"><i class="fa fa-plus fa-4x color-white"></i></div>
+              </div>
+              <div class="show-uploaded-image" ng-show="viewUploadedImg">
+                <div class="uploaded-imgholder">
+                  <!-- <img src="img/moment-travel1.jpg" alt="" class="img-responsive get-center scale-onhover"> -->
+                  <img id="img{{$index}}" src="" alt="Image preview..." class="img-responsive get-center scale-onhover">
+                  <div class="onhover-uploaded-img">
+                    <i class="fa fa-trash-o remove-img color-white pointer" ng-click="returnUpload();"></i>
+                    <div class="get-center full-width text-center">
+                      <img src="img/add-friend.png" alt="" class=" m-center">
+                      <p class="m-clear avenir-roman color-white">Click Anywhere <span class="block">To Tag Your Friend</span></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="add-caption">
+                  <div class="form-group">
+                    <div class="checkin-input-holder">
+                      <input type="text" class="form-control" placeholder="Add Caption">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+           <div class="col-md-4">
+            <div class="upload-file-main">
+              <!--<div class="upload-file">
+                <input type="file">
+                <div class="get-center"><i class="fa fa-plus fa-4x color-white"></i></div>
+              </div>-->
+              <div class="show-uploaded-image">
+                <div class="uploaded-imgholder">
+                  <img src="img/moment-travel2.jpg" alt="" class="img-responsive get-center scale-onhover">
+                  <div class="onhover-uploaded-img">
+                    <i class="fa fa-trash-o remove-img color-white pointer"></i>
+                    <div class="get-center full-width text-center">
+                      <img src="img/add-friend.png" alt="" class=" m-center">
+                      <p class="m-clear avenir-roman color-white">Click Anywhere <span class="block">To Tag Your Friend</span></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="add-caption">
+                  <div class="form-group">
+                    <div class="checkin-input-holder">
+                      <input type="text" class="form-control" placeholder="Add Caption">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
+           <div class="col-md-4">
+            <div class="upload-file-main">
+              <!--<div class="upload-file">
+                <input type="file">
+                <div class="get-center"><i class="fa fa-plus fa-4x color-white"></i></div>
+              </div>-->
+              <div class="show-uploaded-image">
+                <div class="uploaded-imgholder">
+                  <img src="img/moment-travel1.jpg" alt="" class="img-responsive get-center scale-onhover">
+                  <div class="onhover-uploaded-img">
+                    <i class="fa fa-trash-o remove-img color-white pointer"></i>
+                    <div class="get-center full-width text-center">
+                      <img src="img/add-friend.png" alt="" class=" m-center">
+                      <p class="m-clear avenir-roman color-white">Click Anywhere <span class="block">To Tag Your Friend</span></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="add-caption">
+                  <div class="form-group">
+                    <div class="checkin-input-holder">
+                      <input type="text" class="form-control" placeholder="Add Caption">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+           <div class="upload-file">
+                <input type="file">
+                <div class="get-center"><i class="fa fa-plus fa-4x color-white"></i></div>
+              </div>
+        </div>
+      </div>
+      <!-- uploaded file end -->
+      <!-- upload photo or video -->
+      <div class="upload-checkin-sec">
+        <div class="checkin-uploaded-pic">
+          <div class="uploaded-photo-imgholder">
+            <img src="img/uploaded-pic.jpg" alt="" class="img-responsive">
+            <span class="video-icon"><i class="fa fa-youtube-play fa-2x color-white"></i></span>
+          </div>
+          <div class="add-caption">
+            <div class="checkin-input-holder">
+              <input type="text" class="form-control" placeholder="Add Caption">
+            </div>
+          </div>
+        </div>
+        <div class="upload-section text-center">
+          <img src="img/upload-icon-white.png" alt="" class="m-center img-responsive">
+          <p class="text-center color-white avenir-roman mt10">Drag a Photo here</p>
+          <span class="block mt10 color-white avenir-roman">-or-</span>
+          <div class="upload-btn">
+            <div class="relate">
+              <button class="btn btn-pink pointer file-btn avenir-light">Select a photo from your computer input</button>
+              <input type="file" id="fileInput" class="getfile pointer" />
+            </div>
+            <div class="inline-block mr5 mt5">
+              <button class="btn btn-pink pointer avenir-light">Your Photos</button>
+            </div>
+            <div class="inline-block ml5 mt5">
+              <button class="btn btn-pink pointer avenir-light">Web Camera</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- upload photo or video end -->
+      <!-- tag friends -->
+      <div class="tag-friend">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="checkin-input-holder input-tag-friend">
+              <input type="text" class="form-control" ng-model="searchFriend" placeholder="Tag Friends" ng-click="viewFriend = !viewFriend">
+              <span class="tag-add-imgholder">
+                <img src="img/add-friend.png" alt="" width="25">
+              </span>
+              <span class="tag-search-icon"><i class="fa fa-search color-white"></i></span>
+              <div class="tagfriend-list" ng-show="viewFriend">
+                <ul>
+                  <li ng-repeat="friend in listFriend | filter:searchFriend">
+                    <div class="friend-listholder select-friend">
+                      <input type="checkbox" name="tag-list" id="{{friend.name}}">
+                      <label for="{{friend.name}}">
+                        <div class="friend-imgholder">
+                          <img ng-src="{{friend.img}}" alt="{{friend.name}}" class="img-responsive">
+                        </div>
+                        <span class="color-blue avenir-roman">{{friend.name}}</span>
+                      </label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="savebtn-checkin">
+              <button class="btn btn-pink btn-more full-width">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- tag friends end -->
+      <!-- tag deleted btn -->
+      <div class="tagged-delete-list">
+        <a href="" ng-repeat="list in tagButton">
+          <span class="img-friend"><img ng-src="{{list.img}}" alt="img-responsive"></span>
+          <span class="color-white avenir-roman inline-block v-mid">{{list.name}}</span>
+          <span class="hover-tag-btn">
+            <i class="fa fa-trash-o color-white get-center"></i>
+          </span>
+        </a>
+      </div>
+      <!-- tag deleted btn end-->
+    </form>
+  </div>
+</div>

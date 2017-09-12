@@ -1,0 +1,95 @@
+<div class="destination mt-60" scrolldown>
+  <div class="img-holder-destination bg-destination relate">
+    <div class="overlay-landing"></div>
+    <div class="get-center country-title destiantion-country-title">
+      <h4 class="color-white title-head">Destinations</h4>
+    </div>
+ <div ng-include="template.footer" class="template footer"></div>
+    <div class="mouse-scrolldown color-white text-center" ng-click="scrollDown();">
+      <img src="img/mouse-scroll.png" alt="Travelibro">
+      <p>Scroll Down</p>
+    </div>
+  </div>
+
+  <div class="bg-white">
+    <div class="destination-head plr30 second">
+      <div class="destination-nav">
+        <div class="row m-m0">
+          <div class="col-md-offset-8 col-md-4 col-sm-offset-6 col-sm-6 m-plr0">
+            <form action="">
+              <div class="input-search dest-chnge pt20 relate" ng-init="seeDestination={'outerClass':'destinationOuter','innerClass':'destinationInner'}">
+                <div class="input-group destinationOuter">
+                  <input type="text" class="form-control fnt-16" placeholder="Search Destination" ng-model="destination" ng-change="searchDestination(destination,'searchDest')" ng-click="editOption(seeDestination,'destinationOuter','destinationInner')">
+                  <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
+                  <span ng-if="searchLoader" class="small-loader">
+                    <img src="img/page.svg" width="20px" alt="" class="img-responsive">
+                  </span>
+                </div>
+                <div class="dropdown-destination destination-main destinationInner" ng-show="seeDestination.backgroundClick">
+                  <ul>
+                    <li ng-repeat="dest in destinationList  track by $index">
+                      <span ng-if="dest.isCity==true" ng-click="countryView(dest.urlSlug,dest.isCity);">{{dest.name}}</span>
+                      <span ng-if="dest.isCity==false" ng-click="countryView(dest.urlSlug,dest.isCity);">{{dest.name}}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="destination-content mt0">
+        <div class="head-title">
+          <h4 class="fnt-42 brdbtm alpha-color mt-clear text-uppercase">{{viewListByKey}}</h4>
+        </div>
+        <div class="destination-holder main-destination-page relate pt20 pr20">
+          <div class="row m-m0" infinite-scroll="getMoreDestination()" infinite-scroll-disabled="scroll.busy">
+            <div class="col-md-4 col-sm-6 m-plr0"  ng-repeat="dest in destinationList track by $index">
+              <div class="city-view" ng-if="dest.isCity==true">
+                <div class="img-holder relate" ng-click="countryView(dest.urlSlug,dest.isCity);">
+                  <fade-img-loading blur="{{dest.cityDisplayPhoto|uploadpath:10:10:'cover'}}" image="{{dest.cityDisplayPhoto|uploadpath:600:600:'cover'}}"></fade-img-loading>
+                  <!-- <img ng-src="{{dest.cityDisplayPhoto|uploadpath:600:600:'cover'}}" alt="travelibro" class="img-responsive full-width city-img"> -->
+                  <h4 class="title-head-left color-white">
+                    {{dest.name}}
+                  </h4>
+                  <div class="title-head-right color-white">
+                    <img ng-src="{{dest.country[0].flag|uploadpath}}"   alt="Travelibro">
+                  </div>
+
+                  <div class="read-more left-bottom">
+                  <p class="itinerary-must-count m-clear color-white avenir-roman">Must Dos : <span class="avenir-heavy">{{dest.mustDoCount}}</span> | Itineraries : <span class="avenir-heavy">{{dest.itineraryCount}}</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="country-view" ng-if="dest.isCity==false">
+                <div class="img-holder relate" ng-click="countryView(dest.urlSlug,dest.isCity)">
+                  <!-- <img ng-src="{{dest.countryBackgroundImage|uploadpath:400:400:'cover'}}" alt="travel-libro" class="img-responsive full-width"> -->
+                  <fade-img-loading blur="{{dest.countryBackgroundImage|uploadpath:10:10:'cover'}}" image="{{dest.countryBackgroundImage|uploadpath:400:400:'cover'}}"></fade-img-loading>
+                  <div class="title-head-left color-white">
+                    {{dest.name}}
+                  </div>
+                <div class="title-head-right color-white">
+                    <img ng-src="{{dest.flag|uploadpath}}"   alt="Travelibro">
+                  </div>
+                  <div class="read-more left-bottom">
+                    <p class="itinerary-must-count m-clear color-white avenir-roman">Featured Cities : <span class="avenir-heavy">{{dest.cityCount}}</span> | Itineraries : <span class="avenir-heavy">{{dest.itineraryCount}}</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pagination-loader" ng-if="destinationPagination">
+            <img src="img/page.svg" alt="Loading..." width="50px" class="img-responsive m-center">
+          </div>
+          <div class="alphabhates right-end" scrolladdclass>
+            <ul class="list-unstyle">
+              <li ng-repeat="countryKey in countryDestList track by $index" ng-click="searchDestination(countryKey,'clickDest')">
+                <a href="" class="color-grey-apha">{{countryKey}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

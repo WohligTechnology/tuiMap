@@ -1,0 +1,30 @@
+<div class="search-result">
+    <div class="container">
+        <div class="search-contentbox">
+            <!-- SEARCH NAVIGATIION BAR -->
+            <div class="search-navigation">
+                <div class="searchnav-scroll">
+                    <ul class="list-inline">
+                        <li ng-click="getTab(0)" ng-class="{'active': searchresultoptions.active=='search-traveller'}">Traveller </li>
+                        <li ng-click="getTab(1)" ng-class="{'active': searchresultoptions.active=='search-itinerary'}">Itineraries</li>
+                        <li ng-click="getTab(2)" ng-class="{'active': searchresultoptions.active=='search-hashtag'}"> Hashtags</li>
+                        <li ng-click="getTab(3)" ng-class="{'active': searchresultoptions.active=='search-country'}">Countries</li>
+                        <li ng-click="getTab(4)" ng-class="{'active': searchresultoptions.active=='search-city'}">Cities</li>
+                        <li ng-click="getTab(5)" ng-class="{'active': searchresultoptions.active=='search-travelAgent'}">Travel Agent</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- SEARCH NAVIGATIION BAR END -->
+            <!-- SEARCH RESULT CONTENT -->
+            <div class="search-result-content" ng-include="searchresult.innerView"></div>
+            <!-- SEARCH RESULT CONTENT END -->
+        </div>
+    </div>
+</div>
+<div class="" ng-if="postScrollData.viewList">
+  <!-- showLikeCommentCard || postScrollData.viewList -->
+  <comment-like-section post="post" user-data='userData' post-scroll-data="postScrollData" view-card-comment="viewCardComment" view-card-like='viewCardLike'
+    list-of-comments="listOfComments" list-of-likes="listOfLikes" get-card="getCard" show-like-show='showLikeShow'></comment-like-section>
+</div>
+<div class="backdrop-close" ng-class="{'view-backdrop':viewCardComment==true || viewCardLike==true,'':viewCardComment==false || viewCardLike==false}"
+  ng-click="closeBackDrop();"></div>

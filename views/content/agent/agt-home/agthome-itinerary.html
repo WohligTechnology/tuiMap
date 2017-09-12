@@ -1,0 +1,283 @@
+<div class="agt-home-itinerary">
+    <div class="" infinite-scroll="getMoreAgentItinerary();" infinite-scroll-disabled="scroll.busy">
+        <!-- ADD BUTTON -->
+        <div class="add-agentbutton" ng-if="template.isLoggedIn && template.isMine">
+            <div class="container">
+                <div class="clearfix">
+                    <div class="pull-right">
+                        <div class="add-agtitinerary">
+                            <span class="pointer add-holder" ng-click="addItinerary();" ng-class="{'close-more' : showItinerary == true}"><i class="fa fa-plus"></i></span>
+                            <div class="add-more-itinerary" ng-show="showItinerary">
+                                <ul>
+                                    <li class="clearfix relate"><a ui-sref="detailitinerary({flag:'new',urlSlug:''})">Detailed Itinerary</a> <a class="itinerary-info"><span class="pull-right" ng-click="showdetailInfo()"><i class="fa fa-info-circle"></i></span>
+              <div class="itinerary-infobox">Pen down day-to-day itinerary in every way-country to visit, cities to explore, places to stay at, things to do, landmarks to discover, and more.</div></a></li>
+                                    <li class="clearfix relate"><a ui-sref="quickitinerary({flag:'new',urlSlug:''})">Quick Itinerary </a><a class="itinerary-info"><span class="pull-right" ng-click="showquickInfo()"><i class="fa fa-info-circle"></i></span>
+              <div class="itinerary-infobox"  >Short on time... simply paste your ready made itineraries in our section in as many words as you desire and you are good to go.</div></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ADD BUTTON END -->
+        <!-- FILTER START -->
+        <div class="agent-itinerary-filter" ng-if="showFilter === true">
+            <!-- && !template.isMine -->
+            <!--<div class="agent-itinerary-filter">-->
+            <div class="relate " ng-class="{'openfilter': isopenfilter}">
+                <div class="pt20 pb10 head-title-all pl35">
+                    <div class="row m-clear">
+                        <div class="col-md-3">
+                            <div class="pad-btn">
+                                <button class="btn btn-dark-blue" ng-click="isopenfilter=true"><i class="fa fa-filter" aria-hidden="true"></i> Filter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="libro-filter filterclose">
+                    <form>
+                        <div class="pt20 pb10 head-title-all fliter-min-hght bg-white">
+                            <div class="container-fluid">
+                                <div class="pad-btn">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-3">
+                                            <div class="select-all-made city-select destination-filterscroll relate" ng-init="viewItineraryCity={'outerClass':'outerCity','innerClass':'innerCity'}">
+                                                <input type="text" ng-model="itinerary.citySearch" class="form-control outerCity" ng-change="getItinerayCity();" placeholder="City" ng-click="editOption(viewItineraryCity,'outerCity','innerCity');">
+                                                <div class="city-dropdow itinerary-dropdown innerCity" ng-show="viewItineraryCity.backgroundClick">
+                                                    <ul>
+                                                        <li ng-repeat="city in cityList track by $index">
+                                                            <div class="select-city custom-checkbox">
+                                                                <input type="checkbox" id="{{city.name}}" ng-model="city.checked" ng-click="itineraryFilter(city,'itineraryCity')">
+                                                                <label for="{{city.name}}">{{city.name}}</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="visible-xs">
+                                                            <div class="button-all text-right pt10 pr10 pb10">
+                                                                <a class="btn btn-pink avenir-roman " ng-click="itineraryFilter();">Submit</a>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3">
+                                            <div class="select-all-made itinerary-select destination-filterscroll relate" ng-init="viewItineraryType={'outerClass':'outerIti','innerClass':'innerouterIti'}">
+                                                <input type="text" ng-model="itinerary.type" class="form-control outerIti" ng-change="getItineraryType();" placeholder="Type" ng-click="editOption(viewItineraryType,'outerIti','innerouterIti')">
+                                                <div class="city-dropdow itinerary-dropdown innerouterIti" ng-show="viewItineraryType.backgroundClick">
+                                                    <ul>
+                                                        <li ng-repeat="type in itineraryType track by $index">
+                                                            <div class="select-city custom-checkbox">
+                                                                <input type="checkbox" id="{{type.name}}" ng-model="type.checked" ng-click="itineraryFilter(type,'itineraryType')">
+                                                                <label for="{{type.name}}">{{type.name}}</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="visible-xs">
+                                                            <div class="button-all text-right pt10 pr10 pb10">
+                                                                <a class="btn btn-pink avenir-roman " ng-click="getAgentItiSubmit(userData.urlSlug);">Submit</a>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-offset-1 col-md-5  col-sm-3 ">
+                                            <div class="txt-clear text-right ">
+                                                <a ng-click="clearAgentItinerary();">Clear All</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt10 pb10 head-title-all bg-grey mb20 ">
+                            <div class="container-fluid ">
+                                <div class="plr30 ">
+                                    <div class="close-all">
+                                        <!--<pre>{{userData.urlSlug}}</pre>-->
+                                        <a class="btn btn-pink avenir-roman " ng-click="isopenfilter=false">X Close</a>
+                                        <a class="btn btn-pink avenir-roman" ng-click="getAgentItinerary(userData.urlSlug);isopenfilter=false">Submit</a>
+                                        <span class="tags avenir-roman" ng-repeat="item in cityList track by $index" ng-if="item.checked">{{item.name}}<span ng-click="itineraryFilter(item,'itineraryCity')">X</span></span>
+                                        <span class="tags avenir-roman" ng-repeat="item in agentItineraryType track by $index">{{item.name}} <span ng-click="itineraryFilter(item,'itineraryType')">X</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- FILTER START  END-->
+        <!-- EMPTY AGENT INTRO -->
+        <div class="empty-intro " ng-if="agentItinerary.length==0 && showFilter === false && template.isLoggedIn && template.isMine">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="mockup-video relate">
+                            <img src="img/iMac.png" alt="" class="img-responsive">
+                            <div class="agthome-itinerary-youtube agentlogin-vimeo">
+                                <iframe src="https://player.vimeo.com/video/224049673?color=11d3cb&title=0&byline=0&portrait=0" width="100%" height="308px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-12 col-xs-12">
+                        <div class="agt-home-itineraryintro">
+                            <h3 class="color-blue">
+                Fill in this space to give travel lovers a better sense of what your agency has to offer.</h3>
+                            <p class="color-blue">Regularly updating your library with new itineraries, keeps travellers interested and informed about how touring with your agency can make a good tour/trip, great!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- EMPTY AGENT INTRO END-->
+        <!-- EMPTY USER PAGE -->
+        <div class="empty-intro avenir-roman" ng-if="!template.isMine && agentItinerary.length==0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-8">
+                        <div class="agt-user-intro">
+                            <h3 class="color-blue avenir-heavy text-capitalize">{{userData.name}}</h3>
+                            <p class="color-blue">is still to upload this space with interesting itineraries.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- EMPTY USER PAGE END -->
+        <!-- Itinerary cards -->
+        <div class="agent-cardsection" ng-if="agentItinerary.length!=0">
+            <div class="container">
+                <div class="row">
+                    <!-- NEW CARD -->
+                    <div class="travelLife col-md-4 col-sm-6" ng-repeat="post in agentItinerary track by $index">
+                        <div class="travel-life-part  blog-post {{post.type}} avenir-roman overflow">
+                            <!-- ng-if="post.type=='quick-itinerary' || post.type=='detail-itinerary'" -->
+                            <div class="travel-journey-heading relate">
+                                <div class="inline-block v-mid">
+                                    <p class="m-clear color-blue travelitinerary-title"><span class="text-capitalize">{{post.name|truncate:'30'}} </span> - <span><span ng-if="post.type == 'quick-itinerary'">Quick </span> Itinerary</span> <span>( {{post.duration}} {{post.duration| singularPlural: 'Days'}} )</span></p>
+                                </div>
+                                <!-- flag section -->
+                                <div class="flag-section">
+                                    <div class="country-visited ng-scope" ng-repeat="flag in post.countryVisited|limitTo:3">
+                                        <img ng-src="{{flag.country.flag|uploadpath}}" alt="{{flag.country.name}}" class="img-responsive doneLoading" height="30">
+                                    </div>
+                                    <span class="country-count" ng-if="post.countryVisited.length>3">+{{post.countryVisited.length-3}}</span>
+                                </div>
+                                <!-- flag section end-->
+                            </div>
+                            <div class="onway-journey relate pointer" ng-click="routeItinerary(post);">
+                                <div class="onway-imgholder">
+                                    <img ng-src="{{post.coverPhoto|uploadpath:370:340:'cover'}}" alt="{{post.name}} | TraveLibro" class="full-width m-center">
+                                </div>
+                                <div class="date-itinerary">
+                                    <span class="view-date text-center">
+                  {{post.createdAt|date:'MMM'}}<br>{{post.createdAt|date:'yyyy'}}
+                </span>
+                                </div>
+                                <div class="journey-tag-holder" hidden>
+                                    <div class="days-spent pull-right" ng-if="post.duration>0">
+                                        <p><span class="block">{{post.duration}}</span>Days</p>
+                                    </div>
+                                    <h3 class="m-clear text-capitalize">{{post.name}}</h3>
+                                    <div class="clearfix journey-travelling-type">
+                                        <div class="row">
+                                            <div class="col-xs-5">
+                                                <div class="pull-left">
+                                                    <div class="journey-type m0">
+                                                        <ul>
+                                                            <li ng-repeat="type in post.itineraryType|limitTo:3">
+                                                                <a href=""><img ng-src="{{type|kindOfJourney:'white'}}" alt="" height="20"></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-7">
+                                                <div class="" ng-if="post.type=='quick-itinerary'">
+                                                    <div class="quick-itinerary-tag">
+                                                        <h4>Quick</h4>
+                                                        <p>Itinerary</p>
+                                                    </div>
+                                                    <div class="date-quick-itinerary">
+                                                        {{post.month}} {{post.year}}
+                                                    </div>
+                                                </div>
+                                                <div class="text-right">
+                                                    <div class="journey-cost" ng-if="post.currency!='' && post.cost!='' && post.currency!='0'">
+                                                        <span>{{post.currency}}</span>
+                                                        <span>{{post.cost | number}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="social-field-types">
+                                <div class="user-social-item clearfix">
+                                    <div class="pull-left">
+                                        <ul>
+                                            <li ng-click="likeUnlikeActivity(post);" like-sound><a href="" class="relate pointer"><i class="fa color-blue" ng-class="post.likeDone ? 'fa-heart like-animate' : 'fa-heart-o'"></i>
+                <span></span>
+                <audio id="like-play">
+                  <source src="img/tiny1.mp3" type="audio/mp3">
+                </audio>
+              </a></li>
+                                            <li class="pointer" ng-click="getCommentsData(post)">
+                                                <a href=""><img src="img/comments.png" alt="" height="18"></a>
+                                            </li>
+                                            <!-- <li>
+                  <a href=""><img src="img/reviews.png" alt="" height="18"></a>
+                </li> -->
+                                            <li>
+                                                <a class="pointer" ng-click="sharePost(post.sharingUrl)"><img src="img/share.png" alt="" height="18"></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="pull-right" hidden>
+                                        <div class="relate" ng-init="post.option={}">
+                                            <span class="pointer" ng-click="editOption(post.option);">
+                    <img src="img/options.png" alt="Options" height="18" class="pointer">
+                  </span>
+                                            <div class="activity-edit-option" ng-show="post.option.backgroundClick">
+                                                <ul>
+                                                    <li class="pointer" ng-if="post.user._id==userData._id">Hide From All Activity Feed <span class="hide-hover">? <span class="info-div pointer">This activity will be hidden from all your followers "Activity Feed".</span> </span>
+                                                    </li>
+                                                    <li class="pointer" ng-if="post.user._id!=userData._id" ng-click="openThankYouModal();">Report</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="social-likes-reviews avenir-heavy" ng-if="post.likeCount!=0 || post.commentCount!=0">
+                                    <div class="clearfix">
+                                        <div class="pull-left">
+                                            <span class="color-blue mr10 pointer" ng-click="getLikesData(post);"><i class="fa fa-heart color-blue mr5"></i><b class="mr5">{{post.likeCount}}</b>Likes</span>
+                                            <span class="color-blue mr10 pointer" ng-click="getCommentsData(post)"><img src="img/comments.png" alt="" height="14"><b class=""> {{post.commentCount}} </b> Comments </span>
+                                            <!-- <span class="color-blue"><img src="img/reviews.png" alt="" height="15" class="mr5 v-top">{{post.userReviewCount}} Reviews ({{post.userReviewCount}}/5)</span> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- NEW CARD END -->
+            </div>
+        </div>
+        <!-- Itinerary cards end -->
+        <!-- PAGINATION LOADER -->
+        <div class="" ng-if="template.paginationLoader">
+            <img src="img/page.svg" alt="" class="m-center img-responsive" width="25px">
+        </div>
+        <!-- PAGINATION LOADER END -->
+    </div>
+    <!-- COMMENT LIKE SECTION -->
+    <div class="" ng-if="postScrollData.viewList">
+        <comment-like-section post="post" user-data='userData' post-scroll-data="postScrollData" view-card-comment="viewCardComment" view-card-like='viewCardLike' list-of-comments="listOfComments" list-of-likes="listOfLikes" get-card="getCard" show-like-show='showLikeShow'></comment-like-section>
+    </div>
+    <div class="backdrop-close" ng-class="{'view-backdrop':viewCardComment==true || viewCardLike==true,'':viewCardComment==false || viewCardLike==false}" ng-click="closeBackDrop();"></div>
+    <!-- COMMENT LIKE SECTION END -->
+</div>

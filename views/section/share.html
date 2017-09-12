@@ -1,0 +1,94 @@
+<div class="web-layer layer"></div>
+<div id="scene" class="scene unselectable" data-friction-x="0.1" data-friction-y="0.1" data-scalar-x="25" data-scalar-y="15"
+  style="width: 100%; transform: translate3d(0px, 0px, 0px); transform-style: preserve-3d; backface-visibility: hidden;" data-mode="cursor">
+  <div class="overlay colorblack"></div>
+  <div class="img-holder contact mobile-hide-footer" auto-height>
+    <div class="container">
+      <div class="ab contact-ab">
+        <div class="content-left">
+          <div class="contact-decrp">
+            <div class="color-white fnt-60 uppercase avenir-medium line-height90  text-left">SPREAD
+              <img src="img/libro-home/location.png" alt="" class="img-location"></div>
+            <div class="color-white fnt-60 uppercase avenir-medium line-height90  text-left">
+              <span class="fnt-32">the
+                            </span> Word
+            </div>
+          </div>
+          <div class="mt20">
+            <div class="social-icons">
+              <ul class="list-unstyled list-inline color-white">
+                <li>
+                   <a ng-href="https://www.facebook.com/sharer/sharer.php?u=https://travelibro.com/" target="_blank" class="color-white facebook-icon">
+                   <i class="fa fa-facebook"></i>
+                   </a>
+                </li>
+                <li>
+                  <a ng-href="https://twitter.com/intent/tweet?url=https://travelibro.com/" target="_blank" class="color-white twitter-icon">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a ng-href="https://plus.google.com/share?url=https://travelibro.com/" target="_blank" class="color-white google-plus-icon">
+                    <i class="fa fa-google-plus"></i>
+                  </a>
+                </li>
+                <li>
+                  <a ng-href="http://pinterest.com/pin/create/button/?url=https://travelibro.com/&description=TraveLibro" target="_blank" class="color-white pinterest-icon">
+                    <i class="fa fa-pinterest"></i>
+                  </a>
+                </li>
+                <!--<li>
+                  <a href="https://www.instagram.com/travelibro/" target="_blank" class="color-white instagram-icon">
+                    <i class="fa fa-instagram"></i>
+                  </a>
+                </li>-->
+                <li>
+                  <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://travelibro.com/&title=TraveLibro&summary=TraveLibro" target="_blank" class="color-white linkedin-icon">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+                </li>
+                <!--<li>
+                  <a href="https://www.youtube.com/channel/UCF4_sVa7oxUq3Qkpczuj5-Q" target="_blank" class="color-white youtube-icon">
+                    <i class="fa fa-youtube"></i>
+                  </a>
+                </li>-->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="menu-contact share ab">
+        <div class="row">
+          <div class="col-sm-8">
+            <div>
+            <ul class="list-unstyled list-inline avenir-black">
+              <li>
+                <a ui-sref="destination" class="color-white">Destinations</a>
+              </li>
+              <li>
+                                <!--<a href="https://travelibro.com/bookings/{{'?accessToken=' + accessToken}}" ng-if="accessToken" class="color-white">Bookings</a>-->
+                <a class="color-white" ng-click="bookingLink();">Bookings</a>
+              </li>
+              <li>
+                <a ui-sref="popularitinerary" class="color-white">Itineraries</a>
+              </li>
+              <li>
+                <a href="https://travelibro.com/blog" ng-if="!accessToken" class="color-white">Blogs</a>
+                <a href="https://travelibro.com/blog{{'?accessToken=' + accessToken}}" ng-if="accessToken" class="color-white">Blogs</a>
+              </li>
+              <li>
+                <a ui-sref="about" class="color-white">About Us</a>
+              </li>
+            </ul>
+            </div>
+          </div>
+          <div class="col-sm-4">
+              <div ng-include="template.footer" class="template footer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

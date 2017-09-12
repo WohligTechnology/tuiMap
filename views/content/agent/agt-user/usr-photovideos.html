@@ -1,0 +1,49 @@
+<div class="agt-usr-photosvideos">
+  <!-- EMPTY POSTS PAGE -->
+  <div class="empty-intro  avenir-roman" hidden>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <div class="agt-user-intro">
+            <h3 class="color-blue avenir-heavy">Lifestyle Holidays</h3>
+            <p class="color-blue">is still to upload this space with interesting photos & videos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- EMPTY POSTS PAGE END -->
+  <div class="container" >
+    <div class="clearfix">
+      <div class="filter-head  pull-right">
+        <div class="photo-filter color-grey collapsed" data-toggle="collapse" data-target="#demo">
+            <span class="down">All</span>
+            <i class="fa fa-chevron-down pull-right down"></i>
+          <span class="up">Photos & Videos</span>
+          <i class="fa fa-chevron-up pull-right up"></i>
+        </div>
+        <div id="demo" class="collapse filter-data">
+          <div class="options color-blue">
+            <div class="opt custom-checkbox" ng-repeat="picfilter in picFilterList track by $index">
+              <input type="checkbox" id="{{picfilter}}">
+              <label for="{{picfilter}}">{{picfilter}}</label>
+            </div>
+          </div>
+          <div class="button-holder">
+            <a class="clear-link"> Clear </a>
+            <button class="btn btn-pink btn-apply">Apply</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="m-center">
+      <div masonry preserve-order class="masonry-main">
+        <div class="masonry-brick" ng-repeat="photo in agenPhotogallery track by $index">
+          <div class="agent-photogallery">
+            <img ng-src="{{photo}}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

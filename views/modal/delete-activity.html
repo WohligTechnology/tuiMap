@@ -1,0 +1,16 @@
+<div class="delete-post">
+    <div class="delete-pop">
+        <h4>Are You Sure ?</h4>
+        <p ng-if="status.type==='quick-itinerary' || status.type==='detail-itinerary'">Do you want to Delete this Itinerary?</p>
+        <p ng-if="status.type==='agentStatus'">Do you want to Delete this Status?</p>
+        <div class="row-flex">
+            <div class="col-flex">
+                <span class="delete-confirmation" ng-if="status.type==='quick-itinerary' || status.type==='detail-itinerary'" ng-click="deleteActivity();">YES</span>
+                <span class="delete-confirmation" ng-if="status.type==='agentStatus'" ng-click="deleteActivity();">YES</span>
+            </div>
+            <div class="col-flex">
+                <span class="delete-confirmation" ng-click="$dismiss();status={};">NO</span>
+            </div>
+        </div>
+    </div>
+</div>

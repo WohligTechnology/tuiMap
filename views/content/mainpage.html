@@ -1,0 +1,268 @@
+<!-- <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide  {{getClass}}">
+              <div class="bg-white get-width m-center">
+                <div class="verification-complete" ng-show="viewNext==1">
+                  <div class="text-center">
+                    <h3 class="color-blue avenir-black">Verification</h3>
+                    <img src="img/verified.png" alt="Verified" class="mt20 mb20 img-responsive m-center">
+                    <p class="color-blue avenir-roman">Your account has been <span class="block">successfully verified</span></p>
+                    <div class="button-panel clearfix">
+                      <button class="btn btn-blue-outline btn-more pull-right" ng-click="goNext(2)" >Next</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide {{getClass2}} {{getClass}}">
+              <div class="bg-white get-width m-center">
+                <div class="nationality">
+                  <div class="text-center">
+                    <h3 class="color-blue avenir-black">Nationality</h3>
+                    <div class="select-your-nation">
+                      <div class="search-nation">
+                        <input type="text" class="form-control avenir-roman" placeholder="Search" ng-click="showNation = (showNation == true)?false:true;" ng-model="searchNation">
+                      </div>
+                      <ul class="avenir-roman bg-dark-blue" ng-show="showNation">
+                        <li ng-repeat="nation in nationality | filter:searchNation track by $index">
+                          <div class="nation-select relate">
+                            <input type="radio" id="{{nation.name}}" name="nation" />
+                            <label for="{{nation.name}}">
+                              <img ng-src="{{nation.img}}" alt="" class="img-responsive inline-block mr10">
+                              <span class="color-white">{{nation.name}}</span>
+                            </label>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="button-panel clearfix">
+                      <button class="btn btn-blue-outline btn-more pull-left" ng-click="goNext(1)">Previous</button>
+                      <button class="btn btn-blue-outline btn-more pull-right" ng-click="goNext(3)">Next</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="bg-white get-width m-center">
+                <div class="city">
+                  <div class="text-center">
+                    <h3 class="color-blue avenir-black">Where Do You Live?</h3>
+                    <div class="select-your-nation select-your-city">
+                      <div class="search-nation select-city">
+                        <input type="text" class="form-control avenir-roman" placeholder="City" ng-click="showCity = (showCity == true)?false:true;" ng-model="searchCity">
+                      </div>
+                      <ul class="avenir-roman bg-dark-blue" ng-show="showCity">
+                        <li ng-repeat="nation in nationality | filter:searchCity track by $index">
+                          <div class="nation-select relate">
+                            <input type="radio" id="city{{nation.name}}" name="nation" />
+                            <label for="city{{nation.name}}">
+                              <span class="color-white">{{nation.name}}</span>
+                            </label>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="button-panel clearfix">
+                      <button class="btn btn-blue-outline btn-more pull-left" ng-click="goNext(2)">Previous</button>
+                      <button class="btn btn-blue-outline btn-more pull-right" ng-click="goNext(4)">Next</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div> -->
+<!-- upar wala bus check karne k liye hai asliii wala code neeche hai -->
+<div class="container">
+  <div class="login-process">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8">
+        <!-- <div class="verification">
+          <div class="text-center">
+            <h3 class="color-blue">Verification</h3>
+            <p>A 4-digit Verification code has been sent to your registered email address.</p>
+            <div class="put-code">
+              <form action="">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+              </form>
+            </div>
+            <p>If you haven’t received a verification code yet, <span>Click here to <a href="">Re-send</a></span></p>
+            <button class="btn btn-blue-outline">Submit</button>
+          </div>
+        </div> -->
+        <!--<div class="verification-complete" ng-show="goNext==1">
+            <div class="text-center">
+              <h3 class="color-blue avenir-black">Verification</h3>
+              <img src="img/verified.png" alt="Verified" class="mt20 mb20 img-responsive m-center">
+              <p class="color-blue avenir-roman">Your account has been <span class="block">successfully verified</span></p>
+              <div class="button-panel clearfix">
+                <button class="btn btn-blue-outline btn-more pull-right" ng-click="goNext=2">Next</button>
+              </div>
+            </div>
+          </div>-->
+        <div class="background-login" ng-init="goNext=3">
+          <!-- <div class="nationality" ng-show="goNext==2" hidden>
+            <div class="text-center">
+              <h3 class="color-blue avenir-black">Country of Origin</h3>
+              <div class="select-your-nation">
+                <div class="nation-country">
+                  <ui-select ng-model="userData.homeCountry" theme="bootstrap" on-select="$parent.goNext=3">
+                    <ui-select-match placeholder="Search">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="nation._id as nation in nationality | filter:$select.search" track by $index ng-click="$parent.goNext=3"><img ng-src="{{nation.flag|uploadpath:30}}" width="30" class="mr10 v-mid inline-block" alt="{{nation.name}}">
+                      <span class="color-light-grey" ng-bind="nation.name"></span>
+                    </ui-select-choices>
+                  </ui-select>
+                </div>
+              </div>
+              <div class="button-panel clearfix">
+                <button class="btn btn-outline-blue btn-more pull-right" ng-click="goNext=3" ng-disabled="!userData.homeCountry">Next</button>
+              </div>
+            </div>
+          </div> -->
+          <div class="city" ng-show="goNext==3">
+            <div class="text-center">
+              <h3 class="color-blue avenir-black">Where Do You Live ?</h3>
+              <div class="select-your-nation select-your-city">
+                <!-- <div class="search-nation select-city">
+                  <input type="text" class="form-control avenir-roman" placeholder="City" ng-model="searchCity" ng-value="userData.homeCity"
+                    ng-change="searchByKey(searchCity)">
+                </div>
+                <ul class="avenir-roman">
+                  <li ng-repeat="city in cities | filter:searchCity track by $index" ng-click="$parent.goNext=4">
+                    <div class="nation-select relate">
+                      <input type="radio" id="{{city.id}}" name="city" ng-value="city.description" ng-model="userData.homeCity" />
+                      <label for="{{city.id}}">
+                        <span class="color-light-grey font-light">{{city.description}}</span>
+                      </label>
+                    </div>
+                  </li>
+                </ul> -->
+                <div class="nation-city">
+                  <ui-select ng-model="userData.homeCity" theme="bootstrap" ng-value="userData.homeCity">
+                    <!-- on-select="$parent.goNext=4"  -->
+                    <ui-select-match placeholder="Search City">{{$select.selected.description}}</ui-select-match>
+                    <ui-select-choices repeat="city.description as city in cities | filter:searchCity" track by $index
+                      refresh="searchByKey($select.search)" refresh-delay="0">
+                      <span class="color-light-grey">{{city.description}}</span>
+                    </ui-select-choices>
+                    <!-- ng-click="$parent.goNext=4" -->
+                  </ui-select>
+                </div>
+              </div>
+              <div class="button-panel clearfix">
+                <!-- <button class="btn btn-outline-blue btn-more pull-left" ng-click="goNext=2">Previous</button> -->
+                <button class="btn btn-outline-blue btn-more pull-right" ng-click="goNext=4" ng-disabled="!userData.homeCity">Next</button>
+              </div>
+            </div>
+          </div>
+          <div class="gender" ng-show="goNext==4">
+            <div class="text-center">
+              <h3 class="color-blue avenir-black">Gender</h3>
+              <div class="male inline-block pointer ml20 mr20 mt20" ng-class="{'active-gender': userData.gender=='male'}" ng-click="changeGender(1,'male');">
+                <!-- goNext=5 -->
+                <img src="img/male.png" alt="Gender" class="img-responsive">
+                <span class="color-blue avenir-medium">He</span>
+              </div>
+              <div class="female inline-block pointer ml20 mr20 mt20" ng-class="{'active-gender': userData.gender=='female'}" ng-click="changeGender(2,'female');">
+                <!-- goNext=5 -->
+                <img src="img/female.png" alt="Gender" class="img-responsive">
+                <span class="color-blue avenir-medium">She</span>
+              </div>
+              <div class="they inline-block pointer ml20 mr20 mt20">
+                <img src="img/they.png" alt="They" class="img-responsive" ng-class="{'active-gender': userData.gender=='they'}" ng-click="changeGender(3,'they');">
+                <!-- goNext=5 -->
+                <span class="color-blue avenir-medium">They</span>
+              </div>
+              <div class="button-panel clearfix">
+                <button class="btn btn-outline-blue btn-more pull-left" ng-click="goNext=3">Previous</button>
+                <button class="btn btn-outline-blue btn-more pull-right" ng-click="goNext=5" ng-disabled="!userData.gender">Next</button>
+                <!-- ng-disabled="userData.gender" -->
+              </div>
+            </div>
+          </div>
+          <div class="upload-profile login-upload-temp" ng-show="goNext==5">
+            <!-- full name and user name section -->
+            <div class="fulluser-name">
+              <form action="" autocomplete="off">
+                <div class="form-group full-name">
+                  <label for="fullname">Full Name</label>
+                  <input type="text" class="form-control" placeholder="Full Name" id="fullname" ng-model="profile.name">
+                </div>
+                <div class="form-group user-name">
+                  <label for="username">Username</label>
+                  <input type="text" class="form-control" placeholder="User Name" id="username" ng-model="profile.urlSlug">
+                </div>
+                <span class="block usererror text-left" ng-class="showUserError">Choose a Unique Username</span>
+              </form>
+            </div>
+            <!-- full name and user name section end-->
+            <div class="text-center">
+              <h3 class="color-blue avenir-black">Profile Photo</h3>
+              <div class="current-profilepicture" ng-show="((profile.profilePicture) && (showImage.val==false))">
+                <img ng-src="{{profile.profilePicture|uploadpath}}" alt="" class="img-responsive">
+              </div>
+              <div class="" ng-hide="viewBlob">
+                <div class="cropArea" ng-show="showImage.val && profile.profilePicture" >
+                  <div class="text-right clearfix">
+                    <span class="color-dark-blue pointer pull-left" ng-click="removePhoto()">Cancel</span>
+                    <span class="color-dark-blue hidden-xs pointer pull-right" ng-click="viewBlob=true">Ok</span>
+                  </div>
+                  <img-crop image="myImage" result-image="uploadme.src" area-type="square" result-image-size="500" class="image-canvas" /></img-crop>
+                </div>
+              </div>
+              <!-- ng-show="viewBlob" -->
+              <div class="current-profilepicture hidden-xs" ng-if="showImage.val==true && viewBlob">
+                <img ng-src="{{uploadme.src}}" class="img-responsive m-center"/>
+              </div>
+              <div class="visible-xs current-profilepicture" ng-if="showImage.val==true">
+                <img ng-src="{{uploadme.src}}" class="img-responsive m-center"/>
+              </div>
+              <div class="upload-section" ng-hide="showImage.val">
+                <p class="text-center color-grey avenir-roman" ng-show="((profile.profilePicture) && (showImage.val==false))"> - or -</p>
+                <img src="img/upload-transparent.png" class="m-center img-responsive doneLoading" ng-show="!((profile.profilePicture) && (showImage.val==false))">
+                <div class="upload-btn">
+                  <div class="relate inline-block mr10 select-photo">
+                    <button class="btn btn-dark-blue pointer avenir-roman">Change photo</button>
+                    <input type="file" class="getfile pointer" id="fileInput1" accept="image/*" class="getfile pointer" fileread="uploadme.src" />
+                  </div>
+                </div>
+              </div>
+              <div ng-hide="closeCam">
+                <!--<webcam channel="channel" on-streaming="onSuccess()" on-error="onError(err)" on-stream="onStream(stream)"></webcam>
+                <button ng-click="makeSnapshot()">take picture</button>
+                <canvas id="snapshot" width="300" height="300"></canvas>-->
+              </div>
+
+              <!--working drag and drop start-->
+              <!--<div class="image-container" style="width: 300px;height:300px;">
+                <img ng-src={{uploadme.src}} />
+                <span class="file-name">{{imageFileName}}</span>
+              </div>-->
+              <!--<div class="dropzone" file-dropzone="[image/png, image/jpeg, image/gif]" file="uploadme.src" file-name="imageFileName" data-max-file-size="3" style=" width: 250px;height: 45px;border: 1px solid #ccc;text-align: center;padding: 30px;margin: 20px;font-family: Arial;">
+                <span>Drop Image Here</span>
+              </div>
+
+              <form action>
+                <input type="file" fileread="uploadme.src" style="width:500px;height:500px">
+                <img ng-src="{{ uploadme.src }}">
+              </form>-->
+              <!--working drag and drop ends-->
+              <div class="button-panel clearfix">
+                <button class="btn btn-outline-blue btn-more pull-left" ng-click="goNext=4">Previous</button>
+                <!--<button class="btn btn-blue-outline btn-more pull-right" ui-sref="holiday" ng-click="saveUserData(userData)">Done</button>-->
+                <button class="btn btn-outline-blue btn-more pull-right" ng-click="uploadFile(uploadme.src,userData,showImage.val)">Done</button>
+              </div>
+              <div class="login-imgloader" ng-if="showImageLoader">
+                  <img src="img/page.svg" alt="Loading..." width="50px" class="img-responsive get-center">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,123 @@
+<div class="quick-itinerary">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="itinerary-start-sec">
+          <img src="img/ongojourney/journey-step.png" alt="" class="img-responsive m-center" width="40">
+          <h4 class="itinerary-name text-center color-white">
+            Love in India
+          </h4>
+          <div class="itinerary-country-visited text-center">
+            <figure>
+              <img src="https://travelibro.com/api/upload/readFile?file=58d41820f1d9302d29ea3cba.jpg" alt="" class="img-responsive m-center" width="40">
+              <figcaption class="country-name color-white">France</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="itinerary-banner-sec">
+          <div class="itinerary-banner-holder">
+            <img src="img/paris.jpg" alt="Paris" class="img-responsive">
+          </div>
+          <div class="itinerary-city-visited">
+            <span>Cities: </span>
+            <span>Mumbai</span>
+          </div>
+        </div>
+        <!-- itinerary main card -->
+        <div class="itinerary-main-card">
+          <!-- itinerary descp card -->
+          <div class="itinerary-descp-card">
+            <div class="user-imgholder">
+              <img src="https://travelibro.wohlig.com/api/upload/readFile?file=58f74c4505550f671ff6f769.png&width=45&height=47&style=cover" alt="" class="img-responsive">
+            </div>
+            <div class="user-name">
+              <h4>Amit Verma</h4>
+              <span>9 May, 2017 | 07:05 am</span>
+            </div>
+            <div class="descp-holder">
+              <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt quod sed commodi aspernatur explicabo, at dicta magni error, ratione tempora nam perspiciatis ducimus excepturi, similique hic quas cum natus quaerat.</p>
+            </div>
+          </div>
+          <!-- itinerary descp card end-->
+          <!-- itinerary photos card -->
+          <div class="itinerary-photo-card">
+            <div class="itinerary-imgdisplay-holder">
+              <!-- <img src="" alt="" class="img-responsive"> -->
+            </div>
+            <div class="related-itinerary-img">
+              <div class="related-imgholder">
+                <!-- <img src="" alt="" class="img-responsive"> -->
+              </div>
+            </div>
+            <!-- related img if more then five -->
+            <flex-slider flex-slide="s in array track by $index" class="carousel">
+              <li>
+                <div class="related-imgholder">
+                  <!-- <img src="" alt="" class="img-responsive"> -->
+                </div>
+              </li>
+            </flex-slider>
+            <!-- related img if more then five end -->
+          </div>
+          <!-- itinerary photos card end-->
+          <!-- itinerary videos card -->
+          <div class="itinerary-video-holder">
+            <img src="" alt="" class="img-responsive">
+          </div>
+          <!-- itinerary videos card end-->
+          <!-- itinerary footer sec -->
+          <div class="itinerary-footer-sec social-field-types">
+            <div class="itinerary-like-comment user-social-item clearfix">
+              <div class="pull-left">
+                <ul>
+                  <li ng-click="likeUnlikeActivity(life)">
+                    <a href="" class="relate">
+                      <i class="fa color-blue card-like-animation" ng-class="life.likeDone ? 'fa-heart like-animate' : 'fa-heart-o'" like-sound></i>
+                      <span></span>
+                      <audio id="like-play">
+                        <source src="img/tiny1.mp3" type="audio/mp3">
+                      </audio>
+                    </a>
+                  </li>
+                  <li ng-click="openCommentSection(life)">
+                    <a href=""><img src="img/comments.png" alt="" height="18"></a>
+                  </li>
+                    <li>
+                      <a href=""><img src="img/share.png" alt="" height="18"></a>
+                    </li>
+                </ul>
+              </div>
+              <div class="pull-right">
+                <div class="options">
+                    <span class="pointer"><img src="img/options.png" alt="" ></span>
+                  </div>
+              </div>
+            </div>
+            <!-- social like comment -->
+            <div class="social-likes-reviews itinerary-social">
+              <div class="clearfix">
+                <div class="pull-left">
+                  <span ng-click="openLikeSection(life)" class="color-blue mr10 avenir-heavy pointer"><i class="fa fa-heart color-blue mr5"></i><b>{{life.likeCount|filterCount}}</b> {{life.likeCount|singularPlural:'Likes'}}</span>
+                  <span class="color-blue mr10 card-comment avenir-heavy pointer"><img src="img/comments.png" alt="" class="mr5" height="12">
+                    <!--<b>{{life.commentCount|filterCount}}</b>  {{life.commentCount|singularPlural:'Comments'}} -->
+                  </span>
+                </div>
+                <div class="pull-right">
+                  <img src="img/travel.png" alt="">
+                </div>
+              </div>
+            </div>
+            <!-- social like comment end-->
+          </div>
+          <!-- itinerary footer sec end-->
+        </div>
+        <!-- itinerary main card end-->
+      </div>
+      <div class="col-md-7">
+        <div class="itinerary-map-view">
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

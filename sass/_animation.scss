@@ -1,0 +1,110 @@
+// .fp-viewing-1 {
+//     .travellife {
+//         .description-shown {
+//             opacity: 1;
+//             @include animation(fadeInFirst 5s ease 5s forwards);
+//         }
+//         .description {
+//             .text-one {
+//                 opacity: 0;
+//                 @include animation(fadeIn 12s ease 12s forwards);
+//                 @include animation-delay(6s);
+//             }
+//             .text-two {
+//                 opacity: 0;
+//                 @include animation(fadeIn 11s ease 11s forwards);
+//                 @include animation-delay(18s);
+//             }
+//             .text-three {
+//                 opacity: 0;
+//                 @include animation(fadeIn 8s ease 8s forwards);
+//                 @include animation-delay(29s);
+//             }
+//             .text-four {
+//                 opacity: 0;
+//                 @include animation(fadeIn 22s ease 22s forwards);
+//                 @include animation-delay(37s);
+//             }
+//             .text-five {
+//                 opacity: 0;
+//                 @include animation(fadeIn 5s ease 5s forwards);
+//                 @include animation-delay(59s);
+//             }
+//         }
+//         .description-last {
+//             opacity: 0;
+//             @include animation(fadeInLast 6s ease 6s forwards);
+//             @include animation-delay(66s);
+//         }
+//     }
+// }
+// .fp-viewing-2 {
+//     .locallife {
+//         .description-shown {
+//             opacity: 1;
+//             @include animation(fadeInFirst 13s ease 13s forwards);
+//         }
+//         .description {
+//             .text-one {
+//                 opacity: 0;
+//                 @include animation(fadeIn 9s ease 9s forwards);
+//                 @include animation-delay(51s);
+//             }
+//             .text-two {
+//                 opacity: 0;
+//                 @include animation(fadeIn 17s ease 17s forwards);
+//                 @include animation-delay(60s);
+//             }
+//             .text-three {
+//                 opacity: 0;
+//                 @include animation(fadeIn 15s ease 15s forwards);
+//                 @include animation-delay(77s);
+//             }
+//             .text-four {
+//                 opacity: 0;
+//                 @include animation(fadeIn 28s ease 28s forwards);
+//                 @include animation-delay(13s);
+//             }
+//             .text-five {
+//                 opacity: 0;
+//                 @include animation(fadeIn 5s ease 5s forwards);
+//                 @include animation-delay(45s);
+//             }
+//         }
+//         .description-last {
+//             opacity: 0;
+//             @include animation(fadeInLast 6s ease 6s forwards);
+//             @include animation-delay(92s);
+//         }
+//     }
+// }
+// @include keyframes(fadeIn) {
+//     0% {
+//         @include opacity(0);
+//     }
+//     60% {
+//         @include opacity(1);
+//     }
+//     90% {
+//         @include opacity(0.9);
+//     }
+//     100% {
+//         @include opacity(0);
+//     }
+// }
+// @include keyframes(fadeInFirst) {
+//     0% {
+//         @include opacity(1);
+//     }
+//     100% {
+//         @include opacity(0);
+//     }
+// }
+// @include keyframes(fadeInLast) {
+//     0% {
+//         @include opacity(0);
+//     }
+//     100% {
+//         @include opacity(1);
+//     }
+// }

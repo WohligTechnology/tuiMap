@@ -1,0 +1,26 @@
+<div class="listed-detail-page">
+  <!-- LISTED HEADER -->
+  <div class="listed-detail-header">
+    <h3>Listed <span class=""> Hotels </span> <span class=""> Restaraunts </span> <span class=""> Must Do's </span> In <span class="">Mumbai</span></h3>
+    <span class="listed-popup-close" ng-click="$dismiss();"><img src="img/cancel.png" alt="Cancel" class="img-responsive"></span>
+  </div>
+  <!-- LISTED HEADER END -->
+
+  <div class="listed-popup-list">
+    <div class="hotel-mainlist" ng-repeat="hotel in hotelList track by $index">
+      <!-- <div class="hotel-listing" ng-repeat="hotel in list track by $index"> -->
+        <div class="listed-popup-select relate">
+          <input type="checkbox" id="{{hotel}}" name="{{hotel}}" />
+          <label for="{{hotel}}">
+                <span class="follower-username"> {{hotel}} </span>
+                <span class="list-select-budget"> $$$ </span>
+            </label>
+        </div>
+      <!-- </div> -->
+    </div>
+  </div>
+
+  <div class="list-done-btn">
+    <button class="btn btn-pink btn-more">Done</button>
+  </div>
+</div>

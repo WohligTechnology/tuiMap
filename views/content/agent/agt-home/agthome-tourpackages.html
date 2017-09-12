@@ -1,0 +1,292 @@
+<div class="agt-home-tourpackage ">
+    <div class="" infinite-scroll="getMoreAgentData()" infinite-scroll-disabled="scroll.busy">
+        <!-- ADD BUTTON -->
+        <div class="add-agentbutton" ng-if="template.isLoggedIn && template.isMine">
+            <div class="container">
+                <div class="clearfix">
+                    <div class="pull-right">
+                        <div class="add-agtitinerary">
+                            <span class="pointer add-holder" ng-click="addItinerary();" ng-class="{'close-more' : showItinerary == true}"><i class="fa fa-plus"></i></span>
+                            <div class="add-more-itinerary" ng-if="showItinerary">
+                                <p class="color-cyan">Enter Details - Tours &amp; Packages</p>
+                                <div class="add-tourpackage">
+                                    <form name="toursForm" ng-submit="saveTour(toursForm);" novalidate>
+                                        <div class="">
+                                            <div class="a relate">
+                                                <input type="text" name="title" class="form-control color-white" placeholder="Tour Title" ng-model="tour.title" required>
+                                                <p ng-show="toursForm.title.$invalid && !toursForm.title.$pristine" class="agentform-error">Title Is Required</p>
+                                            </div>
+                                        </div>￼
+                                        <!-- tour-type -->
+                                        <div class="tour-type">
+                                            <div class="tour-typeinput">
+                                                <div class="">
+                                                    <div class="a collapsed" data-toggle="collapse" data-target="#demo">
+                                                        <input type="text" class="form-control color-white" placeholder="Type of Holiday/Tour" ng-model="tour.typeOfHoliday" disabled required>
+                                                        <i class="fa fa-angle-down color-white type-tourarrow arrow-down down"></i>
+                                                        <i class="fa fa-angle-up color-white type-tourarrow arrow-up up"></i>
+                                                    </div>
+                                                </div>
+                                                <p ng-show="tour.typeOfHoliday.length==0" class="agentform-error">Type Is Required</p>
+                                            </div> ￼
+                                            <div class="collapse optiondiv" id="demo">
+                                                <div class="tour-typeoption">
+                                                    <ul class="list-inline">
+                                                        <li ng-repeat="tourtype in categoriesSpecial track by $index">
+                                                            <figure class="tourcategory {{tourtype.class}}" ng-click="selectCategory(tourtype)">
+                                                                <div class="tourcategory-img">
+                                                                    <img ng-src="{{tourtype.tourImgCat}}" width="{{tourtype.catwidth}}" alt="" class="img-responsive">
+                                                                </div>
+                                                                <figcaption>{{tourtype.tourCat}}</figcaption>
+                                                            </figure>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- tour-type end -->
+                                        <!-- currency list -->
+                                        <div class="form-group relate">
+                                            <div class="tour-type tour-select">
+                                                <ui-select ng-model="tour.currency" theme="bootstrap">
+                                                    <ui-select-match placeholder="Currency">{{$select.selected.currency}}</ui-select-match>
+                                                    <ui-select-choices repeat="currency.currency as currency in countries | filter: $select.search track by $index">
+                                                        <div class="clearfix">
+                                                            <span class="tour-optionselect pull-left">{{currency.name}}</span>
+                                                            <span class="tour-optionselect pull-right">{{currency.currency}}</span>
+                                                        </div>
+                                                    </ui-select-choices>
+                                                </ui-select>
+                                            </div>
+                                            <p ng-show="tour.currency==''" class="agentform-error">Currency Is Required</p>
+                                        </div>
+                                        <!-- currency list end -->
+                                        <!-- TOUR PRICE -->
+                                        <div class="form-group">
+                                            <div class="a relate tour-price">
+                                                <input type="number" name="price" class="form-control color-white" placeholder="Price" ng-model="tour.price" required>
+                                                <p ng-show="toursForm.price.$invalid && !toursForm.price.$pristine" class="agentform-error">Price Is Required</p>
+                                            </div>
+                                        </div>
+                                        <!-- TOUR PRICE END -->
+                                        <!-- NIGHTS  DAYS -->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <div class="a relate">
+                                                        <input name="nights" ng-disabled="tour.hours >= 0||tour.minutes >= 0" type="text" class="form-control color-white" placeholder="Nights" ng-model="tour.nights" ng-required="(tour.hours==undefined && tour.minutes==undefined) || (tour.hours=='' && tour.minutes=='')" ng-change="checkDN()" only-digits>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <div class="a relate">
+                                                        <input name="days" type="text" ng-disabled="tour.hours >= 0||tour.minutes >= 0" class="form-control color-white" placeholder="Days" ng-model="tour.days" ng-required="tour.hours==undefined || tour.hours=='' || tour.minutes==undefined || tour.minutes==''" ng-change="checkDN()" only-digits>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <span class="color-pink" ng-if="showDNErr">*Invalid Nights &amp; Days Entered.</span>
+                                        </div>
+                                        <!-- NIGHTS  DAYS END -->
+                                        <p class="color-white avenir-roman text-center m-clear">OR</p>
+                                        <!-- HOURS MINUTES -->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <div class="a relate">
+                                                        <input name="hours" type="text" ng-disabled="tour.nights >= 0||tour.days >= 0" class="form-control color-white" placeholder="Hours" ng-model="tour.hours" ng-required="(tour.nights==undefined && tour.days==undefined) || (tour.nights=='' && tour.days=='')" only-digits>
+                                                        <!--ng-required="tour.nights.length > 0||tour.days.length > 0"-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <div class="a relate">
+                                                        <input name="minutes" type="text" ng-disabled="tour.nights >= 0||tour.days >= 0" class="form-control color-white" placeholder="Minutes" ng-model="tour.minutes" ng-required="tour.nights==undefined || tour.nights=='' || tour.days==undefined || tour.days==''" ng-change="checkHM()" only-digits>
+                                                        <!--ng-required="tour.nights.length < 0 && tour.days.length < 0"-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <span class="color-pink" ng-if="showHMErr">*Invalid Minutes Entered.</span>
+                                        </div>
+                                        <!-- HOURS MINUTES END -->
+                                        <!-- COUNTRY UI SELECT -->
+                                        <div class="form-group relate">
+                                            <div class="tour-type tour-select">
+                                                <ui-select multiple ng-model="tour.country" theme="bootstrap" title="Country" ng-required="true" on-select="getCity();" on-remove="removeCity($item);">
+                                                    <ui-select-match placeholder="Country">{{$item.name}}</ui-select-match>
+                                                    <ui-select-choices repeat="country in countries | filter: $select.search track by $index">
+                                                        <div>
+                                                            <span class="color-white">{{country.name}}</span>
+                                                        </div>
+                                                    </ui-select-choices>
+                                                </ui-select>
+                                            </div>
+                                            <p ng-show="tour.country==''" class="agentform-error">Country Is Required</p>
+                                        </div>
+                                        <!-- COUNTRY UI SELECT END -->
+                                        <div class="form-group relate">
+                                            <div class="tour-type tour-select">
+                                                <ui-select multiple ng-model="tour.city" theme="bootstrap" title="City" ng-required="true">
+                                                    <ui-select-match placeholder="City">{{$item.name}}</ui-select-match>
+                                                    <ui-select-choices repeat="city in cities | filter: $select.search track by $index">
+                                                        <div>
+                                                            <span class="color-white">{{city.name}}</span>
+                                                        </div>
+                                                    </ui-select-choices>
+                                                </ui-select>
+                                            </div>
+                                            <p ng-show="tour.city==''" class="agentform-error">City Is Required</p>
+                                        </div>
+                                        <!-- BOOKING URL -->
+                                        <div class="form-group">
+                                            <div class="a relate">
+                                                <input type="text" class="form-control color-white" placeholder="Your Website Booking Link URL" ng-model="tour.bookingUrl">
+                                            </div>
+                                        </div>
+                                        <!-- BOOKING URL END -->
+                                        <!-- <p class="font-sz10 color-pink">* Please Enter Missing Details</p> -->
+                                        <!-- upload buttons -->
+                                        <div class="button-touruploads">
+                                            <div class="tour-uploads tour-pdf relate pointer" ng-hide="showTourPdf">
+                                                <button class="btn btn-white-outline pointer">Upload Pdf</button>
+                                                <upload-image ng-model="tour.pdf" ng-callback="tourPdf(data);" allow-type="application/pdf" no-view class="tour-uploadinput pointer"></upload-image>
+                                            </div>
+                                            <div class="tour-uploads tour-pic relate pointer" ng-hide="showTourPic">
+                                                <button class="btn btn-white-outline pointer">Upload Display Picture</button>
+                                                <span class="tour-filesize">Min. Dimension (800 x 600)</span>
+                                                <upload-image ng-model="tour.displayPic" ng-callback="tourPhoto(data);" allow-type="image/*" no-view class="pointer tour-uploadinput" required></upload-image>
+                                            </div>
+                                            <button class="btn btn-pink btn-more tourupload-position" type="submit" ng-disabled="toursForm.$invalid || showDNErr || showHMErr" ng-if="!tour.fromEdit">SAVE</button>
+                                            <button class="btn btn-pink btn-more tourupload-position" type="submit" ng-disabled="toursForm.$invalid || showDNErr || showHMErr" ng-if="tour.fromEdit">UPDATE</button>
+                                        </div>
+                                        <!-- upload buttons end -->
+                                        <!-- file preview holder -->
+                                        <div class="tourfile-preview">
+                                            <div class="tour-pdf-preview" title="{{tour.pdf}}" ng-show="showTourPdf">
+                                                <div class="tour-pdf-holder">
+                                                    <img src="img/icons/pdf.png" alt="{{tour.pdf}}" class="img-responsive">
+                                                    <span class="remove-preview" ng-click="removeTourPdf();" title="Remove"><i class="fa fa-times color-white"></i></span>
+                                                </div>
+                                            </div>
+                                            <div class="tour-dp-preview" title="{{tour.displayPic}}" ng-show="showTourPic">
+                                                <div class="tour-dp-holder">
+                                                    <img ng-src="{{tour.displayPic | uploadpath}}" alt="" class="img-responsive get-center">
+                                                    <span class="remove-preview" ng-click="removeTourPic();" title="Remove"><i class="fa fa-times color-white"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- file preview holder end -->
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ADD BUTTON END-->
+        <!-- EMPTY AGENT INTRO BOX -->
+        <div class="empty-intro " ng-if="tourData.length==0 && template.isLoggedIn && template.isMine">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="mockup-video relate">
+                            <img src="img/iMac.png" alt="" class="img-responsive">
+                            <div class="agthome-itinerary-youtube agentlogin-vimeo">
+                                <iframe src="https://player.vimeo.com/video/224047922?color=11d3cb&title=0&byline=0&portrait=0" width="100%" height="308px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-12">
+                        <div class="agt-home-tourpackageintro agt-home-tourintro">
+                            <h3 class="color-blue">
+              Fill in this space to give travel lovers a better sense of what your company has to offer.</h3>
+                            <p class="color-blue">Regularly updating your library with new deals, keeps travellers interedted and informed about how touring with your agency can make a good tour/trip, great!</p>
+                            <!-- <button class="btn btn-pink btn-more" hidden><i class="fa fa-lock color-white"></i> UPGRADE</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- EMPTY AGENT INTRO BOX END -->
+        <!-- EMPTY USER INTRO -->
+        <div class="empty-intro   avenir-roman" ng-if="tourData.length==0 && !template.isMine">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-8">
+                        <div class="agt-user-intro">
+                            <h3 class="color-blue avenir-heavy text-capitalize">{{userData.name}}</h3>
+                            <p class="color-blue">is still to upload this space with interesting tours & packages.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- EMPTY USER INTRO END -->
+        <!-- TOURS & PACKAGE CARDS -->
+        <div class="agent-cardsection" ng-if="tourData.length>0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6" ng-repeat="tourcard in tourData track by $index">
+                        <div class="agt-itinerarycard agent-tourcard">
+                            <div class="itinerary-img" style="background: url('{{tourcard.displayPic|uploadpath}}') 50% 50%; background-size: cover;">
+                                <div class="theme">
+                                    <div class="theme-img">
+                                        <img ng-src="{{tourcard.typeOfHoliday[0] | kindOfJourney:'white'}}" class="img-responsive" alt="{{tourcard.typeOfHoliday[0]}}">
+                                    </div>
+                                    <div class="theme-name">
+                                        <p>{{tourcard.typeOfHoliday[0]}}</p>
+                                    </div>
+                                </div>
+                                <div class="country-badges">
+                                    <div class="country-holder" ng-repeat="tourcountryflag in tourcard.country | limitTo : 3">
+                                        <img ng-src="{{tourcountryflag.flag|uploadpath}}" alt="{{tourcountryflag.name}}" class="pointer img-responsive" title="{{tourcountryflag.name}}">
+                                    </div>
+                                    <span class="country-count color-blue" ng-if="tourcard.country.length>3">+{{tourcard.country.length-3}}</span>
+                                </div>
+                                <!-- <img ng-src="{{tourcard.displayPic|uploadpath:380:250:'cover'}}" alt="{{tourcard.title}} | Travel Libro" class="img-responsive" /> -->
+                                <div class="itinerary-imgfoot ">
+                                    <div class="call-btn" ng-click="showContact(tourcard);" ng-if="!template.isMine">
+                                        <i class="fa fa-phone" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="imgfoot-top clearfix">
+                                        <div class="pull-left">
+                                            <h4 class="font-sz18 text-capitalize avenir-heavy">{{tourcard.title}}</h4>
+                                            <p class="day-night" ng-if="tourcard.nights && tourcard.days"><span>{{tourcard.nights}} Nights</span> | <span>{{tourcard.days}} Days</span></p>
+                                            <p class="day-night" ng-if="tourcard.hours && tourcard.minutes"><span>{{tourcard.hours}} Hours</span> | <span>{{tourcard.minutes}} Minutes</span></p>
+                                            <!-- <p class="font-sz10"><i class="fa fa-calendar"></i><span class="ml5  ng-binding">{{tourcard.createdAt | formatDate:'date' }}</span>                      | <i class="fa fa-clock-o mr5"></i> <span class="ng-binding">{{tourcard.createdAt | formatDate:'time' }}</span></p> -->
+                                            <a href="" class="day-night color-white" ng-click="editTour(tourcard);" ng-if="template.isLoggedIn && template.isMine">
+                                                <i class="fa fa-pencil color-white"></i>
+                                            </a>|
+                                            <a href="" class="day-night color-white" ng-click="deleteTour(tourcard);" ng-if="template.isLoggedIn && template.isMine">
+                                                <i class="fa fa-trash color-white"></i>
+                                            </a>
+                                        </div>
+                                        <div class="pull-right">
+                                            <p class="font-sz18 cost-posi">{{tourcard.currency}} {{tourcard.price}}</p>
+                                        </div>
+                                        <div class="tour-btns">
+                                            <a ng-href="{{tourcard.pdf|downloadLink:'tours&packages':tourcard._id:tourcard.title}}" class="btn-link btn btn-pink btn-download" ng-if="tourcard.pdf" download>Download</a>
+                                            <a href="{{tourcard.bookingUrl}}" target="_blank" class="btn-link btn btn-pink btn-book" ng-click="countAdder(tourcard);" ng-if="tourcard.bookingUrl">Book</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- TOURS & PACKAGE CARDS END -->
+    </div>
+    <!-- PAGINATION LOADER -->
+    <div class="" ng-if="template.paginationLoader">
+        <img src="img/page.svg" alt="" class="m-center img-responsive" width="25px">
+    </div>
+    <!-- PAGINATION LOADER END -->
+</div>

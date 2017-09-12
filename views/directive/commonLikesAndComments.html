@@ -1,0 +1,152 @@
+<div class="notify-main whole-card-comment {{getCard}}" ng-show="viewCardComment">
+  <div class="container-fluid">
+    <div class="comment-like-notify">
+      <div class="like-comment-mainsec">
+        <div class="clearfix">
+          <div class="pull-left">
+            <ul class="notify-like">
+              <li>
+                <a href="" class="relate"><i class="fa color-blue" ng-class="post.likeDone ? 'fa-heart like-animate' : 'fa-heart-o'" ng-click="likePost(post.uniqueId,post._id)" like-sound></i>
+                  <span></span>
+                  <audio id="like-play">
+                    <source src="img/tiny1.mp3" type="audio/mp3">
+                  </audio>
+                </a>
+              </li>
+              <!-- <li>
+                <a href=""><img src="img/comments.png" alt="" height="20" class="img-responisve" ng-click="focus('enterComment');"></a>
+              </li> -->
+              <li>
+                <a ng-click="sharePost(post.sharingUrl)"><img src="img/share.png" alt="" height="20" class="img-responisve"></a>
+              </li>
+            </ul>
+          </div>
+          <div class="pull-right">
+            <div class="notification-like" ng-init="commentLike={};">
+              <!-- showLikes=!showLikes; -->
+              <span class="notify-like-holder pointer avenir-roman" ng-click="getLikes(post);editOption(commentLike)">
+                  <i class="fa fa-heart color-blue" ng-class="{'view-like' : commentLike.backgroundClick == true , '' : commentLike.backgroundClick == false}" ></i>
+                 <span>{{post.likeCount|filterCount}}   </span>{{post.likeCount|singularPlural:'Likes'}}
+              <!-- ng-show="showLikes" -->
+              <div class="like-dropdown" ng-show="commentLike.backgroundClick && listOfLikes.like.length>0">
+                <ul>
+                  <li ng-repeat="listLikes in listOfLikes.like">
+                    <a href="" ui-sref="mylife({'urlSlug':listLikes.urlSlug})">{{listLikes.name}}</a></li>
+                </ul>
+              </div>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- comment section -->
+      <div class="comment-sec">
+        <form autocomplete="off" ng-submit="postPostsComment(post.uniqueId,comment.text,post._id,post.type)">
+          <div class="write-comment-text">
+            <div class="commenter-img">
+              <div class="commenter-imgholder">
+                <img ng-src="{{userData.profilePicture|uploadpath:45:47:'cover'}}" alt="" class="img-responsive">
+              </div>
+            </div>
+            <div class="comment-ur-text relate">
+              <input name="" id="enterComment" placeholder="Write a comment" class="form-control" ng-model="comment.text">
+              <find-tags ng-model="comment.text" element-id="enterComment" enable="bothTagging">
+            </div>
+          </div>
+          <div class="clearfix comment-post">
+            <div class="pull-right">
+              <button class="btn btn-pink post-btn" type="submit">Post</button>
+            </div>
+          </div>
+        </form>
+        <div class="listing-comment">
+          <div infinite-scroll="getCommentsMore();" infinite-scroll-disabled="postScrollData.busy">
+            <div class="view-comment-list" ng-repeat="list in listOfComments.comment track by $index">
+              <div class="commenter-img">
+                <div class="commenter-imgholder pointer" ui-sref="mylife({'urlSlug':list.user.urlSlug})">
+                  <img ng-src="{{list.user.profilePicture|uploadpath:45:47:'cover'}}" alt="" class="img-responsive">
+                </div>
+              </div>
+              <div class="comment-container">
+                <div class="commenter-text relate">
+                  <p class="text-comment avenir-roman" ng-hide="$index==index"><span class="commenter-name color-blue avenir-heavy mr5 pointer" ui-sref="mylife({'urlSlug':list.user.urlSlug})">{{list.user.name}}</span>{{list.text}}</p>
+                  <div class="edit-text" ng-show="$index==index">
+                    <input type="text" ng-model="list.text" class="form-control">
+                    <span ng-click="editBox(-1);">Cancel</span>
+                    <button class="btn btn-pink" ng-click="editComment(list._id,list.text,list.type);">Done</button>
+                  </div>
+                  <div class="like-reply-line" ng-hide="$index==index">
+                    <span class="color-blue avenir-roman mr5 pointer" ng-click="editBox($index);" ng-if="userData._id == list.user._id"><i class="fa fa-pencil"></i></span>
+                    <span class="color-blue avenir-roman mr5 pointer" ng-click="showDeletePop($index);" ng-if="userData._id == list.user._id"><i class="fa fa-trash"></i></span>
+                    <span class="time-stamp ml5 avenir-roman"><i class="fa fa-calendar color-grey mr5"></i><span>{{list.date|formatDate:'date'}}</span>                  | <i class="fa fa-clock-o mr5 color-grey"></i><span>{{list.date|formatDate:'time'}}</span></span>
+                  </div>
+                  <!-- COMMENT DELETE CONFIRMATION -->
+                  <div class="delete-comment-confirmation" ng-show="$index==indexDelete">
+                    <p>Do you want to Delete this Comment?</p>
+                    <div class="row-flex">
+                      <div class="col-flex">
+                      <span class="delete-confirmation pointer" ng-click="deleteComment(list._id,list.type);">YES</span>
+                                      </div>
+                      <div class="col-flex">
+                        <span class="delete-confirmation pointer"  ng-click="showDeletePop($index);">NO</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- COMMENT DELETE CONFIRMATION END -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- comment section end` -->
+    </div>
+  </div>
+</div>
+<!-- whole window comment end-->
+<!-- whole window LIKE -->
+<!-- ng-show="viewCardLike" -->
+<div class="like-side-sec " ng-show="!viewCardComment" ng-class="{'show-like-side-sec': viewCardLike==true,'':viewCardLike==false}">
+  <div class="like-section">
+    <ul infinite-scroll="getMoreLikes();" infinite-scroll-disabled="postScrollData.busy">
+      <!-- REPEAT BUDDY LIST -->
+      <li ng-repeat="like in listOfLikes.like">
+        <div class="like-notify-buddy clearfix">
+          <div class="like-buddy-pic pointer" ui-sref="mylife({'urlSlug':like.urlSlug})">
+            <img ng-src="{{like.profilePicture|uploadpath:50:50:'cover'}}" alt="" class="img-responsive">
+          </div>
+          <div class="like-buddy-name">
+            <p class="like-buddy-user pointer" ui-sref="mylife({'urlSlug':like.urlSlug})">{{like.name}}</p>
+            <p class="like-buddy-attag">@ <span>{{like.urlSlug}}</span></p>
+          </div>
+          <div class="like-buddy-follow-btn pull-right" ng-if="like._id!=userData._id">
+            <!-- <button class=" btn btn-pink following-btn" ng-click=followFollowing(like);>{{like.following|followFollowingStatus}}</button> -->
+            <span class="avenir-heavy color-blue pointer" ng-click=followFollowing(like);> {{like.following|followFollowingStatus}} </span>
+          </div>
+        </div>
+      </li>
+      <!-- REPEAT BUDDY LIST END -->
+    </ul>
+  </div>
+</div>
+
+
+<!-- review backdrop -->
+<div class="review-side-sec {{callReview}}" ng-show="viewCardReview">
+  <div class="review-list" ng-repeat="review in listOfReviews.userReview track by $index">
+    <div class="reviewer-imgholder">
+      <img ng-src="{{review.user.profilePicture|uploadpath:50:50:'cover'}}" alt="{{review.user.name}}" class="img-responsive">
+    </div>
+    <div class="reviewer-content">
+      <p><span class="reviewer-name avenir-heavy">{{review.user.name}}</span> <span class="reviewer-msg">{{review.review}}</span></p>
+      <div class="reviewer-time">
+        <span class="time-stamp ml5 avenir-roman">
+          <i class="fa fa-calendar color-grey mr5"></i>
+          <span>{{review.createdAt|formatDate:'date'}}</span> | <i class="fa fa-clock-o mr5 color-grey"></i>
+        <span>{{review.createdAt|formatDate:'time'}}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- review backdrop end-->

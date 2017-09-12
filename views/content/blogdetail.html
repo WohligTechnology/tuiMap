@@ -1,0 +1,413 @@
+<div class="blog-main-detail bg-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="blog-detail-content">
+          <!-- blog post -->
+          <div class="" ng-repeat="post in blogPostDetail">
+            <div class="blog-detail-heading">
+              <h3 class="color-blue avenir-heavy m-clear">{{post.heading}}</h3>
+              <div class="post-date">
+                <p class="color-light-grey m-clear avenir-roman"><i class="fa fa-calendar mr5"></i><span class="mr5">{{post.timestampDate}}</span> | <i class="fa fa-clock-o mr5 ml5"></i> <span class="mr5">{{post.timestampHour}}</span></p>
+              </div>
+              <div class="clearfix journey-social">
+                <div class="pull-left">
+                  <span class="blog-journey-type">{{post.journeyType}}</span>
+                </div>
+                <div class="pull-right">
+                  <ul class="list-inline social-share">
+                    <li>
+                      <a href="" class="inline-block travel-icon relate">
+                        <img src="img/blog/travelibro-icon-grey.png" alt="" class="icon-grey">
+                        <img src="img/blog/travelibro-icon.png" alt="" class="icon-pink">
+                      </a>
+                    </li>
+                    <li><a href="" class="inline-block"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+                    <li><a href="" class="inline-block"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+                    <li><a href="" class="inline-block"><i class="fa fa-google-plus-square fa-2x"></i></a></li>
+                    <li><a href="" class="inline-block"><i class="fa fa-pinterest-square fa-2x"></i></a></li>
+                    <li><a href="" class="inline-block"><i class="fa fa-instagram fa-2x"></i></a></li>
+                    <li><a href="" class="inline-block"><i class="fa fa-envelope-square fa-2x"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="blog-detail-descp" ng-repeat="list in post.journeyList">
+              <div class="blog-journey-imgholder">
+                <img src="{{list.journeyImg}}" alt="" class="img-responsive">
+              </div>
+              <div class="blog-journey-detail">
+                <h4 class="color-pink"><span class="avenir-light">{{list.cityName}}</span>, <span class="avenir-light">{{list.countryName}}</span></h4>
+                <p class="avenir-light">{{list.journeyDescp}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="blog-social-field">
+            <div class="blog-social-item clearfix">
+              <div class="pull-left">
+                <div class="blog-chat">
+                  <ul class="list-inline">
+                    <li><a href="" class="relate"><i class="fa color-blue" ng-class="post.likeDone ? 'fa-heart like-animate' : 'fa-heart-o'" ng-click="" like-sound></i>
+                    <span></span>
+                    <audio id="like-play">
+                      <source src="img/tiny1.mp3" type="audio/mp3">
+                    </audio>
+                  </a></li>
+                    <li>
+                      <a href=""><img src="img/comments.png" alt="" height="21"></a>
+                    </li>
+                    <li>
+                      <span class="color-blue mr10"><i class="fa fa-heart color-blue mr5"></i>15600 Likes</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="pull-right">
+                <div class="inline-block">
+                  <ul class="list-inline social-share">
+                    <li>
+                      <a href="" class="inline-block travel-icon relate">
+                        <img src="img/blog/travelibro-icon-grey.png" alt="" class="icon-grey">
+                        <img src="img/blog/travelibro-icon.png" alt="" class="icon-pink">
+                      </a>
+                    </li>
+                    <li><a href="" class="inline-block"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+                    <li><a href="" class="inline-block"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+                    <li><a href="" class="inline-block"><i class="fa fa-google-plus-square fa-2x"></i></a></li>
+                    <li><a href="" class="inline-block"><i class="fa fa-pinterest-square fa-2x"></i></a></li>
+                    <li><a href="" class="inline-block"><i class="fa fa-instagram fa-2x"></i></a></li>
+                    <li><a href="" class="inline-block"><i class="fa fa-envelope-square fa-2x"></i></a></li>
+                  </ul>
+                </div>
+                <div class="inline-block ml10 v-top">
+                  <span><img src="img/options.png" alt="" height="18" class="mt5"></span>
+                </div>
+              </div>
+            </div>
+            <!-- chat part -->
+            <div class="blog-comment">
+
+            </div>
+            <!-- chat part end -->
+          </div>
+          <!-- blog post end -->
+          <!-- recent blog -->
+          <div class="recent-blog">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="previous-blog">
+                  <div class="blog-view">
+                    <span class="icon mr5 pointer"><i class="fa fa-chevron-left"></i></span>
+                    <span class=" pointer">Previous Blog</span>
+                  </div>
+                  <div class="row-flex">
+                    <div class="col-flex">
+                      <div class="recent-blog-imgholder pointer">
+                      <img src="img/blog/popular-blog.jpg" alt="" class="img-responsive">
+                    </div>
+                  </div>
+                    <div class="col-flex">
+                      <div class="recent-blog-detail pointer avenir-roman">
+                        <span class="color-pink">Luxury</span>
+                        <h4 class="blog-heading">PLACES TO SHOP FOR KIDS THAT YOU’LL WISH...</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="next-blog text-right">
+                  <div class="blog-view">
+                    <span class="pointer">Next Blog</span>
+                    <span class="icon ml5 pointer"><i class="fa fa-chevron-right"></i></span>
+                  </div>
+                  <div class="row-flex">
+                    <div class="col-flex">
+                      <div class="recent-blog-detail pointer avenir-roman">
+                        <span class="color-pink">Luxury</span>
+                        <h4 class="blog-heading">PLACES TO SHOP FOR KIDS THAT YOU’LL WISH...</h4>
+                      </div>
+                    </div>
+                    <div class="col-flex">
+                      <div class="recent-blog-imgholder pointer">
+                        <img src="img/blog/popular-blog1.jpg" alt="" class="img-responsive">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- recent blog end-->
+          <!-- you may also like -->
+          <div class="you-may-like">
+            <h3 class="color-light-grey avenir-roman">You May Also Like</h3>
+            <div masonry preserve-order class="">
+              <div class="row">
+                <div class=" masonry-brick col-md-6" ng-repeat="post in blogPost">
+                  <div class="blog-post">
+                    <div class="relate">
+                      <div class="box-imgholder">
+                        <img ng-src="{{post.img}}" alt="" class="img-responsive">
+                      </div>
+                      <div class="post-descp">
+                        <div class="post-journey-type"><span class="inline-block color-white avenir-roman">{{post.postType}}</span></div>
+                        <h3 class="post-title color-white avenir-heavy">{{post.title}}</h3>
+                        <div class="post-date">
+                          <p class="color-white m-clear avenir-roman"><i class="fa fa-calendar mr5"></i><span class="mr5">{{post.timestampDate}}</span> | <i class="fa fa-clock-o mr5 ml5"></i> <span class="mr5">{{post.timestampHour}}</span></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="social-field-types travel-life-part">
+                      <div class="user-social-item clearfix">
+                        <div class="pull-left">
+                          <ul>
+                            <li><a href="" class="relate"><i class="fa color-blue" ng-class="post.likeDone ? 'fa-heart like-animate' : 'fa-heart-o'" ng-click="" like-sound></i>
+                            <span></span>
+                            <audio id="like-play">
+                              <source src="img/tiny1.mp3" type="audio/mp3">
+                            </audio>
+                          </a></li>
+                            <li>
+                              <a href=""><img src="img/comments.png" alt="" height="18"></a>
+                            </li>
+                            <li>
+                              <a href=""><img src="img/share.png" alt="" height="18"></a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="pull-right">
+                          <div class="">
+                            <span><img src="img/options.png" alt="" height="18"></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="social-likes-reviews avenir-heavy">
+                        <div class="clearfix">
+                          <div class="pull-left">
+                            <span class="color-blue mr10"><i class="fa fa-heart color-blue mr5"></i><b class="mr5">{{post.likes}}</b>Likes</span>
+                            <!-- <span class="color-blue"><img src="img/reviews.png" alt="" height="15" class="mr5 v-top">{{post.reviews}} ({{post.pointReview}}/5)</span> -->
+                          </div>
+                          <!-- <div class="pull-right">
+                                <img src="img/travel.png" alt="">
+                              </div> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- you may also like end -->
+          <!-- Popular itineraries -->
+          <div class="blog-popular-itineraries">
+            <div class="">
+              <h3 class="color-grey avenir-roman">Popular Itineraries</h3>
+              <div masonry class="blog-itineraries-main">
+                <div class="row">
+                  <div class="masonry-brick col-md-6" ng-repeat="life in travelLife" >
+                    <div class="travel-life-part blog-post avenir-roman">
+                      <div class="travel-journey-heading">
+                        <div class="editor-logo">
+                          <img src="img/blog/editor-logo.png" alt="" width="70" class="img-responsive">
+                        </div>
+                        <div class="inline-block editor-subdetail">
+                          <h3 class="font-bold color-dark-blue m-clear mb5">{{life.heading}}</h3>
+                          <p class="m-clear"><i class="fa fa-calendar mr5"></i><span class="mr5">{{life.timestampDate}}</span> | <i class="fa fa-clock-o mr5 ml5"></i> <span>{{life.timestampHour}}</span></p>
+                        </div>
+                      </div>
+                      <div class="onway-journey relate">
+                        <div class="onway-imgholder">
+                          <img ng-src="{{life.imgOnway}}" alt="" class="img-responsive m-center">
+                        </div>
+                        <div class="country-visited">
+                          <img ng-src="{{visit.imgFlag}}" alt="" height="30" ng-repeat="visit in life.countryVisit track by $index">
+                          <span class="">+4</span>
+                        </div>
+                        <div class="journey-tag-holder">
+                          <h3 class="m-clear text-capitalize">{{life.onwayTag}}</h3>
+                          <div class="clearfix journey-travelling-type">
+                            <div class="pull-left">
+                              <div class="journey-type">
+                                <ul>
+                                  <li>
+                                    <a href=""><img ng-src="{{life.itineraryType1}}" alt="" height="20"></a>
+                                  </li>
+                                  <li>
+                                    <a href=""><img ng-src="{{life.itineraryType2}}" alt="" height="20"></a>
+                                  </li>
+                                  <li>
+                                    <a href=""><img ng-src="{{life.itineraryType3}}" alt="" height="20"></a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="pull-right">
+                              <div class="journey-cost">
+                                <span>{{life.cost}}</span>
+                              </div>
+                              <div class="days-spent">
+                                <p><span class="block">{{life.spendingDay}}</span>Days</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="social-field-types">
+                        <div class="user-social-item clearfix">
+                          <div class="pull-left">
+                            <ul>
+                              <li><a href="" class="relate"><i class="fa color-blue" ng-class="post.likeDone ? 'fa-heart like-animate' : 'fa-heart-o'" ng-click="" like-sound></i>
+                              <span></span>
+                              <audio id="like-play">
+                                <source src="img/tiny1.mp3" type="audio/mp3">
+                              </audio>
+                            </a></li>
+                              <li>
+                                <a href=""><img src="img/comments.png" alt="" height="18"></a>
+                              </li>
+                              <li>
+                                <a href=""><img src="img/reviews.png" alt="" height="18"></a>
+                              </li>
+                              <li>
+                                <a href=""><img src="img/share.png" alt="" height="18"></a>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="pull-right">
+                            <div class="">
+                              <span><img src="img/options.png" alt="" height="18" class="pointer"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="social-likes-reviews avenir-heavy">
+                          <div class="clearfix">
+                            <div class="pull-left">
+                              <span class="color-blue mr10"><i class="fa fa-heart color-blue mr5"></i><b class="mr5">{{life.likes}}</b>Likes</span>
+                              <span class="color-blue"><img src="img/reviews.png" alt="" height="15" class="mr5 v-top">{{life.reviews}} Reviews ({{life.pointReview}}/5)</span>
+                            </div>
+                            <div class="pull-right">
+                              <img src="img/travel.png" alt="">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Popular itineraries end-->
+        </div>
+      </div>
+      <div class="col-md-3">
+        <aside>
+          <div class="popular-blog-section">
+            <h4 class="color-light-grey text-center avenir-roman">Popular Blog's</h4>
+            <div class="popular-blog relate" ng-repeat="post in popularBlog | limitTo: 3">
+              <div class="popular-imgholder">
+                <img ng-src="{{post.img}}" alt="" class="img-responsive">
+              </div>
+              <div class="popular-post-type post-left" ng-show="post.postPink">
+                <span class="inline-block color-white bg-dark-blue">{{post.postType}}</span>
+              </div>
+              <div class="popular-post-type post-right" ng-hide="post.postPink">
+                <span class="inline-block color-white bg-pink">{{post.postType}}</span>
+              </div>
+              <div class="popular-post-desc">
+                <h4 class="text-uppercase avenir-roman">{{post.descp}}</h4>
+              </div>
+            </div>
+          </div>
+          <div class="categories">
+            <h4 class="color-light-grey text-center avenir-roman aside-heading">Categories</h4>
+            <div class="blog-filter avenir-light">
+              <div class="blog-filter-checkbox custom-checkbox">
+                <input type="checkbox" id="beach">
+                <label for="beach">Beach &amp; Party</label>
+              </div>
+              <div class="blog-filter-checkbox custom-checkbox">
+                <input type="checkbox" id="Adventure">
+                <label for="Adventure">Adventure</label>
+              </div>
+              <div class="blog-filter-checkbox custom-checkbox">
+                <input type="checkbox" id="Romance">
+                <label for="Romance">Romance</label>
+              </div>
+              <div class="blog-filter-checkbox custom-checkbox">
+                <input type="checkbox" id="Food">
+                <label for="Food">Food</label>
+              </div>
+              <div class="blog-filter-checkbox custom-checkbox">
+                <input type="checkbox" id="Festivals">
+                <label for="Festivals">Festivals</label>
+              </div>
+              <div class="blog-filter-checkbox custom-checkbox">
+                <input type="checkbox" id="Shopping">
+                <label for="Shopping">Shopping</label>
+              </div>
+              <div class="blog-filter-checkbox custom-checkbox">
+                <input type="checkbox" id="Hotels">
+                <label for="Hotels">Hotels</label>
+              </div>
+              <div class="blog-filter-checkbox custom-checkbox">
+                <input type="checkbox" id="Countries &amp; Cities">
+                <label for="Countries &amp; Cities">Countries &amp; Cities</label>
+              </div>
+              <div class="blog-filter-checkbox custom-checkbox">
+                <input type="checkbox" id="Road Trips">
+                <label for="Road Trips">Road Trips</label>
+              </div>
+            </div>
+            <span class="more avenir-light">More +23</span>
+          </div>
+          <div class="plugins-social">
+            <div class="pinterest">
+              <h4 class="color-light-grey text-center avenir-roman aside-heading">Pinterest</h4>
+              <div class="plugin-pinterest">
+                <a data-pin-do="embedUser" data-pin-board-width="900" data-pin-scale-height="220" data-pin-scale-width="115" href="https://www.pinterest.com/travelibro/"></a>
+              </div>
+            </div>
+            <div class="facebook">
+              <h4 class="color-light-grey text-center avenir-roman aside-heading">Facebook</h4>
+              <div class="plugin-fb">
+                <div class="fb-page" data-href="https://www.facebook.com/travelibro/" data-tabs="timeline" data-height="335" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                  <blockquote cite="https://www.facebook.com/travelibro/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/travelibro/">Travelibro</a></blockquote>
+                </div>
+              </div>
+            </div>
+            <div class="twitter">
+              <h4 class="color-light-grey text-center avenir-roman aside-heading">Twitter</h4>
+              <div class="plugin-twitter">
+                <a class="twitter-timeline" href="https://twitter.com/travelibro" data-widget-id="692273446991073280">Tweets by @travelibro</a>
+              </div>
+            </div>
+            <div class="instagram">
+              <h4 class="color-light-grey text-center avenir-roman aside-heading">Instagram</h4>
+              <div class="instagram-plugin">
+                <iframe src="//lightwidget.com/widgets/3c0d96710f7c568f80e0e0a6ffeec960.html" id="lightwidget_3c0d96710f" name="lightwidget_3c0d96710f" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="social-media">
+            <h4 class="color-light-grey text-center avenir-roman aside-heading">Social Media</h4>
+            <ul>
+              <li><a href="" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+              <li><a href="" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+              <li><a href="" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+              <li><a href="" target="_blank"><i class="fa fa-pinterest-square fa-2x"></i></a></li>
+              <li><a href="" target="_blank"><i class="fa fa-google-plus-square fa-2x"></i></a></li>
+              <li><a href="" target="_blank"><i class="fa fa-youtube-square fa-2x"></i></a></li>
+              <li><a href="" target="_blank"><i class="fa fa-instagram fa-2x"></i></a></li>
+            </ul>
+          </div>
+          <div class="advertise-section">
+            <img src="img/blog/advertise.png" alt="Advertise" class="img-responsive">
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</div>

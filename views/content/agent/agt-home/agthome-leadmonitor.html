@@ -1,0 +1,175 @@
+<div class="agt-home-leadmonitor">
+    <div class="" infinite-scroll="getMoreLeads();" infinite-scroll-disabled="scroll.busy">
+        <div class="container">
+            <!-- EMPTY DATA SECTION -->
+            <div class="agt-home-leadmonitorintro text-center" hidden>
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-6">
+                        <h3 class="color-blue avenir-heavy">Open your business to the World ...</h3>
+                        <p class="color-blue">People from world over have access to your Profile vis TraveLibro. The ones who are interested in availing your services, send you an enquiry from time to time which reflects on your Lead Monitor. The Lead Monitor shows you the most recent enquiries and keeps a record of the old ones. get in touch with these potetial clients and convert leads to real business!</p>
+                    </div>
+                </div>
+            </div>
+            <!-- EMPTY DATA SECTION END -->
+            <div class="lead-section">
+                <!-- LEAD TITLE TABS -->
+                <div class="lead-title">
+                    <ul class="list-inline list-unstyled">
+                        <li class="pointer lead-tabselect" ng-click="viewLeadTab(0);" ng-class="{'active': showLead == 0}">
+                            <h4 class="avenir-roman color-blue">New Leads <span class="avenir-heavy font-sz24">{{avgRating.unActionedCount}}</span></h4>
+                        </li>
+                        <li class="pointer lead-tabselect" ng-click="viewLeadTab(1);" ng-class="{'active': showLead == 1}">
+                            <h4 class="avenir-roman color-blue">Seen <span class="avenir-heavy font-sz24">{{avgRating.actionedCount}}</span></h4>
+                        </li>
+                    </ul>
+                </div>
+                <!-- LEAD TITLE TABS -->
+                <!-- LEAD ACCCORDION SECTION -->
+                <div class="agt-home-leadmonitortab leadmonitor-unread" ng-show="showLead==0">
+                    <!-- NEW LEAD EMPTY -->
+                    <div class="empty-newlead text-center" ng-if="unactionLeads.length == 0">
+                        <h4 class="color-blue">NO NEW LEADS</h4>
+                    </div>
+                    <!-- NEW LEAD EMPTY END -->
+                    <!-- NEW LEAD ACCORDION -->
+                    <div class="leadtab-accordionbox newlead-tab" ng-if="unactionLeads.length != 0">
+                        <uib-accordion close-others="oneAtATime">
+                            <!--is-open="status.open"-->
+                            <uib-accordion-group ng-repeat="agtlead in unactionLeads track by $index" is-open="agtlead.open" class="{{agtlead.class}}">
+                                <uib-accordion-heading>
+                                    <!--ng-click="leadRead(agtlead,$index,status.open)"-->
+                                    <div class="lead-tab-title color-white avenir-medium clearfix " ng-click="leadRead(agtlead,$index,agtlead.open)">
+                                        <div class="leadtab-profileholder pull-left" ng-if="agtlead.byUser">
+                                            <img ng-src="{{agtlead.byUser.profilePicture | uploadpath}}" alt="{{agtlead.name}}" class="img-responsive">
+                                        </div>
+                                        <div class="leadtab-title">
+                                            <p class="color-pink avenir-heavy text-capitalize">{{agtlead.name}}</p>
+                                        </div>
+                                        <div class="leadtab-msgdiv color-white" ng-class="{'disp-none': agtlead.open, 'inline-block': !agtlead.open}">
+                                            <p class="leadtab-msg"><span class="ledadmsg-country text-capitalize">{{agtlead.travellingTo}} </span><span class="ledadmsg-comment">- {{agtlead.instructions}} </span></p>
+                                        </div>
+                                        <i class="pull-right color-white mt10 fa " ng-class="{'fa fa-chevron-up': agtlead.open, 'fa fa-chevron-down': !agtlead.open}"></i>
+                                        <div class="leadtab-title leadtab-date pull-right  color-white" ng-class="{'disp-none': agtlead.open, 'inline-block':!agtlead.open}">
+                                            <p>{{agtlead.createdAt | formatDate:'date'}}</p>
+                                        </div>
+                                    </div>
+                                </uib-accordion-heading>
+                                <div class="lead-contentbox">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="lead-details color-white">
+                                                <div class="lead-content bord-bot">
+                                                    <label class="color-cyan" for=""><i class="fa fa-phone" aria-hidden="true"></i> Contact: </label>
+                                                    <a href="tel">{{agtlead.contactNo}}</a>
+                                                </div>
+                                                <div class="lead-content bord-bot">
+                                                    <label class="color-cyan" for=""><i class="fa fa-envelope" aria-hidden="true"></i> Email: </label>
+                                                    <a href="mailto:{{agtlead.leadMail}}" class="link-underline">{{agtlead.email}}</a>
+                                                    <!-- <button class="btn btn-pink-outline"><i class="fa fa-lock" aria-hidden="true"></i> Upgrade</button> -->
+                                                </div>
+                                                <div class="lead-content bord-bot">
+                                                    <label class="color-cyan text-capitalize" for=""><i class="fa fa-plane" aria-hidden="true"></i> Destination: </label>
+                                                    <!-- <button class="btn btn-pink-outline"><i class="fa fa-lock" aria-hidden="true"></i> Upgrade</button> -->
+                                                    <a href="" class="text-capitalize">{{agtlead.travellingTo}}</a>
+                                                </div>
+                                                <!-- <div class="lead-content bord-bot">
+                      <label class="color-cyan" for=""><i class="fa fa-thumb-tack" aria-hidden="true"></i> Itinerary: </label>
+                      <a href="" class="link-underline">{{agtlead.leadItinerary}}</a>
+                    </div> -->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-offset-1 col-md-7">
+                                            <div class="lead-commentbox color-white">
+                                                <div class="lead-content">
+                                                    <label class="color-cyan" for=""><i class="fa fa-comments" aria-hidden="true"></i> Comment: </label>
+                                                    <!-- <button class="btn btn-pink-outline"><i class="fa fa-lock" aria-hidden="true"></i> Upgrade</button> -->
+                                                    <p class="">{{agtlead.instructions}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </uib-accordion-group>
+                        </uib-accordion>
+                    </div>
+                    <!-- NEW LEAD ACCORDION END -->
+                </div>
+                <!-- LEAD ACCCORDION SECTION END -->
+                <!-- ACTIONED ACCCORDION SECTION -->
+                <div class="agt-home-leadmonitortab leadmonitor-read" ng-show="showLead==1">
+                    <!-- NEW LEAD EMPTY -->
+                    <div class="empty-newlead text-center" ng-if="actionLeads.length == 0">
+                        <h4 class="color-blue">NO ACTIONED LEADS</h4>
+                    </div>
+                    <!-- NEW LEAD EMPTY END -->
+                    <!-- ACTIONED ACCORDION -->
+                    <div class="actiontab-accordionbox newlead-tab" ng-if="actionLeads.length != 0">
+                        <uib-accordion close-others="oneAtATime">
+                            <uib-accordion-group ng-repeat="agtlead in actionLeads track by $index" is-open="agtlead.open">
+                                <uib-accordion-heading>
+                                    <div class="lead-tab-title color-white avenir-medium clearfix">
+                                        <div class="leadtab-profileholder  pull-left" ng-if="agtlead.byUser">
+                                            <img ng-src="{{agtlead.byUser.profilePicture | uploadpath}}" alt="{{agtlead.name}}" class="img-responsive">
+                                        </div>
+                                        <div class="leadtab-title">
+                                            <p class="color-pink avenir-heavy text-capitalize">{{agtlead.name}}</p>
+                                        </div>
+                                        <div class="leadtab-msgdiv color-white" ng-class="{'disp-none': agtlead.open, 'inline-block': !agtlead.open}">
+                                            <p class="leadtab-msg"><span class="ledadmsg-country text-capitalize">{{agtlead.travellingTo}} </span><span class="ledadmsg-comment">- {{agtlead.instructions}}</span></p>
+                                        </div>
+                                        <i class="pull-right color-white mt10 fa " ng-class="{'fa fa-chevron-up': agtlead.open, 'fa fa-chevron-down': !agtlead.open}"></i>
+                                        <div class="leadtab-title leadtab-date pull-right  color-white" ng-class="{'disp-none': agtlead.open, 'inline-block': !agtlead.open}">
+                                            <p>{{agtlead.createdAt | formatDate: 'date'}}</p>
+                                        </div>
+                                    </div>
+                                </uib-accordion-heading>
+                                <div class="action-contentbox">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="lead-details color-blue">
+                                                <div class="lead-content bord-bot">
+                                                    <label class="color-cyan" for=""><i class="fa fa-phone" aria-hidden="true"></i> Contact: </label>
+                                                    <a href="tel"> {{agtlead.contactNo}} </a>
+                                                    <!-- <button class="btn btn-pink-outline"><i class="fa fa-lock" aria-hidden="true"></i> Upgrade</button> -->
+                                                </div>
+                                                <div class="lead-content bord-bot">
+                                                    <label class="color-cyan" for=""><i class="fa fa-envelope" aria-hidden="true"></i> Email: </label>
+                                                    <a href="mailto:{{agtlead.leadMail}}" class="link-underline">{{agtlead.email}}</a>
+                                                    <!-- <button class="btn btn-pink-outline"><i class="fa fa-lock" aria-hidden="true"></i> Upgrade</button> -->
+                                                </div>
+                                                <div class="lead-content bord-bot">
+                                                    <label class="color-cyan text-capitalize" for=""><i class="fa fa-plane" aria-hidden="true"></i> Destination: </label>
+                                                    <a href="" class="text-capitalize">{{agtlead.travellingTo}}</a>
+                                                </div>
+                                                <!-- <div class="lead-content bord-bot">
+                      <label class="color-cyan" for=""><i class="fa fa-thumb-tack" aria-hidden="true"></i> Itinerary: </label>
+                      <a href="" class="link-underline">{{agtlead.leadItinerary}}</a>
+                    </div> -->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-offset-1 col-md-7">
+                                            <div class="lead-commentbox color-white">
+                                                <div class="lead-content">
+                                                    <label class="color-cyan" for=""><i class="fa fa-comments" aria-hidden="true"></i> Comment: </label>
+                                                    <!-- <button class="btn btn-pink-outline"><i class="fa fa-lock" aria-hidden="true"></i> Upgrade</button> -->
+                                                    <p class="">{{agtlead.instructions}} </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </uib-accordion-group>
+                        </uib-accordion>
+                    </div>
+                    <!-- actioned ACCORDION END -->
+                </div>
+                <!-- ACTIONED ACCCORDION SECTION END -->
+            </div>
+        </div>
+    </div>
+    <!-- PAGINATION LOADER -->
+    <div class="" ng-if="template.paginationLoader">
+        <img src="img/page.svg" alt="" class="m-center img-responsive" width="25px">
+    </div>
+    <!-- PAGINATION LOADER END -->
+</div>

@@ -1,0 +1,34 @@
+var frac1 = (23.520867 - 19.113645) / 250;
+      var frac2 = (77.332764 - 72.869734) / 250;
+      var iniLat = 19.113645;
+      var iniLng = 72.869734;
+      var departure = new google.maps.LatLng(19.113645, 72.869734); //Set to whatever lat/lng you need for your departure location
+      var arrival = new google.maps.LatLng(23.520867, 77.332764); //Set to whatever lat/lng you need for your arrival location
+      var line = new google.maps.Polyline({
+        path: [departure, departure],
+        strokeColor: "#FF0000",
+        strokeOpacity: 1,
+        strokeWeight: 2,
+        geodesic: true, //set to false if you want straight line instead of arc
+        map: map,
+      });
+      var step = 0;
+      var numSteps = 250; //Change this to set animation resolution
+      var timePerStep = 4.40; //Change this to alter animation speed
+      var interval = setInterval(function () {
+        step += 1;
+        if (step > numSteps) {
+          clearInterval(interval);
+        } else {
+          var progressed = step / numSteps;
+          center = {
+            "lat": iniLat + frac1,
+            "lng": iniLng + frac2
+          }
+          iniLat = iniLat + frac1;
+          iniLng = iniLng + frac2;
+          map.setCenter(center);
+          var are_we_there_yet = google.maps.geometry.spherical.interpolate(departure, arrival, progressed);
+          line.setPath([departure, are_we_there_yet]);
+        }
+      }, timePerStep);

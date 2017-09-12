@@ -1,0 +1,67 @@
+{
+  "name": "travelibro",
+  "description": "TraveLibro",
+  "main": "gulpfile.js",
+  "authors": [
+    "chintan@wohlig.com"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/WohligTechnology/AngularFrameworkFrontend",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.8",
+    "angular-bootstrap": "^1.2.1",
+    "angular-recaptcha": "~2.2.4",
+    "angular-flexslider": "~1.3.2",
+    "angular-animate": "1.5.8",
+    "angular-ui": "~0.4.0",
+    "animate.css": "~3.3.0",
+    "bootstrap-sass": "~3.3.5",
+    "bourbon": "~4.2.5",
+    "angular-sanitize": "1.5.8",
+    "font-awesome": "^4.6.3",
+    "lodash": "~4.0.0",
+    "ui-router": "~0.2.15",
+    "fancyBox": "fancybox#^2.1.5",
+    "angulartics-google-analytics": "^0.1.4",
+    "ng-img-crop": "ngImgCrop#^0.3.2",
+    "angular-mappy": "https://github.com/mattosborn/angular-mappy.git",
+    "angular-masonry": "^0.16.0",
+    "ng-scrollbar": "^0.0.8",
+    "angular-swiper": "^0.4.0",
+    "fullpage.js": "2.7.8",
+    "smart-app-banner": "https://github.com/kudago/smart-app-banner.git",
+    "parallax": "https://github.com/wagerfield/parallax.git#~2.1.3",
+    "angularjs-imageupload-directive": "*",
+    "angular-ui-select": "^0.19.4",
+    "jStorage": "jstorage#^0.4.12",
+    "moment": "^2.15.1",
+    "angular-google-maps": "^2.4.0",
+    "ngmap": "^1.17.8",
+    "ng-file-upload": "^12.2.12",
+    "angular-file-upload": "^2.3.4",
+    "angular-rangeslider": "^0.0.14",
+    "angular-loading-bar": "^0.9.0",
+    "ngInfiniteScroll": "^1.3.4",
+    "typed.js": "^1.1.6",
+    "angular-google-analytics": "^1.1.9",
+    "angular-fade-image-loading": "^0.0.1",
+    "international-phone-number": "^0.0.16",
+    "highcharts-ng": "^0.0.6",
+    "highcharts": "^5.0.12",
+    "angular-ui-tinymce": "^0.0.19"
+  },
+  "devDependencies": {
+    "angular-translate": "^2.11.0"
+  },
+  "resolutions": {
+    "angular": ">=1.4.0"
+  }
+}

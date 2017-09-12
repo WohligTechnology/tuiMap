@@ -1,0 +1,60 @@
+<div class="container-fluid m-plr0">
+  <!-- <div class="pt20 pb10 head-title-all mb20">
+    <div class="row m-clear">
+      <div class="col-md-12">
+        <h4 class="text-center fnt-24 p-clear">Best Time To Visit</h4>
+      </div>
+    </div>
+  </div> -->
+  <div class="empty-travel-journey color-white" ng-if="cityDestData.bestTime.length == 0">
+    <div class="empty-ongo text-center">
+      <p class="empty-descp color-white">We are still to update the details for the best time to visit {{cityDestData.name}}.</p>
+      <p class="empty-descp color-white">
+        If you have visited this Country or in fact live there, do fill us in with your recommendations on
+        <a href="mailto:info@travelibro.com" class="color-white">info@travelibro.com</a>.
+      </p>
+    </div>
+  </div>
+  <div class="dest-btv plr30">
+    <div class="row m-m0 mobile-row-customise">
+      <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6 mobile-col-customise" ng-repeat="visit in cityDestData.bestTime track by $index">
+        <div class="red-box common-box">
+          <div class="head-btv text-center color-white fnt-22 relate">
+            {{visit.month}}
+            <div class="cover-border">
+              <div class="brd"></div>
+              <img src="img/destination/ovel-circle-red.png" class="right-circle red-pins" alt="" />
+              <img src="img/destination/ovel-circle-red.png" class="left-circle red-pins" alt="" />
+              <img src="img/destination/ovel-circle-green.png" class="right-circle cyan-pins" alt="" />
+              <img src="img/destination/ovel-circle-green.png" class="left-circle cyan-pins" alt="" />
+            </div>
+          </div>
+          <div class="cont-btv-white">
+            <div class="row">
+              <div class="col-xs-6">
+                <div class="cont-btv">
+                  <div class="img-holder-btv">
+                    <img ng-src="{{visit.season|seasonType}}" alt="" class="img-responsive" />
+                  </div>
+                  <div class="season text-center">
+                    <span>{{visit.season}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="cont-btv">
+                  <div class="img-holder-btv">
+                    <img ng-src="{{visit.traffic|trafficType}}" alt="" class="img-responsive" />
+                  </div>
+                  <div class="season text-center">
+                    <span>{{visit.traffic}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+<div class="container-fluid m-p0">
+    <div class="destination-nav second destin-fixednav bg-grey">
+        <div class="row m-m0">
+            <div class="col-md-8 col-sm-8 m-plr0">
+                <div class="destination-scroll pl20">
+                    <ul class="list-inline">
+                        <li ng-click="getTab(0)" ng-class="{'active': cityoptions.active=='must-dos'}">Must Dos</li>
+                        <li ng-click="getTab(1)" ng-class="{'active': cityoptions.active=='hotels'}">Hotels</li>
+                        <li ng-click="getTab(2)" ng-class="{'active': cityoptions.active=='restaurants'}">Restaurants</li>
+                        <li ng-click="getTab(3)" ng-class="{'active': cityoptions.active=='itineraries'}">Itineraries</li>
+                        <li ng-click="getTab(4); getBooking(cityDestData.name,cityDestData.country.name)" ng-class="{'active': cityoptions.active=='bookings'}">Bookings</li>
+                        <li ng-click="getTab(5)" ng-class="{'active': cityoptions.active=='best-time-to-visit'}">Best Time To Visit</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 hidden-xs">
+                <div class="pr20">
+                    <form action="">
+                        <div class="input-search relate" ng-init="viewDestinationCity={'outerClass':'outerDestCity','innerClass':'innerDestCity'}">
+                            <div class="input-group outerDestCity">
+                                <input type="text" class="form-control" placeholder="Search Destination" ng-model="dest.viewDestination" ng-change="callDestination();" ng-click="editOption(viewDestinationCity,'outerDestCity','innerDestCity')">
+                                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                                <span class="small-loader" ng-if="searchLoader"><img src="img/page.svg" width="25px" alt="" class="img-responsive"></span>
+                            </div>
+                            <div class="dropdown-destination innerDestCity" ng-show="viewDestinationCity.backgroundClick">
+                                <ul>
+                                    <li ng-repeat="dest in destinationList  track by $index">
+                                        <span ng-if="dest.isCity==true" ng-click="countryView(dest.urlSlug,dest.isCity);">{{dest.name}}</span>
+                                        <span ng-if="dest.isCity==false" ng-click="countryView(dest.urlSlug,dest.isCity);">{{dest.name}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="empty-travel-journey color-white" ng-if="cityDestData.mustDo.length == 0">
+        <div class="empty-ongo text-center">
+            <p class="empty-descp color-white">I’m in love with cities I’ve never been to & people I’ve never met.”</p>
+            <p class="empty-descp color-white">
+                {{cityDestData.name}}. A journey we are yet to take and have things to ponder over, that one simply cannot miss.
+            </p>
+        </div>
+    </div>
+    <div class="bg-white pt20 min-hght" ng-if="cityDestData.mustDo.length > 0">
+        <div class="destination-featured m-p0">
+            <div class="plr30">
+                <div class="row m-m0">
+                    <div class="col-md-4 col-sm-6 m-plr0" ng-repeat="mustdo in cityDestData.mustDo track by $index">
+                        <div class="img-holder card relate">
+                            <!-- <div class="flip-holder" ng-class="($index==index)?'flipped':''" style="background:url('{{mustdo.mainPhoto | uploadpath}}')"> -->
+                            <div class="flip-holder" ng-class="($index==index)?'flipped':''" style='background:url("{{mustdo.mainPhoto | uploadpath}}") #a0a0a0'>
+                                <!-- <img ng-src="{{mustdo.mainPhoto|uploadpath:600:600:'cover'}}" alt="travel-libro" class="full-width"> -->
+                                <div class="front">
+                                    <div class="pop-hover-css" ng-click="openCountry($index);">
+                                        <h4 class="title-head-left city-mustdo-title color-white">
+                    {{$index+1}}. {{mustdo.name}}
+                  </h4>
+                                    </div>
+                                    <div class="read-more right-bottom filpup">
+                                        <a class="color-white" ng-click="index=$index">Read</a>
+                                    </div>
+                                </div>
+                                <div class="back" style="background:url('{{mustdo.mainPhoto | uploadpath}}')">
+                                    <div class="flipped-cont">
+                                        <div class="get-center full-width pl20 pr20">
+                                            <p>{{mustdo.description}}</p>
+                                        </div>
+                                        <div class="read-more right-bottom flipdown">
+                                            <a class="color-white" ng-click="index=-1">Close</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

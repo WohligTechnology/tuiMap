@@ -1,0 +1,817 @@
+{
+    "data": {
+        "_id": "58070d2ead23e936710d8c9e",
+        "createdAt": "2016-10-19T06:05:23.357Z",
+        "updatedAt": "2016-10-21T07:37:17.972Z",
+        "user": {
+            "_id": "5801febf08fff771d69867b5",
+            "name": "Pratik Patel",
+            "profilePicture": "5801febf08fff771d69867b0.png",
+            "email": "pppratik8@gmail.com"
+        },
+        "startTime": "2016-10-19T06:05:34.202Z",
+        "uniqueId": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:35:23:am",
+        "journeyCreator": "57dd27f1e5130345f8864c44",
+        "__v": 0,
+        "urlSlug": "1234-2",
+        "review": [],
+        "countryVisited": [{
+            "country": {
+                "_id": "58046871e55a150b7059169c",
+                "name": "India",
+                "flag": "5804bfd05feee83d74c504b5.jpg"
+            },
+            "date": "2016-10-19T06:17:11.487Z",
+            "_id": "58070fe731d15e3d0f4be546"
+        }, {
+            "country": {
+                "_id": "5804687ce55a150b70591dad",
+                "name": "United Arab Emirates",
+                "flag": "5804bfd45feee83d74c50b4b.jpg"
+            },
+            "date": "2016-10-19T12:43:19.644Z",
+            "_id": "58076a67fc3b415e1d60d95a"
+        }],
+        "buddies": [{
+            "_id": "57dd27f1e5130345f8864c44",
+            "name": "Akshay Mayekar",
+            "profilePicture": "57dd2816e5130345f8864c48.jpg",
+            "email": "akshaymayekar2008@gmail.com"
+        }, {
+            "_id": "57fe12708c60bd73f4d42c30",
+            "name": "Vignesh Kasturi",
+            "profilePicture": "57fe12708c60bd73f4d42c2b.jpg",
+            "email": "vigneshkasthuri2009@gmail.com"
+        }, {
+            "_id": "57dd0ed97ba22f390b791d58",
+            "name": "Jitendra Tawde",
+            "profilePicture": "57dd0ed97ba22f390b791d53.jpg",
+            "email": "jitu1612@gmail.com"
+        }],
+        "post": [{
+            "location": {
+                "lat": 19.089560,
+                "lng": 72.865614
+            },
+            "_id": "58070fe731d15e3d0f4be547",
+            "createdAt": "2016-10-19T06:17:11.497Z",
+            "updatedAt": "2016-10-21T06:12:41.677Z",
+            "user": {
+                "_id": "5801febf08fff771d69867b5",
+                "name": "Pratik Patel",
+                "profilePicture": "5801febf08fff771d69867b0.png",
+                "email": "pppratik8@gmail.com"
+            },
+            "thoughts": "Feeling Awesome",
+            "journey": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:35:23:am",
+            "UTCModified": "2016-10-19T06:17:11.479Z",
+            "UTC": "2016-10-19T06:17:11.479Z",
+            "uniqueId": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:47:11:am",
+            "postCreator": {
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            },
+            "localCategory": "",
+            "life": "",
+            "shareURL": "",
+            "link": "",
+            "comment": [],
+            "like": [],
+            "buddies": [{
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            }],
+            "videos": [],
+            "photos": [],
+            "review": [],
+            "checkIn": {
+                "location": "Swamy Vallabhdas Road",
+                "category": "City",
+                "city": "Mumbai"
+            },
+            "type": "travel-life",
+            "__v": 0,
+            "likeCount": 0,
+            "commentCount": 0
+        },{
+            "_id": "58070fe731d15e3d0f4be547",
+            "createdAt": "2016-10-19T06:17:11.497Z",
+            "updatedAt": "2016-10-21T06:12:41.677Z",
+            "user": {
+                "_id": "5801febf08fff771d69867b5",
+                "name": "Pratik Patel",
+                "profilePicture": "5801febf08fff771d69867b0.png",
+                "email": "pppratik8@gmail.com"
+            },
+            "thoughts": "Feeling Awesome",
+            "journey": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:35:23:am",
+            "UTCModified": "2016-10-19T06:17:11.479Z",
+            "UTC": "2016-10-19T06:17:11.479Z",
+            "uniqueId": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:47:11:am",
+            "postCreator": {
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            },
+            "localCategory": "",
+            "life": "",
+            "shareURL": "",
+            "link": "",
+            "comment": [],
+            "like": [],
+            "buddies": [{
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            }],
+            "videos": [],
+            "photos": [],
+            "review": [],
+            "checkIn": {
+                "location": "Swamy Vallabhdas Road",
+                "category": "City",
+                "city": "Mumbai"
+            },
+            "type": "travel-life",
+            "__v": 0,
+            "likeCount": 0,
+            "commentCount": 0
+        }, {
+            "location": {
+                "lat": 51.470022,
+                "lng": -0.454295
+            },
+            "_id": "5807101731d15e3d0f4be562",
+            "createdAt": "2016-10-19T06:17:59.576Z",
+            "updatedAt": "2016-10-20T12:53:31.980Z",
+            "user": {
+                "_id": "5801febf08fff771d69867b5",
+                "name": "Pratik Patel",
+                "profilePicture": "5801febf08fff771d69867b0.png",
+                "email": "pppratik8@gmail.com"
+            },
+            "thoughts": "Feeling Awesome",
+            "journey": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:35:23:am",
+            "UTCModified": "2016-10-19T06:17:59.561Z",
+            "UTC": "2016-10-19T06:17:59.561Z",
+            "uniqueId": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:47:59:am",
+            "postCreator": {
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            },
+            "localCategory": "",
+            "life": "",
+            "shareURL": "",
+            "link": "",
+            "comment": [],
+            "like": [
+                "5801febf08fff771d69867b5"
+            ],
+            "buddies": [{
+                "_id": "57dd0ed97ba22f390b791d58",
+                "name": "Jitendra Tawde",
+                "profilePicture": "57dd0ed97ba22f390b791d53.jpg",
+                "email": "jitu1612@gmail.com"
+            }, {
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            }],
+            "videos": [],
+            "photos": [],
+            "review": [],
+            "checkIn": {
+                "location": "Swamy Vallabhdas Road",
+                "category": "City",
+                "city": "Mumbai"
+            },
+            "type": "travel-life",
+            "__v": 0,
+            "likeDone": true,
+            "likeCount": 1,
+            "commentCount": 0
+        },{
+            "_id": "58070fe731d15e3d0f4be547",
+            "createdAt": "2016-10-19T06:17:11.497Z",
+            "updatedAt": "2016-10-21T06:12:41.677Z",
+            "user": {
+                "_id": "5801febf08fff771d69867b5",
+                "name": "Pratik Patel",
+                "profilePicture": "5801febf08fff771d69867b0.png",
+                "email": "pppratik8@gmail.com"
+            },
+            "thoughts": "Feeling Awesome",
+            "journey": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:35:23:am",
+            "UTCModified": "2016-10-19T06:17:11.479Z",
+            "UTC": "2016-10-19T06:17:11.479Z",
+            "uniqueId": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:47:11:am",
+            "postCreator": {
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            },
+            "localCategory": "",
+            "life": "",
+            "shareURL": "",
+            "link": "",
+            "comment": [],
+            "like": [],
+            "buddies": [{
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            }],
+            "videos": [],
+            "photos": [],
+            "review": [],
+            "checkIn": {
+                "location": "Swamy Vallabhdas Road",
+                "category": "City",
+                "city": "Mumbai"
+            },
+            "type": "travel-life",
+            "__v": 0,
+            "likeCount": 0,
+            "commentCount": 0
+        }, {
+            "location": {
+                "lat": 29.276052,
+                "lng": -81.034910
+            },
+            "_id": "5807104631d15e3d0f4be57f",
+            "createdAt": "2016-10-19T06:18:46.297Z",
+            "updatedAt": "2016-10-20T12:53:41.715Z",
+            "user": {
+                "_id": "5801febf08fff771d69867b5",
+                "name": "Pratik Patel",
+                "profilePicture": "5801febf08fff771d69867b0.png",
+                "email": "pppratik8@gmail.com"
+            },
+            "thoughts": "Feeling Awesome",
+            "journey": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:35:23:am",
+            "UTCModified": "2016-10-19T06:18:46.270Z",
+            "UTC": "2016-10-19T06:18:46.270Z",
+            "uniqueId": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:48:46:am",
+            "postCreator": {
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            },
+            "localCategory": "",
+            "life": "",
+            "shareURL": "",
+            "link": "",
+            "comment": [],
+            "like": [
+                "5801febf08fff771d69867b5"
+            ],
+            "buddies": [{
+                "_id": "57dd0ed97ba22f390b791d58",
+                "name": "Jitendra Tawde",
+                "profilePicture": "57dd0ed97ba22f390b791d53.jpg",
+                "email": "jitu1612@gmail.com"
+            }, {
+                "_id": "57fe12708c60bd73f4d42c30",
+                "name": "Vignesh Kasturi",
+                "profilePicture": "57fe12708c60bd73f4d42c2b.jpg",
+                "email": "vigneshkasthuri2009@gmail.com"
+            }, {
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            }],
+            "videos": [],
+            "photos": [],
+            "review": [],
+            "checkIn": {
+                "location": "Swamy Vallabhdas Road",
+                "category": "City",
+                "city": "Mumbai"
+            },
+            "type": "travel-life",
+            "__v": 0,
+            "likeDone": true,
+            "likeCount": 1,
+            "commentCount": 0
+        },{
+            "_id": "58070fe731d15e3d0f4be547",
+            "createdAt": "2016-10-19T06:17:11.497Z",
+            "updatedAt": "2016-10-21T06:12:41.677Z",
+            "user": {
+                "_id": "5801febf08fff771d69867b5",
+                "name": "Pratik Patel",
+                "profilePicture": "5801febf08fff771d69867b0.png",
+                "email": "pppratik8@gmail.com"
+            },
+            "thoughts": "Feeling Awesome",
+            "journey": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:35:23:am",
+            "UTCModified": "2016-10-19T06:17:11.479Z",
+            "UTC": "2016-10-19T06:17:11.479Z",
+            "uniqueId": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:47:11:am",
+            "postCreator": {
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            },
+            "localCategory": "",
+            "life": "",
+            "shareURL": "",
+            "link": "",
+            "comment": [],
+            "like": [],
+            "buddies": [{
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            }],
+            "videos": [],
+            "photos": [],
+            "review": [],
+            "checkIn": {
+                "location": "Swamy Vallabhdas Road",
+                "category": "City",
+                "city": "Mumbai"
+            },
+            "type": "travel-life",
+            "__v": 0,
+            "likeCount": 0,
+            "commentCount": 0
+        }, {
+            "location": {
+                "lat": 51.512072,
+                "lng": -0.144223
+            },
+            "_id": "5807107931d15e3d0f4be59e",
+            "createdAt": "2016-10-19T06:19:37.596Z",
+            "updatedAt": "2016-10-20T12:54:02.895Z",
+            "user": {
+                "_id": "5801febf08fff771d69867b5",
+                "name": "Pratik Patel",
+                "profilePicture": "5801febf08fff771d69867b0.png",
+                "email": "pppratik8@gmail.com"
+            },
+            "journey": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:35:23:am",
+            "UTCModified": "2016-10-19T06:19:37.575Z",
+            "UTC": "2016-10-19T06:19:37.575Z",
+            "uniqueId": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:49:37:am",
+            "postCreator": {
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            },
+            "localCategory": "",
+            "life": "",
+            "shareURL": "",
+            "link": "",
+            "comment": [],
+            "like": [
+                "5801febf08fff771d69867b5"
+            ],
+            "buddies": [{
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            }],
+            "videos": [],
+            "photos": [],
+            "review": [],
+            "checkIn": {
+                "location": "Swamy Vallabhdas Road",
+                "category": "City",
+                "city": "Mumbai"
+            },
+            "type": "travel-life",
+            "__v": 0,
+            "likeDone": true,
+            "likeCount": 1,
+            "commentCount": 0
+        },{
+            "_id": "58070fe731d15e3d0f4be547",
+            "createdAt": "2016-10-19T06:17:11.497Z",
+            "updatedAt": "2016-10-21T06:12:41.677Z",
+            "user": {
+                "_id": "5801febf08fff771d69867b5",
+                "name": "Pratik Patel",
+                "profilePicture": "5801febf08fff771d69867b0.png",
+                "email": "pppratik8@gmail.com"
+            },
+            "thoughts": "Feeling Awesome",
+            "journey": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:35:23:am",
+            "UTCModified": "2016-10-19T06:17:11.479Z",
+            "UTC": "2016-10-19T06:17:11.479Z",
+            "uniqueId": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:47:11:am",
+            "postCreator": {
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            },
+            "localCategory": "",
+            "life": "",
+            "shareURL": "",
+            "link": "",
+            "comment": [],
+            "like": [],
+            "buddies": [{
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            }],
+            "videos": [],
+            "photos": [],
+            "review": [],
+            "checkIn": {
+                "location": "Swamy Vallabhdas Road",
+                "category": "City",
+                "city": "Mumbai"
+            },
+            "type": "travel-life",
+            "__v": 0,
+            "likeCount": 0,
+            "commentCount": 0
+        },{
+            "location": {
+                "lat": 52.923608,
+                "lng": -1.482560
+            },
+            "_id": "580710e431d15e3d0f4be5bf",
+            "createdAt": "2016-10-19T06:21:24.711Z",
+            "updatedAt": "2016-10-20T12:55:06.394Z",
+            "user": {
+                "_id": "5801febf08fff771d69867b5",
+                "name": "Pratik Patel",
+                "profilePicture": "5801febf08fff771d69867b0.png",
+                "email": "pppratik8@gmail.com"
+            },
+            "journey": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:35:23:am",
+            "UTCModified": "2016-10-19T06:21:24.687Z",
+            "UTC": "2016-10-19T06:21:24.687Z",
+            "uniqueId": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:51:24:am",
+            "postCreator": {
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            },
+            "localCategory": "",
+            "life": "",
+            "shareURL": "",
+            "link": "",
+            "comment": [],
+            "like": [
+                "5801febf08fff771d69867b5"
+            ],
+            "buddies": [{
+                "_id": "57dd0ed97ba22f390b791d58",
+                "name": "Jitendra Tawde",
+                "profilePicture": "57dd0ed97ba22f390b791d53.jpg",
+                "email": "jitu1612@gmail.com"
+            }, {
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            }],
+            "videos": [],
+            "photos": [],
+            "review": [],
+            "checkIn": {
+                "location": "Swamy Vallabhdas Road",
+                "category": "City",
+                "city": "Mumbai"
+            },
+            "type": "travel-life",
+            "__v": 0,
+            "likeDone": true,
+            "likeCount": 1,
+            "commentCount": 0
+        },{
+            "_id": "58070fe731d15e3d0f4be547",
+            "createdAt": "2016-10-19T06:17:11.497Z",
+            "updatedAt": "2016-10-21T06:12:41.677Z",
+            "user": {
+                "_id": "5801febf08fff771d69867b5",
+                "name": "Pratik Patel",
+                "profilePicture": "5801febf08fff771d69867b0.png",
+                "email": "pppratik8@gmail.com"
+            },
+            "thoughts": "Feeling Awesome",
+            "journey": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:35:23:am",
+            "UTCModified": "2016-10-19T06:17:11.479Z",
+            "UTC": "2016-10-19T06:17:11.479Z",
+            "uniqueId": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:47:11:am",
+            "postCreator": {
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            },
+            "localCategory": "",
+            "life": "",
+            "shareURL": "",
+            "link": "",
+            "comment": [],
+            "like": [],
+            "buddies": [{
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            }],
+            "videos": [],
+            "photos": [],
+            "review": [],
+            "checkIn": {
+                "location": "Swamy Vallabhdas Road",
+                "category": "City",
+                "city": "Mumbai"
+            },
+            "type": "travel-life",
+            "__v": 0,
+            "likeCount": 0,
+            "commentCount": 0
+        }, {
+            "location": {
+                "lat": 51.899603,
+                "lng": -1.153590
+            },
+            "_id": "5807111231d15e3d0f4be612",
+            "createdAt": "2016-10-19T06:22:10.675Z",
+            "updatedAt": "2016-10-20T12:56:01.119Z",
+            "user": {
+                "_id": "5801febf08fff771d69867b5",
+                "name": "Pratik Patel",
+                "profilePicture": "5801febf08fff771d69867b0.png",
+                "email": "pppratik8@gmail.com"
+            },
+            "journey": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:35:23:am",
+            "UTCModified": "2016-10-19T06:22:10.659Z",
+            "UTC": "2016-10-19T06:22:10.659Z",
+            "uniqueId": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:52:10:am",
+            "postCreator": {
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            },
+            "localCategory": "",
+            "life": "",
+            "shareURL": "",
+            "link": "",
+            "comment": [],
+            "like": [],
+            "buddies": [{
+                "_id": "57dd0ed97ba22f390b791d58",
+                "name": "Jitendra Tawde",
+                "profilePicture": "57dd0ed97ba22f390b791d53.jpg",
+                "email": "jitu1612@gmail.com"
+            }, {
+                "_id": "57fe12708c60bd73f4d42c30",
+                "name": "Vignesh Kasturi",
+                "profilePicture": "57fe12708c60bd73f4d42c2b.jpg",
+                "email": "vigneshkasthuri2009@gmail.com"
+            }, {
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            }],
+            "videos": [],
+            "photos": [],
+            "review": [],
+            "checkIn": {
+                "location": "Swamy Vallabhdas Road",
+                "category": "City",
+                "city": "Mumbai"
+            },
+            "type": "travel-life",
+            "__v": 0,
+            "likeCount": 0,
+            "commentCount": 0
+        },{
+            "_id": "58070fe731d15e3d0f4be547",
+            "createdAt": "2016-10-19T06:17:11.497Z",
+            "updatedAt": "2016-10-21T06:12:41.677Z",
+            "user": {
+                "_id": "5801febf08fff771d69867b5",
+                "name": "Pratik Patel",
+                "profilePicture": "5801febf08fff771d69867b0.png",
+                "email": "pppratik8@gmail.com"
+            },
+            "thoughts": "Feeling Awesome",
+            "journey": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:35:23:am",
+            "UTCModified": "2016-10-19T06:17:11.479Z",
+            "UTC": "2016-10-19T06:17:11.479Z",
+            "uniqueId": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:47:11:am",
+            "postCreator": {
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            },
+            "localCategory": "",
+            "life": "",
+            "shareURL": "",
+            "link": "",
+            "comment": [],
+            "like": [],
+            "buddies": [{
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            }],
+            "videos": [],
+            "photos": [],
+            "review": [],
+            "checkIn": {
+                "location": "Swamy Vallabhdas Road",
+                "category": "City",
+                "city": "Mumbai"
+            },
+            "type": "travel-life",
+            "__v": 0,
+            "likeCount": 0,
+            "commentCount": 0
+        }, {
+            "location": {
+                "lat": 51.470022,
+                "lng": -0.454295
+            },
+            "_id": "580711a131d15e3d0f4be64c",
+            "createdAt": "2016-10-19T06:24:33.292Z",
+            "updatedAt": "2016-10-19T06:24:33.292Z",
+            "user": {
+                "_id": "5801febf08fff771d69867b5",
+                "name": "Pratik Patel",
+                "profilePicture": "5801febf08fff771d69867b0.png",
+                "email": "pppratik8@gmail.com"
+            },
+            "journey": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:35:23:am",
+            "UTCModified": "2016-10-19T06:24:33.269Z",
+            "UTC": "2016-10-19T06:24:33.269Z",
+            "uniqueId": "5801febf08fff771d69867b5zyxwvu19-10-2016T11:54:33:am",
+            "postCreator": {
+                "_id": "5801febf08fff771d69867b5",
+                "name": "Pratik Patel",
+                "profilePicture": "5801febf08fff771d69867b0.png",
+                "email": "pppratik8@gmail.com"
+            },
+            "localCategory": "",
+            "life": "",
+            "shareURL": "",
+            "link": "",
+            "comment": [],
+            "like": [],
+            "buddies": [{
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            }],
+            "videos": [],
+            "photos": [],
+            "review": [],
+            "checkIn": {
+                "location": "",
+                "category": "Cinema & Theatre",
+                "city": ""
+            },
+            "type": "travel-life",
+            "__v": 0,
+            "likeCount": 0,
+            "commentCount": 0
+        },{
+            "_id": "58070fe731d15e3d0f4be547",
+            "createdAt": "2016-10-19T06:17:11.497Z",
+            "updatedAt": "2016-10-21T06:12:41.677Z",
+            "user": {
+                "_id": "5801febf08fff771d69867b5",
+                "name": "Pratik Patel",
+                "profilePicture": "5801febf08fff771d69867b0.png",
+                "email": "pppratik8@gmail.com"
+            },
+            "thoughts": "Feeling Awesome",
+            "journey": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:35:23:am",
+            "UTCModified": "2016-10-19T06:17:11.479Z",
+            "UTC": "2016-10-19T06:17:11.479Z",
+            "uniqueId": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:47:11:am",
+            "postCreator": {
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            },
+            "localCategory": "",
+            "life": "",
+            "shareURL": "",
+            "link": "",
+            "comment": [],
+            "like": [],
+            "buddies": [{
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            }],
+            "videos": [],
+            "photos": [],
+            "review": [],
+            "checkIn": {
+                "location": "Swamy Vallabhdas Road",
+                "category": "City",
+                "city": "Mumbai"
+            },
+            "type": "travel-life",
+            "__v": 0,
+            "likeCount": 0,
+            "commentCount": 0
+        }, {
+            "location": {
+                "lat": 25.253175,
+                "lng": 55.365673
+            },
+            "_id": "5807120531d15e3d0f4be67f",
+            "createdAt": "2016-10-19T06:26:13.776Z",
+            "updatedAt": "2016-10-20T12:14:32.571Z",
+            "user": {
+                "_id": "5801febf08fff771d69867b5",
+                "name": "Pratik Patel",
+                "profilePicture": "5801febf08fff771d69867b0.png",
+                "email": "pppratik8@gmail.com"
+            },
+            "journey": "57dd27f1e5130345f8864c44zyxwvu19-10-2016T11:35:23:am",
+            "UTCModified": "2016-10-19T06:26:13.763Z",
+            "UTC": "2016-10-19T06:26:13.763Z",
+            "uniqueId": "5801febf08fff771d69867b5zyxwvu19-10-2016T11:56:13:am",
+            "postCreator": {
+                "_id": "5801febf08fff771d69867b5",
+                "name": "Pratik Patel",
+                "profilePicture": "5801febf08fff771d69867b0.png",
+                "email": "pppratik8@gmail.com"
+            },
+            "localCategory": "",
+            "life": "",
+            "shareURL": "",
+            "link": "",
+            "comment": [],
+            "like": [],
+            "buddies": [{
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            }, {
+                "_id": "57dd27f1e5130345f8864c44",
+                "name": "Akshay Mayekar",
+                "profilePicture": "57dd2816e5130345f8864c48.jpg",
+                "email": "akshaymayekar2008@gmail.com"
+            }, {
+                "_id": "57fe12708c60bd73f4d42c30",
+                "name": "Vignesh Kasturi",
+                "profilePicture": "57fe12708c60bd73f4d42c2b.jpg",
+                "email": "vigneshkasthuri2009@gmail.com"
+            }],
+            "videos": [],
+            "photos": [],
+            "review": [],
+            "checkIn": {
+                "location": "",
+                "category": "Cinema & Theatre",
+                "city": ""
+            },
+            "type": "travel-life",
+            "__v": 0,
+            "likeCount": 0,
+            "commentCount": 0
+        }],
+        "kindOfJourney": [
+            "friends",
+            "betterhalf",
+            "colleague"
+        ],
+        "onGoing": true,
+        "status": true,
+        "startLocation": "Mumbai",
+        "name": "1234"
+    },
+    "value": true
+}

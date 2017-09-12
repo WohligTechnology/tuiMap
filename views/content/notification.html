@@ -1,0 +1,213 @@
+<div class="notification-page">
+  <div class="container m-plr0">
+    <div class="row m-m0" infinite-scroll="loadMoreNotification()" infinite-scroll-disabled="notifyScroll.busy">
+      <div class="col-md-3 col-sm-4 col-xs-12 m-plr0" ng-repeat="notify in notificationCard track by $index">
+        <!-- Notification Card -->
+        <div class="notification-card">
+          <!-- UNREAD / READ NOTIFICATION CHECK -->
+          <span class="read-notification color-pink" ng-if="notify.answeredStatus!=''"><i class="fa fa-check"></i></span>
+          <!-- UNREAD / READ NOTIFICATION CHECK END -->
+          <!-- notification Content -->
+          <div class="notification-content">
+            <!-- CLOSE / REMOVE NOTIFICATION -->
+            <!-- <span class="remove-notification"><i class="fa fa-times"></i></span> -->
+            <!-- CLOSE / REMOVE NOTIFICATION END -->
+
+            <!-- PROFILE PIC AND TIMESTAMP  user from detail-->
+            <div class="notification-profile pointer" ui-sref="mylife({'urlSlug':notify.userFrom.urlSlug})">
+              <img ng-src="{{notify.userFrom.profilePicture|uploadpath:50:50:'cover'}}" alt="{{notify.userFrom.name}}" class="img-responsive"
+                ng-if="notify.type!='userBadge'">
+              <img ng-src="{{notify.userTo.profilePicture|uploadpath:50:50:'cover'}}" alt="{{notify.userTo.name}}" class="img-responsive"
+                ng-if="notify.type=='userBadge' || notify.type=='userWelcome'">
+            </div>
+            <p class="notification-timestamp"><i class="fa fa-calendar"></i><span class="ml5 ">{{notify.createdAt | date : 'dd MMM, yyyy'}}</span> | <i class="fa fa-clock-o "></i>              {{notify.createdAt | date: 'hh.mm a'}}<span></span></p>
+            <!-- PROFILE PIC AND TIMESTAMP END user from detail-->
+
+            <!-- NOTIFICATION DETAIL -->
+            <div class="notification-detail">
+              <!-- TAG ON GO -->
+              <p class="notification-tagongo" ng-bind-html="notify.notifyString"></p>
+            </div>
+            <!-- NOTIFICATION DETAIL END -->
+
+            <!-- NOTIFICATION TAG ON GO ACTION  -->
+            <div class="notification-action">
+              <!-- TAG ON GO -->
+              <div class="notification-tagongo-action" ng-if="notify.type=='journeyRequest' && notify.answeredStatus==''">
+                <p class="">Accept <span class="avenir-heavy color-blue">{{notify.userFrom.name}}</span>'s request to create your travel
+                  memories together.</p>
+                <!-- ACCEPT DECLINE BUTTONS -->
+                <div class="notification-btn text-center">
+                  <button type="button" name="button" class="btn btn-notification-card" ng-click="acceptJourney(notify)">Accept</button>
+                  <button type="button" name="button" class="btn btn-notification-card" ng-click="declineJourney(notify)">Decline</button>
+                </div>
+                <!-- ACCEPT DECLINE BUTTONS END -->
+              </div>
+              <!-- TAG ON GO END -->
+
+              <!-- END ON GO -->
+              <div class="notification-endongo-action" ng-if="notify.type == 'journeyLeft' && notify.answeredStatus=='unread'">
+                <p class="">Would you like to end your journey as well?</p>
+                <!-- END DECLINE BUTTONS -->
+                <div class="notification-btn text-center">
+                  <button type="button" name="button" class="btn btn-notification-card" ng-click="endJourney(notify)">End</button>
+                  <button type="button" name="button" class="btn btn-notification-card" ng-click="cancelJourney(notify)">Decline</button>
+                </div>
+                <!-- END DECLINE BUTTONS END -->
+              </div>
+              <!-- END ON GO END -->
+
+              <!-- userFollowingRequest FOLLOWER DETAILS -->
+              <div class="" ng-if="notify.type == 'userFollowingRequest'">
+                <div class="follower-details" ng-if="notify.userFrom.followers_count  || notify.userFrom.checkins_count || notify.userFrom.countriesVisited_count">
+                  <div class="notification-follower-detail" >
+                    <span class="notifcation-follower-count">{{notify.userFrom.followers_count}}</span>
+                    <span class="notifcation-follower-property">Followers</span>
+                  </div>
+                  <div class="notification-follower-detail">
+                    <span class="notifcation-follower-count">{{notify.userFrom.checkins_count}}</span>
+                    <span class="notifcation-follower-property">Countries Visited</span>
+                  </div>
+                  <div class="notification-follower-detail">
+                    <span class="notifcation-follower-count">{{notify.userFrom.followers_count}}</span>
+                    <span class="notifcation-follower-property">Journeys</span>
+                  </div>
+                </div>
+                <!-- ACCEPT DECLINE BUTTONS -->
+                <div class="notification-btn text-center" ng-if="notify.answeredStatus==''">
+                  <button type="button" name="button" class="btn btn-notification-card" ng-click="acceptRejectFollow(notify,1)">Accept</button>
+                  <button type="button" name="button" class="btn btn-notification-card" ng-click="acceptRejectFollow(notify,0)">Decline</button>
+                </div>
+                <!-- ACCEPT DECLINE BUTTONS END -->
+              </div>
+              <!-- userFollowingRequest FOLLOWER DETAILS END -->
+
+              <!-- userFollowing  FOLLOWER DETAILS -->
+              <div class="" ng-if="notify.type == 'userFollowing'">
+                <div class="follower-details" ng-if="notify.userFrom.followers_count  || notify.userFrom.checkins_count  || notify.userFrom.countriesVisited_count">
+                  <div class="notification-follower-detail">
+                    <span class="notifcation-follower-count">{{notify.userFrom.followers_count}}</span>
+                    <span class="notifcation-follower-property">Followers</span>
+                  </div>
+                  <div class="notification-follower-detail">
+                    <span class="notifcation-follower-count">{{notify.userFrom.countriesVisited_count}}</span>
+                    <span class="notifcation-follower-property">Countries Visited</span>
+                  </div>
+                  <div class="notification-follower-detail">
+                    <span class="notifcation-follower-count">{{notify.userFrom.checkins_count}}</span>
+                    <span class="notifcation-follower-property">Journeys</span>
+                  </div>
+                </div>
+
+                <!-- FOLLOW BUTTON -->
+                <div class="notification-btn noti-follow-btn">
+                  <button type="button" name="button" class="btn btn-notificationpink-card" ng-click="followFollowing(notify.userFrom)">{{notify.userFrom.following|followFollowingStatus}}</button>
+                </div>
+                <!-- FOLLOW BUTTON END -->
+              </div>
+              <!-- userFollowing FOLLOWER DETAILS END -->
+
+              <!-- TAG ITINERARY -->
+              <div class="notification-checkin-ongo-photo notification-tagitinerary-action" ng-if="notify.type == 'itineraryRequest'" ui-sref="userdetailitinerary({'urlSlug':notify.userFrom.urlSlug, 'id':notify.data.urlSlug}) ">
+                <p class="">View to add to your My Life.</p>
+                <!-- <div class="notification-tagitinerary-photo">
+                  <img ng-src="{{notify.data.coverPhoto|uploadpath:250:100:'cover'}}" alt="" class="img-responsive get-center">
+                </div> -->
+                <!-- ACCEPT DECLINE BUTTONS -->
+                <div class="notification-btn btn-notificationitinerary">
+                  <button type="button" name="button" class="btn btn-notification-card" ng-click="acceptDeclineItinerary(notify,1)">Accept</button>
+                  <button type="button" name="button" class="btn btn-notification-card" ng-click="acceptDeclineItinerary(notify,0)">Decline</button>
+                  <button type="button" name="button" class="btn btn-notification-card" ng-click="routeItinerary(notify);"> View </button>
+                </div>
+                <!-- ACCEPT DECLINE BUTTONS END -->
+              </div>
+              <!-- TAG ITINERARY END -->
+
+              <!-- photoLike, photoComment, photoMentionComment START -->
+              <div class="notification-checkin-ongo-photo pointer" ng-if="notify.type == 'photoLike' || notify.type == 'photoComment' || notify.type == 'photoMentionComment'" ng-click="redirectPhotoPost(notify);">
+                <img ng-src="{{notify.data.name|uploadpath:250:125:'cover'}}" alt="" class="img-responsive" />
+
+                <!-- IF TYPE.VIDEO LIKE -->
+                <span ng-if="notify.data.type == 'videos'" class="notification-video-thumbicon color-pink"><i class="fa fa-youtube-play"></i></span>
+                <!-- <span class="notification-video-thumbicon notification-youtube-local"><i class="fa fa-youtube-play"></i></span> -->
+                <!-- IF TYPE.VIDEO LIKE END -->
+              </div>
+              <!-- photoLike, photoComment, photoMentionComment END -->
+
+              <!-- postLike || postTag || postComment || postMentionComment -->
+              <div class="notify-post-type" ng-if="notify.type=='postLike' || notify.type=='postTag' || notify.type=='postComment' || notify.type=='postMentionComment' || notify.type=='postFirstTime'"
+                ng-click="redirectToPost(notify);">
+                <!-- if video present -->
+                <div class="video-notify notification-addvideo-ongo-photo" ng-if="notify.data.videos.length>0">
+                  <img ng-src="{{notify.data.videos[0]|uploadpath:250:125:'cover'}}" alt="" class="img-responsive">
+                  <span class="notification-video-thumbicon" ng-class="{'color-pink': notify.data.type=='travel-life', 'color-cyan':notify.data.type=='local-life'}"><i class="fa fa-youtube-play"></i></span>
+                </div>
+                <!-- if video present end-->
+
+                <!-- if photo present -->
+                <div class="notification-checkin-ongo-photo photos-notify" ng-if="notify.data.videos.length==0 &&  notify.data.photos.length>0">
+                  <img ng-src="{{notify.data.photos[0]|uploadpath:250:125:'cover'}}" alt="" class="img-responsive" />
+                </div>
+                <!-- if photo present end-->
+
+                <!-- if checkIn present -->
+                <div class="notification-checkin-ongo-photo notification-checkin-ongo-photo checkin-notify" ng-if="notify.data.videos.length==0 && notify.data.photos.length==0 && notify.data.checkIn.lat!=='' ">
+                  <img ng-src="{{notify.data.imageUrl|uploadpath:250:125:'cover'}}" alt="" class="img-responsive">
+                </div>
+                <!-- if checkIn present end-->
+
+                <!-- if thoughts present-->
+                <div class="thoughts-notify" ng-if="notify.data.videos.length==0 && notify.data.photos.length==0 && notify.data.checkIn.lat=='' &&  notify.data.thoughts!==''">
+                  <!-- " -->
+                  <p>"{{notify.data.thoughts}}"</p>
+                </div>
+                <!-- if thoughts present end-->
+
+              </div>
+              <!-- postLike || postTag || postComment || postMentionComment END -->
+
+              <!-- journeyLike, journeyComment,journeyMentionComment START -->
+              <div class="notification-joureny-like pointer" ng-if="notify.type == 'journeyLike' || notify.type == 'journeyComment' || notify.type == 'journeyMentionComment'" ng-click="routeOngo(notify)">
+                <div class="notification-checkin-ongo-photo" ng-if="notify.data.coverPhoto">
+                  <img ng-src="{{notify.data.coverPhoto|uploadpath:250:125:'cover'}}" alt="" class="img-responsive" />
+                </div>
+                <div class="notification-checkin-ongo-photo" ng-if=" !notify.data.coverPhoto">
+                  <img ng-src="{{notify.data.startLocationPic|uploadpath:250:125:'cover'}}" alt="" class="img-responsive" />
+                </div>
+              </div>
+              <!--  journeyLike, journeyComment,journeyMentionComment END -->
+
+
+              <!-- ALL USER BADGE  -->
+              <div class="notification-social-btn text-center" ng-if="notify.type == 'userBadge'">
+                <a class="btn btn-notification-social fb-icon"><i class="fa fa-facebook" ></i></a>
+                <a class="btn btn-notification-social twi-icon"><i class="fa fa-twitter"></i></a>
+                <a class="btn btn-notification-social google-icon"><i class="fa fa-google-plus"></i></a>
+                <a class="btn btn-notification-social pin-icon"><i class="fa fa-pinterest-p"></i></a>
+                <a class="btn btn-notification-social instagram-icon"><i class="fa fa-instagram"></i></a>
+                <a class="btn btn-notification-social linkedin-icon"><i class="fa fa-linkedin"></i></a>
+              </div>
+              <!-- ALL USER BADGE END -->
+
+              <!-- ITINERARY LIKE, COMMENT, MENTION COMMENT Start -->
+              <div class="notification-addpic-ongo-action pointer" ng-if="notify.type == 'itineraryLike' || notify.type == 'itineraryComment' ||  notify.type ==  'itineraryMentionComment' " ng-click="routeItinerary(notify);">
+                <div class="notification-checkin-ongo-photo notification-itinerary-pics">
+                  <img ng-src="{{notify.data.coverPhoto|uploadpath:250:125:'cover'}}" alt="" class="img-responsive" />
+                </div>
+              </div>
+              <!-- ITINERARY LIKE, COMMENT, MENTION COMMENT  END -->
+            </div>
+            <!-- NOTIFICATION TAG ON GO ACTION END -->
+          </div>
+          <!-- notification Content END -->
+        </div>
+        <!-- Notification Card End -->
+      </div>
+      <!-- col-md-3 end -->
+    </div>
+    <!-- row end -->
+    <div class="pagination-loader" ng-if="template.paginationLoader">
+      <img src="img/page.svg" alt="Loading..." width="50px" class="img-responsive m-center">
+    </div>
+  </div>
+</div>

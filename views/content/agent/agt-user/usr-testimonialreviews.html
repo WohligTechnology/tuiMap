@@ -1,0 +1,92 @@
+<div class="agt-usr-testimonialreviews" ng-class="{'backdrop-testimonial' : showTestimonial, '' : !showTestimonial}">
+  <!-- EMPTY POSTS PAGE -->
+  <div class="empty-intro  avenir-roman" hidden>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <div class="agt-user-intro">
+            <h3 class="color-blue avenir-heavy">Lifestyle Holidays</h3>
+            <p class="color-blue">has not recievedany testimonials yet</p>
+            <p class="color-pink avenir-heavy font-sz18">Be the first to rate your experience with them!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- EMPTY POSTS PAGE END -->
+
+  <!-- write testimonial box -->
+  <div class="container">
+    <div class="color-white clearfix">
+      <div class="pull-left avenir-heavy">
+        <h2>9/10 <span class="font-sz18">(222 Reviews)</span></h2>
+      </div>
+      <div class="pull-right">
+        <div class="writetestimonial-card" ng-init="showTestimonial = false">
+          <div class="testimonial-closed" ng-click="showTestimonial = !showTestimonial" ng-class="{'view-testimonial' : showTestimonial , '' : !showTestimonial}">
+            <p class="posi-relative m-clear">Write A Testimonial<i class="testimonial-droparrow fa fa-angle-down" ng-class="{'fa-angle-up' : showTestimonial, 'fa-angle-down': !showTestimonial }"  aria-hidden="true"></i></p>
+          </div>
+
+          <div class="testimonial-open range-custom" ng-show="showTestimonial" >
+            <div class="give-rating text-center clearfix">
+              <span class="font-sz10 color-cyan">Rate This Agent</span>
+              <input type="range">
+              <div range-slider min="0" max="10000" model-max="ratingSlide.maxRating" pin-handle="min"></div>
+              <span class="pull-left color-grey">1</span>
+              <span class="pull-right color-grey">10</span>
+            </div>
+            <!-- model-max="ratingSlide.maxRating" -->
+
+            <div class="testimonial-rating text-center">
+              <p class="color-pink font-sz24">1/10</p>
+            </div>
+            <div class="review-textarea text-center">
+              <form>
+                <span class="color-cyan">Add Your review </span>
+                <textarea name="" id="textareaChars" maxlength="300" placeholder="Fill me in ..." class="form-control review-text"></textarea>
+                <div class="review-count clearfix">
+                  <span class="pull-left font-sz10">
+                    Min 150 Characters
+                  </span>
+                  <span class="pull-right font-sz10" id="reviewremainingC">00/300</span>
+                </div>
+                <button class="btn btn-dark-blue btn-more post-review">POST</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- write testimonial box  end-->
+  <div class="container">
+    <div masonry preserve-order class="masonry-main">
+      <div class="row">
+        <div class="col-md-4 col-sm-6 masonry-brick" ng-repeat="review in testimonialreview track by $index">
+          <div class="testimonial-card">
+            <div class="testimonial-comment">
+              <p class="testimonial-quote"><q>{{review.testimonialQuote}}</q></p>
+            </div>
+            <div class="testimonial-details clearfix">
+              <div class="pull-left">
+                <div class="testprofile-holder">
+                  <img ng-src="{{review.usrprofileImgholder}}" alt="" class="img-responsive">
+                </div>
+                <div class="testprofile-name">
+                  <p>{{review.usrName}}</p>
+                  <span>{{review.usrLoc}}</span>
+                </div>
+              </div>
+              <div class="pull-right">
+                <div class="testimonial-rate">
+                  <p>{{review.usrRating}}/10</p>
+                  <span class="avenir-heavy">Rated</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="destination mt-60" scrolldown>
+  <div class="img-holder-destination bg-bloggers relate">
+    <div class="overlay-landing"></div>
+    <div class="get-center country-title">
+      <h4 class="color-white title-head">Popular Bloggers</h4>
+    </div>
+ <div ng-include="template.footer" class="template footer"></div>
+    <div class="mouse-scrolldown color-white text-center" ng-click="scrollDown();">
+      <img src="img/mouse-scroll.png" alt="Travelibro">
+      <p>Scroll Down</p>
+    </div>
+  </div>
+</div>
+<div class="popular-bloggerpage second bg-white">
+<div class="container m-plr0">
+  <div class="popular-blogger"  infinite-scroll="getMoreBlogger()" infinite-scroll-disabled="scroll.busy">
+    <div class="row m-m0">
+      <div class="col-md-4 col-sm-6 m-plr0" ng-repeat="photoblogger in popularBloggerData track by $index">
+        <div class="blogger-cover relate">
+          <div class="gallery-imgholder pointer" ui-sref="mylife({'urlSlug':photoblogger.urlSlug})">
+            <!-- <img ng-src="{{photoblogger.profilePicture|uploadpath:400:400:'cover'}}" alt="{{photoblogger.name}}" class="full-width"> -->
+            <fade-img-loading blur="{{photoblogger.profilePicture|uploadpath:10:10:'cover'}}" image="{{photoblogger.profilePicture|uploadpath:400:400:'cover'}}"></fade-img-loading>
+          </div>
+          <div class="blogger-cont-holder text-center relate">
+            <h4 class="color-white  fnt-20 pointer avenir-heavy" ui-sref="mylife({'urlSlug':photoblogger.urlSlug})">{{photoblogger.name}}</h4>
+            <h5 class="lives-in color-white " ng-if="photoblogger.homeCity!==''">Lives In : {{photoblogger.homeCity}}</h5>
+            <div class="mt5 mb5">
+              <button class="btn btn-white-outline btn-follow-outline" ng-click="followFollowing(photoblogger)">
+              {{photoblogger.following | followFollowingStatus}}
+              </button>
+            </div>
+            <div class="bloggerholder-made">
+                <ul class="list-unstyled list-inline m-clear cfj-holder">
+                  <li class="color-white">
+                    <h4 class="m-clear">{{photoblogger.photos_count}}</h4>
+                    <p class="">Photos</p>
+                  </li>
+                  <li class="color-white">
+                    <h4 class="m-clear">{{photoblogger.videos_count}}</h4>
+                    <p class="">Videos</p>
+                  </li>
+                  <li class="color-white">
+                    <h4 class="m-clear">{{photoblogger.followers_count}}</h4>
+                    <p class="">Followers</p>
+                  </li>
+                  <li class="color-white">
+                    <h4 class="m-clear">{{photoblogger.countriesVisited_count}}</h4>
+                    <p class="">Countries</p>
+                  </li>
+                  <li class="color-white">
+                    <h4 class="m-clear">{{photoblogger.journeysCreated_count}}</h4>
+                    <p class="">Journeys</p>
+                  </li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="" ng-if="template.paginationLoader">
+  <img src="img/page.svg" alt="" class="m-center img-responsive" width="25px">
+</div>
+</div>

@@ -1,0 +1,725 @@
+<div class="container-fluid m-p0">
+    <div class="booking-sec-card m-m0 m-plr0 bg-white plr30">
+        <!-- Tours and Excursions End  -->
+        <div class="title-head-left pt20" ng-if="usrTourPackageCard.length > 0">
+            <h4 class="uppercase">Popular Tours</h4>
+        </div>
+        <div class="agt-usr-tourpackages" ng-if="usrTourPackageCard.length > 0">
+            <div class="row m-m0">
+                <div class="col-md-4 col-sm-6 col-xs-12 m-plr0" ng-repeat="tourcard in usrTourPackageCard track by $index">
+                    <div class="agt-itinerarycard">
+                        <div class="itinerary-img" style="background: url('{{tourcard.displayPic|uploadpath}}'); background-size: cover;">
+                            <!-- <div class="logo-booking-card">
+                                <img ng-src="" alt="">
+                            </div> -->
+                            <div class="theme">
+                                <div class="theme-img">
+                                    <img ng-src="{{tourcard.typeOfHoliday[0] | kindOfJourney:'white'}}" class="img-responsive" alt="">
+                                </div>
+                                <div class="theme-name">
+                                    <p>{{tourcard.typeOfHoliday[0]}}</p>
+                                </div>
+                            </div>
+                            <div class="country-badges">
+                                <div class="country-holder img-circle" ng-repeat="tourcountryflagbadge in tourcard.country track by $index">
+                                    <img ng-src="{{tourcountryflagbadge.flag|uploadpath}}" alt="" class="img-responsive">
+                                </div>
+                            </div>
+                            <img ng-src="{{tourcard.tourImg}}" alt="" class="img-responsive">
+                            <div class="itinerary-imgfoot ">
+                                <div class="imgfoot-top clearfix">
+                                    <div class="pull-left">
+                                        <h4 class="font-sz18">{{tourcard.title}}</h4>
+                                        <p class="day-night" ng-if="tourcard.nights || tourcard.days"><span>{{tourcard.nights}} Nights</span> | <span>{{tourcard.days}} Days</span></p>
+                                        <p class="day-night" ng-if="tourcard.hours || tourcard.minutes"><span>{{tourcard.hours}} Hours</span> | <span>{{tourcard.minutes}} Minutes</span></p>
+                                        <!-- <p class="font-sz10"><i class="fa fa-calendar"></i><span class="ml5  ng-binding">{{tourcard.UTCModified|formatDate:'date'}}</span> | <i class="fa fa-clock-o mr5"></i> <span class="ng-binding">{{tourcard.UTCModified|formatDate:'time'}}</span></p> -->
+                                    </div>
+                                    <div class="pull-right">
+                                        <p class="font-sz18 cost-posi">{{tourcard.currency}} {{tourcard.price}}</p>
+                                    </div>
+                                    <div class="tour-btns">
+                                        <a ng-href="{{tourcard.pdf|downloadLink:'tours&packages':tourcard._id:tourcard.title}}" class="btn-link btn btn-pink btn-download" ng-if="tourcard.pdf" download>Download</a>
+                                        <a href="{{tourcard.bookingUrl}}" target="_blank" class="btn-link btn btn-pink btn-book" ng-click="countAdder(tourcard);" ng-if="tourcard.bookingUrl">Book</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="call-btn" ng-click="showContact();">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+              </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="button load-more text-center ptb20">
+                <button class="btn" ng-click="adder=adder+1;callTour(adder);">Load More..</button>
+            </div>
+        </div>
+        <!-- Tours and Excursions End  -->
+        <!-- Tours and Excursions start  -->
+        <div class="title-head-left pt20">
+            <h4 class="uppercase">Tours and Excursions</h4>
+        </div>
+        <div class="destination-tour-booking destination-hotel-card tour-card-container">
+            <div class="loader-booking get-center" ng-if="viewTourLoader">
+                <img src="img/page.svg" width="60px" alt="TraveLibro" class="img-responsive">
+            </div>
+            <div class="get-center no-booking-found" ng-if="viewNoTourData">No Data Found For Tours &amp; Excursions</div>
+            <div class="row m-m0">
+                <div class="col-md-6 m-plr0" ng-repeat="tour in bookingTourData|limitTo:6 track by $index">
+                    <div class="tour-card-holder">
+                        <div class="blur-overlay-bg-div"></div>
+                        <div class="tour-view">
+                            <div class="row m-clear">
+                                <div class="col-md-5 col-sm-5 col-pad-zero">
+                                    <div class="slider-tour">
+                                        <div class="item " style="background-image: url('{{tour.pic_url}}');">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7 col-sm-7 col-pad-zero">
+                                    <div class="tour-information">
+                                        <!-- tour heading -->
+                                        <div class="tour-list-heading hotel-list-heading">
+                                            <h4 class="tour-name" title="{{tour.name}}">
+                              {{tour.name}}
+                            </h4>
+                                            <div class="tour-star-rate rate-by-star">
+                                                <ul class="list-inline">
+                                                    <li>
+                                                        <span class="star-marked" ng-repeat="marked in getRating(tour.star_rating,'marked') track by $index"><i class="fa fa-star color-white"></i></span>
+                                                        <span class="star-unmarked" ng-repeat="unmarked in getRating(tour.star_rating,'unmarked') track by $index"><i class="fa fa-star-o color-white"></i></span>
+                                                    </li>
+                                                </ul>
+                                                <span class="tour-review">
+                                {{tour.review}}
+                                <span>Reviews</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!-- tour heading -->
+                                        <!-- tour chart -->
+                                        <div class="tour-chart-main">
+                                            <div class="tour-descp text-justify">
+                                                <p class="avenir-roman m-clear text-justify" ng-bind-html="tour.description | truncate:190"></p>
+                                            </div>
+                                        </div>
+                                        <!-- tour chart end-->
+                                        <!-- tour see detail and button -->
+                                        <div class="tour-see-detail">
+                                            <div class="clearfix">
+                                                <div class="pull-left">
+                                                    <span class="tour-price">From <span class="tour-cost color-pink avenir-medium">USD {{tour.from}}</span></span>
+                                                </div>
+                                                <div class="pull-right">
+                                                    <a class="btn btn-pink btn-deal" href="{{tour.link}}" target="_blank">View Deal
+                                </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- tour see detail and button end-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="button load-more text-center ptb20" ng-if="bookingTourData">
+            <a class="btn" target="_blank" href="https://travelibro.com/bookings/tours-and-excursions?city_name={{cityDestData.name}}&country_name={{cityDestData.country.name}}">Load More..</a>
+        </div>
+        <!-- Tours and Excursions End  -->
+        <!-- homestay card -->
+        <div class="title-head-left">
+            <h4 class="uppercase">Homestays</h4>
+        </div>
+        <div class="destination-hotel-card destination-homestay-card">
+            <div class="loader-booking get-center" ng-if="viewHomeStayLoader">
+                <img src="img/page.svg" width="60px" alt="TraveLibro" class="img-responsive">
+            </div>
+            <div class="get-center no-booking-found" ng-if="viewNoHomeData">No Data Found For HomeStays</div>
+            <div class="row m-m0" ng-init="backHomestayView = -1">
+                <div class="col-md-6 m-plr0" ng-repeat="homestay in bookingHomeData|limitTo:6 track by $index">
+                    <div class="hotel-card-holder mt10 relate">
+                        <div class="blur-overlay-bg-div"></div>
+                        <div class="hotel-flipper-holder" ng-class="{'flip-card': backHomestayView==homestay.host._id,'': backHomestayView!==homestay.host._id}">
+                            <div class="hotel-front-view">
+                                <div class="row m-clear">
+                                    <div class="col-md-5 col-sm-5 col-pad-zero">
+                                        <div class="slider-hotel homestay-slider">
+                                            <div class="item active" style="background-image: url('{{homestay.pic_url}}')">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7 col-sm-7 col-pad-zero ">
+                                        <div class="hotel-information">
+                                            <!-- homestay room owner -->
+                                            <div class="relate">
+                                                <div class="homestay-owner-img">
+                                                    <div class="room-owner-imgholder">
+                                                        <img src="{{homestay.host_pic_url}}" alt="" class="img-respnsive">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- homestay room owner end-->
+                                            <!-- hotel heading -->
+                                            <div class="hotel-list-heading">
+                                                <h4 class="hotel-name">
+                              {{homestay.name}}
+                            </h4>
+                                                <h5 class="hotel-extra-booking avenir-roman"><span class="avenir-medium">
+                              {{homestay.host_name}}
+                            </span></h5>
+                                                <div class="rate-by-star">
+                                                    <ul class="list-inline">
+                                                        <li>
+                                                            <span class="star-marked" ng-repeat="marked in getRating(homestay.star_rating,'marked') track by $index"><i class="fa fa-star color-white"></i></span>
+                                                            <span class="star-unmarked" ng-repeat="unmarked in getRating(homestay.star_rating,'unmarked') track by $index"><i class="fa fa-star-o color-white"></i></span>
+                                                        </li>
+                                                    </ul>
+                                                    <!-- <span class="hotel-review ml10">12 <span>Reviews</span></span> -->
+                                                </div>
+                                            </div>
+                                            <!-- hotel heading -->
+                                            <!-- hotel chart -->
+                                            <div class="hotel-chart-main homestay-hotel-chart">
+                                                <div class="homestay-hotel-info">
+                                                    <div class="homestay-hotel-distance">
+                                                        <p class="m-clear"><span class="homestay-distance">{{homestay.distance_from_center}} Km</span>
+                                                            <span>Distance From Center</span></p>
+                                                    </div>
+                                                    <div class="homestay-hotel-cost">
+                                                        <p class="m-clear"><span class="homestay-price">{{homestay.per_night}} INR</span>
+                                                            <span>Price Per Night</span></p>
+                                                    </div>
+                                                    <!-- see detail temporary -->
+                                                    <div class="see-detail text-left">
+                                                        <span class="view-detail view-card-detail pointer" ng-click="backHomestayView=homestay.host._id">See All Details <i class="fa fa-chevron-down"></i> </span>
+                                                    </div>
+                                                    <!-- see detail temporary end -->
+                                                </div>
+                                            </div>
+                                            <!-- hotel chart end-->
+                                            <!-- hotel see detail and button -->
+                                            <div class="see-detail">
+                                                <div class="clearfix">
+                                                    <div class="pull-left">
+                                                        <img src="img/homestay-button.png" alt="" class="img-responsive" width="90">
+                                                        <!-- <span class="view-detail view-card-detail pointer">See All Details <i class="fa fa-chevron-down"></i></span> -->
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <a href="{{homestay.link}}" target="_blank">
+                                                            <button class="btn btn-deal">View Deal</button>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- hotel see detail and button end-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- hotel back view -->
+                            <div class="hotel-back-view">
+                                <div class="bg-white">
+                                    <span ng-click="backHomestayView=-1;" class="on-tabs-close"><i class="fa fa-times"></i></span>
+                                    <uib-tabset active="activeJustified" justified="true">
+                                        <uib-tab index="0" heading="About">
+                                            <div class="scroll-content">
+                                                <div class="about-view text-justify avenir-roman ui-tabs-panel ui-widget-content ui-corner-bottom pr10">
+                                                    <p>{{homestay.about}}</p>
+                                                </div>
+                                            </div>
+                                        </uib-tab>
+                                        <uib-tab index="1" heading="Photos">
+                                            <div class="scroll-content pr10 homestay-photo-slider">
+                                                <flex-slider flex-slide="item in homestay.pic_urls track by $index" class="carousel" animation="slide" item-width="280" control-nav="false">
+                                                    <li>
+                                                        <img ng-src="{{item}}" alt="" class="img-responsive" />
+                                                    </li>
+                                                </flex-slider>
+                                            </div>
+                                        </uib-tab>
+                                        <uib-tab index="2" heading="Deals">
+                                            <div class="scroll-content pr10">
+                                                <div class="deal-list">
+                                                    <table class="table avenir-roman">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="color-pink">Booking Sites</th>
+                                                                <th class="color-pink">Room</th>
+                                                                <th class="color-pink">Room per night</th>
+                                                                <th class="color-pink">Total for 1 night </th>
+                                                                <th class="color-pink"></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr ng-repeat="deal in homestay.deals">
+                                                                <td>
+                                                                    <div class="deals-logo-holder">
+                                                                        <img src="img/homestay-button.png" alt="" class="img-responsive">
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="deals-room-holder">
+                                                                        <span class="block font-bold text-capitalize">{{deal.name | capitalize}}</span>
+                                                                        <span></span>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="deals-nightroom-holder text-center">
+                                                                        <span class="font-bold">{{deal.per_night|number}}</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="deals-total-holder text-center">
+                                                                        <span class="font-bold">{{deal.per_night|number}}</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="text-center">
+                                                                        <a href="{{homestay.link}}" target="_blank">
+                                                                            <button class="btn btn-deal">View Deal</button>
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </uib-tab>
+                                        <uib-tab index="3" heading="Amenities">
+                                            <div class="scroll-content pr10">
+                                                <div class="amenities-holder">
+                                                    <ul>
+                                                        <li ng-repeat="amenity in homestay.amenities track by $index">
+                                                            <span class="available">
+                                  <i class="fa fa-check color-cyan" ng-if="amenity.present=='present'"></i>
+                                  <i class="fa fa-times color-pink" ng-if="amenity.present=='not present'"></i>
+                                </span>
+                                                            <span class="amenity-type">{{amenity.amenity}}</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </uib-tab>
+                                    </uib-tabset>
+                                </div>
+                            </div>
+                            <!-- hotel back view end-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="button load-more text-center ptb20" ng-if="bookingHomeData">
+            <a class="btn" target="_blank" href="https://travelibro.com/bookings/home-stays?city_name={{cityDestData.name}}&country_name={{cityDestData.country.name}}&link=true">Load More..</a>
+        </div>
+        <!-- homestay card end-->
+        <!-- vacation rentals -->
+        <div class="title-head-left">
+            <h4 class="uppercase">Vaction Rentals</h4>
+        </div>
+        <div class="destination-hotel-card destination-vaction-card">
+            <div class="loader-booking get-center" ng-if="viewVacationLoader">
+                <img src="img/page.svg" width="60px" alt="TraveLibro" class="img-responsive">
+            </div>
+            <div class="get-center no-booking-found" ng-if="viewNoVacData">No Data Found For Vacations Rentals</div>
+            <div class="row m-m0" ng-init="vacationBackView=-1;">
+                <div class="col-md-6 m-plr0" ng-repeat="vacation in bookingVacData|limitTo:6 track by $index">
+                    <div class="vacation-card-list mt10">
+                        <div class="hotel-card-holder relate">
+                            <div class="blur-overlay-bg-div"></div>
+                            <div class="hotel-flipper-holder" ng-class="{'flip-card': vacationBackView==vacation.id,'': vacationBackView!==vacation.id}">
+                                <div class="hotel-front-view">
+                                    <div class="row m-clear">
+                                        <div class="col-md-5 col-sm-5 col-pad-zero ">
+                                            <div class="slider-hotel vacation-slider-hotel">
+                                                <div style="background-image: url('{{vacation.pic_url}}')" class="item active">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7 col-sm-7 col-pad-zero ">
+                                            <div class="hotel-information">
+                                                <!-- hotel heading -->
+                                                <div class="hotel-list-heading">
+                                                    <h4 class="hotel-name">
+                          {{vacation.name}}
+                        </h4>
+                                                    <h5 class="hotel-extra-booking avenir-roman">
+                          {{vacation.place_category}}, <span>{{vacation.place_type}}</span> - <i class="color-pink avenir-light text-capitalize">{{vacation.city}}</i>
+                        </h5>
+                                                    <div class="rate-by-star">
+                                                        <ul class="list-inline">
+                                                            <li>
+                                                                <span class="star-marked" ng-repeat="marked in getRating(vacation.star_rating,'marked') track by $index"><i class="fa fa-star color-white"></i></span>
+                                                                <span class="star-unmarked" ng-repeat="unmarked in getRating(vacation.star_rating,'unmarked') track by $index"><i class="fa fa-star-o color-white"></i></span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <!-- hotel heading -->
+                                                    <!-- hotel chart -->
+                                                    <div class="hotel-chart-main vacation-hotel-chart">
+                                                        <div class="hotel-info-list">
+                                                            <ul>
+                                                                <li><span class="block">{{vacation.accomodates}}</span> Accommodates</li>
+                                                                <li><span class="block">{{vacation.bathrooms}}</span>Bathrooms</li>
+                                                                <li><span class="block">{{vacation.bedrooms}}</span>Bedrooms</li>
+                                                                <li><span class="block">{{vacation.nights}}</span>Nights</li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="total-hotel-cost clearfix">
+                                                            <div class="pull-left">
+                                                                <!--remove pull left if not needed -->
+                                                                <span class="hotel-cost">{{vacation.per_night}}</span> EUR Per Night
+                                                            </div>
+                                                            <!--remove pull left if not needed -->
+                                                            <div class="pull-right">
+                                                                <!--remove pull right if not needed -->
+                                                                <div class="see-detail text-left">
+                                                                    <span class="view-detail view-card-detail pointer" ng-click="vacationBackView=vacation.id">See All Details </span>
+                                                                </div>
+                                                            </div>
+                                                            <!--remove pull right if not needed -->
+                                                        </div>
+                                                    </div>
+                                                    <!-- hotel chart end-->
+                                                    <!-- hotel see detail and button -->
+                                                    <div class="see-detail">
+                                                        <div class="clearfix">
+                                                            <div class="pull-left">
+                                                                <a href=""><img src="img/9flats.png" alt="" class="img-responsive" width="90"></a>
+                                                                <!-- <span class="view-detail view-card-detail pointer">See All Details <i class="fa fa-chevron-down"></i></span> -->
+                                                            </div>
+                                                            <div class="pull-right">
+                                                                <a href="{{vacation.link}}" target="_blank">
+                                                                    <button class="btn btn-deal">View Deal</button>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- hotel see detail and button end-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- hotel back view -->
+                                <div class="hotel-back-view">
+                                    <div class="bg-white">
+                                        <span ng-click="vacationBackView=-1;" class="on-tabs-close"><i class="fa fa-times"></i></span>
+                                        <uib-tabset active="activeJustified" justified="true">
+                                            <uib-tab index="0" heading="About">
+                                                <div class="scroll-content">
+                                                    <div class="about-view text-justify avenir-roman ui-tabs-panel ui-widget-content ui-corner-bottom pr10">
+                                                        <p>{{vacation.about}}</p>
+                                                    </div>
+                                                </div>
+                                            </uib-tab>
+                                            <uib-tab index="1" heading="Photos">
+                                                <div class="scroll-content pr10">
+                                                    <flex-slider flex-slide="item in vacation.pic_urls track by $index" class="carousel" animation="slide" item-width="300" control-nav="false">
+                                                        <li>
+                                                            <img ng-src="{{item}}" class="img-responsive" />
+                                                        </li>
+                                                    </flex-slider>
+                                                </div>
+                                            </uib-tab>
+                                            <uib-tab index="2" heading="Deals">
+                                                <div class="scroll-content pr10">
+                                                    <div class="deal-list">
+                                                        <table class="table avenir-roman">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="color-pink">Booking Sites</th>
+                                                                    <th class="color-pink">Room</th>
+                                                                    <th class="color-pink">Room per night</th>
+                                                                    <th class="color-pink">Total for 1 night </th>
+                                                                    <th class="color-pink"></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr ng-repeat="deal in vacation.deals">
+                                                                    <td>
+                                                                        <div class="deals-logo-holder">
+                                                                            <img src="img/9flats.png" alt="" class="img-responsive">
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="deals-room-holder">
+                                                                            <span class="block font-bold">{{deal.name}}</span>
+                                                                            <span></span>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="deals-nightroom-holder text-center">
+                                                                            <span class="font-bold">{{deal.per_night}}</span>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="deals-total-holder text-center">
+                                                                            <span class="font-bold">{{deal.per_night}}</span>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="text-center">
+                                                                            <a href="#" target="_blank">
+                                                                                <button class="btn btn-deal">View Deal</button>
+                                                                            </a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </uib-tab>
+                                            <uib-tab index="3" heading="Amenities">
+                                                <div class="scroll-content pr10">
+                                                    <div class="amenities-holder">
+                                                        <ul>
+                                                            <li ng-repeat="amenity in vacation.amenities track by $index">
+                                                                <span class="available">
+                                    <i class="fa fa-check color-cyan" ng-if="amenity.present=='present'"></i>
+                                    <i class="fa fa-times color-pink" ng-if="amenity.present=='not present'"></i>
+                                  </span>
+                                                                <span class="amenity-type">{{amenity.amenity}}</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </uib-tab>
+                                        </uib-tabset>
+                                    </div>
+                                </div>
+                                <!-- hotel back view end-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="button load-more text-center ptb20" ng-if="bookingVacData">
+            <a class="btn" target="_blank" href="https://travelibro.com/bookings/vacation-rentals?city_name={{cityDestData.name}}&country_name={{cityDestData.country.name}}">Load More..</a>
+        </div>
+        <!-- vacation rentals end-->
+        <!-- destination hotel card -->
+        <div class="title-head-left">
+            <h4 class="uppercase">Hotels</h4>
+        </div>
+        <div class="destination-hotel-card">
+            <div class="loader-booking get-center" ng-if="viewHotelLoader">
+                <img src="img/page.svg" width="60px" alt="TraveLibro" class="img-responsive">
+            </div>
+            <div class="get-center no-booking-found" ng-if="viewNoHotelData">No Data Found For Hotel</div>
+            <div class="row m-m0">
+                <div class="col-md-6 m-plr0" ng-repeat="hotel in bookingHotelData|limitTo:6 track by $index">
+                    <div class="hotel-card-holder mt10 relate" ng-init="backView=-1;">
+                        <div class="blur-overlay-bg-div"></div>
+                        <!-- flipper holder -->
+                        <div class="hotel-flipper-holder" ng-class="{'flip-card': backView==hotel.hotel_record_rails_id,'': backView!==hotel.hotel_record_rails_id}">
+                            <!-- hotel front view -->
+                            <div class="hotel-front-view">
+                                <div class="row m-clear">
+                                    <div class="col-md-5 col-sm-5 col-pad-zero image-div">
+                                        <a>
+                                            <div class="photo-view">
+                                                <div class="slider-hotel">
+                                                    <div class="item active" style="background-image: url('{{hotel.pic_url}}')">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-7 col-sm-7 col-pad-zero ">
+                                        <div class="hotel-information">
+                                            <!-- hotel heading -->
+                                            <div class="hotel-list-heading">
+                                                <h4 class="hotel-name" title="The Lalit Mumbai">
+                                {{hotel.name}}
+                              </h4>
+                                                <div class="rate-by-star">
+                                                    <ul class="list-inline">
+                                                        <li>
+                                                            <span class="star-marked" ng-repeat="marked in getRating(hotel.star_rating,'marked') track by $index"><i class="fa fa-star color-white"></i></span>
+                                                            <span class="star-unmarked" ng-repeat="unmarked in getRating(hotel.star_rating,'unmarked') track by $index"><i class="fa fa-star-o color-white"></i></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!-- hotel heading -->
+                                            <!-- hotel chart -->
+                                            <div class="hotel-chart-main">
+                                                <div class="row m-clear">
+                                                    <div class="col-md-4 col-sm-4 col-xs-4 col-pad-zero ">
+                                                        <div class="score-popular">
+                                                            <span class="chart-type-title">Popularity <span>Score<span></span>
+                                                            <div class="score-round-holder">
+                                                                <span class="pop-score">                                          {{hotel.popularity_score}}                                       </span>
+                                                            </div>
+                                                            </span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-4 col-xs-4 col-pad-zero ">
+                                                        <div class="guest-rating">
+                                                            <span class="chart-type-title">Guest <span>Rating<span></span>
+                                                            <div class="score-round-holder">
+                                                                <span class="guest-score block">
+                                          {{hotel.guest_rating}}/10
+                                        </span>
+                                                                <span class="review">
+                                          {{hotel.number_of_reviews}} reviews
+                                        </span>
+                                                            </div>
+                                                            </span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-4 col-xs-4 col-pad-zero ">
+                                                        <div class="per-night">
+                                                            <span class="chart-type-title">Price Per <span>Night<span></span>
+                                                            <div class="score-round-holder">
+                                                                <span class="block inr">
+                                          INR
+                                        </span>
+                                                                <span class="price-count">
+                                          {{hotel.price_per_night}}
+                                        </span>
+                                                            </div>
+                                                            </span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- hotel chart end-->
+                                            <!-- hotel see detail and button -->
+                                            <div class="see-detail">
+                                                <div class="clearfix">
+                                                    <div class="pull-left">
+                                                        <span class="view-detail view-card-detail pointer" ng-click="backView=hotel.hotel_record_rails_id">
+                                      See All Details <i class="fa fa-chevron-down"></i>
+                                    </span>
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <a href="https://{{hotel.link}}" target="_blank">
+                                                            <button class="btn btn-deal">View Deal</button>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- hotel see detail and button end-->
+                            <!-- hotel front view -->
+                            <!-- hotel back view -->
+                            <div class="hotel-back-view">
+                                <div class="bg-white">
+                                    <span ng-click="backView=-1;" class="on-tabs-close"><i class="fa fa-times"></i></span>
+                                    <uib-tabset active="activeJustified" justified="true">
+                                        <uib-tab index="0" heading="About">
+                                            <div class="scroll-content">
+                                                <div class="about-view text-justify avenir-roman ui-tabs-panel ui-widget-content ui-corner-bottom pr10">
+                                                    <p>{{hotel.addresses[0]}}<span class="block">{{hotel.addresses[1]}}</span>
+                                                    </p>
+                                                    <p>{{hotel.about}}</p>
+                                                </div>
+                                            </div>
+                                        </uib-tab>
+                                        <uib-tab index="1" heading="Photos">
+                                            <div class="scroll-content hotel-photo-slider pr10">
+                                                <flex-slider class="carousel" flex-slide="item in hotel.pic_urls track by $index" item-width="280" animation="slide" item-margin="5" direction-nav="true" control-nav="false">
+                                                    <li>
+                                                        <img ng-src="{{item}}" class="img-responsive" />
+                                                    </li>
+                                                </flex-slider>
+                                            </div>
+                                        </uib-tab>
+                                        <uib-tab index="2" heading="Deals">
+                                            <div class="scroll-content pr10">
+                                                <div class="deal-list">
+                                                    <table class="table avenir-roman">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="color-pink deal-tablehead">Booking Sites</th>
+                                                                <th class="color-pink  deal-tablehead">Room</th>
+                                                                <th class="color-pink  deal-tablehead">Room per night</th>
+                                                                <th class="color-pink  deal-tablehead">Total for 1 night </th>
+                                                                <th class="color-pink  deal-tablehead"></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr ng-repeat="deal in hotel.deals">
+                                                                <td>
+                                                                    <div class="deals-logo-holder">
+                                                                        <img src="img/logo-1.png" alt="" class="img-responsive">
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="deals-room-holder">
+                                                                        <span class="block font-bold">{{deal.name}}</span>
+                                                                        <span></span>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="deals-nightroom-holder text-center">
+                                                                        <span class="font-bold">{{deal.per_night}}</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="deals-total-holder text-center">
+                                                                        <span class="font-bold">{{deal.per_night}}</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="text-center">
+                                                                        <a href="https://{{hotel.link}}" target="_blank">
+                                                                            <button class="btn btn-deal">View Deal</button>
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </uib-tab>
+                                        <uib-tab index="3" heading="Amenities">
+                                            <div class="scroll-content pr10">
+                                                <div class="amenities-holder">
+                                                    <ul>
+                                                        {{bookingData.amenities}}
+                                                        <li ng-repeat="amenity in hotel.amenities track by $index">
+                                                            <span class="available">
+                                  <i class="fa fa-check color-cyan" ng-if="amenity.present=='present'"></i>
+                                  <i class="fa fa-times color-pink" ng-if="amenity.present=='not present'"></i>
+                                </span>
+                                                            <span class="amenity-type">{{amenity.property_name}}</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </uib-tab>
+                                    </uib-tabset>
+                                </div>
+                            </div>
+                            <!-- hotel back view end-->
+                        </div>
+                        <!-- flipper holder end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="button load-more text-center ptb20" ng-if="bookingHotelData">
+            <a class="btn" target="_blank" href="https://travelibro.com/bookings/hotels?city_name={{cityDestData.name}}&country_name={{cityDestData.country.name}}">Load More..</a>
+        </div>
+        <!-- destination hotel card end-->
+    </div>
+</div>
+<!-- <div class="loading-booking travelibro-loader" ng-show="viewBookingLoader">
+  <img src="img/loader.gif" width="180px" alt="TraveLibro" class="img-responsive">
+</div> -->

@@ -1,0 +1,23 @@
+<div class="edit-kindof-popup">
+  <div class="edit-kindof-header">
+    <p> Edit Kind Of Journey</p>
+    <span class="edit-kindof-popup-close" ng-click="$dismiss();"><img src="img/cancel.png" alt="Cancel" class="img-responsive"></span>
+  </div>
+  <div class="edit-kindof">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-4" ng-repeat="type in journeyType track by $index">
+        <div class="select-itinerary-type">
+          <figure class="pointer" ng-click="selectItinerary($index)">
+            <div class="itinerary-iconholder {{type.activeClass}}">
+              <img ng-src="{{type.img}}" alt="{{type.caption}}" class="img-responsive" width="{{type.width}}">
+            </div>
+            <figcaption class="color-blue avenir-roman">{{type.caption}}</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-right">
+    <button class="btn btn-pink btn-more" ng-click="">Save</button>
+  </div>
+</div>

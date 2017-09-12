@@ -1,0 +1,94 @@
+<div class="accordion-custom">
+  <uib-accordion close-others="oneAtATime">
+        <uib-accordion-group is-disabled="menu.disabled" class="visible-xs" ng-hide="isLoggedIn" ng-init="login.isFirstOpen = true" is-open="login.isFirstOpen">
+      <uib-accordion-heading>
+        <a class="color-white main-menu-anchor">
+         Login / Sign Up
+         <i class="pull-right fa icon color-white" ng-class="{'fa-caret-up': login.isFirstOpen == true, 'fa-caret-down': login.isFirstOpen == false}"></i>
+        </a>
+      </uib-accordion-heading>
+      <div class="login-user-partner">
+        <ul class="nav-submenu list-unstyled">
+          <li>
+            <a ui-sref="login" class="color-white">User</a>
+          </li>
+          <li>
+            <a ui-sref="partnerlogin" class="color-white">Partners</a>
+          </li>
+        </ul>
+      </div>
+    </uib-accordion-group>
+    <uib-accordion-group is-open="status.open" ng-repeat="menu in navigation track by $index" class="{{menu.classis}}" is-disabled="menu.disabled">
+      <uib-accordion-heading>
+        <a ui-sref="{{menu.anchor}}" class="color-white main-menu-anchor" ng-if="menu.anchor">{{menu.name}}
+              <i class="pull-right fa icon color-white" ng-class="{'fa-caret-up':( status.open && !menu.disabled), 'fa-caret-down': (!status.open && !menu.disabled)}"></i>
+        </a>
+             <a ng-href="{{menu.link}}{{'?accessToken=' + accessToken}}" class="color-white main-menu-anchor" ng-if="menu.link && accessToken" ng-click="$event.stopPropagation()">{{menu.name}}
+        </a>
+               <a ng-href="{{menu.link}}" class="color-white main-menu-anchor" ng-if="menu.link && !accessToken" ng-click="$event.stopPropagation()">{{menu.name}}
+        </a>
+        <a  class="color-white main-menu-anchor" ng-if="menu.subnav">{{menu.name}}
+            <i class="pull-right fa icon color-white" ng-class="{'fa-caret-up':( status.open && !menu.disabled), 'fa-caret-down': (!status.open && !menu.disabled)}"></i>
+        </a>
+      </uib-accordion-heading>
+      <ul class="nav-submenu list-unstyled">
+        <li ng-repeat="submenu in menu.subnav">
+          <a ui-sref="{{submenu.anchor}}" class="color-white" ng-if="submenu.anchor">{{submenu.name}}</a>
+            <a ng-href="{{submenu.link}}{{'?accessToken=' + accessToken}}" class="color-white"  ng-if="submenu.link && accessToken" target="{{submenu.target}}">{{submenu.name}}</a>
+            <a ng-href="{{submenu.link}}" class="color-white" ng-if="submenu.link && !accessToken" target="{{submenu.target}}">{{submenu.name}}</a>
+        </li>
+      </ul>
+    </uib-accordion-group>
+            <uib-accordion-group is-disabled="menu.disabled"  ng-show="isLoggedIn">
+      <uib-accordion-heading>
+        <a class="color-white main-menu-anchor" ng-click="logout()">
+         Logout
+        </a>
+      </uib-accordion-heading>
+    </uib-accordion-group>
+  </uib-accordion>
+</div>
+<div class="social-icon-menu mlr20">
+  <h4>Follow Us</h4>
+  <div class="social-icons">
+    <ul class="list-unstyled list-inline color-white">
+      <li>
+        <a href="https://www.instagram.com/travelibro/" target="_blank" class="color-white">
+          <i class="fa fa-instagram"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.facebook.com/travelibro/" target="_blank" class="color-white">
+          <i class="fa fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/travelibro/" target="_blank" class="color-white">
+          <i class="fa fa-twitter-square" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://plus.google.com/+TravelibroApp" target="_blank" class="color-white">
+          <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+    <ul class="list-unstyled list-inline color-white">
+      <li>
+        <a href="https://in.pinterest.com/travelibro/" target="_blank" class="color-white">
+          <i class="fa fa-pinterest-square" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/company/travelibro-com" target="_blank" class="color-white">
+          <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/channel/UCF4_sVa7oxUq3Qkpczuj5-Q" target="_blank" class="color-white">
+          <i class="fa fa-youtube-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

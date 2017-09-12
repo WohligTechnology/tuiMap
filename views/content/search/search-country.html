@@ -1,0 +1,32 @@
+<div class="search-country" infinite-scroll="loadMoreSearch('search-country');" infinite-scroll-disabled='searchScroll.busy'>
+  <div class="row">
+    <div class="country-visited-tab search-country-tab">
+      <div class="col-md-3 col-sm-6 col-pad-zero" ng-repeat="country in viewSearchedCountry track by $index">
+        <div class="country-list-holder pointer">
+          <div class="list-imgholder" ui-sref="destinationcountry({'name':'features-cities','url':country.urlSlug})" style="background-image: url('{{country.countryBackgroundImage|uploadpath}}');">
+            <!-- <img ng-src="{{country.countryId.countryBackgroundImage|uploadpath}}" alt="" class="img-responsive country-img">  -->
+            <div class="list-info">
+              <div class="clearfix">
+                <div class=" search-country-title">
+                  <h4 class="avenir-heavy text-ellipsis">{{country.name}} </h4>
+                </div>
+                <div class="pull-right">
+                  <div class="bucket-flag">
+                    <img src="{{country.flag|uploadpath}}" alt="Flag" class="img-responsive" width="30">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="search-countrydetails ">
+              <span>Cities: <span>{{country.cityCount}}</span> | </span>
+              <span>Itineraries: <span>{{country.itineraryCount}}</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pagination-loader" ng-if="paginationLoader">
+    <img src="img/page.svg" alt="Loading..." width="50px" class="img-responsive m-center">
+  </div>
+</div>

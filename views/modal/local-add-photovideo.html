@@ -1,0 +1,168 @@
+<div class="edit-journeypop-main add-otgpop-main local-add-photovideo">
+  <!-- add otg -->
+  <div class="edit-otg-sec add-otg-sec">
+    <!-- add otg title -->
+    <div class="edit-otg-title add-otg-title">
+      <h4 class="avenir-roman text-center color-white">Add Photos & Videos</h4>
+      <div class="pull-right">
+        <div class="close pop-close-btn notify-close" ng-click="$dismiss();"><img src="img/cancel.png" alt="Cancel" class="img-responsive"></div>
+      </div>
+    </div>
+    <!-- add otg title end-->
+    <!-- add otg photos and videos -->
+    <div class="otg-photo-video add-otg">
+      <div class="row">
+        <!-- photo sec -->
+        <div class="col-md-6 col-sm-6">
+          <div class="view-photo-sec otg-bg-all">
+            <div class="otg-photo-count">
+              <img src="img/localjourney/local-photo.png" alt="" class="img-responsive" width="25">
+              <span class="avenir-roman">({{otgPhoto.length}})</span>
+            </div>
+            <!-- photo upload -->
+            <div class="uplad-otg-sec" ng-hide="photoSec">
+              <img src="img/upload-blue.png" alt="" class="m-center img-responsive" width="47px">
+              <p class="text-center color-dark-blue avenir-roman">Drag photos here</p>
+              <span class="block text-center color-dark-blue avenir-roman">-or-</span>
+              <div class="otg-upload-btn relate text-center">
+                <button class="btn btn-cyan btn-more pointer">Select photos from your computer</button>
+                <upload-image no-view multiple="true" ng-model="uploadPic" ng-callback="addOtgPhotos(data);" class="pointer"></upload-image>
+              </div>
+            </div>
+            <!-- photo upload end-->
+            <!-- flex slider for photo in 2 row -->
+            <div class="otg-photo-slider" ng-show="photoSec" ng-if="flexShow">
+              <flex-slider id="flexslider"class="carousel" flex-slide="photo in otgPhotoArray track by $index" control-nav="false" slideshow="false">
+                <li>
+                  <div class="otg-slider-row row-flex" ng-repeat="slide in photo track by $index">
+                    <div class="otg-column col-flex" ng-repeat="column in slide track by $index">
+                      <div class="otg-photo-holder" >
+                        <img ng-src="{{column.name|uploadpath:300:300:'cover'}}" alt="" class="img-responsive get-center">
+                        <!-- add front caption -->
+                        <div class="otg-photo-caption" ng-hide="column.name==indexPhotoCaption" ng-click="addMoreCaption(column.name);">
+                          <p class="color-white avenir-roman m-clear" ng-if="!column.caption || column.caption==''">Add Captions</p>
+                          <p class="m-clear color-white avenir-roman text-ellipsis" ng-if="column.caption && !column.caption==''">{{column.caption}}</p>
+                        </div>
+                        <!-- add front caption end -->
+                        <!-- add back caption -->
+                        <div class="otg-add-caption" ng-show="column.name==indexPhotoCaption" ng-class="{'show-otg-caption' : indexPhotoCaption==column.name, '' : !indexPhotoCaption==column.name}">
+                          <div class="edit-otg-caption">
+                            <textarea name="" id="" maxlength="150" ng-model="column.caption" placeholder="Enter Captions"></textarea>
+                            <p class="text-center m-center" ng-click="addMoreCaption(column.name);"><i class="fa fa-angle-down color-white fa-2x pointer"></i></p>
+                            <div class="text-typed-count">
+                              <span>{{column.caption.length}}</span>
+                              <span>/ 150</span>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- add back caption end-->
+                        <!-- add caption end-->
+                        <div class="delete-otg-photo" ng-hide="column.name==indexPhotoCaption" ng-click="deletePhotos(column.name)">
+                          <i class="fa fa-trash-o"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </flex-slider>
+            </div>
+            <!-- flex slider for photo in 2 row end -->
+            <!-- add more photo video part -->
+            <div class="add-otg-more" ng-show="photoSec">
+              <span class="putmore-photo-video"><i class="fa fa-plus"></i></span>
+              <div class="add-more-pic">
+                <upload-image no-view multiple="true" ng-model="uploadPic" ng-callback="addOtgPhotos(data);">
+                </upload-image>
+              </div>
+            </div>
+            <!-- add more photo video part end-->
+          </div>
+        </div>
+        <!-- photo sec end-->
+        <!-- video sec -->
+        <div class="col-md-6 col-sm-6">
+          <div class="view-video-sec otg-bg-all">
+            <div class="otg-video-count">
+              <img src="img/localjourney/local-video.png" alt="" class="img-responsive" width="25px">
+              <span class="avenir-roman">({{otgVideo.length}})</span>
+            </div>
+            <!-- video upload -->
+            <div class="uplad-otg-sec" ng-hide="videoSec">
+              <img src="img/upload-blue.png" alt="" class="m-center img-responsive"  width="47px">
+              <p class="text-center color-dark-blue avenir-roman">Drag a video here</p>
+              <span class="block text-center color-dark-blue avenir-roman">-or-</span>
+              <div class="otg-upload-btn text-center relate">
+                <button class="btn btn-cyan btn-more">Select a videos from your computer</button>
+                <upload-image no-view multiple="true" ng-model="uploadVid" ng-callback="addOtgVideo(data);" class="pointer"></upload-image>
+              </div>
+            </div>
+            <!-- video upload end-->
+            <!-- flexslider for video -->
+            <div class="video-otg-slider" ng-show="videoSec" ng-if="videoFlex">
+              <flex-slider flex-slide="video in otgVideo track by $index" class="carsouel"  control-nav="false" slideshow="false">
+                <li>
+                  <div class="holder-otg-video">
+                    <img ng-src="{{video.thumbnail|uploadpath:335:334:'cover'}}" alt="" class="img-responsive">
+                    <!-- video front caption -->
+                    <div class="video-caption otg-photo-caption" ng-click="addVideoCaption(video._id);" ng-hide="video._id == indexVideoCaption">
+                      <p class="color-white avenir-roman m-clear" ng-if="!video.caption || video.caption==''">Add Caption</p>
+                      <p class="color-white avenir-roman m-clear text-ellipsis" ng-if="video.caption && video.caption!==''">{{video.caption}}</p>
+                    </div>
+                    <!-- video front caption end-->
+                    <!-- video back add caption -->
+                    <div class="video-otg-caption otg-add-caption" ng-class="{'show-otg-caption': video._id==indexVideoCaption, '': video._id!==index}" ng-show="video._id==indexVideoCaption">
+                      <textarea name="" id="" maxlength="150" class="form-control" ng-model="video.caption" placeholder="Enter Captions"></textarea>
+                      <p class="text-center m-center" ng-click="addVideoCaption(video._id);"><i class="fa fa-angle-down color-white fa-2x pointer"></i></p>
+                      <div class="text-typed-count">
+                        <span>({{video.caption.length}})</span>
+                        <span>/ 150</span>
+                      </div>
+                    </div>
+                    <!-- video back add caption end-->
+                    <!-- delete video -->
+                    <div class="delete-otg-video delete-otg-photo">
+                      <i class="fa fa-trash-o"></i>
+                    </div>
+                    <!-- delete video end -->
+                  </div>
+                </li>
+              </flex-slider>
+            </div>
+            <!-- flexslider for video end-->
+            <!-- add more photo video part -->
+            <div class="add-otg-more" ng-show="videoSec">
+              <span class="putmore-photo-video"><i class="fa fa-plus"></i></span>
+                <div class="add-more-vid">
+                  <upload-image no-view ng-model="uploadVid" ng-callback="addOtgVideo(data);" class="pointer"></upload-image>
+                </div>
+            </div>
+            <!-- add more photo video part end-->
+          </div>
+        </div>
+        <!-- video sec end-->
+      </div>
+    </div>
+    <!-- add otg photos and videos end-->
+    <!-- tag selected peoples -->
+    <div class="tag-selected-buddy">
+      <div class="select-buddy inline-block" ng-repeat="buddy in localongo.buddies track by $index" ng-click="selectBuddy(buddy)" ng-class="{'active': buddy.selected==true,'':buddy.selected==false}">
+        <div class="tagging-buddy-holder">
+          <img ng-src="{{buddy.profilePicture|uploadpath:45:50:'cover'}}" alt="{{buddy.name}}" class="img-responsive">
+          <div class="checked-friend">
+            <i class="fa fa-check"></i>
+          </div>
+        </div>
+        <h5 class="color-white">{{buddy.firstName}}
+        <span class="block mt5">{{buddy.lastName}}</span></h5>
+      </div>
+    </div>
+    <!-- tag selected peoples end-->
+  </div>
+  <!-- add otg end-->
+  <!-- save or cancel otg -->
+  <div class="save-cancel-otg text-center">
+    <a href="" class="color-white" ng-click="$close();">Cancel</a>
+    <button class="btn btn-cyan btn-more" ng-click="saveLocalPhotosVideos(); $dismiss();">Done</button>
+  </div>
+  <!-- save or cancel otg end-->
+</div>

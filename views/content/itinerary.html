@@ -1,0 +1,46 @@
+<div class="itinerary-main">
+  <div class="container-fluid">
+    <div class="itinerary-holder bg-white">
+      <div class="itinerary-imgholder relate">
+        <img src="img/itinerary/itinerary.jpg" alt="" class="full-width">
+        <div class="itinerary-detail itinerary-detail-first color-white get-center text-center">
+          <h3 class="avenir-heavy">Itineraries</h3>
+          <p class="avenir-roman">Document your past travel tales to<span class="block">relive and cherish them forever.</span></p>
+        </div>
+      </div>
+      <div class="row-flex">
+        <div class="col-flex">
+          <div class="itinerary-imgholder relate itinerary-detailed">
+            <img src="img/itinerary/itinerary1.jpg" alt="" class="full-width">
+            <div class="itinerary-detail get-center text-center full-width color-white">
+              <h3 class="avenir-heavy">Detailed Itinerary</h3>
+              <p class="avenir-roman">
+                <span class="block">Pen down your day-to-day experience in every way-country</span>
+                <span class="block">visited, cities explored, places stayed at, things you did,</span>
+                <span class="block">landmarks discovered, the delicious cuisine you</span>
+                <span class="block">tasted, and more.</span>
+              </p>
+              <button class="btn btn-white-outline btn-more"  ng-click="createItinerary('detailitinerary')">Upload</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-flex">
+          <div class="itinerary-imgholder itinerary-quick relate">
+            <img src="img/itinerary/itinerary2.jpg" alt="" class="full-width">
+            <div class="itinerary-detail get-center text-center full-width color-white">
+              <h3 class="avenir-heavy">Quick Itinerary</h3>
+              <p class="avenir-roman">
+                <span class="block">Short on time...your past travel in a</span>
+                <span class="block">quick snippet is the way for you. Simply create a</span>
+                <span class="block">memoir of your trip in as many words</span>
+                <span class="block">as you desire.</span>
+              </p>
+              <!-- <button class="btn btn-white-outline btn-more" ui-sref="quickitinerary({'flag':'new',urlSlug:''})">Upload</button> -->
+              <button class="btn btn-white-outline btn-more" ng-click="createItinerary('quick-itinerary')">Upload</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

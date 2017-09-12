@@ -1,0 +1,70 @@
+<div class="web-layer layer"></div>
+<div id="scene" class="scene unselectable" data-friction-x="0.1" data-friction-y="0.1" data-scalar-x="25" data-scalar-y="15"
+  style="width: 100%; transform: translate3d(0px, 0px, 0px); transform-style: preserve-3d; backface-visibility: hidden;" data-mode="cursor">
+  <div class="overlay colorblack"></div>
+  <div class="img-holder mobile-hide-footer" auto-height>
+    <div class="container">
+      <div class="text-left-ab text-sec-left">
+        <div class="layer" data-depth="0.10">
+          <div class="color-primary fnt-60 uppercase avenir-medium line-height90">
+            Travel
+          </div>
+          <div class="life-icon color-white fnt-60 uppercase avenir-medium line-height90">
+            <img src="img/libro-home/life.png" alt="TravelLibro" />Life
+          </div>
+        </div>
+        <div class="mobile-travellife color-white visible-xs">
+          <span class="uppercase color-white fnt-22 mobile-home-travel-cont">
+      On-the-go-journeys
+    </span>
+          <br>
+          <span class="uppercase color-white fnt-22">
+      Past Travels
+    </span>
+        </div>
+      </div>
+      <div class="mobile-home-travel-life visible-xs">
+        <a href="https://player.vimeo.com/video/207906141?title=0&amp;byline=0&amp;portrait=0" fancybox-box class="various fancybox.iframe vimeo"
+          width='500' height='281' webkitallowfullscreen mozallowfullscreen allowfullscreen>
+          <div class="img-travel-life">
+            <img src="img/home-mobile-2.png" class="img-responsive" alt="">
+            <div class="play-mobile color-pink">
+              <i class="fa fa-play-circle"></i>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="travellife hidden-xs">
+        <div class="description-shown text-sec2">
+          <div class="text-1">
+            <h4 class="color-white avenir-black text-center fnt-22 text-uppercase">On-the-Go Journey</h4>
+            <p class="color-white text-center avenir-heavy">
+              Capture each moment of<br>your journey live On-the-Go to <br> create a stunning timeline <br>with friends and
+              family.
+            </p>
+          </div>
+          <div class="text-center img-ballon-middle">
+            <img src="img/libro-home/ballon-orange.png" alt="Travel Libro">
+          </div>
+          <div class="text-1">
+            <h4 class="color-white avenir-black text-center fnt-22 text-uppercase">Past Journey</h4>
+            <p class="color-white text-center avenir-heavy">
+              Revisit the treasured moments <br>of your past journeys <br>by creating a beautiful <br>memoir of your trip.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--<div class="hidden-xs">
+      <a class="volume-off-on" id="mute-video" ng-click="muteVolume()">
+        <i class="fa fa-microphone-slash" aria-hidden="true"></i>
+      </a>
+      <a class="full-screen various fancybox.iframe vimeo" href="http://player.vimeo.com/video/34792993?title=0&amp;byline=0&amp;portrait=0"
+        fancybox-box width='500' height='281' webkitallowfullscreen mozallowfullscreen allowfullscreen ng-click="pauseVideo();">
+        <img src="img/icons/fullscreen.png" alt="TravelLibro" height="25" ng-click="pauseVideo();">
+      </a>
+    </div>-->
+    <div ng-include="template.footer" class="template footer"></div>
+  </div>
+</div>

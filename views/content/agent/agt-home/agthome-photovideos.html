@@ -1,0 +1,152 @@
+<div class="agt-home-photovideos">
+    <div class="" infinite-scroll="getMoreAgentPhotos()" infinite-scroll-disabled="scroll.busy">
+        <!-- ADD BUTTON AND FILTER START -->
+        <div class="add-agentbutton">
+            <div class="container">
+                <div class="clearfix agt-moreholder">
+                    <div class="filter-head " ng-class="{'filter-headagent': template.isMine}">
+                        <div class="photo-filter color-grey collapsed" data-toggle="collapse" data-target="#demo">
+                            <span class="down" ng-if="albumArray.length == 0">All</span>
+                            <span class="down" ng-if="albumArray.length!=0">Photos</span>
+                            <span class="up color-grey">Photos & Videos</span>
+                            <i class="fa fa-chevron-up up arrow-big"></i>
+                            <i class="fa fa-chevron-down color-grey down arrow-big"></i>
+                        </div>
+                        <div id="demo" class="collapse filter-data">
+                            <div class="options">
+                                <!-- <div class="opt custom-checkbox" >
+                <input type="checkbox" id="all">
+                <label for="all">All</label>
+              </div> -->
+                                <div class="opt custom-checkbox " ng-repeat="picfilter in filterList track by $index">
+                                    <div class="">
+                                        <!-- agent-checkbox -->
+                                        <input type="checkbox" id="{{picfilter._id}}" ng-click="addFilterId(picfilter)" ng-model="picfilter.checked">
+                                        <!-- {{picFilter.checked}} -->
+                                        <label for="{{picfilter._id}}" class="{{picfilter.class}}">{{picfilter.name}} <span class="color-pink hide">{{picfilter.class}}{{picfilter.checked}}</span></label>
+                                        <!-- ng-click = "addFilterId(picfilter)" -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="button-holder">
+                                <a class="clear-link" ng-click="clearPhotoFilter();">Clear</a>
+                                <button class="btn btn-pink btn-apply" ng-click="filterPhotoAlbum();">Apply</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pull-right " ng-if="template.isLoggedIn && template.isMine">
+                        <div class="add-agtitinerary">
+                            <span class="pointer add-holder photo-xbtn" ng-click="addItinerary();" ng-class="{'close-more' : showItinerary == true}"><i class="fa fa-plus"></i></span>
+                            <div class="add-more-itinerary" ng-show="showItinerary">
+                                <p class="color-cyan bord-bot">Photos & Videos</p>
+                                <div class="upload-photosec " ng-hide="showPhotoupload">
+                                    <form name="albumForm">
+                                        <div class="form-group">
+                                            <div class="a">
+                                                <input type="text" class="form-control color-white" placeholder="Name Album" ng-model="album.name" required>
+                                            </div>
+                                        </div>￼
+                                        <div class="mb10  text-center relate" ng-hide="photoSec">
+                                            <button class="btn btn-white-outline" ng-click="showPhotoupload=!showPhotoupload">Upload Photos/Videos</button>
+                                            <upload-image-count multiple="true" ng-model="agentPhotos" ng-callback="addAgentPhotos(data,length);" no-view="true" class="pointer agent-photoupload" required></upload-image-count>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- ng-show="showPhotoupload" -->
+                                <div class="agthome-photouploadbox" ng-show="photoSec" ng-if="flexShow">
+                                    <div class="agthome-photo-slider">
+                                        <flex-slider class="carousel" flex-slide="agent in agentPhotosArray" slideshow="false" control-nav="false">
+                                            <li>
+                                                <div class="slideragent-row row-flex" ng-repeat="slide in agent track by $index">
+                                                    <div class="slideragent-column col-flex" ng-repeat="column in slide track by $index">
+                                                        <div class="agent-pic-holder">
+                                                            <span class="slider-agent-trash" ng-click="removePhoto(column)"><i class="fa fa-trash-o"></i></span>
+                                                            <span class="photovideo-play get-center" ng-if="column.type=='video'"><i class="fa fa-play-circle"></i></span>
+                                                            <img ng-if="column.type=='video'" ng-src="{{column.thumbnail|uploadpath:150:150:'cover'}}" alt="" class="img-responsive">
+                                                            <img ng-if="column.type=='photo'" ng-src="{{column.name|uploadpath:150:150:'cover'}}" alt="" class="img-responsive">
+                                                            <div class="agent-caption" ng-click="putCaptionAgent(column.name);" ng-hide="column.name==index">
+                                                                <p ng-if="!column.caption || column.caption==''">Add Caption</p>
+                                                                <p class="text-ellipsis" ng-if="column.caption && !column.caption==''">{{column.caption}}</p>
+                                                            </div>
+                                                            <div class="agent-edit-caption" ng-show="column.name==index" ng-class="{'showcaptionagent' : index==column.name, '' : !index==column.name}">
+                                                                <textarea name="" id="captionArea" cols="30" rows="7" class="form-control" maxlength="150" ng-model="column.caption" placeholder="Add Caption"></textarea>
+                                                                <div class="view-caption-onimg">
+                                                                    <span ng-click="putCaptionAgent(column.caption);"><i class="fa fa-angle-down color-white"></i></span>
+                                                                </div>
+                                                                <div class="text-typed-count">
+                                                                    <span id="remainCaption">{{column.caption.length}}/150</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </flex-slider>
+                                    </div>
+                                    <div class="slider-addmore  text-center relate">
+                                        <button class="btn btn-white-outline btn-more">Add More</button>
+                                        <upload-image-count multiple="true" ng-model="agentPhotos" ng-callback="addAgentPhotos(data,length);" no-view class="pointer agent-photoupload"></upload-image-count>
+                                    </div>
+                                </div>
+                                <p ng-show="showPhotoError" class="color-pink font-sz10 text-center">Please select atleast one photo or video.</p>
+                                <button class="btn btn-pink tourupload-position" ng-click="savePhotoVideo(album);" ng-disabled="albumForm.$invalid || agentPhotosArray.length === 0 || template.uploading">POST{{template.uploading}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ADD BUTTON AND FILTER END -->
+        <!-- EMPTY AGENT INTRO START -->
+        <div class="empty-intro " ng-if="template.isLoggedIn && template.isMine && agentAlbum.length==0">
+            <div class="container">
+                <div class="agt-home-photovideointro text-center">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-6">
+                            <h3 class="color-blue">A picture is worth a thousand words <br>
+            and every picture tells a story.</h3>
+                            <p class="color-blue">Regularly update your library with new photos and videos to inspire your users to venture out on a journey or tour. Albums from uploaded itineraries and tours will be displayed here too.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- EMPTY AGENT INTRO END -->
+        <!-- EMPTY USER INTRO PAGE -->
+        <div class="empty-intro  avenir-roman" ng-if="!template.isMine && agentAlbum.length==0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-8">
+                        <div class="agt-user-intro">
+                            <h3 class="color-blue avenir-heavy text-capitalize">{{userData.name}}</h3>
+                            <p class="color-blue">is still to upload this space with interesting photos & videos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- EMPTY USER INTRO PAGE END -->
+        <!-- PHOTO CARDS START -->
+        <div class="agt-home-photo-card" ng-if="agentAlbum.length!=0">
+            <div class="container">
+                <div class="m-center">
+                    <div masonry preserve-order class="masonry-main">
+                        <div class="masonry-brick" ng-repeat="photo in agentAlbum track by $index">
+                            <div class="agent-photogallery relate pointer" ng-click="getPhotosCommentData(photo._id,$index,agentAlbum.length,agentAlbum);">
+                                <span ng-if="photo.type=='video'" class="get-center moment-videoicon"><i class="fa fa-play-circle fa-2x color-white"></i></span>
+                                <img ng-if="photo.type=='photo'" ng-src="{{photo.name|uploadpath:'275'}}" alt="{{photo.album}} | TraveLibro" class="img-responsive">
+                                <img ng-if="photo.type=='video'" ng-src="{{photo.thumbnail|uploadpath:'275'}}" alt="{{photo.album}} | TraveLibro" class="img-responsive">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- PHOTO CARDS END -->
+    </div>
+    <!-- PAGINATION LOADER -->
+    <div class="" ng-if="template.paginationLoader">
+        <img src="img/page.svg" alt="" class="m-center img-responsive" width="25px">
+    </div>
+    <!-- PAGINATION LOADER END -->
+</div>

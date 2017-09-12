@@ -1,0 +1,249 @@
+<div class="agt-usr-touractivity">
+  <!-- EMPTY POSTS PAGE -->
+  <div class="empty-intro  avenir-roman" hidden>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <div class="agt-user-intro">
+            <h3 class="color-blue avenir-heavy">Lifestyle Holidays</h3>
+            <p class="color-blue">is still to post the first activity on their page</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- EMPTY POSTS PAGE END -->
+  <div class="container">
+    <div class="sec-travel-activity masonry-main" masonry preserve-order>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 masonry-brick" ng-repeat="activity in travelActivity track by $index">
+          <div class="travel-activity">
+            <!-- header travel sec -->
+            <div class="header-travel-sec" ng-if="activity.header">
+              <!-- agent traveller part header -->
+              <div class="agent-travel-header" ng-if="activity.agentHeader">
+                <div class="agent-traveller-imgholder">
+                  <img ng-src="{{activity.travellerProfile}}" alt="" class="img-responsive">
+                </div>
+                <div class="agent-traveller-detail">
+                  <h4 class="color-blue avenir-heavy">{{activity.agentName}}</h4>
+                  <p class="m-clear color-darkgrey"><i class="fa fa-calendar"></i><span class="ml5  ng-binding">{{activity.travelDate}}</span> | <i class="fa fa-clock-o mr5"></i> <span class="ng-binding">{{activity.travelTime}}</span></p>
+                </div>
+              </div>
+              <!-- agent traveller part header end-->
+              <!-- itinerary header-->
+              <div class="travel-itinerary-header" ng-if="activity.itineraryHeader">
+                <p class="m-clear color-darkgrey"><i class="fa fa-calendar"></i><span class="ml5  ng-binding">{{activity.itineraryDate}}</span> | <i class="fa fa-clock-o mr5"></i> <span class="ng-binding">{{activity.itineraryTime}}</span></p>
+              </div>
+              <!-- itinerary header end-->
+            </div>
+            <!-- header travel sec end-->
+            <!-- main travel sec -->
+            <div class="activitiy-card-sec">
+              <!-- agent traveller card -->
+                <div class="agent-traveller-card" ng-if="activity.travellerAgent">
+                  <div class="traveller-post color-darkgrey">
+                    <p>{{activity.agentPost}}</p>
+                  </div>
+                </div>
+              <!-- agent traveller card end-->
+              <!-- tour package card -->
+              <div class="tour-package-card" ng-if="activity.tourPackage">
+                <div class="itinerary-img">
+                  <div class="theme">
+                    <div class="theme-img">
+                      <img ng-src="{{activity.packageImg}}" class="img-responsive doneLoading" alt="">
+                    </div>
+                    <div class="theme-name">
+                      <p class="ng-binding">{{activity.packageType}}</p>
+                    </div>
+                  </div>
+                  <div class="country-badges">
+                    <div class="country-holder ng-scope" ng-repeat="flag in activity.tourFlag track by $index">
+                      <img ng-src="{{flag.flagImg}}" alt="" class="img-responsive doneLoading">
+                    </div>
+                    <span class="country-count">+4</span>
+                  </div>
+                  <img ng-src="{{activity.tourPic}}" alt="" class="img-responsive doneLoading">
+                  <div class="itinerary-imgfoot">
+                    <div class="imgfoot-top clearfix">
+                      <div class="pull-left">
+                        <h4 class="avenir-heavy font-sz18 m-clear ng-binding">{{activity.tourTitle}}</h4>
+                        <p class="day-night"><span class="ng-binding">{{activity.tourNight}} Nights</span> | <span class="ng-binding">{{activity.tourDay}} Days</span></p>
+                        <p class="font-sz10"><i class="fa fa-calendar"></i><span class="ml5  ng-binding">{{activity.tourDate}}</span> | <i class="fa fa-clock-o mr5"></i> <span class="ng-binding">{{activity.tourTime}}</span></p>
+                      </div>
+                      <div class="pull-right">
+                        <p class="font-sz18 cost-posi ng-binding">${{activity.tourCost}}</p>
+                      </div>
+                      <button class="btn btn-pink btn-download">Download</button>
+                      <button class="btn btn-pink btn-book">Book</button>
+                    </div>
+                  </div>
+                  <!-- <div class="call-btn" ng-click="viewContact = !viewContact">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                  </div> -->
+                </div>
+              </div>
+              <!-- tour package card end -->
+              <!-- itinerary activity card  -->
+              <div class="itinerary-activity-card" ng-if="activity.itinerary">
+                <div class="itinerary-img">
+                  <div class="country-badges">
+                    <div class="country-holder ng-scope" ng-repeat="flag in activity.itineraryFlag track by $index">
+                      <img ng-src="{{flag.itineraryImg}}" alt="" class="img-responsive doneLoading">
+                    </div>
+                    <span class="country-count">+4</span>
+                  </div>
+                  <img ng-src="{{activity.itineraryPic}}" alt="" class="img-responsive doneLoading">
+                  <!-- new -->
+                  <div class="journey-tag-holder">
+                    <div class="days-spent pull-right" ng-if="activity.itineraryDays>0">
+                      <p><span class="block">{{activity.itineraryDays}}</span>Days</p>
+                    </div>
+                    <h3 class="m-clear text-capitalize">{{activity.itineraryTitle}}</h3>
+
+                    <div class="clearfix journey-travelling-type">
+                      <div class="row">
+                        <div class="col-xs-5">
+                          <div class="pull-left">
+                            <div class="journey-type m0">
+                              <ul>
+                                <li ng-repeat="type in activity.itineraryJourney|limitTo:3">
+                                  <a href=""><img ng-src="{{type|kindOfJourney:'white'}}" alt="" height="20"></a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-7">
+                          <div class="" ng-if="activity.itinerarytype=='quick-itinerary'">
+                            <div class="quick-itinerary-tag">
+                              <h4>Quick</h4>
+                              <p>Itinerary</p>
+                            </div>
+                            <div class="date-quick-itinerary">
+                              {{activity.month}} {{activity.year}}
+                            </div>
+                          </div>
+                          <div class="text-right">
+                            <div class="journey-cost" ng-if="activity.itineraryCost!=''">
+                              <span>$</span>
+                              <span>{{activity.itineraryCost | number}}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- new -->
+                  <!-- old -->
+                  <!-- <div class="itinerary-imgfoot ">
+                    <div class="imgfoot-top">
+                      <h4 class="ng-binding avenir-heavy m-clear">{{activity.itineraryTitle}}</h4>
+                    </div>
+                    <div class="imgfoot-bottom clearfix">
+                      <div class="pull-left">
+                        <div class="journey-type">
+                          <ul class="list-inline">
+                            <li ng-repeat="journey in activity.itineraryJourney track by $index" class="ng-scope">
+                              <a href=""><img ng-src="{{journey.journeyImg}}" alt="" height="20" class="doneLoading"></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="pull-right">
+                        <div class="rt-foot-marg">
+                          <div class="journey-cost">
+                            <span class="ng-binding">$ {{activity.itineraryCost}}</span>
+                          </div>
+                          <div class="days-spent">
+                            <p><span class="block ng-binding">{{activity.itineraryDays}}</span>Days</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+                  <!-- old -->
+                </div>
+              </div>
+              <!-- itinerary activity card end -->
+            </div>
+            <!-- main travel sec end-->
+            <!-- footer travel sec -->
+            <div class="footer-travel-sec" ng-if="activity.footer">
+              <div class="social-field-types">
+                <div class="user-social-item clearfix">
+                  <div class="pull-left">
+                    <ul>
+                      <li><a href=""><i class="fa fa-heart-o color-blue"></i></a></li>
+                      <li>
+                        <a href="">
+                          <img src="img/comments.png" alt="" height="18" class="if-blue doneLoading">
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <img src="img/share.png" alt="" height="18" class="if-blue doneLoading">
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="pull-right">
+                    <div class="pointer">
+                      <span>
+                    <img src="img/options.png" alt="" width="3" class="if-blue doneLoading">
+                  </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="social-likes-reviews">
+                  <div class="clearfix">
+                    <div class="pull-left">
+                      <span class="color-blue mr10"><i class="fa fa-heart color-blue mr5"></i><b class="mr5 ng-binding">99</b>Likes</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- footer travel sec end-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="yash">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="sai">
+                    <div class="traveller-header">
+                        <div class="traveller-img">
+                            <img src="img/india-visit.png" alt="">
+                        </div>
+                       <label for="">Sai Travels</label>
+                       <div class="card-detail">
+                         <i class="fa fa-calendar" aria-hidden="true"></i>
+                         <span>14,Jan 2014</span>
+                         <span>|</span>
+                         <i class="fa fa-clock-o" aria-hidden="true"></i>
+                         <span>01:20 pm</span>
+                       </div>
+                    </div>
+                    <div class="travel-data"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque mollitia illum ab, sed quidem voluptas ratione voluptatibus neque at, error adipisci libero labore, vitae numquam, aut dolor magnam corporis dignissimos!</div>
+                    <div class="social-icons">
+                        <img src="img/icons/like.png" alt="">
+                         <img src="img/icons/comments.png" alt="">
+                          <img src="img/share.png" class="share-icon" alt="">
+                          <img src="img/icons/options.png" class="opt-icon" alt="">
+                    </div>
+                    <div class="like-section">
+                      <img src="img/icons/liked.png" alt="">
+                      <span class="like-count">15660</span>
+                      <span>Like</span>
+                    </div>
+                </div>
+            </div>
+               <div class="col-md-4"></div>
+                  <div class="col-md-4"></div>
+        </div>
+    </div> -->
+  </div>
+</div>
