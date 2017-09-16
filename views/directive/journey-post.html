@@ -3,59 +3,23 @@
   <div id="{{ongo._id}}" class="ongo-journey-card" ng-if="ongo.type=='travel-life'" ng-class="{'hasLatLng':ongo.latlong && ongo.latlong.lat}">
     <!-- card header -->
     <div class="ongo-card-header">
-      <div class="clearfix">
-        <div class="card-user-imgholder">
-          <div class="journey-userimg user-img-ongo">
-            <img ng-src="{{ongo.postCreator.profilePicture|uploadpath:45:47:'cover'}}" alt="" class="img-responsive">
-          </div>
-        </div>
-        <div class="card-journeypost">
-          <div class="journey-post">
-            <!-- <p class="post mb5" ng-bind-html="ongo.postString | safe" ng-if="!(ongo.buddies && ongo.buddies.length==0 && (ongo.thoughts=='' || ongo.thoughts==null || ongo.thoughts==undefined))"></p> -->
-            <!--<p class="post mb5" ng-bind-html="ongo.postString | safe"></p>-->
-             <p class="journey-date avenir-heavy m-clear">
-            <span class="mr5 day-journey">Day {{ongo.UTCModified|dateDifference: json.startTime}}</span><span>-</span>
-            <!-- <i class="fa fa-calendar mr5 ml5"></i> -->
-            <span class="mr5 ml5">{{ongo.UTCModified|formatDate:'date'}}</span> |
-            <!-- <i class="fa fa-clock-o mr5 ml5"></i> -->
-            <span class="ml5">{{ongo.UTCModified|formatDate:'time'}}</span>
-            </p>
-          </div>
-        </div>
-        <!--<div class="card-iconholder">
-          <div class="ongo-journey-icon">
-            <img ng-src="{{ongo|typeOfPost:'travel-life'}}" alt="" class="img-responsive m-center">
-          </div>
-        </div>-->
-      </div>
+      <span class="mr5 day-journey">Day {{ongo.UTCModified|dateDifference: json.startTime}}</span>
     </div>
     <!-- card header end -->
     <!-- card main -->
     <div class="ongo-card-main">
-      <!--if checkin is done and no photos is uploaded then add map i.e.  if showMap is true  STARTS-->
-      <div class="card-imgholder pointer" ng-if="ongo.photos && ongo.photos.length==0 && ongo.showMap && ongo.checkIn && ongo.checkIn.lat " >
-        <!-- style="background: url('{{ongo.imageUrl}}') no-repeat 50% 50%;" -->
-        <!--<div class="blur-img">
-          <img ng-src="{{ongo.imgageUrl}}" alt="" class="img-responsive">
-        </div>-->
-        <!-- <img ng-src="{{ongo.imageUrl}}" alt="" class="img-responsive card-img"> -->
+
+      <div class="card-imgholder pointer" ng-if="ongo.photos && ongo.photos.length==0 && ongo.showMap && ongo.checkIn && ongo.checkIn.lat ">
+
         <fade-img-loading blur="{{ongo.imageUrl}}" image="{{ongo.imageUrl}}"></fade-img-loading>
       </div>
-      <!--if checkin is done and no photos is uploaded then add map i.e.  if showMap is true  ENDS-->
-      <!-- ongo img -->
-      <div class="card-imgholder pointer" ng-if="ongo.photos.length>0 && ongo.onDisplay=='photos'" ng-click="getPhotosCommentData(ongo.photosVideos[index]._id, index, ongo.photosVideos.length, ongo.photosVideos)" >
-        <!-- style="background: url('{{ongo.photosVideos[index].name|uploadpath}}') no-repeat; background-size: cover;background-position: 50% 50%;" -->
-        <!--<div class="blur-img">
-          <img ng-src="{{ongo.photosVideos[index].name|uploadpath}}" alt="" class="img-responsive">
-        </div>-->
-        <!--<img ng-src="{{ongo.photosVideos[index].name|uploadpath}}" alt="" class="img-responsive card-img">-->
+
+      <div class="card-imgholder pointer" ng-if="ongo.photos.length>0 && ongo.onDisplay=='photos'" ng-click="getPhotosCommentData(ongo.photosVideos[index]._id, index, ongo.photosVideos.length, ongo.photosVideos)">
+
         <fade-img-loading blur="{{ongo.photosVideos[index].name|uploadpath:10:10:'cover'}}" image="{{ongo.photosVideos[index].name|uploadpath}}"></fade-img-loading>
       </div>
       <div class="video-ongo-journey relate {{removeVideoButton}}" ng-if="ongo.videos.length>0 && ongo.onDisplay=='videos'">
-        <!-- ng-click="playVideo(ongo._id,$parent.index);" -->
-        <video id="{{ongo._id}}_{{index}}"  poster="{{ongo.photosVideos[index].thumbnail|uploadpath}}" controls="controls" width="550" preload="auto">
-          <source src="{{ongo.photosVideos[index].name|trusted}}" type="video/mp4">
-        </video>
+        <brightcove-player account-id="4554541995001" player-id="BJl5dXlYmZ" video-id="{{ongo.photosVideos[index].name}}" autoplay="false"></brightcove-player>
         <div class="youtube-icon get-center" hidden>
           <!-- <span><i class="fa fa-youtube-play fa-4x color-pink"></i></span> -->
           <img src="img/ongojourney/play-journey.png" alt="Play Journey" width="40" class="img-responsive">
@@ -104,104 +68,7 @@
     </div>
     <!-- card main end-->
     <!-- card footer -->
-    <div class="ongo-card-footer">
-      <div class="social-field-types">
-        <div class="user-social-item clearfix">
-          <!--<div class="pull-left">
-            <ul>
-              <li>
-                <a href="" class="relate" ng-click="likePost(ongo);">
-                  <i class="fa color-blue card-like-animation" ng-class="ongo.likeDone ? 'fa-heart like-animate' : 'fa-heart-o'"
-                    like-sound></i>
-                  <span></span>
-                  <audio id="like-play">
-                    <source src="img/tiny1.mp3" type="audio/mp3">
-                  </audio>
-                </a>
-              </li>
-              <li>
-                <a href="" ng-click="getCommentsData({'post':ongo});">
-                  <img src="img/comments.png" alt="" height="18" >
-                </a>
-              </li>
-              <li class="relate">
-                <a href=""  ng-click="editOption(ongo.share)">
-                  <img src="img/share.png" alt="" height="18" ng-init="ongo.share={};">
-                </a>
-                <div class="share-single-trip" ng-show="ongo.share.backgroundClick">
-                  <ul>
-                    <li><a ng-href="https://www.facebook.com/sharer/sharer.php?u={{ongo.sharingUrl}}/&title=TraveLibro" target="_blank"
-                        class="fb-icon"><i class="fa fa-facebook-square fa-2x"></i></a></li>
-                    <li><a ng-href="https://twitter.com/intent/tweet?url={{ongo.sharingUrl}}/&title=TraveLibro" target="_blank"
-                        class="twi-icon"><i class="fa fa-twitter-square fa-2x"></i></a></li>
-                    <li><a ng-href="https://plus.google.com/share?url=={{ongo.sharingUrl}}/&title=TraveLibro" target="_blank"
-                        class="google-icon"><i class="fa fa-google-plus-square fa-2x"></i></a></li>
-                    <li>
-                      <a ng-href="http://pinterest.com/pin/create/button/?url={{ongo.sharingUrl}}" target="_blank" class="pin-icon"><i class="fa fa-pinterest-square fa-2x"></i></a>
-                    </li>
-                    <li>
-                      <a ng-href="http://www.linkedin.com/shareArticle?mini=true&url={{ongo.sharingUrl}}" target="_blank" class="linkedin-icon"><i class="fa fa-linkedin-square fa-2x"></i></a>
-                    </li>
-                    <li><a href="" target="_blank" class="mail-icon"><i class="fa fa-envelope-square fa-2x"></i></a></li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </div>-->
-          <div class="pull-right">
-            <span class="inline-block" ng-if="ongo.checkIn && ongo.checkIn.location!='' && ongo.review && ongo.review!=''">
-              <p class="inline-block avenir-heavy journey-rate"><span class="mr5">Rating:</span>
-            <span class="rated-star"><i class="fa fa-star color-pink" ng-repeat="a in getTimes(ongo.review[0].rating,'marked') track by $index"></i></span>
-            <span class="non-rated-star"><i class="fa fa-star-o" ng-repeat="b in getTimes(ongo.review[0].rating,'unmarked') track by $index"></i></span>
-            </p>
-            </span>
-            <p class="inline-block pointer m-clear journey-rate" ng-click="giveReview(ongo.checkIn);" ng-if="ongo.checkIn && ongo.checkIn.location!='' && ongo.review && ongo.review=='' && isMine==true"><i class=" avenir-heavy">Rate This Now</i></p>
-            <div class="options inline-block" ng-if="isMine">
-              <span class="inline-block pl10 pointer" ng-init="ongo.edit={};" ng-click="editOption(ongo.edit);" class="pointer">
-                  <img src="img/options.png" alt="">
-                        </span>
-              <div class="own-trip" ng-show="ongo.edit.backgroundClick">
-                <ul>
-                  <!-- ng if for checkin -->
-                  <li><a href="" title="Edit Check In" ng-click="editCheckIn();">Edit Activity / Remove Photos &amp; Videos</a></li>
-                  <li><a href="" title="Add Photos & Videos" ng-click="addPhotosVideo();">Add Photos &amp; Videos</a></li>
-                  <li><a href="" title="Change Date &amp; Time" ng-click="changePostsDate();">Change Date &amp; Time</a></li>
-                  <li><a href="" title="Delete" ng-click="confirmDelete();">Delete Activity</a></li>
-                  <li class="hide"><a href="" title="Copy URL">Copy URL</a></li>
-                </ul>
-              </div>
-              <div class="other-trip hide">
-                <ul>
-                  <li><a href="" title="Report post">Report post</a></li>
-                  <li><a href="" title="Copy URL">Copy URL</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--<div class="social-likes-reviews" ng-if="!(((ongo.likeCount==0)||(ongo.likeCount==undefined))&&(ongo.comment.length==0))">
-          <div class="clearfix">
-            <div class="pull-left">
-              <span class="color-blue mr10 card-like avenir-heavy" ng-click="getLikesData({'post':ongo})"><i class="fa fa-heart color-blue mr5"></i><b>{{ongo.likeCount|filterCount}}</b> {{ongo.likeCount|singularPlural:'Likes'}}
-                       
-                        </span>
-              <span class="color-blue mr10 card-comment avenir-heavy pointer" ng-click="getCommentsData({'post':ongo});"><img src="img/comments.png" alt="" class="mr5" height="14"><b>{{ongo.commentCount|filterCount}}</b> {{ongo.commentCount|singularPlural:'Comments'}}
-                        <div class="card-comment-dropdown" ng-show="cardCommentList">
-                          <ul>
-                            <li ng-repeat="listComments in uniqueArr"><a href="">{{listComments.user.name}}</a></li>
-                          </ul>
-                        </div>
-            </span>
-            </div>
-            <div class="pull-right">
-              <div class="ongo-travel-icon hidden-xs">
-                <img src="img/travel.png" alt="" width="15">
-              </div>
-            </div>
-          </div>
-        </div>-->
-      </div>
-    </div>
+
     <!-- card footer end-->
   </div>
 </div>
@@ -219,12 +86,6 @@
   <div class="join-card text-center">
     <h4>{{ongo.user.name }} <span class="block">has joined this journey</span></h4>
   </div>
-  <p class="color-white avenir-roman text-center">
-    <!-- <i class="fa fa-calendar mr5"></i> -->
-    <span>{{ongo.UTCModified|formatDate: 'date'}}</span> |
-    <!-- <i class="fa fa-clock-o mr5"></i> -->
-    <span>{{ongo.UTCModified|formatDate: 'time'}}</span>
-  </p>
 </div>
 <!-- ongo journey join end-->
 <!-- ongo journey left -->
@@ -252,12 +113,6 @@
   <div class="journey-change">
     <h4 class="color-white">{{ongo.location}}</h4>
   </div>
-  <p class="color-white avenir-roman">
-    <!-- <i class="fa fa-calendar mr5"></i> -->
-    <span class="mr5">{{ongo.UTCModified|formatDate: 'date'}}</span>
-    <span class="mr5">|</span>
-    <!-- <i class="fa fa-clock-o mr5"></i> -->
-    <span class="mr5">{{ongo.UTCModified|formatDate: 'time'}}</span></p>
 </div>
 <!-- on go journey-change end -->
 <!-- on go journey main end-->

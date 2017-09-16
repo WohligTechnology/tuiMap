@@ -2,205 +2,166 @@
 <html lang="en" ng-app="firstapp">
 
 <head ng-controller="headerctrl">
-    <meta charset="utf-8">
-    <!--<base href="/">-->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- SEO -->
-    <meta name="author" content="">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <!-- Facebook -->
-    <meta property="og:url" content="http://travelibro.com/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="TraveLibro" />
-    <meta property="og:description" content="TraveLibro" />
-    <meta property="og:image" content="img/fb-banner.jpg" />
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:url" content="TraveLibro">
-    <meta name="twitter:title" content="TraveLibro">
-    <meta name="twitter:description" content="TraveLibro">
-    <meta name="twitter:image" content="img/tw-banner.jpg">
-    <title ng-bind="'TraveLibro | '+template.title">TraveLibro</title>
-    <link rel="manifest" href="/manifest.json">
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
-    <script src="js/pushnotification.js"></script>
-    <!--<script>
-    var OneSignal = window.OneSignal || [];
-    OneSignal.push(["init", {
-      appId: "bf8baf0a-dcfb-4a30-a0c1-ee67cae2feb1",
-      autoRegister: true,
-      notifyButton: {
-        enable: true /* Set to false to hide */
-      },
-      allowLocalhostAsSecureOrigin: true
-    }]);
+  <meta charset="utf-8">
+  <!--<base href="/">-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-  </script>-->
-    <link rel="shortcut icon" href="img/favicon.ico" />
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/typed.js/dist/typed.min.js"></script>
-    <script src="js/jquery.parallax.js"></script>
-    <script src="bower_components/fullpage.js/dist/jquery.fullpage.min.js"></script>
-    <script src="bower_components/swiper/dist/js/swiper.js"></script>
-    <style>
+  <title ng-bind="'TUI - '+template.title">TUI</title>
+
+  <link rel="shortcut icon" href="img/favicon.ico" />
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/typed.js/dist/typed.min.js"></script>
+  <script src="js/jquery.parallax.js"></script>
+  <script src="bower_components/fullpage.js/dist/jquery.fullpage.min.js"></script>
+  <script src="bower_components/swiper/dist/js/swiper.js"></script>
+  <style>
     @font-face {
-        font-family: "AvenirLTStd-Medium";
-        src: url('../fonts/AvenirLTStd-Medium.otf');
+      font-family: 'TUITypeLt';
+      font-style: normal;
+      font-weight: normal;
+      src: url('../fonts/tuitype-light/tuitypelt-webfont.eot');
+      src: url('../fonts/tuitype-light/tuitypelt-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/tuitype-light/tuitypelt-webfont.ttf') format('truetype'), url('../fonts/tuitype-light/tuitypelt-webfont.woff') format('woff'), url('../fonts/tuitype-light/tuitypelt-webfont.svg#tuitypelight') format('svg');
     }
-    
-    .avenir-medium {
-        font-family: "AvenirLTStd-Medium";
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+
+    .tuitype-font {
+      font-family: "TUITypeLt";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    </style>
-    <!--[if IE]>
+
+  </style>
+  <!--[if IE]>
         <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-    <!--<script src="https://www.jscache.com/wejs?wtype=cdsratingsonlynarrow&amp;uniq=116&amp;locationId=3804197&amp;lang=en_IN&amp;border=false&amp;shadow=false&amp;display_version=2"></script>-->
+  <!--<script src="https://www.jscache.com/wejs?wtype=cdsratingsonlynarrow&amp;uniq=116&amp;locationId=3804197&amp;lang=en_IN&amp;border=false&amp;shadow=false&amp;display_version=2"></script>-->
 </head>
 
 <body class=" travel-bg">
-    <!--home page Loader-->
-    <div class="loaders" style="background:#303557;z-index:999;text-align: center;position:fixed;top:0;left:0;bottom:0;right:0">
-        <div style="position: absolute ;top: 50%;left:50%;transform: translate(-50%,-50%);width:100%;text-align: center;">
-            <h1 noloading="true" style="color:#fff;" class="avenir-medium">
+  <!--home page Loader-->
+  <div class="loaders" style="background:#092a5e;z-index:999;text-align: center;position:fixed;top:0;left:0;bottom:0;right:0">
+    <div style="position: absolute ;top: 50%;left:50%;transform: translate(-50%,-50%);width:100%;text-align: center;">
+      <h1 noloading="true" style="color:#fff;" class="tuitype-font">
         <span class="element"></span>
       </h1>
-        </div>
     </div>
-    <script>
+  </div>
+  <script>
     $(".loaders .element").typed({
-        strings: ["Capture | Inspire | Relive...", "Travel Life | Local Life...", "Loading...", "Almost There..."],
-        startDelay: 20,
-        typeSpeed: 100,
-        loop: true
+      strings: ["Relive | Inspire | Capture...", "TUI Moments...", "Loading...", "Almost There..."],
+      startDelay: 20,
+      typeSpeed: 100,
+      loop: true
     });
-    </script>
-    <div class="repeated-item loadedContent" ui-view></div>
-    <!--home page Loader ended-->
-    <div style="display: none">
-        <video poster="img/libro-home/slide/1.jpg" class='videoPlayer' muted>
-            <source src='img/libro-home/videos/Homevideo.mp4' type='video/mp4'>
-        </video>
-        <img src="img/libro-home/slide/2.jpg" alt="">
-        <img src="img/libro-home/slide/3.jpg" alt="">
-        <img src="img/libro-home/slide/4.jpg" alt="">
-        <img src="img/libro-home/slide/5.jpg" alt="">
-        <script src="js/jquery.parallax.js"></script>
-        <script src="bower_components/fullpage.js/dist/jquery.fullpage.min.js"></script>
-        <script src="bower_components/swiper/dist/js/swiper.js"></script>
-    </div>
-    <!--//loader-->
-    <script>
-    $(window).load(function() {
 
-        console.log("Loaded");
-        if (abc && abc.changePage) {
-            abc.changePage("home");
-        }
-        $("body > .loaders").remove();
+  </script>
+  <div class="repeated-item loadedContent" ui-view></div>
+  <!--home page Loader ended-->
+  <div style="display: none">
+  </div>
+  <!--//loader-->
+  <script>
+    $(window).load(function () {
 
-        $("body > .loadedContent").fadeIn(1000);
+      console.log("Loaded");
+      if (abc && abc.changePage) {
+        abc.changePage("home");
+      }
+      $("body > .loaders").remove();
+
+      $("body > .loadedContent").fadeIn(1000);
     });
-    </script>
-    <!--//loader end-->
-    <!-- put auto-height if needed -->
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <script>
+
+  </script>
+  <!--//loader end-->
+  <!-- put auto-height if needed -->
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  <script>
     var isproduction = false;
-    </script>
-    <script src="bower_components/flexslider/jquery.flexslider-min.js"></script>
-    <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
-    <script src="bower_components/fancyBox/source/jquery.fancybox.js"></script>
-    <script src="bower_components/highcharts/highcharts.js"></script>
-    <script src="bower_components/highcharts/modules/exporting.js"></script>
-    <script src="bower_components/tinymce-dist/tinymce.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
-    <script src="bower_components/angular-ui-tinymce/src/tinymce.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/ng-img-crop/compile/minified/ng-img-crop.js"></script>
-    <script src="bower_components/angular-flexslider/angular-flexslider.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-    <script src="bower_components/ui-router/release/angular-ui-router.min.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="bower_components/highcharts-ng/src/highcharts-ng.js"></script>
-    <script src="bower_components/angular-translate/angular-translate.js"></script>
-    <script src="bower_components/lodash/lodash.js"></script>
-    <script src="bower_components/angulartics/dist/angulartics.min.js"></script>
-    <script src="bower_components/angular-fade-image-loading/angular-fade-image-loading.min.js"></script>
-    <!-- <script src="bower_components/angulartics-google-analytics/dist/angulartics-google-analytics.min.js"></script> -->
-    <script src="bower_components/angular-google-analytics/dist/angular-google-analytics.js"></script>
-    <!-- <script src="bower_components/angular-mappy/build/angular-mappy.js"></script> -->
-    <script src="js/mapping.js"></script>
-    <script src="js/map_data.js"></script>
-    <!-- <script src="bower_components/angular-mappy/_mapdata.js"></script> -->
-    <script src="bower_components/jquery-bridget/jquery-bridget.js"></script>
-    <script src="bower_components/ev-emitter/ev-emitter.js"></script>
-    <script src="bower_components/desandro-matches-selector/matches-selector.js"></script>
-    <script src="bower_components/fizzy-ui-utils/utils.js"></script>
-    <script src="bower_components/get-size/get-size.js"></script>
-    <script src="bower_components/outlayer/item.js"></script>
-    <script src="bower_components/outlayer/outlayer.js"></script>
-    <script src="bower_components/masonry/masonry.js"></script>
-    <script src="bower_components/imagesloaded/imagesloaded.js"></script>
-    <!-- <script src="bower_components/angular-masonry/angular-masonry.js"></script> -->
-    <script src="js/masonry-edited.js"></script>
-    <script src="bower_components/angular-ui-select/dist/select.js"></script>
-    <script src="bower_components/ng-scrollbar/dist/ng-scrollbar.min.js"></script>
-    <script src="bower_components/angular-swiper/dist/angular-swiper.js"></script>
-    <script src="bower_components/moment/moment.js"></script>
-    <script src="bower_components/jStorage/jstorage.js"></script>
-    <script src="js/imageUpload.js"></script>
-    <script src="bower_components/angular-rangeslider/angular.rangeSlider.js"></script>
-    <script src="bower_components/angular-file-upload/dist/angular-file-upload.js"></script>
-    <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
-    <script src="bower_components\intl-tel-input\build\js\intlTelInput.js"></script>
-    <script src="bower_components/intl-tel-input/lib/libphonenumber/build/utils.js"></script>
-    <script src="bower_components/international-phone-number/releases/international-phone-number.js"></script>
-    <script src="node_modules/ng-intl-tel-input/dist/ng-intl-tel-input.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/language.js"></script>
-    <script src="js/controllers.js"></script>
-    <script src="js/navigation.js"></script>
-    <script src="js/myLife.js"></script>
-    <script src="js/templateservice.js"></script>
-    <script src="js/fileuploadservice.js"></script>
-    <script src="js/ongojourney.js"></script>
-    <script src="js/itinerary.js"></script>
-    <script src="js/commontask.js"></script>
-    <script src="js/activity.js"></script>
-    <script src="js/locallife.js"></script>
-    <script src="js/travelibroservice.js"></script>
-    <script src="js/agent.js"></script>
-    <script src="js/anchorSmoothScroll.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?v=3&libraries=geometry&key=AIzaSyDPH6EYKMW97XMTJzqYqA0CR4fk5l2gzE4&callback=initMap">
-    </script>
-    <div id="fb-root"></div>
-    <script>
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <script src="//twemoji.maxcdn.com/twemoji.min.js">
-    window.load = function() {
-        twemoji.size = '16x16';
-        twemoji.parse(document.body);
+
+  </script>
+  <script src="bower_components/flexslider/jquery.flexslider-min.js"></script>
+  <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+  <script src="bower_components/fancyBox/source/jquery.fancybox.js"></script>
+  <script src="bower_components/highcharts/highcharts.js"></script>
+  <script src="bower_components/highcharts/modules/exporting.js"></script>
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+  <script src="bower_components/angular-ui-tinymce/src/tinymce.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/ng-img-crop/compile/minified/ng-img-crop.js"></script>
+  <script src="bower_components/angular-flexslider/angular-flexslider.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+  <script src="bower_components/ui-router/release/angular-ui-router.min.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="bower_components/highcharts-ng/src/highcharts-ng.js"></script>
+  <script src="bower_components/angular-translate/angular-translate.js"></script>
+  <script src="bower_components/lodash/lodash.js"></script>
+  <script src="bower_components/angulartics/dist/angulartics.min.js"></script>
+  <script src="bower_components/angular-fade-image-loading/angular-fade-image-loading.min.js"></script>
+  <!-- <script src="bower_components/angulartics-google-analytics/dist/angulartics-google-analytics.min.js"></script> -->
+  <script src="bower_components/angular-google-analytics/dist/angular-google-analytics.js"></script>
+  <!-- <script src="bower_components/angular-mappy/build/angular-mappy.js"></script> -->
+  <script src="js/mapping.js"></script>
+  <script src="js/map_data.js"></script>
+  <!-- <script src="bower_components/angular-mappy/_mapdata.js"></script> -->
+  <script src="bower_components/jquery-bridget/jquery-bridget.js"></script>
+  <script src="bower_components/ev-emitter/ev-emitter.js"></script>
+  <script src="bower_components/desandro-matches-selector/matches-selector.js"></script>
+  <script src="bower_components/fizzy-ui-utils/utils.js"></script>
+  <script src="bower_components/get-size/get-size.js"></script>
+  <script src="bower_components/outlayer/item.js"></script>
+  <script src="bower_components/outlayer/outlayer.js"></script>
+  <script src="bower_components/masonry/masonry.js"></script>
+  <script src="bower_components/imagesloaded/imagesloaded.js"></script>
+  <!-- <script src="bower_components/angular-masonry/angular-masonry.js"></script> -->
+  <script src="js/masonry-edited.js"></script>
+  <script src="bower_components/angular-ui-select/dist/select.js"></script>
+  <script src="bower_components/ng-scrollbar/dist/ng-scrollbar.min.js"></script>
+  <script src="bower_components/angular-swiper/dist/angular-swiper.js"></script>
+  <script src="bower_components/moment/moment.js"></script>
+  <script src="bower_components/jStorage/jstorage.js"></script>
+  <script src="js/imageUpload.js"></script>
+  <script src="bower_components/angular-rangeslider/angular.rangeSlider.js"></script>
+  <script src="bower_components/angular-file-upload/dist/angular-file-upload.js"></script>
+  <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+  <script src="bower_components\intl-tel-input\build\js\intlTelInput.js"></script>
+  <script src="bower_components/intl-tel-input/lib/libphonenumber/build/utils.js"></script>
+  <script src="bower_components/international-phone-number/releases/international-phone-number.js"></script>
+  <script src="node_modules/ng-intl-tel-input/dist/ng-intl-tel-input.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/language.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/myLife.js"></script>
+  <script src="js/templateservice.js"></script>
+  <script src="js/fileuploadservice.js"></script>
+  <script src="js/ongojourney.js"></script>
+  <script src="js/brightcovePlayer.js"></script>
+
+  <script src="js/commontask.js"></script>
+
+
+  <script src="js/travelibroservice.js"></script>
+
+  <script src="js/anchorSmoothScroll.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?v=3&libraries=geometry&key=AIzaSyDPH6EYKMW97XMTJzqYqA0CR4fk5l2gzE4&callback=initMap">
+
+
+  </script>
+  <script src="//twemoji.maxcdn.com/twemoji.min.js">
+    window.load = function () {
+      twemoji.size = '16x16';
+      twemoji.parse(document.body);
     }
-    </script>
+
+  </script>
 </body>
 
 </html>

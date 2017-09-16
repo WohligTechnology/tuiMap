@@ -167,7 +167,7 @@
       width: auto !important;
       padding: 6px 0;
       background-color: transparent;
-      margin:0;
+      margin: 0;
       @include placeholder {
         color: #9b9b9e;
       }
@@ -189,25 +189,27 @@
     }
   }
 }
+
 .business-model {
-  .ui-select-multiple.ui-select-bootstrap .ui-select-search{
-     min-width: 210px;
+  .ui-select-multiple.ui-select-bootstrap .ui-select-search {
+    min-width: 210px;
   }
-  .ui-select-multiple.ui-select-bootstrap .ui-select-dropdown{
+  .ui-select-multiple.ui-select-bootstrap .ui-select-dropdown {
     display: block;
   }
-  .ui-select-multiple.ui-select-bootstrap{
-    ::-webkit-scrollbar {
+  .ui-select-multiple.ui-select-bootstrap {
+     ::-webkit-scrollbar {
       height: 0;
     }
   }
-  .ui-select-bootstrap .ui-select-choices-row{
+  .ui-select-bootstrap .ui-select-choices-row {
     font-size: 16px;
-    &.active>span{
-    background-color: #f5f5f5;
+    &.active>span {
+      background-color: #f5f5f5;
+    }
   }
 }
-}
+
 .mail-register {
   color: #424242;
   text-align: left;
@@ -271,7 +273,6 @@
   margin-bottom: 5px;
   .intl-tel-input {
     width: 100%;
-    @extend .avenir-roman;
      ::-webkit-scrollbar {
       width: 4px;
     }
@@ -305,7 +306,6 @@
     left: 0;
     color: #ef645e;
     font-size: 12px;
-    @extend .avenir-roman;
   }
 }
 
@@ -410,7 +410,9 @@
     display: flex;
     flex-wrap: wrap;
   }
-  .button-panel{  margin-top: 40px; }
+  .button-panel {
+    margin-top: 40px;
+  }
 }
 
 // scroll style start
@@ -487,18 +489,15 @@
 .agent-user-nav {
   padding: 5px 0;
   background: $brand-blue;
-  z-index: 6;
-  // position: absolute;
+  z-index: 6; // position: absolute;
   // bottom: 0;
   // width: 100%;
   ul {
-    @extend .avenir-roman;
     li {
       padding: 0 10px;
       margin: 5px 0;
       line-height: 150%;
       color: #fff;
-      @extend .avenir-medium;
       cursor: pointer;
       @include transition(all ease 300ms);
       border-right: 1px solid #ebebeb;
@@ -598,7 +597,6 @@
   overflow: hidden;
   .right-label {
     @extend .text-shadow;
-    @extend .avenir-roman;
     a {
       text-decoration: underline;
     }
@@ -615,18 +613,20 @@
   }
 }
 
-.agentshare-profilelink{
+.agentshare-profilelink {
   padding: 5px 8px;
   position: absolute;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
-  .btn-shareagentlink{
+  .btn-shareagentlink {
     color: #fff;
     font-size: 18px;
     line-height: 1;
-    &:hover, &:active, &:focus{
+    &:hover,
+    &:active,
+    &:focus {
       color: #fff;
     }
   }
@@ -653,7 +653,6 @@
       padding-bottom: 10px;
       margin: 0;
       color: $brand-pink;
-      @extend .avenir-heavy;
     }
     p {
       color: #424242;
@@ -692,9 +691,7 @@
           color: #fff;
           text-align: justify;
           @include transform(rotateY( 180deg));
-          p {
-            @extend .avenir-roman;
-          }
+          p {}
         }
       }
       &.flipped {
@@ -733,7 +730,6 @@
       0,
       0)));
       width: 100%;
-      @extend .avenir-heavy;
       border-radius: 5px;
     }
     .title-head-right {
@@ -743,7 +739,6 @@
       top: 0;
       right: 0;
       font-size: 12px;
-      @extend .avenir-heavy;
       img {
         margin: 0 0 0 10px;
       }
@@ -764,7 +759,6 @@
       0,
       90)));
       text-align: right;
-      @extend .avenir-roman;
     }
     .left-bottom {
       width: 100%;
@@ -781,7 +775,6 @@
       0,
       0,
       90)));
-      @extend .avenir-roman;
       ul {
         li {
           font-size: 16px;
@@ -806,8 +799,7 @@
   padding: 30px 50px;
   display: inline-block;
   color: #fff;
-  text-align: center;
-  // background-color: #323719;
+  text-align: center; // background-color: #323719;
   background: rgba(0, 0, 0, 0.8);
 }
 
@@ -865,7 +857,6 @@
 .agt-usr-tourpackages {
   padding: 50px 0;
   margin-bottom: 0;
-  @extend .avenir-roman;
 }
 
 .agt-home-aboutus,
@@ -900,11 +891,10 @@
 .agt-home-photovideointro,
 .agt-home-testimonialreiewsintro,
 .agt-home-tourpackageintro,
-.agt-user-intro {
-  @extend .avenir-roman;
-}
+.agt-user-intro {}
 
-.agt-home-itineraryintro, .agt-home-tourintro{
+.agt-home-itineraryintro,
+.agt-home-tourintro {
   padding: 60px 0;
 }
 
@@ -928,7 +918,6 @@
 // .agt-usr-touractivity {
 //   background-color: rgba(45, 54, 85, 0.5);
 // }
-
 .agt-usr-touractivity {
   padding-bottom: 0;
 }
@@ -1050,6 +1039,7 @@
 .activity-tourpackage {
   margin: 15px 0 25px;
 }
+
 .album-agent {
   .album-videoholder {
     max-height: 300px;
@@ -1061,6 +1051,7 @@
     object-fit: cover;
   }
 }
+
 .agent-photogallery {
   width: 275px;
   max-width: 275px;
@@ -1106,9 +1097,11 @@
   color: $brand-blue;
   font-style: italic;
 }
+
 .testimonial-quote {
   word-break: break-all;
 }
+
 .testimonial-details {
   margin: 10px 0;
 }
@@ -1143,7 +1136,6 @@
     line-height: 1;
     color: $brand-pink;
     margin: 0;
-    @extend .avenir-heavy;
   }
   span {
     font-size: 14px;
@@ -1185,7 +1177,6 @@ q {
 .testimonial-rating {
   p {
     margin: 0;
-    @extend .avenir-heavy;
   }
 }
 
@@ -1313,7 +1304,8 @@ q {
   //   color: #fff;
   // }
 }
-.speciality-imgholder{
+
+.speciality-imgholder {
   margin-bottom: 20px;
 }
 
@@ -1323,7 +1315,6 @@ q {
   width: 100%;
   padding: 10px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
-  @extend .avenir-heavy;
 }
 
 .abtcountry-row {
@@ -1893,7 +1884,6 @@ q {
   p {
     @extend .mb10;
     line-height: 1.4;
-    @extend .avenir-light;
   }
 }
 
@@ -1906,14 +1896,12 @@ q {
 .upgrade-title {
   @extend .color-blue;
   @extend .font-sz18;
-  @extend .avenir-medium;
 }
 
 .upgrade-feature {
   @extend .color-pink;
   @extend .font-sz18;
   @extend .text-center;
-  @extend .avenir-heavy;
 }
 
 .setting-card {
@@ -1922,7 +1910,6 @@ q {
   background-color: #f1f2f2;
   .setting-heading {
     font-size: 20px;
-    @extend .avenir-heavy;
   }
 }
 
@@ -1997,12 +1984,9 @@ q {
   border-radius: 100%;
 }
 
-.agent-upgrade {
-  @extend .avenir-roman;
-}
+.agent-upgrade {}
 
 .agent-setting {
-  @extend .avenir-roman;
   .upload-profile {
     padding: 0 0 20px;
     box-shadow: none;
@@ -2250,7 +2234,6 @@ q {
   border: 1px solid $brand-grey;
   p {
     color: grey;
-    @extend .avenir-light;
   }
   .reciept-link {
     @extend .color-pink;
@@ -2490,7 +2473,6 @@ q {
   margin: 10px 0;
   padding: 10px 0;
   color: #fff;
-  @extend .avenir-roman;
   .btn-pink-outline {
     margin: 5px 10px;
   }
@@ -2519,12 +2501,10 @@ q {
     overflow: hidden;
     .ledadmsg-country {
       font-size: 16px;
-      @extend .avenir-heavy;
     }
     .ledadmsg-comment {
       font-style: italic;
       font-size: 14px;
-      @extend .avenir-roman;
     }
   }
 }
@@ -2566,12 +2546,10 @@ q {
 }
 
 .lead-contentbox {
-  @extend .avenir-light;
   padding: 10px 30px;
 }
 
 .action-contentbox {
-  @extend .avenir-light;
   padding: 10px 30px;
   .lead-content {
     color: #fff;
@@ -3077,9 +3055,7 @@ q {
 
 // USER TRAVEL ACTIVITY CARD END
 //AGENT HOME ANALYTICS
-.agt-home-analytics {
-  @extend .avenir-roman;
-}
+.agt-home-analytics {}
 
 .analytics-download,
 .analytics-follower,
@@ -3100,7 +3076,6 @@ q {
   width: 50%;
   margin: 0 auto;
   color: $brand-blue;
-  @extend .avenir-roman;
 }
 
 .emptyleads-analytics {
@@ -3130,7 +3105,6 @@ q {
 .analyticsfilter-head {
   p {
     margin: 10px 0 0;
-    @extend .avenir-heavy;
   }
 }
 
@@ -3138,7 +3112,6 @@ q {
   display: inline-block;
   margin: 10px 10px 0;
   vertical-align: middle;
-  @extend .avenir-heavy;
 }
 
 .analytics-filterui {
@@ -3320,7 +3293,6 @@ q {
   figcaption {
     font-size: 13px;
   }
-  @extend .avenir-roman;
   @extend .pointer;
 }
 
@@ -3471,17 +3443,20 @@ q {
     padding: 20px 50px;
   }
 }
+
 .request-successful {
   width: 400px;
   padding: 2%;
   position: fixed;
   top: 50%;
   left: 50%;
-  @include transform(translate(-50%,-50%));
+  @include transform(translate(-50%,
+  -50%));
   background-color: #fff;
   font-size: 20px;
   text-align: center;
 }
+
 .agent-contactmail {
   &:last-child {
     .email-separater {
@@ -3510,7 +3485,6 @@ q {
 .agtmodal-title {
   color: #fff;
   text-align: center;
-  @extend .avenir-heavy;
 }
 
 .agtmodal-imgholder {
@@ -3649,8 +3623,7 @@ q {
   position: relative;
   overflow: hidden;
   border: 1px solid #fff;
-  border-radius: 4px;
-  @extend .avenir-roman; // background-color: #fff;
+  border-radius: 4px; // background-color: #fff;
   .slider-agent-trash {
     position: absolute;
     top: 0;
@@ -3710,7 +3683,6 @@ q {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
     color: #fff;
     padding: 5px;
-    @extend .avenir-roman;
     p {
       margin: 0;
     }
@@ -3845,7 +3817,6 @@ q {
 .message-page {
   height: calc(100vh - 60px);
   background-color: rgba(0, 0, 0, 0.4);
-  @extend .avenir-roman;
 }
 
 // message page Header
@@ -3995,7 +3966,6 @@ q {
     display: inline-block;
     line-height: 27px;
     text-align: center;
-    @extend .avenir-roman;
   }
 }
 
@@ -4004,19 +3974,16 @@ q {
   color: $brand-dark-grey;
   font-size: 10px;
   text-align: right;
-  @extend .avenir-roman;
 }
 
 .listfriend-follower {
   margin-bottom: 5px;
   color: $brand-blue;
-  @extend .avenir-heavy;
 }
 
 .listfriend-msg {
   margin: 0;
   color: $brand-blue;
-  @extend .avenir-roman;
   @extend .text-ellipsis;
 }
 
@@ -4029,9 +3996,11 @@ q {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-.white-link{
+.white-link {
   color: #fff;
-  &:hover, &:focus, &:active{
+  &:hover,
+  &:focus,
+  &:active {
     color: #fff;
     text-decoration: underline;
   }
@@ -4220,7 +4189,6 @@ q {
   text-align: center;
   z-index: 15;
   @extend .get-center;
-  @extend .avenir-roman;
 }
 
 .msg-popup-box {
@@ -4266,7 +4234,6 @@ q {
   color: #fff;
   text-align: center;
   vertical-align: middle;
-  @extend .avenir-roman;
   .newmsg-header-content {
     font-size: 16px;
     vertical-align: middle;
@@ -4310,7 +4277,6 @@ q {
   padding: 6px 12px;
   background-color: #fff;
   color: #424242;
-  @extend .avenir-roman;
   .form-control {
     border: none;
     background-color: transparent;
@@ -4323,7 +4289,6 @@ q {
   margin-bottom: 2px;
   background-color: rgba(255, 255, 255, 0.8);
   color: $brand-blue;
-  @extend .avenir-roman;
   [type="checkbox"]:checked,
   [type="checkbox"]:not(:checked) {
     position: absolute;
@@ -4420,7 +4385,6 @@ q {
 //NOTIFICATION PAGE
 .notification-page {
   padding: 30px 0;
-  @extend .avenir-roman;
 }
 
 .notification-card {
@@ -4545,7 +4509,6 @@ q {
     font-size: 11px;
     text-shadow: 0 2px 2px #000;
     @extend .get-center;
-    @extend .avenir-heavy;
   }
 }
 
@@ -4598,7 +4561,6 @@ q {
     display: block;
     color: $brand-blue;
     font-size: 20px;
-    @extend .avenir-heavy;
   }
   .notifcation-follower-property {
     display: block;
@@ -4691,7 +4653,6 @@ q {
   background-color: $brand-pink;
   color: #fff;
   text-align: center;
-  @extend .avenir-roman;
 }
 
 .listed-popup-close {
@@ -4742,7 +4703,6 @@ q {
   border: 1px solid #ebebeb;
   background-color: #fff;
   color: $brand-blue;
-  @extend .avenir-roman;
   [type="checkbox"]:checked,
   [type="checkbox"]:not(:checked) {
     position: absolute;
@@ -4814,7 +4774,6 @@ q {
 .edit-kindof-popup {
   padding: 30px 0;
   background-color: transparent;
-  @extend .avenir-roman;
 }
 
 .edit-kindof-header {
@@ -4920,7 +4879,6 @@ q {
 // SEARCH RESULT PAGE
 .search-result {
   margin: 40px 0;
-  @extend .avenir-roman;
 }
 
 .search-navigation {
@@ -4955,7 +4913,6 @@ q {
     position: relative;
     font-size: 16px;
     @extend .pointer;
-    @extend .avenir-heavy;
   }
 }
 
@@ -5085,7 +5042,6 @@ q {
   font-size: 10px;
   @extend .pull-right;
   @extend .color-blue;
-  @extend .avenir-roman;
 }
 
 // SEARCH ITINERARY END
@@ -5098,7 +5054,9 @@ q {
   margin: 10px 0 20px;
   .user-detail {
     margin-top: 2px;
-    h4 { font-size: 15px; }
+    h4 {
+      font-size: 15px;
+    }
   }
   .your-post {
     padding: 5px 8px;
@@ -5147,13 +5105,11 @@ q {
   margin-top: 20px;
   background-color: #fff;
   text-align: center;
-  @extend .avenir-roman;
   .delete-confirmation {
     padding: 10px;
     display: block;
     margin-top: 10px;
     border: 1px solid $brand-light-grey;
-    @extend .avenir-roman;
     cursor: pointer;
   }
 }
@@ -5323,8 +5279,7 @@ q {
   font-size: 10px !important;
   line-height: 20px !important;
   text-align: center;
-  vertical-align: middle;
-  @extend .avenir-heavy; // &:hover{
+  vertical-align: middle; // &:hover{
   //   background-color: #abafbc;
   // }
 }
@@ -5402,7 +5357,6 @@ q {
   display: block;
   color: #fff;
   font-size: 18px;
-  @extend .avenir-heavy;
 }
 
 .followercard-titles {
@@ -5434,8 +5388,9 @@ q {
     opacity: 0;
     cursor: pointer !important;
     input {
-     @include square(100%);
-     @include position(absolute,0 null null 0);
+      @include square(100%);
+      @include position(absolute,
+      0 null null 0);
     }
   }
   .file-size {
@@ -5513,12 +5468,12 @@ q {
 }
 
 //PARTNER LOGIN PAGE
-.agentlogin-vimeo{
+.agentlogin-vimeo {
   /*@extend .get-center;*/
-    position: absolute;
-    top: 2%;
-    width: 92%;
-    left: 4%;
-
+  position: absolute;
+  top: 2%;
+  width: 92%;
+  left: 4%;
 }
+
 //PARTNER LOGIN PAGE END
