@@ -16,10 +16,10 @@
 
       <div class="card-imgholder pointer" ng-if="ongo.photos.length>0 && ongo.onDisplay=='photos'" ng-click="getPhotosCommentData(ongo.photosVideos[index]._id, index, ongo.photosVideos.length, ongo.photosVideos)">
 
-        <fade-img-loading blur="{{ongo.photosVideos[index].name|uploadpath:10:10:'cover'}}" image="{{ongo.photosVideos[index].name|uploadpath}}"></fade-img-loading>
+        <fade-img-loading blur="{{ongo.photosVideos[index].name}}" image="{{ongo.photosVideos[index].name}}"></fade-img-loading>
       </div>
       <div class="video-ongo-journey relate {{removeVideoButton}}" ng-if="ongo.videos.length>0 && ongo.onDisplay=='videos'">
-        <brightcove-player account-id="4554541995001" player-id="BJl5dXlYmZ" video-id="{{ongo.photosVideos[index].name}}" autoplay="false"></brightcove-player>
+        <brightcove-player account-id="4554541995001" player-id="default" video-id="{{ongo.photosVideos[index].name}}"></brightcove-player>
         <div class="youtube-icon get-center" hidden>
           <!-- <span><i class="fa fa-youtube-play fa-4x color-pink"></i></span> -->
           <img src="img/ongojourney/play-journey.png" alt="Play Journey" width="40" class="img-responsive">
@@ -29,9 +29,9 @@
       <!-- related img if less then 5-->
       <div class="relate-pic" ng-if="(ongo.photosVideos.length>1)&&(ongo.photosVideos.length<=5)">
         <div class="related-ongo-slider" ng-repeat="relatePic in ongo.photosVideos track by $index">
-          <img ng-src="{{relatePic.thumbnail|uploadpath:99:99:'cover'}}" alt="" class="img-responsive pointer" ng-if="ongo.photosVideos[$index] && ongo.photosVideos[$index].thumbnail"
+          <img style="background-image:url('{{relatePic.thumbnail}}')" alt="" class="img-responsive pointer" ng-if="ongo.photosVideos[$index] && ongo.photosVideos[$index].thumbnail"
             ng-click="changeImage($index,'videos')">
-          <img ng-src="{{relatePic.name|uploadpath:99:99:'cover'}}" alt="" class="img-responsive pointer" ng-if="!(ongo.photosVideos[$index] && ongo.photosVideos[$index].thumbnail)"
+          <img style="background-image:url('{{relatePic.name}}')" alt="" class="img-responsive pointer" ng-if="!(ongo.photosVideos[$index] && ongo.photosVideos[$index].thumbnail)"
             ng-click="changeImage($index,'photos')">
         </div>
       </div>

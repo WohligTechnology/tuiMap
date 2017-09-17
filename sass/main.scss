@@ -5858,18 +5858,12 @@ header {
 // share single trip cancel
 // card header end
 .card-imgholder {
-  height: 350px;
   position: relative;
   overflow: hidden;
   fade-img-loading {
     .blur,
     .img-show {
       width: 100%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      @include transform(translate(-50%,
-      -50%));
     }
   }
   .blur-img {
@@ -5969,9 +5963,7 @@ header {
 
 .video-ongo-journey {
   position: relative;
-  max-height: 350px;
   overflow: hidden;
-  min-height: 300px;
   video {
     height: 100%;
     max-height: 350px;
@@ -6294,7 +6286,6 @@ header {
   }
   .journey-imgholder {
     width: 100%;
-    max-height: 260px;
     margin-top: -2px;
     background-color: $brand-light-grey;
     overflow: hidden;
@@ -11597,7 +11588,7 @@ video::-webkit-media-controls-fullscreen-button {
 // }
 // travelibro loader end
 .video-js {
-  height: 100% !important;
+  min-height: 400px !important;
   width: 100% !important;
   &.vjs-paused {
     .vjs-big-play-button {
@@ -11634,4 +11625,10 @@ video::-webkit-media-controls-fullscreen-button {
     background-size: cover;
     background-position: center;
   }
+}
+
+.related-ongo-slider img {
+  background-size: cover;
+  height: 100%;
+  width: 100%;
 }

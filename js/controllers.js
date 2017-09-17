@@ -251,8 +251,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'mylife', 'ongojour
         "color": "#3e606f"
       }, {
         "weight": 2
-      }, {
-        "gamma": 0.84
       }]
     }, {
       "featureType": "all",
@@ -266,45 +264,43 @@ angular.module('phonecatControllers', ['templateservicemod', 'mylife', 'ongojour
       "stylers": [{
         "weight": 0.6
       }, {
-        "color": "#1a3541"
+        "color": "#9bd1f1"
       }]
     }, {
       "featureType": "landscape",
       "elementType": "geometry",
       "stylers": [{
-        "color": "#fbf7e5"
+        "color": "#dcf1fd"
       }]
     }, {
       "featureType": "poi",
       "elementType": "geometry",
       "stylers": [{
-        "color": "#fbf7e5"
+        "color": "#dcf1fd"
       }]
     }, {
       "featureType": "poi.park",
       "elementType": "geometry",
       "stylers": [{
-        "color": "#fbf7e5"
+        "color": "#dcf1fd"
       }]
     }, {
       "featureType": "road",
       "elementType": "geometry",
       "stylers": [{
-        "color": "#d4ccab"
-      }, {
-        "lightness": 37
+        "color": "#9bd1f1"
       }]
     }, {
       "featureType": "transit",
       "elementType": "geometry",
       "stylers": [{
-        "color": "#d4ccab"
+        "color": "#9bd1f1"
       }]
     }, {
       "featureType": "water",
       "elementType": "geometry",
       "stylers": [{
-        "color": "#c2e6fa"
+        "color": "#98d6f9"
       }]
     }]
 

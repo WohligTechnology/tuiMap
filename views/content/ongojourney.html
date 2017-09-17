@@ -29,7 +29,7 @@
                 </div>
                 <!-- header started end-->
                 <div class="journey-imgholder ">
-                  <img ng-src="{{journey.startLocationPic | uploadpath}}" alt="" class="img-responsive">
+                  <img ng-src="{{journey.startLocationPic}}" class="img-responsive">
                   <!--- google image --->
                 </div>
               </div>
@@ -44,21 +44,7 @@
               <journey-post post="ongo" is-mine="template.isMine" is-logged-in="isLoggedIn" json=journey get-comments-data="getCommentsData(post)"
                 close-back-drop="closeBackDrop()" get-likes-data="getLikesData(post)" template="template" ng-repeat="ongo in journey.post"></journey-post>
               <!-- ongo journey-end -->
-              <div class="ongo-journey-end" ng-if="journey.onGoing==false">
-                <div class="journey-end text-center">
-                  <h4 class="color-white avenir-roman">{{ongo.location}}</h4>
-                  <p class="m-clear color-white avenir-roman">
-                    <!-- <i class="fa fa-calendar mr5"></i> -->
-                    <span class="mr5">{{journey.endTime|formatDate: 'date'}}</span>
-                    <span class="mr5">|</span>
-                    <!-- <i class="fa fa-clock-o mr5"></i> -->
-                    <span class="mr5">{{journey.endTime|formatDate: 'time'}}</span></p>
-                </div>
-                <div class="end-journey-flag text-center">
-                  <img src="img/ongojourney/end-flag.png" alt="" class="img-responsive m-center" width="50">
-                  <span class="color-white jenna-font">until we meet again!</span>
-                </div>
-              </div>
+
               <!-- ongo journey end -->
             </div>
           </div>
