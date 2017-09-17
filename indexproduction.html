@@ -12,10 +12,11 @@
   <link rel="shortcut icon" href="img/favicon.ico" />
   <link rel="stylesheet" type="text/css" href="w.css" />
   <script>
-    var isproduction = true;
+    var isproduction = false;
 
   </script>
   <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?v=3&libraries=geometry&key=AIzaSyDPH6EYKMW97XMTJzqYqA0CR4fk5l2gzE4&callback=initMap"></script>
   <script src="w.js"></script>
 
   <!--[if IE]>
@@ -27,66 +28,27 @@
 <body class="travel-bg">
   <div class="repeated-item loadedContent" ui-view></div>
   <div class="hidden">
-    <video poster="img/libro-home/slide/1.jpg" class='videoPlayer' muted>
-      <source src='img/libro-home/videos/Homevideo.mp4' type='video/mp4'>
-    </video>
-    <img src="img/libro-home/slide/2.jpg" alt="">
-    <img src="img/libro-home/slide/3.jpg" alt="">
-    <img src="img/libro-home/slide/4.jpg" alt="">
-    <img src="img/libro-home/slide/5.jpg" alt="">
+
   </div>
   <!--home page Loader-->
-  <div class="loaders" style="background:#303557;z-index:999;text-align: center;position:fixed;top:0;left:0;bottom:0;right:0">
-    <div style="position: absolute ;top: 50%;left:50%;transform: translate(-50%,-50%);">
-      <h1 noloading="true" style="color:#fff;" class="avenir-medium">
-        <span loading-text></span>
+  <div class="loaders" style="background:#70cbf4;z-index:999;text-align: center;position:fixed;top:0;left:0;bottom:0;right:0">
+    <div style="position: absolute ;top: 50%;left:50%;transform: translate(-50%,-50%);width:100%;text-align: center;">
+      <h1 noloading="true" style="color:#fff;" class="tuitype-font">
+        <span class="element"></span>
       </h1>
     </div>
   </div>
-  <!--home page Loader ended-->
-  <script src="w.js"></script>
   <script>
-    (function (i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r;
-      i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date();
-      a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-      a.async = 1;
-      a.src = g;
-      m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-    ga('create', 'UA-77872125-3', {
-      'cookieDomain': 'none'
+    $(".loaders .element").typed({
+      strings: ["Relive | Inspire | Capture...", "TUI Moments...", "Loading...", "Almost There..."],
+      startDelay: 20,
+      typeSpeed: 100,
+      loop: true
     });
 
   </script>
-  <div id="fb-root"></div>
-  <script>
-    (function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7&appId=199489793739917";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+  <!--home page Loader ended-->
 
-  </script>
-  <script>
-    ! function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0],
-        p = /^http:/.test(d.location) ? 'http' : 'https';
-      if (!d.getElementById(id)) {
-        js = d.createElement(s);
-        js.id = id;
-        js.src = p + "://platform.twitter.com/widgets.js";
-        fjs.parentNode.insertBefore(js, fjs);
-      }
-    }(document, "script", "twitter-wjs");
-
-  </script>
 
   <!--//loader-->
   <script>

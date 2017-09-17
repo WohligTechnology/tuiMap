@@ -5,7 +5,7 @@ var ongojourney = angular.module('ongojourney', [])
       getOneJourney: function (formData, callback, errorCallback) {
         TravelibroService.http({
           // url: adminURL + "/journey/getOneWeb",
-          url: "/mapData.json",
+          url: "mapData.json",
           // method: "POST",
           method: "GET",
           data: formData
@@ -479,10 +479,10 @@ ongojourney.directive('journeyPost', ['$http', '$filter', '$window', '$state', '
       }
       // add video end
       // delete added videos
-      $scope.deleteVideo = function(videoName){
+      $scope.deleteVideo = function (videoName) {
         $scope.videoFlex = false;
         console.log(videoName);
-        _.remove($scope.otgVideo, function(videoObj){
+        _.remove($scope.otgVideo, function (videoObj) {
           return videoObj.name === videoName;
         })
         console.log($scope.otgVideo, 'new video');
