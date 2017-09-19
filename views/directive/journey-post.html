@@ -5,6 +5,10 @@
     <div class="ongo-card-header">
       <span class="mr5 day-journey">Day {{ongo.day}}</span>
     </div>
+
+    <a target="_blank" ng-href="{{ongo.info}}" class="info-float-right">
+      <span class="white-border"><i class="fa icon-fit icon-round icon-white tui-info" ></i></span>
+    </a>
     <!-- card header end -->
     <!-- card main -->
     <div class="ongo-card-main">
@@ -88,6 +92,7 @@
   </div>
 </div>
 <!-- ongo journey join end-->
+
 <!-- ongo journey left -->
 <div class="ongo-journey-left" ng-if="ongo.type=='left'">
   <div class="relate">

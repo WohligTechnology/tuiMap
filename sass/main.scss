@@ -6149,23 +6149,24 @@ header {
     padding: 10px;
     border-radius: 6px;
     margin-left: -18px; // background-color: rgba(242, 103, 91, 0.75);
-    background-color: $brand-pink;
+    background-color: $tui-dark-blue;
+    display: block;
     p {
       text-shadow: 2px 2px 2px #020202;
     }
   }
   h4 {
-    margin: 0 0 5px;
-    font-size: 22px;
-    text-shadow: 2px 2px 2px #020202;
+    margin: 0 0 0px;
+    font-size: 16px;
   }
   .end-journey-flag {
     margin: 25px 0;
     span {
       margin-top: 10px;
       display: inline-block;
-      font-size: 45px;
-      text-shadow: 2px 2px 2px #020202;
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 100%;
     }
   }
 }
@@ -11631,4 +11632,37 @@ video::-webkit-media-controls-fullscreen-button {
   background-size: cover;
   height: 100%;
   width: 100%;
+}
+
+.info-float-right {
+  top: 10px;
+  right: 10px;
+  bottom: auto;
+  left: auto;
+  position: absolute;
+  cursor: pointer;
+  z-index: 9;
+}
+
+.icon-round,
+.white-border {
+  display: inline-block;
+}
+
+.white-border {
+  border: 3px solid rgba(255, 255, 255, .25);
+  border-radius: 100%;
+  line-height: 100%;
+}
+
+.icon-white {
+  background-color: #fff;
+  color: $tui-dark-blue;
+  font-size: 12px;
+}
+
+.icon-round {
+  padding: 10px;
+  text-align: center;
+  border-radius: 100%;
 }

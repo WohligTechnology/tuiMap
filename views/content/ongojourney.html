@@ -16,8 +16,8 @@
             <div class="started-journey-card">
               <div class="relate text-center">
                 <div class="journey-start">
-                  <img src="https://www.tui.co.uk/app/uploads/2016/07/LOGO-TUI-SENSATORI300X300.jpg" alt="SENSATORI" class="img-responsive m-center"
-                    width="100">
+                  <a href="http://www.thomson.co.uk/holidays/sensatori" target="_blank"><img src="https://www.tui.co.uk/app/uploads/2016/07/LOGO-TUI-SENSATORI300X300.jpg" alt="SENSATORI" class="img-responsive m-center"
+                  width="100"></a>
                   <h4 class="avenir-roman"><span class="block">{{journey.name}}</span></h4>
 
                 </div>
@@ -44,7 +44,14 @@
               <journey-post post="ongo" is-mine="template.isMine" is-logged-in="isLoggedIn" json=journey get-comments-data="getCommentsData(post)"
                 close-back-drop="closeBackDrop()" get-likes-data="getLikesData(post)" template="template" ng-repeat="ongo in journey.post"></journey-post>
               <!-- ongo journey-end -->
-
+              <div class="ongo-journey-end" ng-if="journey.onGoing==false">
+                <a class="journey-end text-center" target="_blank" ng-href="{{journey.findOutMore}}">
+                  <h4 class="color-white avenir-roman">Find Out More</h4>
+                </a>
+                <div class="end-journey-flag text-center">
+                  <span class="color-white">Enjoy the stay at TUI Sensatori!</span>
+                </div>
+              </div>
               <!-- ongo journey end -->
             </div>
           </div>
