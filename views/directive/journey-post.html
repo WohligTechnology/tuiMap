@@ -3,7 +3,7 @@
   <div id="{{ongo._id}}" class="ongo-journey-card" ng-if="ongo.type=='travel-life'" ng-class="{'hasLatLng':ongo.latlong && ongo.latlong.lat}">
     <!-- card header -->
     <div class="ongo-card-header">
-      <span class="mr5 day-journey">Day {{ongo.UTCModified|dateDifference: json.startTime}}</span>
+      <span class="mr5 day-journey">Day {{ongo.day}}</span>
     </div>
     <!-- card header end -->
     <!-- card main -->
@@ -19,7 +19,7 @@
         <fade-img-loading blur="{{ongo.photosVideos[index].name}}" image="{{ongo.photosVideos[index].name}}"></fade-img-loading>
       </div>
       <div class="video-ongo-journey relate {{removeVideoButton}}" ng-if="ongo.videos.length>0 && ongo.onDisplay=='videos'">
-        <brightcove-player account-id="4554541995001" player-id="default" video-id="{{ongo.photosVideos[index].name}}"></brightcove-player>
+        <brightcove-player poster="{{ongo.photosVideos[index].thumbnail}}" account-id="4554541995001" player-id="default" video-id="{{ongo.photosVideos[index].name}}"></brightcove-player>
         <div class="youtube-icon get-center" hidden>
           <!-- <span><i class="fa fa-youtube-play fa-4x color-pink"></i></span> -->
           <img src="img/ongojourney/play-journey.png" alt="Play Journey" width="40" class="img-responsive">
