@@ -24,11 +24,40 @@
     "review": [],
     "post": [
 
+      {
+        "uniqueId": "5989ca85ccda58605d9ddc29",
+        "location": "Ibiza Airport",
+        "distanceTime": "4h 30min (2,081 km)",
+        "UTCModified": "2017-08-08T14:28:19.958Z",
+        "status": true,
+        "type": "cityChange"
+      }, {
+        "_id": "5989ca85ccda58605d9ddc2a",
+        "createdAt": "2017-08-08T14:28:21.334Z",
+        "updatedAt": "2017-08-31T18:20:03.099Z",
+        "journey": "59899166ef2fb75f7149c986",
+        "UTCModified": "2017-08-08T14:28:19.960Z",
+        "infoLink": "",
+        "day": "1",
+        "UTC": "2017-08-08T14:28:19.960Z",
+        "showMap": false,
+        "status": true,
+        "cost": "",
+        "videos": [],
+        "photos": [{
+          "name": "https://www.thesun.co.uk/wp-content/uploads/2017/07/nintchdbpict000340659730.jpg?strip=all&w=960"
+        }],
+        "latlong": {
+          "lat": "38.9062118",
+          "long": "1.3254892"
+        },
+        "type": "travel-life"
+      },
 
       {
         "uniqueId": "5989ca85ccda58605d9ddc29",
         "location": "TUI SENSATORI Resort Ibiza",
-        "distanceTime": "20h 56min (2,081 km)",
+        "distanceTime": "24min (17.6 km)",
         "UTCModified": "2017-08-08T14:28:19.958Z",
         "status": true,
         "type": "cityChange"
@@ -406,6 +435,66 @@
         "latlong": {
           "lat": "38.941179",
           "long": "1.237217"
+        },
+        "type": "travel-life"
+      },
+
+      {
+        "uniqueId": "5989ca85ccda58605d9ddc29",
+        "location": "Ibiza Airport",
+        "distanceTime": "24min (17.6 km)",
+        "UTCModified": "2017-08-08T14:28:19.958Z",
+        "status": true,
+        "type": "cityChange"
+      }, {
+        "_id": "5989ca85ccda58605d9ddc2a",
+        "createdAt": "2017-08-08T14:28:21.334Z",
+        "updatedAt": "2017-08-31T18:20:03.099Z",
+        "journey": "59899166ef2fb75f7149c986",
+        "UTCModified": "2017-08-08T14:28:19.960Z",
+        "infoLink": "",
+        "day": "7",
+        "UTC": "2017-08-08T14:28:19.960Z",
+        "showMap": false,
+        "status": true,
+        "cost": "",
+        "videos": [],
+        "photos": [{
+          "name": "https://www.thesun.co.uk/wp-content/uploads/2017/07/nintchdbpict000340659730.jpg?strip=all&w=960"
+        }],
+        "latlong": {
+          "lat": "38.9062118",
+          "long": "1.3254892"
+        },
+        "type": "travel-life"
+      },
+
+      {
+        "uniqueId": "5989ca85ccda58605d9ddc29",
+        "location": "Heathrow Airport, London",
+        "distanceTime": "4h 30min (2,081 km)",
+        "UTCModified": "2017-08-08T14:28:19.958Z",
+        "status": true,
+        "type": "cityChange"
+      }, {
+        "_id": "5989ca85ccda58605d9ddc2a",
+        "createdAt": "2017-08-08T14:28:21.334Z",
+        "updatedAt": "2017-08-31T18:20:03.099Z",
+        "journey": "59899166ef2fb75f7149c986",
+        "UTCModified": "2017-08-08T14:28:19.960Z",
+        "infoLink": "",
+        "day": "7",
+        "UTC": "2017-08-08T14:28:19.960Z",
+        "showMap": false,
+        "status": true,
+        "cost": "",
+        "videos": [],
+        "photos": [{
+          "name": "http://www.heathrow.com/file_source/Heathrow/Images/Airport_guide/Heathrow-AirpotTerminal-Image.png"
+        }],
+        "latlong": {
+          "lat": "51.4700223",
+          "long": "-0.4877727"
         },
         "type": "travel-life"
       }
