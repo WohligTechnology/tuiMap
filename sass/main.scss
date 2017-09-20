@@ -6134,9 +6134,10 @@ header {
     font-size: 18px;
   }
   p {
-    // margin: 15px 0;
-    margin: 15px 0 15px -19px;
-    text-shadow: 2px 2px 2px #020202;
+    margin: 15px 0 0;
+    font-size: 16px;
+    color: white;
+    text-shadow: 1px 1px 14px rgba(0, 0, 0, 0.75);
   }
 }
 
@@ -10907,7 +10908,7 @@ header {
   position: fixed;
   top: 0;
   z-index: 2;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, .45);
   &:before {
     content: '';
     width: 15px;
@@ -11612,7 +11613,10 @@ video::-webkit-media-controls-fullscreen-button {
       content: "\66";
       display: block;
       position: relative;
-      font-size: 45px;
+      font-size: 50px;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 7px;
+      border-radius: 100%;
     }
   }
   .vjs-dock-text {
@@ -11665,4 +11669,53 @@ video::-webkit-media-controls-fullscreen-button {
   padding: 10px;
   text-align: center;
   border-radius: 100%;
+}
+
+.cost-effect {
+  position: absolute;
+  color: white;
+  top: 16px;
+  font-size: 14px;
+  right: 57px;
+  z-index: 9;
+  background-color: $tui-green;
+  padding: 4px 15px;
+  border-radius: 5px;
+}
+
+.btn-fly {
+  position: absolute;
+  bottom: 25px;
+  z-index: 9;
+  right: 25px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  background-color: $tui-dark-blue !important;
+  border-color: $tui-dark-blue !important;
+  font-size: 14px;
+  padding: 10px 17px;
+}
+
+.info-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 65px;
+  color: white;
+  background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, 0.1) 20%, rgba(0, 0, 0, .2) 40%, rgba(0, 0, 0, .6) 80%, rgba(0, 0, 0, .8));
+  z-index: 8;
+  padding: 0px 25px 25px;
+  font-size: 16px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);
+}
+
+.pad-btner {
+  padding-right: 100px;
+  display: inline-block;
+}
+
+.info-text hr {
+  margin: 0 0 15px;
+  background-color: white;
 }

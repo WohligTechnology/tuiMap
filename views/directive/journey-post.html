@@ -6,9 +6,16 @@
       <span class="mr5 day-journey">Day {{ongo.day}}</span>
     </div>
 
-    <a target="_blank" ng-href="{{ongo.info}}" class="info-float-right">
+    <a target="_blank" ng-href="{{ongo.infoLink}}" class="info-float-right">
       <span class="white-border"><i class="fa icon-fit icon-round icon-white tui-info" ></i></span>
     </a>
+
+    <div class="cost-effect" ng-if="ongo.cost == 'Free'">{{ongo.cost}}</div>
+    <div class="info-text" ng-if="ongo.infoText">
+      <hr>
+      <div ng-class="{'pad-btner': ongo.cost == 'Paid'}">{{ongo.infoText}}</div>
+    </div>
+    <button class="btn btn-fly btn-primary" type="button" ng-if="ongo.cost == 'Paid'">Buy Now</button>
     <!-- card header end -->
     <!-- card main -->
     <div class="ongo-card-main">
@@ -118,6 +125,7 @@
   <div class="journey-change">
     <h4 class="color-white">{{ongo.location}}</h4>
   </div>
+  <p ng-if="ongo.distanceTime">{{ongo.distanceTime}}</p>
 </div>
 <!-- on go journey-change end -->
 <!-- on go journey main end-->
