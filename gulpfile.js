@@ -76,14 +76,7 @@ var jsArray = [
 
 ];
 var replacehostFrom = "http://localhost/demo/";
-var replacehostTo = "http://wohlig.co.in/demo2/";
-
-var ftpString = "U2FsdGVkX19KJ4w0W1pxaUyRsJcjQO5RL98s2rfWnmpoGlaoPfxb8Ibdl0yu5NoHaLfSDmk2WnqRVpQfIAB8wv/Srsy/Y9OUyx5gs3ZutJ2MdGMlS8IaMJmfLSp77xVx1yuRD4aFlRuo0yQ/Ldy2pA==";
-
-var uploadingFolder = "travelibro";
-var password = "";
-
-
+var replacehostTo = "http://website.com/demo2/";
 
 //Do not change anything below
 //Do not change anything below
@@ -98,11 +91,10 @@ var gulpSequence = require('gulp-sequence');
 var clean = require('gulp-clean');
 var wait = require('gulp-wait');
 var connect = require("gulp-connect");
+var browserSync = require("browser-sync").create();
+var rename = require('gulp-rename');
 
-
-
-
-var templateCacheBootstrap = "firstapp.run(['$templateCache', function($templateCache) {";
+var templateCacheBootstrap = "myApp.run(['$templateCache', function($templateCache) {";
 
 gulp.task('imagemin', function () {
 
@@ -116,49 +108,6 @@ gulp.task('imagemin', function () {
       }]
     }))
     .pipe(gulp.dest('./img2/'));
-});
-
-
-gulp.task('deploy', function () {
-  var prompt = require("gulp-prompt");
-  return gulp.src('./index.html')
-    .pipe(prompt.prompt([{
-      type: 'password',
-      name: 'password',
-      message: 'Enter Encryption Password:'
-    }], function (res) {
-      password = res.password;
-      gulp.start('ftp');
-    }));
-});
-
-
-
-gulp.task('ftp', function () {
-  var CryptoJS = require("crypto-js");
-  var ftp = require('vinyl-ftp');
-  var decrypted = CryptoJS.AES.decrypt(ftpString, password);
-  var decryptedJSON = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
-
-  decryptedJSON.log = gutil.log;
-  decryptedJSON.parallel = 1;
-  var conn = ftp.create(decryptedJSON);
-
-
-  var globs = [
-    './production/**',
-  ];
-
-  // using base = '.' will transfer everything to /public_html correctly
-  // turn off buffering in gulp.src for best performance
-
-  return gulp.src(globs, {
-      base: './production',
-      buffer: false
-    })
-    .pipe(conn.newer('/public_html/' + uploadingFolder)) // only upload newer files
-    .pipe(conn.dest('/public_html/' + uploadingFolder));
-
 });
 
 gulp.task('clean:production', function () {
@@ -194,7 +143,7 @@ gulp.task('minify:css', function () {
   var rename = require('gulp-rename');
   var minifyCss = require('gulp-minify-css');
   var concat = require('gulp-concat');
-  return gulp.src('./w/main.css')
+  return gulp.src('./w/import.css')
 
     .pipe(minifyCss({
       keepSpecialComments: 0,
@@ -207,32 +156,32 @@ gulp.task('minify:css', function () {
     .pipe(gulp.dest('./w/'));
 });
 
-gulp.task('copy:indexhtml', function () {
-  var gulpCopy = require('gulp-copy');
-  return gulp.src("./w/index.html")
-    .pipe(gulpCopy("./production/", {
-      prefix: 1
-    }));
-});
-
-gulp.task('gzipfile', function () {
-  var gzip = require('gulp-gzip');
-  gulp.src('./w/index.html')
-    .pipe(gzip({
-      preExtension: 'gz'
+/* Generate and minify SASS => CSS */
+gulp.task('generate:css', function () {
+  var replace = require('gulp-replace');
+  var rename = require('gulp-rename');
+  var minifyCss = require('gulp-minify-css');
+  var concat = require('gulp-concat');
+  var sass = require('gulp-sass');
+  gulp.src('./sass/**/*.scss')
+    .pipe(sass({
+      outputStyle: 'compressed'
+    }).on('error', sass.logError))
+    .pipe(rename('w.css'))
+    .pipe(minifyCss({
+      keepSpecialComments: 0,
+      rebase: false
     }))
-    .pipe(gulp.dest('./production/'));
+    .pipe(replace('url(../', 'url('))
+    .pipe(replace("url('../", "url('"))
+    .pipe(replace('url("../', 'url("'))
+    .pipe(gulp.dest('./w'))
+    .pipe(gulp.dest('./prod'))
+    .pipe(gulp.dest('./test'))
+    .pipe(gulp.dest('./stage'))
+    .pipe(gulp.dest('./dev'));
 });
 
-gulp.task('tarball', function () {
-  var tar = require('gulp-tar');
-  gulp.src('./production/**')
-    .pipe(tar('production.tar'), {
-      "mode": 0755,
-      "type": 'directory'
-    })
-    .pipe(gulp.dest('./'));
-});
 
 gulp.task('inlinesource', function () {
   var inline = require('gulp-inline');
@@ -245,12 +194,11 @@ gulp.task('inlinesource', function () {
 });
 
 
-
 gulp.task('uglify:js', function () {
   var uglify = require('gulp-uglify');
   var stripDebug = require('gulp-strip-debug');
   return gulp.src('./w/w.js')
-    // .pipe(stripDebug())
+    .pipe(stripDebug())
     .pipe(uglify({
       mangle: false
     }))
@@ -276,23 +224,9 @@ gulp.task('templatecache', function () {
     .pipe(gulp.dest('./w/js/'));
 });
 
-
-gulp.task('copy:img', function () {
-  var gulpCopy = require('gulp-copy');
-  return gulp.src("./img/**")
-    .pipe(gulpCopy("./production/"));
-});
-
-gulp.task('copy:fonts', function () {
-  var gulpCopy = require('gulp-copy');
-  return gulp.src("./fonts/**")
-    .pipe(gulpCopy("./production/"));
-});
-
-
 gulp.task('sass:production', function () {
   var sass = require('gulp-sass');
-  gulp.src('./sass/*.scss')
+  gulp.src('./sass/**/*.scss')
     .pipe(sass({
       outputStyle: 'compressed'
     }).on('error', sass.logError))
@@ -302,15 +236,26 @@ gulp.task('sass:production', function () {
 gulp.task('sass:development', function () {
   var sass = require('gulp-sass');
   var sourcemaps = require('gulp-sourcemaps');
-  gulp.src('./sass/*.scss')
+  gulp.src('./sass/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./css'))
     .pipe(connect.reload());
 });
+
+gulp.task('sass:serve', function () {
+  var sass = require('gulp-sass');
+  var sourcemaps = require('gulp-sourcemaps');
+  gulp.src('./sass/**/*.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./css'))
+    .pipe(browserSync.stream());
+});
+
 gulp.task('minify:indexproduction', function () {
-  var rename = require('gulp-rename');
   var opts = {
     conditionals: true,
     spare: true
@@ -321,6 +266,7 @@ gulp.task('minify:indexproduction', function () {
     .pipe(rename('index.html'))
     .pipe(gulp.dest('./w/'));
 });
+
 gulp.task('minify:views', function () {
   var minifyHTML = require('gulp-minify-html');
   var opts = {
@@ -332,53 +278,164 @@ gulp.task('minify:views', function () {
     .pipe(minifyHTML(opts))
     .pipe(gulp.dest('./w/views/'));
 });
+
 gulp.task('connect:html', function () {
   gulp.src('./**/*.html')
     .pipe(connect.reload());
 });
+
 gulp.task('connect:js', function () {
-  gulp.src('./js/*.js')
+  gulp.src('./js/**/*.js')
     .pipe(connect.reload());
 });
+
 gulp.task('watch:all', function () {
   var watch = require('gulp-watch');
   var open = require('gulp-open');
   connect.server({
     root: './',
-    livereload: true
+    livereload: false
   });
   gulp.src(__filename)
     .pipe(open({
       uri: 'http://localhost:8080'
     }));
-  gulp.watch(['./**/*.html', './sass/*.scss', './js/*.js'], ['sass:development', 'connect:html', 'connect:js']);
-});
-
-gulp.task('zip', function () {
-  var zip = require('gulp-zip');
-  return gulp.src('./production/**/*')
-    .pipe(zip('production.zip'))
-    .pipe(gulp.dest('./'));
+  gulp.watch(['./**/*.html', './sass/**/*.scss', './js/**/*.js'], ['sass:development', 'connect:html', 'connect:js']);
 });
 
 
+/* Production copy */
+gulp.task('copy:html', function () {
+  var gulpCopy = require('gulp-copy');
+  return gulp.src("./w/index.html")
+    .pipe(gulpCopy("./prod/", {
+      prefix: 1
+    }));
+});
 
-gulp.task('renamePHP', function () {
-  var rename = require('gulp-rename');
-  return gulp.src("./production/index.html")
-    .pipe(rename("./production/index.php"))
-    .pipe(gulp.dest("./"));
+gulp.task('copy:img', function () {
+  var gulpCopy = require('gulp-copy');
+  return gulp.src("./img/**")
+    .pipe(gulpCopy("./prod/"));
+});
+
+gulp.task('copy:fonts', function () {
+  var gulpCopy = require('gulp-copy');
+  return gulp.src("./fonts/**")
+    .pipe(gulpCopy("./prod/"));
+});
+
+/* Css copy */
+gulp.task('copy:css', function () {
+  var gulpCopy = require('gulp-copy');
+  return gulp.src("./w/w.css")
+    .pipe(gulpCopy("./prod/", {
+      prefix: 1
+    }));
+});
+
+/* prod copy */
+gulp.task('copy:prod', function () {
+  var gulpCopy = require('gulp-copy');
+  gulp.src("./w/w.js")
+    .pipe(gulpCopy("./prod/", {
+      prefix: 1
+    }));
+  gulp.src("./img/**")
+    .pipe(gulpCopy("./prod/"));
+  gulp.src("./fonts/**")
+    .pipe(gulpCopy("./prod/"));
+  gulp.src("./w/w.css")
+    .pipe(gulpCopy('./prod/', {
+      prefix: 1
+    }));
+  gulp.src('./indexproduction.html')
+    .pipe(rename('index.html'))
+    .pipe(gulp.dest('./prod/'));
+});
+
+/* stage copy */
+gulp.task('copy:stage', function () {
+  var gulpCopy = require('gulp-copy');
+  gulp.src("./w/w.js")
+    .pipe(gulpCopy("./stage/", {
+      prefix: 1
+    }));
+  gulp.src("./img/**")
+    .pipe(gulpCopy("./stage/"));
+  gulp.src("./fonts/**")
+    .pipe(gulpCopy("./stage/"));
+  gulp.src("./w/w.css")
+    .pipe(gulpCopy('./stage/', {
+      prefix: 1
+    }));
+  gulp.src('./indexproduction.html')
+    .pipe(rename('index.html'))
+    .pipe(gulp.dest('./stage/'));
+});
+
+/* test copy */
+gulp.task('copy:test', function () {
+  var gulpCopy = require('gulp-copy');
+  gulp.src("./w/w.js")
+    .pipe(gulpCopy("./test/", {
+      prefix: 1
+    }));
+  gulp.src("./img/**")
+    .pipe(gulpCopy("./test/"));
+  gulp.src("./fonts/**")
+    .pipe(gulpCopy("./test/"));
+  gulp.src("./w/w.css")
+    .pipe(gulpCopy('./test/', {
+      prefix: 1
+    }));
+  gulp.src('./indexproduction.html')
+    .pipe(rename('index.html'))
+    .pipe(gulp.dest('./test/'));
+});
+
+/* dev copy */
+gulp.task('copy:dev', function () {
+  var gulpCopy = require('gulp-copy');
+  gulp.src(["./w/w.css", "./w/w.js"])
+    .pipe(gulpCopy("./dev/", {
+      prefix: 1
+    }));
+  gulp.src(["./img/**", "./fonts/**"])
+    .pipe(gulpCopy("./dev/"));
+  gulp.src("./w/w.css")
+    .pipe(gulp.dest('./dev/'));
+
+  gulp.src('./indexproduction.html')
+    .pipe(rename('index.html'))
+    .pipe(gulp.dest('./dev/'));
+});
+
+// Static Server + watching scss/html/js files
+gulp.task('browserSync', function () {
+  browserSync.init({
+    port: 8080,
+    server: {
+      baseDir: "./",
+    },
+  });
+  gulp.watch('./sass/**/*.scss', ['sass:serve']);
+  gulp.watch(['./**/*.html', './js/**/*.js']).on('change', browserSync.reload);
 });
 
 
-
+gulp.task('default', ["sass:development", "browserSync"]);
 gulp.task('watch', ["sass:development", "watch:all"]);
-gulp.task('default', ["sass:development", "watch:all"]);
-gulp.task('development', ["sass:development", "watch:all"]);
 gulp.task('minifyhtml', ["minify:indexHTML", "minify:views", "templatecache"]);
 gulp.task('copy', ["copy:img", "copy:fonts"]);
+gulp.task('clean', ["clean:pImages", "clean:pFont"]);
 
-gulp.task('clearimage', ["clean:pImages", "clean:pFont"]);
-gulp.task('production2', gulpSequence(["copy:img", "copy:fonts", "sass:production", "minify:indexproduction", "minify:views"], 'clean:tmp', "concat:js", 'clean:tmp', "templatecache", "uglify:js", "minify:css", 'clean:tmp', "inlinesource", 'clean:tmp', "gzipfile", 'clean:tmp', 'clean:tmp', "zip"));
-gulp.task('productionc', gulpSequence(["copy:img", "copy:fonts", "sass:production", "minify:indexproduction", "minify:views"], 'clean:tmp', "concat:js", 'clean:tmp', "templatecache", "uglify:js", "minify:css", 'clean:tmp', "inlinesource", 'clean:tmp', 'clean:production', "gzipfile", 'clean:tmp', 'clean:tmp', "zip", 'deploy'));
-gulp.task('production', gulpSequence(["copy:img", "copy:fonts", "sass:production", "minify:indexproduction", "minify:views"], 'clean:tmp', "concat:js", 'clean:tmp', "templatecache", "minify:css", 'clean:tmp', "copy:indexhtml", 'clean:tmp', 'clean:tmp'));
+// Use the below task to 
+
+gulp.task('prod', gulpSequence(['clean:w'], ["generate:css", "minify:views"], 'clean:tmp', "templatecache", 'clean:tmp', "concat:js", "uglify:js", 'clean:tmp', 'copy:prod', 'clean:tmp', 'clean:tmp'));
+
+gulp.task('stage', gulpSequence(['clean:w'], ["generate:css", "minify:views"], 'clean:tmp', "templatecache", 'clean:tmp', "concat:js", "uglify:js", 'clean:tmp', 'copy:stage', 'clean:tmp', 'clean:tmp'));
+
+gulp.task('test', gulpSequence(['clean:w'], ["generate:css", "minify:views"], 'clean:tmp', "templatecache", 'clean:tmp', "concat:js", "uglify:js", 'clean:tmp', 'copy:test', 'clean:tmp', 'clean:tmp'));
+
+gulp.task('dev', gulpSequence(['clean:w'], ["generate:css", "minify:views"], 'clean:tmp', "templatecache", 'clean:tmp', "concat:js", 'clean:tmp', "copy:dev", 'clean:tmp', 'clean:tmp'));
