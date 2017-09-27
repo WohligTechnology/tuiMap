@@ -1,10 +1,9 @@
 {
-  "name": "travelibro",
+  "name": "angularframeworktui",
   "version": "0.0.1",
-  "description": "TraveLibro",
+  "description": "AngularFrameworkTUI",
   "main": "gulpfile.js",
   "dependencies": {
-    "angular-masonry": "^0.16.0",
     "crypto-js": "^3.1.6",
     "gulp": "^3.9.1",
     "gulp-angular-templatecache": "^1.7.0",
@@ -31,21 +30,10 @@
     "gulp-wait": "0.0.2",
     "gulp-watch": "^4.3.5",
     "gulp-zip": "^3.2.0",
-    "ng-intl-tel-input": "^2.0.0",
     "vinyl-ftp": "^0.4.5"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/WohligTechnology/AngularFrameworkFrontend.git"
-  },
-  "author": "chintan@wohlig.com",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/WohligTechnology/AngularFrameworkFrontend/issues"
-  },
-  "homepage": "https://github.com/WohligTechnology/AngularFrameworkFrontend#readme"
+  "devDependencies": {
+    "browser-sync": "^2.18.12",
+    "gulp": "^3.9.1"
+  }
 }

@@ -7,5 +7,9 @@ production/
 *.zip
 css/
 img2/
+dev/
+prod/
+stage/
+test/
 
 img/Re_ APIs - sohan@wohlig.com - Wohlig Mail_files/postmessageRelay(1).html
