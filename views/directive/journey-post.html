@@ -6,37 +6,42 @@
       <span class="mr5 day-journey">Day {{ongo.day}}</span>
     </div>
 
-    <a target="_blank" ng-href="{{ongo.infoLink}}" class="info-float-right">
-      <span class="white-border"><i class="fa icon-fit icon-round icon-white tui-info" ></i></span>
-    </a>
 
-    <div class="cost-effect" ng-if="ongo.cost == 'Free'">{{ongo.cost}}</div>
-    <div class="info-text" ng-if="ongo.infoText">
-      <hr>
-      <div ng-class="{'pad-btner': ongo.cost == 'Paid'}">{{ongo.infoText}}</div>
-    </div>
-    <button class="btn btn-fly btn-primary" type="button" ng-if="ongo.cost == 'Paid'">Buy Now</button>
     <!-- card header end -->
     <!-- card main -->
     <div class="ongo-card-main">
+      <div class="relative">
 
-      <div class="card-imgholder pointer" ng-if="ongo.photos && ongo.photos.length==0 && ongo.showMap && ongo.checkIn && ongo.checkIn.lat ">
 
-        <fade-img-loading blur="{{ongo.imageUrl}}" image="{{ongo.imageUrl}}"></fade-img-loading>
-      </div>
+        <a target="_blank" ng-href="{{ongo.infoLink}}" class="info-float-right">
+        <span class="white-border"><i class="fa icon-fit icon-round icon-white tui-info" ></i></span>
+      </a>
 
-      <div class="card-imgholder pointer" ng-if="ongo.photos.length>0 && ongo.onDisplay=='photos'" ng-click="getPhotosCommentData(ongo.photosVideos[index]._id, index, ongo.photosVideos.length, ongo.photosVideos)">
-
-        <fade-img-loading blur="{{ongo.photosVideos[index].name}}" image="{{ongo.photosVideos[index].name}}"></fade-img-loading>
-      </div>
-      <div class="video-ongo-journey relate {{removeVideoButton}}" ng-if="ongo.videos.length>0 && ongo.onDisplay=='videos'">
-        <brightcove-player poster="{{ongo.photosVideos[index].thumbnail}}" account-id="4554541995001" player-id="default" video-id="{{ongo.photosVideos[index].name}}"></brightcove-player>
-        <div class="youtube-icon get-center" hidden>
-          <!-- <span><i class="fa fa-youtube-play fa-4x color-pink"></i></span> -->
-          <img src="img/ongojourney/play-journey.png" alt="Play Journey" width="40" class="img-responsive">
+        <div class="cost-effect" ng-if="ongo.cost == 'Free'">{{ongo.cost}}</div>
+        <div class="info-text" ng-if="ongo.infoText">
+          <hr>
+          <div ng-class="{'pad-btner': ongo.cost == 'Paid'}">{{ongo.infoText}}</div>
         </div>
+        <button class="btn btn-fly btn-primary" type="button" ng-if="ongo.cost == 'Paid'">Buy Now</button>
+        <div class="card-imgholder pointer" ng-if="ongo.photos && ongo.photos.length==0 && ongo.showMap && ongo.checkIn && ongo.checkIn.lat ">
+
+          <fade-img-loading blur="{{ongo.imageUrl}}" image="{{ongo.imageUrl}}"></fade-img-loading>
+        </div>
+
+        <div class="card-imgholder pointer" ng-if="ongo.photos.length>0 && ongo.onDisplay=='photos'" ng-click="getPhotosCommentData(ongo.photosVideos[index]._id, index, ongo.photosVideos.length, ongo.photosVideos)">
+
+          <fade-img-loading blur="{{ongo.photosVideos[index].name}}" image="{{ongo.photosVideos[index].name}}"></fade-img-loading>
+        </div>
+        <div class="video-ongo-journey relate {{removeVideoButton}}" ng-if="ongo.videos.length>0 && ongo.onDisplay=='videos'">
+          <brightcove-player poster="{{ongo.photosVideos[index].thumbnail}}" account-id="4554541995001" player-id="default" video-id="{{ongo.photosVideos[index].name}}"></brightcove-player>
+          <div class="youtube-icon get-center" hidden>
+            <!-- <span><i class="fa fa-youtube-play fa-4x color-pink"></i></span> -->
+            <img src="img/ongojourney/play-journey.png" alt="Play Journey" width="40" class="img-responsive">
+          </div>
+        </div>
+        <!-- ongo img end-->
       </div>
-      <!-- ongo img end-->
+
       <!-- related img if less then 5-->
       <div class="relate-pic" ng-if="(ongo.photosVideos.length>1)&&(ongo.photosVideos.length<=5)">
         <div class="related-ongo-slider" ng-repeat="relatePic in ongo.photosVideos track by $index">

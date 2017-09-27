@@ -97,7 +97,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
   cfpLoadingBarProvider.includeSpinner = true;
   cfpLoadingBarProvider.latencyThreshold = 2000;
   cfpLoadingBarProvider.includeBar = true;
-  cfpLoadingBarProvider.spinnerTemplate = '<div id="loader" class="travelibro-loader"><img src="img/loader.gif" width="180px"  class="img-responsive" /></div>';
+  cfpLoadingBarProvider.spinnerTemplate = '<div id="loader" class="travelibro-loader"><img src="img/loader.gif" width="80px"  class="img-responsive" /></div>';
   $stateProvider
     .state('ongojourney', {
       url: "/itinerary/:id",
