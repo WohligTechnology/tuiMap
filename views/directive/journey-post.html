@@ -14,8 +14,10 @@
 
 
         <a target="_blank" ng-href="{{ongo.infoLink}}" class="info-float-right">
-        <span class="white-border"><i class="fa icon-fit icon-round icon-white tui-info" ></i></span>
-      </a>
+          <span class="white-border">
+            <i class="fa icon-fit icon-round icon-white tui-info"></i>
+          </span>
+        </a>
 
         <div class="cost-effect" ng-if="ongo.cost == 'Free'">{{ongo.cost}}</div>
         <div class="info-text" ng-if="ongo.infoText">
@@ -33,7 +35,7 @@
           <fade-img-loading blur="{{ongo.photosVideos[index].name}}" image="{{ongo.photosVideos[index].name}}"></fade-img-loading>
         </div>
         <div class="video-ongo-journey relate {{removeVideoButton}}" ng-if="ongo.videos.length>0 && ongo.onDisplay=='videos'">
-          <brightcove-player poster="{{ongo.photosVideos[index].thumbnail}}" account-id="4554541995001" player-id="default" video-id="{{ongo.photosVideos[index].name}}"></brightcove-player>
+          <brightcove-player poster="{{ongo.photosVideos[index].thumbnail}}" account-id="4554541995001" player-id="default" video-url="{{ongo.photosVideos[index].name}}"></brightcove-player>
           <div class="youtube-icon get-center" hidden>
             <!-- <span><i class="fa fa-youtube-play fa-4x color-pink"></i></span> -->
             <img src="img/ongojourney/play-journey.png" alt="Play Journey" width="40" class="img-responsive">
@@ -100,7 +102,9 @@
     </div>
   </div>
   <div class="join-card text-center">
-    <h4>{{ongo.user.name }} <span class="block">has joined this journey</span></h4>
+    <h4>{{ongo.user.name }}
+      <span class="block">has joined this journey</span>
+    </h4>
   </div>
 </div>
 <!-- ongo journey join end-->
@@ -121,7 +125,8 @@
       <!-- <i class="fa fa-calendar mr5"></i> -->
       <span>{{ongo.UTCModified|formatDate: 'date'}}</span> |
       <!-- <i class="fa fa-clock-o mr5"></i> -->
-      <span>{{ongo.UTCModified|formatDate: 'time'}}</span></p>
+      <span>{{ongo.UTCModified|formatDate: 'time'}}</span>
+    </p>
   </div>
 </div>
 <!-- ongo journey left end-->
