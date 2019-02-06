@@ -1,0 +1,33 @@
+<div class="search-city" infinite-scroll="loadMoreSearch('search-city');" infinite-scroll-disabled='searchScroll.busy'>
+  <div class="row">
+    <div class="country-visited-tab search-city-tab">
+      <div class="col-md-3 col-sm-6 col-pad-zero" ng-repeat="city in viewSearchedCity track by $index">
+        <div class="country-list-holder pointer">
+          <div class="list-imgholder" ui-sref="destinationcity({'name':'must-dos','url':city.urlSlug})" style="background-image: url('{{city.cityDisplayPhoto|uploadpath}}');">
+            <!-- <img ng-src="{{country.countryId.cityDisplayPhoto|uploadpath}}" alt="" class="img-responsive country-img">  -->
+            <div class="list-info">
+              <div class="clearfix">
+                <div class="search-city-title">
+                  <h4 class="avenir-heavy text-ellipsis">{{city.name}}</h4>
+                </div>
+                <div class="search-city-flag clearfix">
+                  <div class="bucket-flag">
+                    <img ng-src="{{city.country[0].flag|uploadpath}}" alt="Flag" class="img-responsive" width="30">
+                  </div>
+                    <span class="searchcity-country-name">{{city.country[0].name}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="search-citydetails">
+              <span>Must Do's: <span>{{city.mustDoCount}}</span> | </span>
+              <span>Itineraries: <span>{{city.itineraryCount}}</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pagination-loader" ng-if="paginationLoader">
+    <img src="img/page.svg" alt="Loading..." width="50px" class="img-responsive m-center">
+  </div>
+</div>

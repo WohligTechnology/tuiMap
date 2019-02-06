@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="firstapp">
+
+<head ng-controller="headerctrl">
+  <meta charset="utf-8">
+  <!-- <base href="http://wohlig.co.in/angularframework/"> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title ng-bind="'TUI - '+template.title">TUI</title>
+
+  <link rel="shortcut icon" href="img/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="w.css" />
+  <script>
+    var isproduction = false;
+
+  </script>
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?v=3&libraries=geometry&key=AIzaSyDPH6EYKMW97XMTJzqYqA0CR4fk5l2gzE4&callback=initMap"></script>
+  <script src="w.js"></script>
+
+  <!--[if IE]>
+        <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body class="travel-bg">
+  <div class="repeated-item loadedContent" ui-view></div>
+  <div class="hidden">
+    <img src="https://newmedia.thomson.co.uk/live/vol/3/e58a67d89fc65a9b993f466c4fd53a9736ffa0c6/1080x608/web/SENSATORI_16_HERO_F003R_b307dfa411f9970eb267e789fd6cd11d26d22085.jpg">
+    <img src="http://cdn.content.tuigroup.com/adamtui/2017_8/22_19/ff9b7081-e602-4745-9827-a7d7014889d5/i_0283846WebOriginalCompressed.jpg?i10c=img.resize(width:1048)">
+    <img src="https://newmedia.thomson.co.uk/live/vol/3/facf7e52d28e184da02d66ed1031af82bd6cb01d/658x370/web/EUROPEMEDITERRANEANSPAINCON_ESPIBIZACALATARIDASENSATORIIBIZA.jpg">
+  </div>
+  <!--home page Loader-->
+  <div class="loaders" style="background:#70cbf4;z-index:999;text-align: center;position:fixed;top:0;left:0;bottom:0;right:0">
+    <div style="position: absolute ;top: 50%;left:50%;transform: translate(-50%,-50%);width:100%;text-align: center;">
+      <h1 noloading="true" style="color:#fff;" class="tuitype-font">
+        <span class="element"></span>
+      </h1>
+    </div>
+  </div>
+  <script>
+    $(".loaders .element").typed({
+      strings: ["Inspire | Capture | Relive...", "TUI Moments...", "Loading...", "Almost There..."],
+      startDelay: 20,
+      typeSpeed: 100,
+      loop: true
+    });
+
+  </script>
+  <!--home page Loader ended-->
+
+
+  <!--//loader-->
+  <!--//loader end-->
+  <script src="//lightwidget.com/widgets/lightwidget.js"></script>
+  <!--Start of Zendesk Chat Script-->
+  <script type="text/javascript">
+    window.$zopim || (function (d, s) {
+      var z = $zopim = function (c) {
+          z._.push(c)
+        },
+        $ = z.s =
+        d.createElement(s),
+        e = d.getElementsByTagName(s)[0];
+      z.set = function (o) {
+        z.set.
+        _.push(o)
+      };
+      z._ = [];
+      z.set._ = [];
+      $.async = !0;
+      $.setAttribute("charset", "utf-8");
+      $.src = "https://v2.zopim.com/?57hqIfWVuNmy0aCB8vvAkPHC67Z9Cls1";
+      z.t = +new Date;
+      $.
+      type = "text/javascript";
+      e.parentNode.insertBefore($, e)
+    })(document, "script");
+
+  </script>
+  <!--End of Zendesk Chat Script-->
+</body>
+
+</html>

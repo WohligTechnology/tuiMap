@@ -1,0 +1,32 @@
+<div class="review-post-main review-country-main avenir-roman">
+  <div class="post-heading clearfix">
+    <div class="pull-left">
+      <span class="color-white popup-title avenir-light">Review Countries Visited</span>
+      </div>
+    <div class="pull-right"> 
+      <span class="close pop-close-btn " ng-click="$dismiss();"><img src="img/cancel.png" alt="Cancel" class="img-responsive"></span>
+      </div>
+  </div>
+  <div class="post-content-main bg-white" ng-repeat="list in journey.countryVisited track by $index" ng-if="reviewCountryCount==$index">
+    <form action="">
+      <div class="country-flag text-center">
+        <figure>
+          <img src="{{list.country.flag|uploadpath}}" alt="Country Flag" class="img-responsive m-center">
+          <figcaption class="color-dark-blue avenir-roman font-bold">{{list.country.name}}</figcaption>
+        </figure>
+      </div>
+      <div class="country-rating text-center">
+        <uib-rating ng-model="review.rate" max="5" on-hover="hoveringOver(value)" on-leave="overStar = null"></uib-rating>
+      </div>
+      <div class="text-center">
+        <span class="color-blue add-review inline-block font-bold">Add your Review</span>
+      </div>
+      <div class="fill-post">
+        <textarea name="" id="" placeholder="Fill me in..." ng-model="review.fillMeIn" ></textarea>
+      </div>
+      <div class="submit-post">
+        <button type="button" class="btn btn-dark-blue" ng-click="rateThisCountry(journey._id,list.country._id,review,$index)">DONE</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="country-visited-main">
+  <span class="text-center block year-title">Update Year</span>
+  <div class="update-year-main">
+    <div class="search-year-input">
+      <input type="text" class="form-control" ng-model="countryYear" placeholder="Search Year">
+      <div class="search-dropdown-icon">
+        <i class="fa fa-search"></i>
+      </div>
+    </div>
+    <div class="update-dropdown">
+      <ul>
+        <li ng-repeat="list in listOfYears|filter:countryYear">
+          <div class="year-checkbox custom-checkbox">
+            <input type="checkbox" id="year{{list}}" ng-model="visited[list].year" ng-true-value="{{list}}" ng-click="checkIfSelected(visited[list])">
+            <label for="year{{list}}">{{list}}</label>
+          </div>
+          <div class="count-visited" ng-show="visited[list].times>0">
+            <span class="disable-span"><i class="fa fa-minus-circle minus" ng-click="visited[list].times=visited[list].times-1" ng-class="{'disabled':!visited[list].year}"></i></span>
+            <input type="number" id="rooms" ng-model="visited[list].times" ng-disabled="!visited[list].year" placeholder="0" min="1">
+            <span class="disable-span"><i class="fa fa-plus-circle plus" ng-click="visited[list].times=visited[list].times+1"></i></span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="update-btn clearfix">
+      <div class="text-center no-of-time">No Of Times</div>
+      <div class="pull-left" ng-click=clearAllSelected(visited);>
+        <a href="" class="clear-countryvisit">Clear All</a>
+      </div>
+      <div class="pull-right">
+      <button class="btn btn-pink" ng-click="updateNumOfTimes(visited)">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

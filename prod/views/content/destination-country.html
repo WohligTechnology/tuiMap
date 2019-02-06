@@ -1,0 +1,120 @@
+<div class="destination {{getBackdrop}} relate mt-60" scrolladdclass ng-init="openCont=false">
+  <div ng-class="ntMustdo"  scrolldown>
+    <div class="img-holder-destination bg-destination-cc-img relate" id="blur" style="background:url('{{countryDestData.countryBackgroundImage|uploadpath}}')" ng-if="countryDestinationView">
+      <!-- <div class="overlay"></div> -->
+      <div class="get-center country-title">
+        <h4 class="color-white title-head">{{countryDestData.name}}</h4>
+      </div>
+      <div class="list-horizontal">
+        <ul class="dest-right color-white">
+          <li class="hidden-xs">
+            <div class="right-label">
+              <label for="">
+              Time
+            </label>
+            </div>
+            <div class="right-label">
+              <span>10:10 AM</span>
+            </div>
+          </li>
+          <li class="hidden-xs">
+            <div class="right-label">
+              <label for="">
+              Capital
+            </label>
+            </div>
+            <div class="right-label">
+              <span>{{countryDestData.capital}}</span>
+            </div>
+          </li>
+          <li class="hidden-xs">
+            <div class="right-label">
+              <label for="">
+              Currency
+            </label>
+            </div>
+            <div class="right-label">
+              <span>{{countryDestData.currency}}</span>
+            </div>
+          </li>
+          <li class="hidden-xs">
+            <div class="right-label">
+              <label for="">
+              Weather
+            </label>
+            </div>
+            <div class="right-label">
+              <span>{{countryDestData.weather}}</span>
+            </div>
+          </li>
+          <li class="hidden-xs">
+            <div class="right-label">
+              <label for="">
+              Temperature
+            </label>
+            </div>
+            <div class="right-label">
+              <span>Max {{countryDestData.temp.max}}&deg;C  <br>Min {{countryDestData.temp.min}}&deg;C</span>
+            </div>
+          </li>
+          <li>
+            <div class="right-label">
+              <a class="color-white" ng-click="openCont = !openCont;">Read</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="slide-cont-dest" ng-class="{'open-cont': openCont==true, '':openCont==false}">
+        <div class="blur-bg"></div>
+        <div class="hght-destination-scroll color-white">
+          <p class="text-justify" ng-bind-html="countryDestData.description"></p>
+          <div class="right-label text-right">
+            <a class="color-white pad-40" ng-click="openCont=!openCont;">Close</a>
+          </div>
+        </div>
+      </div>
+      <div class="mouse-scrolldown color-white text-center" ng-click="scrollDown();">
+        <img src="img/mouse-scroll.png" alt="Travelibro">
+        <p>Scroll Down</p>
+      </div>
+    </div>
+  <div class="destination-nav mustdo-not bg-white">
+    <div class="row m-m0">
+        <div class="col-md-8 col-sm-8 m-plr0">
+          <div class="destination-scroll pl20">
+          <ul class="list-inline">
+            <li ng-click="getTab('features-cities')" ng-class="{'active': countryoptions.active=='features-cities'}">Featured Cities</li>
+            <li ng-click="getTab('must-dos')" ng-class="{'active': countryoptions.active=='must-dos'}">Must Dos</li>
+            <li ng-click="getTab('itineraries')" ng-class="{'active': countryoptions.active=='itineraries'}">Itineraries</li>
+            <li ng-click="getTab('best-time-to-visit')" ng-class="{'active': countryoptions.active=='best-time-to-visit'}">Best Time To Visit</li>
+          </ul>
+        </div>
+      </div>
+        <div class="col-md-4 col-sm-4 hidden-xs">
+          <div class="pr20">
+            <form action="">
+              <div class="input-search relate" ng-init="viewDestinationCountry={'outerClass':'outerDestCountry','innerClass':'innerDestCountry'}">
+                <div class="input-group outerDestCountry">
+                  <input type="text" class="form-control" placeholder="Search Destination" ng-model="dest.viewDestination" ng-change="callDestination();" ng-click="editOption(viewDestinationCountry,'outerDestCountry','innerDestCountry')">
+                  <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                  <span ng-if="searchLoader" class="small-loader"><img src="img/page.svg" width="25px" alt="" class="img-responsive"></span>
+                </div>
+                <div class="dropdown-destination innerDestCountry" ng-show="viewDestinationCountry.backgroundClick;">
+                  <ul>
+                    <li ng-repeat="dest in destinationList  track by $index">
+                      <span ng-if="dest.isCity==true" ng-click="countryView(dest.urlSlug,dest.isCity);">{{dest.name}}</span>
+                      <span ng-if="dest.isCity==false" ng-click="countryView(dest.urlSlug,dest.isCity);">{{dest.name}}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="destination-content-box">
+      <div class="destination-content" ng-include="destination.innerView"></div>
+  </div>
+  </div>
+</div>

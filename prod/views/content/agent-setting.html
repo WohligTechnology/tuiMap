@@ -1,0 +1,632 @@
+<div class="agent-setting">
+    <div class="container">
+        <div class="setting-card" auto-height>
+            <h3 class="color-blue text-center m-clear mb20 setting-heading">Settings</h3>
+            <div class="setting-agent-detail">
+                <div class="row">
+                    <div class="col-md-4 agtsetting-menu-tab">
+                        <div class="agt-setting-list agt-profile-list avenir-medium">
+                            <div class="agt-setting-profile clearfix pointer" ng-click="agtsetting(1)" ng-class="{'bg-white active-agtsetting' : showAgtSetting == 1}">
+                                <i class="fa fa-chevron-right pull-right"></i>
+                                <div class="agt-setting-profimg">
+                                    <img ng-src="{{agentData.profilePicture | uploadpath}}" alt="" class="img-responsive">
+                                </div>
+                                <div class="agtprofile-detail inline-block v-top">
+                                    <h4 class="color-blue m-clear text-capitalize">{{agentData.name}}</h4>
+                                </div>
+                            </div>
+                            <ul>
+                                <!-- edit profile -->
+                                <li class="pointer" ng-click="agtsetting(2)" ng-class="{'bg-white active-agtsetting' : showAgtSetting == 2}">
+                                    <div class="edit-profile-heading clearfix">
+                                        <div class="row">
+                                            <div class="col-md-2 col-sm-1 col-xs-2">
+                                                <div class="text-center agtsetting-typeholder">
+                                                    <img src="img/edit-profile.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 col-sm-11 col-xs-10">
+                                                <div class="tab-list">
+                                                    <h5 class="color-blue inline-block m-clear">Specializations</h5>
+                                                    <i class="fa fa-chevron-right pull-right"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- edit profile end -->
+                                <!-- change password  -->
+                                <li class="pointer" ng-click="agtsetting(3)" ng-class="{'bg-white active-agtsetting' : showAgtSetting == 3}">
+                                    <div class="password-heading clearfix">
+                                        <div class="row">
+                                            <div class="col-md-2 col-sm-1 col-xs-2">
+                                                <div class="text-center agtsetting-typeholder">
+                                                    <img src="img/setting.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 col-sm-11 col-xs-10">
+                                                <div class="tab-list">
+                                                    <h5 class="color-blue inline-block m-clear">Change Password</h5>
+                                                    <i class="fa fa-chevron-right pull-right"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- change password end -->
+                                <!-- privacy  -->
+                                <li class="pointer" ng-click="agtsetting(4)" ng-class="{'bg-white active-agtsetting' : showAgtSetting == 4}">
+                                    <div class="privacy-heading clearfix">
+                                        <div class="row">
+                                            <div class="col-md-2 col-sm-1 col-xs-2">
+                                                <div class="text-center agtsetting-typeholder">
+                                                    <img src="img/privacy.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 col-sm-11 col-xs-10">
+                                                <div class="tab-list">
+                                                    <h5 class="color-blue inline-block m-clear">Privacy</h5>
+                                                    <i class="fa fa-chevron-right pull-right"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- privacy end -->
+                                <!-- plans  -->
+                                <li class="pointer" ng-click="agtsetting(5)" ng-class="{'bg-white active-agtsetting' : showAgtSetting == 5}">
+                                    <div class="upload-heading clearfix">
+                                        <div class="row">
+                                            <div class="col-md-2 col-sm-1 col-xs-2">
+                                                <div class="text-center agtsetting-typeholder">
+                                                    <img src="img/data-upload.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 col-sm-11 col-xs-10">
+                                                <div class="tab-list">
+                                                    <h5 class="color-blue inline-block m-clear">Plans</h5>
+                                                    <i class="fa fa-chevron-right pull-right"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- plans end -->
+                                <!-- billing -->
+                                <li class="pointer" ng-click="agtsetting(6)" ng-class="{'bg-white active-agtsetting' : showAgtSetting == 6}" hidden>
+                                    <div class="upload-heading clearfix">
+                                        <div class="row">
+                                            <div class="col-md-2 col-sm-1 col-xs-2">
+                                                <div class="text-center agtsetting-typeholder">
+                                                    <img src="img/data-upload.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 col-sm-11 col-xs-10">
+                                                <div class="tab-list">
+                                                    <h5 class="color-blue inline-block m-clear">Billing</h5>
+                                                    <i class="fa fa-chevron-right pull-right"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- billing end -->
+                                <!-- purchase history -->
+                                <li class="pointer" ng-click="agtsetting(7)" ng-class="{'bg-white active-agtsetting' : showAgtSetting == 7}" hidden>
+                                    <div class="upload-heading clearfix">
+                                        <div class="row">
+                                            <div class="col-md-2 col-sm-1 col-xs-2">
+                                                <div class="text-center agtsetting-typeholder">
+                                                    <img src="img/data-upload.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 col-sm-11 col-xs-10">
+                                                <div class="tab-list">
+                                                    <h5 class="color-blue inline-block m-clear">Purchase History</h5>
+                                                    <i class="fa fa-chevron-right pull-right"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- purchase history end -->
+                                <!-- Report problem -->
+                                <li class="pointer" ng-click="agtsetting(8)" ng-class="{'bg-white active-agtsetting' : showAgtSetting == 8}">
+                                    <div class="agtreport-problem-heading clearfix">
+                                        <div class="row">
+                                            <div class="col-md-2 col-sm-1 col-xs-2">
+                                                <div class="text-center agtsetting-typeholder">
+                                                    <img src="img/report-problem.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 col-sm-11 col-xs-10">
+                                                <div class="tab-list">
+                                                    <h5 class="color-blue inline-block m-clear">Report A Problem</h5>
+                                                    <i class="fa fa-chevron-right pull-right"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- Report problem end -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-pad-zero  agtsetting-tab-info">
+                        <div class="agtsetting-white">
+                            <!-- profile detail -->
+                            <div class="profile-detail-main" ng-if="showAgtSetting == 1">
+                                <form>
+                                    <div class="profile-agtphoto-sec upload-profile">
+                                        <label for="profile" class="color-blue avenir-medium">Profile Photo</label>
+                                        <div class="cropArea relate" ng-show="showImage" id="profile">
+                                            <div class="cancel" ng-click="showImage=false; removeSameFile();"><span class="pointer color-white">Cancel</span></div>
+                                            <img-crop image="agentImage" result-image="agentCroppedImage" area-type="square" class="bg-dark-blue">
+                                            </img-crop>
+                                            <div class="btn-upload">
+                                                <button class="btn btn-pink btn-more" ng-click="uploadAgentProfilePic(agentCroppedImage)">Upload</button>
+                                            </div>
+                                        </div>
+                                        <div class="agtupload-section text-center" ng-hide="showImage">
+                                            <div>
+                                                <img ng-src="{{agentData.profilePicture|uploadpath:200:200:'cover'}}" alt="{{agentData.name}}" class="agentsetting-profilepreview m-center img-responsive">
+                                            </div>
+                                            <div class="upload-btn">
+                                                <div class="relate inline-block mr10  agtform-file">
+                                                    <button class="btn btn-dark-blue pointer avenir-light mob-paddupload"> Upload Photo</button>
+                                                    <input type="file" id="agentProfilePic" class="getfile pointer" />
+                                                </div>
+                                                <!-- <div class="inline-block agtfrom-photogallery">
+                          <button class="btn btn-dark-blue pointer avenir-light">Your Photos</button>
+                        </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="name" class="color-blue">Name</label>
+                                                <input type="text" class="form-control" placeholder="Name" ng-model="agentData.company.name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="office-location" class="color-blue">Head Office Location</label>
+                                                <div class="agentsetting-select">
+                                                    <ui-select ng-model="agentData.homeCity" theme="bootstrap">
+                                                        <ui-select-match placeholder="Head Office Location ">{{agentData.homeCity}}</ui-select-match>
+                                                        <ui-select-choices repeat="cities.description as cities in cities | filter: $select.search track by $index" refresh="searchByKey($select.search)" refresh-delay="0">
+                                                            <!-- refresh="searchByKey($select.search)" refresh-delay="0" -->
+                                                            <div class="">
+                                                                <p class="">{{cities.description}}</p>
+                                                            </div>
+                                                        </ui-select-choices>
+                                                    </ui-select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="contact-no" class="color-blue">Contact No</label>
+                                                <div class="agentsetting-phone">
+                                                    <input type="text" id="phone1" class="form-control" placeholder="Contact No" ng-model="agentData.company.contact" ng-intl-tel-input ng-change="isValidNo(agentData.company.contact,'1')">
+                                                    <span id="error-msg1" class="hide intel-error">Invalid number</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="mobile-no" class="color-blue">Mobile No</label>
+                                                <div class="agentsetting-phone">
+                                                    <input type="text" id="phone2" class="form-control" placeholder="Mobile No" ng-model="agentData.company.mobile" ng-intl-tel-input ng-change="isValidNo(agentData.company.mobile,'2')">
+                                                    <span id="error-msg2" class="hide intel-error">Invalid number</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="reg-email" class="color-blue">Registered Email</label>
+                                                <label type="text" class="form-control setting-registeredmail" id="reg-email" placeholder="Email">{{agentData.email}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group setting-alternatemail">
+                                                <label for="" class="color-blue">Alternate Emails</label>
+                                                <ui-select multiple ng-model="agentData.company.email" theme="bootstrap" tagging="tagHandler">
+                                                    <ui-select-match placeholder="Alternate Emails">{{$item.name}}</ui-select-match>
+                                                    <ui-select-choices repeat="email in []" refresh="" refresh-delay="0" hidden>
+                                                        <span>{{agentData.company.email}}</span>
+                                                    </ui-select-choices>
+                                                </ui-select>
+                                            </div>
+                                        </div>
+                                        <span ng-hide="!emailExist">Email Already Entered</span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="office-location" class="color-blue">Your Business Model</label>
+                                                <div class="agentsetting-select">
+                                                    <ui-select multiple ng-model="agentData.company.agentType" theme="bootstrap">
+                                                        <ui-select-match placeholder="Select Your Business Model">{{$item}}</ui-select-match>
+                                                        <ui-select-choices repeat="model in businessModel | filter: $select.search track by $index">
+                                                            <span class="color-light-grey">{{model}}</span>
+                                                        </ui-select-choices>
+                                                    </ui-select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="name" class="color-blue">Website</label>
+                                                <input type="text" class="form-control" placeholder="Website" ng-model="agentData.company.website">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="agt-settingaddr">
+                                        <div class="form-group">
+                                            <label for="" class="color-blue">Address</label>
+                                            <textarea name="name" ng-model="agentData.company.address"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="agtsetting-abt">
+                                        <div class="form-group" ng-init="agentData.company.about.length">
+                                            <label for="" class="color-blue">About</label>
+                                            <textarea name="name" maxlength="500" id="textareaChars" ng-model="agentData.company.about"> </textarea>
+                                            <span class="pull-right font-sz10 mt10">{{agentData.company.about.length}} / 500</span>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix mt20">
+                                        <div class="pull-right">
+                                            <button class="btn btn-pink btn-more" ng-click="saveDetailsAgent('main',agentData);">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- profile detail end -->
+                            <!-- Edit Details  -->
+                            <div class="agtsetting-edit" ng-if="showAgtSetting == 2">
+                                <form>
+                                    <!-- category of specialization -->
+                                    <div class="agtcategory-setting">
+                                        <h4 class="color-blue setting-tab-heading">Category of Specialization</h4>
+                                        <ul>
+                                            <li ng-repeat="categoryspcl in chooseCategorySpcl">
+                                                <div class="select-categoryspcl ">
+                                                    <figure ng-click="selectCategory(categoryspcl)">
+                                                        <div class="categoryspcl-imgholder {{categoryspcl.class}}">
+                                                            <img ng-src="{{categoryspcl.img}}" alt="" class="img-responsive m-center" width="{{categoryspcl.catWidth}}">
+                                                        </div>
+                                                        <figcaption class="color-blue font-bold">{{categoryspcl.caption}}</figcaption>
+                                                    </figure>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- category of specialization -->
+                                    <!-- SERVICES OF SPECIALIZATION -->
+                                    <div class="agentsetting-services">
+                                        <h4 class="color-blue setting-tab-heading">Services of Specialization</h4>
+                                        <div class="service-box ">
+                                            <button ng-repeat="services in agtServices track by $index " class="btn btn-blue-outline btn-more
+                btn-bluehover flex-auto mr10 mb10 {{services.class}}" ng-click="selectServices(services)">{{services.name}}</button>
+                                        </div>
+                                    </div>
+                                    <!-- SERVICES OF SPECIALIZATION END -->
+                                    <!-- country Specialisation -->
+                                    <div class="agtcountry-setting">
+                                        <h4 class="color-blue setting-tab-heading">Countries Of Specialization</h4>
+                                        <div class="country-acordian">
+                                            <uib-accordion close-others="oneAtATime">
+                                                <uib-accordion-group class="panel-default" is-open="status.open" ng-repeat="continent in countriesByContinent track by $index ">
+                                                    <uib-accordion-heading>
+                                                        <div class="agtaccord-title color-blue avenir-medium">{{continent.name}}
+                                                            <i class="pull-right fa " ng-class="{'fa fa-chevron-up': status.open, 'fa fa-chevron-down': !status.open}"></i>
+                                                        </div>
+                                                    </uib-accordion-heading>
+                                                    <div class="country-tabs">
+                                                        <button ng-repeat="country in continent.countries track by $index" class="btn btn-blue-outline btn-more btn-zerorad btn-catcountry {{country.class}} pull-left mr5 mb5 flex-auto" ng-click="selectCountry(country)">{{country.name}}</button>
+                                                    </div>
+                                                </uib-accordion-group>
+                                            </uib-accordion>
+                                        </div>
+                                    </div>
+                                    <!-- country Specialisation end -->
+                                    <div class="clearfix mt20">
+                                        <div class="pull-right">
+                                            <button class="btn btn-pink btn-more" ng-click="saveDetailsAgent('profile',agentData)">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- Edit Details end -->
+                            <!-- change password -->
+                            <div class="change-password-detail" ng-if="showAgtSetting == 3">
+                                <form>
+                                    <h4 class="color-blue setting-tab-heading">Password</h4>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" placeholder="Current Password" ng-model="passwords.oldPassword">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" placeholder="New Password" ng-model="passwords.newPassword">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" placeholder="Confirm Password" ng-model="passwords.confirmPassword">
+                                            </div>
+                                        </div>
+                                        <div class="text-right">
+                                            <span class="color-pink" ng-show="newPasswordError">*New Password Mismatch</span>
+                                            <span class="color-pink" ng-show="oldPasswordError">*Old Password Incorrect</span>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix mt20">
+                                        <div class="pull-right">
+                                            <span class="color-blue" ng-show="saveSuccess">Password Saved Successfully.</span>
+                                            <button class="btn btn-pink btn-more" ng-click="changePassword(passwords);">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- change password end -->
+                            <!-- privacy policy  -->
+                            <div class="privacy-detail" ng-if="showAgtSetting == 4">
+                                <h4 class="color-blue setting-tab-heading">Privacy Policy</h4>
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="radio-select">
+                                                    <input type="radio" id="public" name="privacy" ng-model="agentData.status" value="public">
+                                                    <label for="public" class="color-blue">Public - Everyone</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="radio-select">
+                                                    <input type="radio" id="private" name="privacy" ng-model="agentData.status" value="private">
+                                                    <label for="private" class="color-blue">Private - My Followers</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="avenir-medium color-grey fz12 mt20">When you select your account to be private only, your followers can view your My Life - Journeys, Moments and Reviews.</p>
+                                    <div class="clearfix mt20">
+                                        <div class="pull-right">
+                                            <button class="btn btn-pink btn-more" ng-click="saveDetailsAgent('privacy',agentData);">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- privacy policy end -->
+                            <!-- plans -->
+                            <div class="agtsetting-plans" ng-if="showAgtSetting == 5">
+                                <h4 class="color-blue setting-tab-heading">Plans</h4>
+                                <div class="upgradetable-head">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <div class="package-holder">
+                                                <div class="package-img">
+                                                    <img src="img/basic-icon.png" alt="" class="img-responsive m-center">
+                                                </div>
+                                                <p class="avenir-heavy color-grey">Basic</p>
+                                                <p class="avenir-medium color-grey">Free</p>
+                                                <!--<a class="font-sz10 color-grey bord-bot">Details</a>-->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <div class="package-holder">
+                                                <div class="package-img">
+                                                    <img src="img/advanced-icon.png" alt="" class="img-responsive m-center">
+                                                </div>
+                                                <p class="avenir-heavy color-grey">Advanced</p>
+                                                <p class="avenir-heavy color-grey">$149</p>
+                                                <p class="avenir-medium color-grey">for 3 Months</p>
+                                                <!--<a class="font-sz10 color-grey bord-bot">Details</a>-->
+                                                <div class="text-center mt10 mb10" hidden>
+                                                    <button class="btn btn-cyan btn-more">Upgrade</button>
+                                                    <!--ui-sref="agent-upgrade"-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <div class="package-holder">
+                                                <div class="package-img">
+                                                    <img src="img/premium-icon.png" alt="" class="img-responsive m-center">
+                                                </div>
+                                                <p class="avenir-heavy">Premium</p>
+                                                <p class="avenir-heavy">$249</p>
+                                                <p class="avenir-medium">for 3 Months</p>
+                                                <!--<a class="font-sz10 color-grey bord-bot">Details</a>-->
+                                                <div class="text-center mt10 mb10">
+                                                    <!-- <button class="btn btn-cyan btn-more">Current</button> -->
+                                                    <span class="color-cyan">Current</span>
+                                                    <p class="planexpiry-date">Expires in {{expiry}} days</p>
+                                                    <!--ui-sref="agent-upgrade"-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- plans end -->
+                            <!-- billing -->
+                            <div class="agt-setting-billing" ng-if="showAgtSetting == 6">
+                                <div class="agtbill-head clearfix">
+                                    <h4 class="color-blue setting-tab-heading pull-left">Billing</h4>
+                                    <div class="pull-right toggle">
+                                        <span class="italic">Auto Renewal</span>
+                                        <label class="switch">
+                                            <input type="checkbox" checked>
+                                            <div class="slider round"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- billing end -->
+                            <!-- purchase history -->
+                            <div class="agtsetting-purchasehistory" ng-if="showAgtSetting == 7">
+                                <h4 class="color-blue setting-tab-heading">Purchase History</h4>
+                                <div class="purchasehistory-table">
+                                    <table class="purchase-table">
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Plan</th>
+                                            <th>Reciept</th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>16 Jan 2016</p>
+                                            </td>
+                                            <td>
+                                                <p>Advanced <span class="avenir-heavy">$149</span><span class="italic">(3 months)</span></p>
+                                            </td>
+                                            <td>
+                                                <a class="reciept-link">TL-3464910</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>16 Jan 2016</p>
+                                            </td>
+                                            <td>
+                                                <p>Advanced <span class="avenir-heavy">$149</span><span class="italic">(3 months)</span></p>
+                                            </td>
+                                            <td>
+                                                <a class="reciept-link">TL-3464910</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>16 Jan 2016</p>
+                                            </td>
+                                            <td>
+                                                <p>Advanced <span class="avenir-heavy">$149</span><span class="italic">(3 months)</span></p>
+                                            </td>
+                                            <td>
+                                                <a class="reciept-link">TL-3464910</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>16 Jan 2016</p>
+                                            </td>
+                                            <td>
+                                                <p>Advanced <span class="avenir-heavy">$149</span><span class="italic">(3 months)</span></p>
+                                            </td>
+                                            <td>
+                                                <a class="reciept-link">TL-3464910</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>16 Jan 2016</p>
+                                            </td>
+                                            <td>
+                                                <p>Advanced <span class="avenir-heavy">$149</span><span class="italic">(3 months)</span></p>
+                                            </td>
+                                            <td>
+                                                <a class="reciept-link">TL-3464910</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>16 Jan 2016</p>
+                                            </td>
+                                            <td>
+                                                <p>Advanced <span class="avenir-heavy">$149</span><span class="italic">(3 months)</span></p>
+                                            </td>
+                                            <td>
+                                                <a class="reciept-link">TL-3464910</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>16 Jan 2016</p>
+                                            </td>
+                                            <td>
+                                                <p>Advanced <span class="avenir-heavy">$149</span><span class="italic">(3 months)</span></p>
+                                            </td>
+                                            <td>
+                                                <a class="reciept-link">TL-3464910</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>16 Jan 2016</p>
+                                            </td>
+                                            <td>
+                                                <p>Advanced <span class="avenir-heavy">$149</span><span class="italic">(3 months)</span></p>
+                                            </td>
+                                            <td>
+                                                <a class="reciept-link">TL-3464910</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>16 Jan 2016</p>
+                                            </td>
+                                            <td>
+                                                <p>Advanced <span class="avenir-heavy">$149</span><span class="italic">(3 months)</span></p>
+                                            </td>
+                                            <td>
+                                                <a class="reciept-link">TL-3464910</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>16 Jan 2016</p>
+                                            </td>
+                                            <td>
+                                                <p>Advanced <span class="avenir-heavy">$149</span><span class="italic">(3 months)</span></p>
+                                            </td>
+                                            <td>
+                                                <a class="reciept-link">TL-3464910</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>16 Jan 2016</p>
+                                            </td>
+                                            <td>
+                                                <p>Advanced <span class="avenir-heavy">$149</span><span class="italic">(3 months)</span></p>
+                                            </td>
+                                            <td>
+                                                <a class="reciept-link">TL-3464910</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- purchase history end -->
+                            <!-- report a problem -->
+                            <div class="problem-detail" ng-if="showAgtSetting == 8">
+                                <form name="reportData" ng-submit="saveReport(settingReport)">
+                                    <label for="problem">Report A Problem</label>
+                                    <textarea name="" id="problem" class="form-control" placeholder="Comment" ng-model="settingReport.status"></textarea>
+                                    <div class="clearfix mt20">
+                                        <div class="pull-right">
+                                            <span class="color-blue font-bold" ng-show="showme">Reported Successfully.</span>
+                                            <button class="btn btn-pink btn-more" type="submit">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- report a problem end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

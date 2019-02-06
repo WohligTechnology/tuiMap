@@ -1,0 +1,1096 @@
+<div class="min-hght">
+    <div class="relate destin-fixednav1 fliter-min-hght" ng-class="{'openfilter': isopenfilter}">
+        <div class="pt10 pb10 head-title-all bg-white mb20">
+            <div class="row m-clear">
+                <div class="col-md-3 col-sm-3 col-xs-2">
+                    <div class="pad-btn">
+                        <button class="btn btn-pink" ng-click="openFilter()">
+                            <i class="fa fa-filter" aria-hidden="true"></i> <span class="hidden-xs">Filter</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-10">
+                    <h4 class="text-center fnt-24">TraveLibro Recommended Hotels</h4>
+                    <p class="text-center avenir-roman m-clear">
+                        <span class="pr20">$$$ - Luxury</span>
+                        <span class="pr20">$$ - Mid Range</span>
+                        <span>$ - Place To Crash</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="libro-filter filterclose">
+            <form>
+                <div class="pt20 pb10 head-title-all bg-white">
+                    <div class="container-fluid m-p0">
+                        <div class="pad-btn m-p0">
+                            <div class="row">
+                                <div class="col-md-2 col-sm-3">
+                                    <div class="select-all-made" ng-mouseleave="showBookingCusine=false">
+                                        <span class="btn btn-default form-control" ng-click="showBookingCusine=true" ng-hide="showBookingCusine">Cuisine
+                  <i class="fa fa-angle-down pull-right" aria-hidden="true"></i></span>
+                                        <input type="type" placeholder="Cuisine" ng-model="searchFilter" ng-show="showBookingCusine" class="form-control input-tab avenir-roman">
+                                        <div class="check-box-panel" ng-show="showBookingCusine">
+                                            <ul>
+                                                <li ng-repeat="country in countries | filter:searchFilter">
+                                                    <input type="checkbox" id="{{country.code}} " ng-show="showBookingCusine" class="form-control">
+                                                    <label for="{{country.code}} " class="avenir-roman ">{{country.name}}</label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-3">
+                                    <div class="select-all-made" ng-mouseleave="showBookingBuget=false">
+                                        <span class="btn btn-default form-control" ng-click="showBookingBuget=true" ng-hide="showBookingBuget">Budget
+                  <i class="fa fa-angle-down pull-right" aria-hidden="true"></i></span>
+                                        <input type="type" placeholder="Budget" ng-model="searchFilter" ng-show="showBookingBuget" class="form-control input-tab avenir-roman">
+                                        <div class="check-box-panel" ng-show="showBookingBuget">
+                                            <ul>
+                                                <li ng-repeat="country in countries | filter:searchFilter">
+                                                    <input type="checkbox" id="{{country.code}} " ng-show="showBookingBuget" class="form-control">
+                                                    <label for="{{country.code}} " class="avenir-roman ">{{country.name}}</label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="col-md-2 col-sm-3 ">
+                <div class="select-all-made ">
+                  <ui-select ng-model="selectedItem ">
+                    <ui-select-match placeholder="Budget ">
+                      <span ng-bind="$select.selected.name "></span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="item in (countries | filter: $select.search) track by $index ">
+                      <span ng-bind="item.name "></span>
+                    </ui-select-choices>
+                  </ui-select>
+                </div>
+              </div>-->
+                                <div class="col-md-offset-1 col-md-5  col-sm-3 ">
+                                    <!--<button type="submit">Add</button>-->
+                                    <div class="txt-clear text-right ">
+                                        <a>Clear All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt10 pb10 head-title-all bg-grey mb20 ">
+                    <div class="container-fluid ">
+                        <div class="plr30 m-p0">
+                            <div class="close-all ">
+                                <a class="btn btn-pink avenir-roman " ng-click="openFilter() ">X Close</a>
+                                <span class="tags avenir-roman" ng-repeat="item in country">{{item}} <span>X</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="booking-sec-card bg-white plr30 m-p0">
+            <!-- Tours and Excursions End  -->
+            <div class="title-head-left pt20" hidden>
+                <h4 class="uppercase">Popular Tours</h4>
+            </div>
+            <div class="agt-usr-tourpackages" hidden>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6" ng-repeat="tourcard in usrTourPackageCard track by $index">
+                        <div class="agt-itinerarycard">
+                            <div class="itinerary-img">
+                                <div class="logo-booking-card">
+                                    <img ng-src="{{tourcard.tourcategoryImg}}" alt="travel-libro">
+                                </div>
+                                <div class="theme">
+                                    <div class="theme-img">
+                                        <img ng-src="{{tourcard.tourcategoryImg}}" class="img-responsive" alt="">
+                                    </div>
+                                    <div class="theme-name">
+                                        <p>{{tourcard.tourcategoryTitle}}</p>
+                                    </div>
+                                </div>
+                                <div class="country-badges">
+                                    <div class="country-holder img-circle" ng-repeat="tourcountryflagbadge in tourcard.tourcountryBadgesFlag track by $index">
+                                        <img ng-src="{{tourcountryflagbadge}}" alt="" class="img-responsive">
+                                    </div>
+                                </div>
+                                <img ng-src="{{tourcard.tourImg}}" alt="" class="img-responsive">
+                                <div class="itinerary-imgfoot ">
+                                    <div class="imgfoot-top clearfix">
+                                        <div class="pull-left">
+                                            <h4 class="font-sz18">{{tourcard.agttourTitle}}</h4>
+                                            <p class="day-night"><span>{{tourcard.tourNightC}} Nights</span> | <span>{{tourcard.tourDayC}} Days</span></p>
+                                            <p class="font-sz10"><i class="fa fa-calendar"></i><span class="ml5  ng-binding">{{tourcard.tourDate}}</span> | <i class="fa fa-clock-o mr5"></i> <span class="ng-binding">{{tourcard.tourTime}}</span></p>
+                                        </div>
+                                        <div class="pull-right">
+                                            <p class="font-sz18 cost-posi">${{tourcard.agttourCost}}</p>
+                                        </div>
+                                        <button class="btn btn-pink btn-download">Download</button>
+                                        <button class="btn btn-pink btn-book">Book</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button load-more text-center ptb20">
+                    <button class="btn">Load More..</button>
+                </div>
+            </div>
+            <!-- Tours and Excursions End  -->
+            <!-- Tours and Excursions End  -->
+            <div class="title-head-left pt20">
+                <h4 class="uppercase">Tours and Excursions</h4>
+            </div>
+            <div class="agt-usr-tourpackages">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6" ng-repeat="tourcard in usrTourPackageCard track by $index">
+                        <div class="agt-itinerarycard">
+                            <div class="itinerary-img">
+                                <div class="logo-booking-card">
+                                    <img ng-src="{{tourcard.tourcategoryImg}}" alt="travel-libro">
+                                </div>
+                                <div class="theme">
+                                    <div class="theme-img">
+                                        <img ng-src="{{tourcard.tourcategoryImg}}" class="img-responsive" alt="">
+                                    </div>
+                                    <div class="theme-name">
+                                        <p>{{tourcard.tourcategoryTitle}}</p>
+                                    </div>
+                                </div>
+                                <div class="country-badges">
+                                    <div class="country-holder img-circle" ng-repeat="tourcountryflagbadge in tourcard.tourcountryBadgesFlag track by $index">
+                                        <img ng-src="{{tourcountryflagbadge}}" alt="" class="img-responsive">
+                                    </div>
+                                </div>
+                                <img ng-src="{{tourcard.tourImg}}" alt="" class="img-responsive">
+                                <div class="itinerary-imgfoot ">
+                                    <div class="imgfoot-top clearfix">
+                                        <div class="pull-left">
+                                            <h4 class="font-sz18">{{tourcard.agttourTitle}}</h4>
+                                            <p class="day-night"><span>{{tourcard.tourNightC}} Nights</span> | <span>{{tourcard.tourDayC}} Days</span></p>
+                                            <p class="font-sz10"><i class="fa fa-calendar"></i><span class="ml5  ng-binding">{{tourcard.tourDate}}</span> | <i class="fa fa-clock-o mr5"></i> <span class="ng-binding">{{tourcard.tourTime}}</span></p>
+                                        </div>
+                                        <div class="pull-right">
+                                            <p class="font-sz18 cost-posi">${{tourcard.agttourCost}}</p>
+                                        </div>
+                                        <button class="btn btn-pink btn-download">Download</button>
+                                        <button class="btn btn-pink btn-book">Book</button>
+                                    </div>
+                                </div>
+                                <div class="call-btn" ng-click="showContact();">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button load-more text-center ptb20">
+                    <button class="btn">Load More..</button>
+                </div>
+            </div>
+            <!-- Tours and Excursions End  -->
+            <!-- destination hotel card -->
+            <div class="destination-hotel-card">
+                <div class="title-head-left">
+                    <h4 class="uppercase">Hotels</h4>
+                </div>
+                <div class="row m-m0">
+                    <div class="col-md-6 m-plr0">
+                        <div class="hotel-card-holder relate">
+                            <div class="blur-overlay-bg-div"></div>
+                            <!-- flipper holder -->
+                            <div class="hotel-flipper-holder {{showBackCard}}">
+                                <!-- hotel front view -->
+                                <div class="hotel-front-view">
+                                    <div class="row m-clear">
+                                        <div class="col-md-5 col-sm-5 col-pad-zero image-div">
+                                            <a>
+                                                <div class="photo-view">
+                                                    <div class="slider-hotel">
+                                                        <div class="item active" style="background-image: url(&quot;http://pix4.agoda.net/hotelimages/438/43881/43881_14020319250018239001.jpg?s=650x&quot;)">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-7 col-sm-7 col-pad-zero ">
+                                            <div class="hotel-information">
+                                                <!-- hotel heading -->
+                                                <div class="hotel-list-heading">
+                                                    <h4 class="hotel-name" title="The Lalit Mumbai">
+                                The Lalit Mumbai
+                              </h4>
+                                                    <div class="rate-by-star">
+                                                        <ul class="list-inline">
+                                                            <li><i class="fa fa-star color-white"></i></li>
+                                                            <li><i class="fa fa-star color-white"></i></li>
+                                                            <li><i class="fa fa-star color-white"></i></li>
+                                                            <li><i class="fa fa-star color-white"></i></li>
+                                                            <li><i class="fa fa-star color-white"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!-- hotel heading -->
+                                                <!-- hotel chart -->
+                                                <div class="hotel-chart-main">
+                                                    <div class="row m-clear">
+                                                        <div class="col-md-4 col-sm-4 col-xs-4 col-pad-zero ">
+                                                            <div class="score-popular">
+                                                                <span class="chart-type-title">Popularity <span>Score<span></span>
+                                                                <div class="score-round-holder">
+                                                                    <span class="pop-score">
+                                          7,778
+                                        </span>
+                                                                </div>
+                                                                </span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 col-sm-4 col-xs-4 col-pad-zero ">
+                                                            <div class="guest-rating">
+                                                                <span class="chart-type-title">Guest <span>Rating<span></span>
+                                                                <div class="score-round-holder">
+                                                                    <span class="guest-score">
+                                          8/10
+                                        </span>
+                                                                    <span class="review">
+                                          706 reviews
+                                        </span>
+                                                                </div>
+                                                                </span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 col-sm-4 col-xs-4 col-pad-zero ">
+                                                            <div class="per-night">
+                                                                <span class="chart-type-title">Price Per <span>Night<span></span>
+                                                                <div class="score-round-holder">
+                                                                    <span class="block inr">
+                                          INR
+                                        </span>
+                                                                    <span class="price-count">
+                                          7,000
+                                        </span>
+                                                                </div>
+                                                                </span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- hotel chart end-->
+                                                <!-- hotel see detail and button -->
+                                                <div class="see-detail">
+                                                    <div class="clearfix">
+                                                        <div class="pull-left">
+                                                            <span class="view-detail view-card-detail pointer" ng-click="backView();">
+                                      See All Details <i class="fa fa-chevron-down"></i>
+                                    </span>
+                                                        </div>
+                                                        <div class="pull-right">
+                                                            <a>
+                                                                <button class="btn btn-deal">View Deal</button>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- hotel see detail and button end-->
+                                <!-- hotel front view -->
+                                <!-- hotel back view -->
+                                <div class="hotel-back-view">
+                                    <div class="bg-white">
+                                        <span ng-click="backView();" class="on-tabs-close"><i class="fa fa-times"></i></span>
+                                        <uib-tabset active="activeJustified" justified="true">
+                                            <uib-tab index="0" heading="About">
+                                                <div class="scroll-content">
+                                                    <div class="about-view text-justify avenir-roman ui-tabs-panel ui-widget-content ui-corner-bottom pr10">
+                                                        <p>
+                                                            Sahar, Andheri 400059
+                                                        </p>
+                                                        <p>Located in Andheri East, The Lalit Mumbai is a perfect starting point from which to explore Mumbai. The hotel offers a wide range of amenities and perks to ensure you have a great time. To be found at the hotel are 24-hour room service, 24-hour front desk, facilities for disabled guests, express check-in/check-out, luggage storage. Guestrooms are fitted with all the amenities you need for a good night's sleep. In some of the rooms, guests can find carpeting, clothes rack, scale, slippers, television LCD/plasma screen. Take a break from a long day and make use of fitness center, sauna, outdoor pool, spa, massage. No matter what your reasons are for visiting Mumbai, The Lalit Mumbai will make you feel instantly at home.</p>
+                                                    </div>
+                                                </div>
+                                            </uib-tab>
+                                            <uib-tab index="1" heading="Photos">
+                                                <div class="scroll-content pr10">
+                                                    <!-- <flex-slider flex-slide="item in bookingPhoto track by $index" class="carousel" animation="slide"  item-width="300" control-nav="false">
+                              <li>
+                                <img ng-src="{{item.img}}" class="img-responsive" />
+                              </li>
+                            </flex-slider> -->
+                                                    <!-- <div class="swiper-container">
+                              <div class="swiper-wrapper">
+                                <div class="swiper-slide" ng-repeat="item in bookingPhoto track by $index"><img ng-src="{{item.img}}" class="img-responsive" /></div>
+                              </div> -->
+                                                    <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                                                        <div uib-slide ng-repeat="slides in bookingPhoto track by $index" index="$index">
+                                                            <div class="row">
+                                                                <div class="col-xs-6" ng-repeat="slide in slides track by $index"><img ng-src="{{slide.img}}" class="img-responsive" /></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Add Pagination -->
+                                                    <!-- <div class="swiper-pagination"></div> -->
+                                                </div>
+                                            </uib-tab>
+                                            <uib-tab index="2" heading="Deals">
+                                                <div class="scroll-content pr10">
+                                                    <div class="deal-list">
+                                                        <table class="table avenir-roman">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="color-pink">Booking Sites</th>
+                                                                    <th class="color-pink">Room</th>
+                                                                    <th class="color-pink">Room per night</th>
+                                                                    <th class="color-pink">Total for 1 night </th>
+                                                                    <th class="color-pink"></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div class="deals-logo-holder">
+                                                                            <img src="img/logo-1.png" alt="" class="img-responsive">
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="deals-room-holder">
+                                                                            <span class="block font-bold">Deluxe</span>
+                                                                            <span></span>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="deals-nightroom-holder text-center">
+                                                                            <span class="font-bold">6,499</span>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="deals-total-holder text-center">
+                                                                            <span class="font-bold">6,499</span>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="text-center">
+                                                                            <a href="#" target="_blank">
+                                                                                <button class="btn btn-deal">View Deal</button>
+                                                                            </a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </uib-tab>
+                                            <uib-tab index="3" heading="Amenities">
+                                                <div class="scroll-content pr10">
+                                                    <div class="amenities-holder">
+                                                        <ul>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Airport Transfer</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Atm/Cash Machine On Site</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Babysitting</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Bar</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Business Center</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Car Park</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Coffee Shop</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Daily Housekeeping</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Free Wi Fi In All Rooms</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Gift/Souvenir Shop</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Laundry Service</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Meeting Facilities</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Poolside Bar</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Restaurant</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Room Service</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Safety Deposit Boxes</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Salon</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Shops</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Smoking Area</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Tours</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Wi Fi In Public Areas</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">24 Hour Front Desk</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">24 Hour Room Service</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Concierge</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Elevator</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Executive Floor</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Facilities For Disabled Guests</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Car Hire</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">24 Hour Security</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Currency Exchange</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Dry Cleaning</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Family Room</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Fax Machine</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Luggage Storage</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Photocopying</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Portable Wi Fi Rental</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Postal Service</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Printer</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Shuttle Service</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Ticket Service</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Valet Parking</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Bbq Facilities</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Bicycle Rental</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Express Check In/Check Out</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Newspapers</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Shared Lounge/Tv Area</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Casino</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Library</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Pets Allowed</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Vending Machine</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Nightclub</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">24 Hour Check In</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Grocery Deliveries</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available"><i class="fa fa-check color-cyan"></i></span>
+                                                                <span class="amenity-type">Lockers</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Laundromat</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Wheelchair Accessible</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Doorman </span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Taxi Service</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Private Check In/Check Out</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Convenience Store</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Shrine</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Car Power Charging Station</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Fireplace</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Infirmary</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Chapel</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Kosher Restaurant</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Shared Kitchen</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="available-not"><i class="fa fa-times color-pink"></i></span>
+                                                                <span class="amenity-type">Halal Restaurant</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </uib-tab>
+                                        </uib-tabset>
+                                    </div>
+                                </div>
+                                <!-- hotel back view end-->
+                            </div>
+                            <!-- flipper holder end -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="hotel-card-holder relate">
+                            <!-- flipper holder -->
+                            <div class="hotel-flipper-holder">
+                                <div class="blur-overlay-bg-div"></div>
+                                <!-- hotel front view -->
+                                <div class="hotel-front-view">
+                                    <div class="row m-clear">
+                                        <div class="col-md-5 col-sm-5 col-pad-zero image-div">
+                                            <a>
+                                                <div class="photo-view">
+                                                    <div class="slider-hotel">
+                                                        <div class="item active" style="background-image: url(&quot;http://pix4.agoda.net/hotelimages/438/43881/43881_14020319250018239001.jpg?s=650x&quot;)">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-7 col-sm-7 col-pad-zero ">
+                                            <div class="hotel-information">
+                                                <!-- hotel heading -->
+                                                <div class="hotel-list-heading">
+                                                    <h4 class="hotel-name" title="The Lalit Mumbai">
+                                The Lalit Mumbai
+                              </h4>
+                                                    <div class="rate-by-star">
+                                                        <ul class="list-inline">
+                                                            <li><i class="fa fa-star color-white"></i></li>
+                                                            <li><i class="fa fa-star color-white"></i></li>
+                                                            <li><i class="fa fa-star color-white"></i></li>
+                                                            <li><i class="fa fa-star color-white"></i></li>
+                                                            <li><i class="fa fa-star color-white"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!-- hotel heading -->
+                                                <!-- hotel chart -->
+                                                <div class="hotel-chart-main">
+                                                    <div class="row m-clear">
+                                                        <div class="col-md-4 col-sm-4 col-xs-4 col-pad-zero ">
+                                                            <div class="score-popular">
+                                                                <span class="chart-type-title">Popularity <span>Score<span></span>
+                                                                <div class="score-round-holder">
+                                                                    <span class="pop-score">
+                                          7,778
+                                        </span>
+                                                                </div>
+                                                                </span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 col-sm-4 col-xs-4 col-pad-zero ">
+                                                            <div class="guest-rating">
+                                                                <span class="chart-type-title">Guest <span>Rating<span></span>
+                                                                <div class="score-round-holder">
+                                                                    <span class="guest-score">
+                                          8/10
+                                        </span>
+                                                                    <span class="review">
+                                          706 reviews
+                                        </span>
+                                                                </div>
+                                                                </span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 col-sm-4 col-xs-4 col-pad-zero ">
+                                                            <div class="per-night">
+                                                                <span class="chart-type-title">Price Per <span>Night<span></span>
+                                                                <div class="score-round-holder">
+                                                                    <span class="block inr">
+                                          INR
+                                        </span>
+                                                                    <span class="price-count">
+                                          7,000
+                                        </span>
+                                                                </div>
+                                                                </span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- hotel chart end-->
+                                                <!-- hotel see detail and button -->
+                                                <div class="see-detail">
+                                                    <div class="clearfix">
+                                                        <div class="pull-left">
+                                                            <span class="view-detail view-card-detail pointer" data-req="wait">
+                                      See All Details <i class="fa fa-chevron-down"></i>
+                                    </span>
+                                                        </div>
+                                                        <div class="pull-right">
+                                                            <a>
+                                                                <button class="btn btn-deal">View Deal</button>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- hotel see detail and button end-->
+                                <!-- hotel front view -->
+                                <!-- hotel back view -->
+                                <!-- <div class="hotel-back-view">
+                    <div class="get-center">
+                      <img src="/assets/Untitled-1.gif">
+                    </div>
+                  </div> -->
+                                <!-- hotel back view end-->
+                            </div>
+                            <!-- flipper holder end -->
+                        </div>
+                    </div>
+                </div>
+                <div class="button load-more text-center ptb20">
+                    <button class="btn">Load More..</button>
+                </div>
+            </div>
+            <!-- destination hotel card end-->
+            <!-- vacation rentals -->
+            <div class="destination-hotel-card destination-vaction-card">
+                <div class="title-head-left">
+                    <h4 class="uppercase">Vaction Rentals</h4>
+                </div>
+                <div class="row m-m0">
+                    <div class="col-md-6 m-plr0">
+                        <div class="vacation-card-list">
+                            <div class="hotel-card-holder relate">
+                                <div class="blur-overlay-bg-div"></div>
+                                <div class="hotel-flipper-holder">
+                                    <div class="hotel-front-view">
+                                        <div class="row m-clear">
+                                            <div class="col-md-5 col-sm-5 col-pad-zero ">
+                                                <div class="slider-hotel vacation-slider-hotel">
+                                                    <div style="background-image: url(&quot;https://images.9flats.com/place_photos/photos/13771420-1441719595/large.jpg&quot;)" class="item active">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7 col-sm-7 col-pad-zero ">
+                                                <div class="hotel-information">
+                                                    <!-- hotel heading -->
+                                                    <div class="hotel-list-heading">
+                                                        <h4 class="hotel-name">
+                          Entire house in california
+                        </h4>
+                                                        <h5 class="hotel-extra-booking avenir-roman">
+                          House, <span>Entire place</span> - <i class="color-pink avenir-light">San Francisco</i>
+                        </h5>
+                                                        <div class="rate-by-star">
+                                                            <ul class="list-inline">
+                                                                <li><a href=""><i class="fa fa-star-o color-white"></i></a></li>
+                                                                <li><a href=""><i class="fa fa-star-o color-white"></i></a></li>
+                                                                <li><a href=""><i class="fa fa-star-o color-white"></i></a></li>
+                                                                <li><a href=""><i class="fa fa-star-o color-white"></i></a></li>
+                                                                <li><a href=""><i class="fa fa-star-o color-white"></i></a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- hotel heading -->
+                                                        <!-- hotel chart -->
+                                                        <div class="hotel-chart-main vacation-hotel-chart">
+                                                            <div class="hotel-info-list">
+                                                                <ul>
+                                                                    <li><span class="block">5</span> Accommodates</li>
+                                                                    <li><span class="block">0</span>Bathrooms</li>
+                                                                    <li><span class="block">0</span>Bedrooms</li>
+                                                                    <li><span class="block">1</span>Nights</li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="total-hotel-cost clearfix">
+                                                                <div class="pull-left">
+                                                                    <!--remove pull left if not needed -->
+                                                                    <span class="hotel-cost">229</span> EUR Per Night
+                                                                </div>
+                                                                <!--remove pull left if not needed -->
+                                                                <div class="pull-right">
+                                                                    <!--remove pull right if not needed -->
+                                                                    <div class="see-detail text-left">
+                                                                        <span class="view-detail view-card-detail pointer" data-title="Entire House in California" data-req="wait">See All Details </span>
+                                                                    </div>
+                                                                </div>
+                                                                <!--remove pull right if not needed -->
+                                                            </div>
+                                                        </div>
+                                                        <!-- hotel chart end-->
+                                                        <!-- hotel see detail and button -->
+                                                        <div class="see-detail">
+                                                            <div class="clearfix">
+                                                                <div class="pull-left">
+                                                                    <a href=""><img src="img/9flats.png" alt="" class="img-responsive" width="90"></a>
+                                                                    <!-- <span class="view-detail view-card-detail pointer">See All Details <i class="fa fa-chevron-down"></i></span> -->
+                                                                </div>
+                                                                <div class="pull-right">
+                                                                    <a href="/bookings/vacation_rentals/redirect?referer=vacation_rentals&amp;url=https%3A%2F%2Fwww.9flats.com%2Fplaces%2F257087-house-san_francisco-corona_hts%3Fclient_id%3DZbn6Vr5mtBHYhtAn8syFl491xrQbzDKe58pviz6g" target="_blank">
+                                                                        <button class="btn btn-deal">View Deal</button>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- hotel see detail and button end-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- hotel back view -->
+                                        <div class="hotel-back-view">
+                                        </div>
+                                        <!-- hotel back view end-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button load-more text-center ptb20">
+                    <button class="btn">Load More..</button>
+                </div>
+            </div>
+            <!-- vacation rentals end-->
+            <!-- homestay card -->
+            <div class="destination-hotel-card destination-homestay-card">
+                <div class="title-head-left">
+                    <h4 class="uppercase">Homestays</h4>
+                </div>
+                <div class="row m-m0">
+                    <div class="col-md-6 m-plr0">
+                        <div class="hotel-card-holder relate">
+                            <div class="blur-overlay-bg-div"></div>
+                            <div class="hotel-flipper-holder">
+                                <div class="hotel-front-view">
+                                    <div class="row m-clear">
+                                        <div class="col-md-5 col-sm-5 col-pad-zero ">
+                                            <div class="slider-hotel homestay-slider">
+                                                <div class="item active" style="background-image: url(&quot;https://res-4.cloudinary.com/homestay/image/private/s--LPt1lMhd--/c_fit,h_800,q_jpegmini,w_800/v1/homestay/production/media/property_pictures/328497/1429957800_original.jpg&quot;)">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7 col-sm-7 col-pad-zero ">
+                                            <div class="hotel-information">
+                                                <!-- homestay room owner -->
+                                                <div class="relate">
+                                                    <div class="homestay-owner-img">
+                                                        <div class="room-owner-imgholder">
+                                                            <img src="https://res-2.cloudinary.com/homestay/image/private/s--WWaqX0Gt--/c_fill,g_center,h_76,q_100,w_76/v1/homestay/production/media/property_contact_profile_pictures/328496/1429957756_original.jpg" alt="" class="img-respnsive">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- homestay room owner end-->
+                                                <!-- hotel heading -->
+                                                <div class="hotel-list-heading">
+                                                    <h4 class="hotel-name">
+                              Deepwelcome
+                            </h4>
+                                                    <h5 class="hotel-extra-booking avenir-roman"><span class="avenir-medium">
+                              Deepali
+                            </span></h5>
+                                                    <div class="rate-by-star">
+                                                        <ul class="list-inline">
+                                                            <li><i class="fa fa-star color-white"></i></li>
+                                                            <li><i class="fa fa-star color-white"></i></li>
+                                                            <li><i class="fa fa-star color-white"></i></li>
+                                                            <li><i class="fa fa-star color-white"></i></li>
+                                                            <li><i class="fa fa-star-o color-white"></i></li>
+                                                        </ul>
+                                                        <!-- <span class="hotel-review ml10">12 <span>Reviews</span></span> -->
+                                                    </div>
+                                                </div>
+                                                <!-- hotel heading -->
+                                                <!-- hotel chart -->
+                                                <div class="hotel-chart-main homestay-hotel-chart">
+                                                    <div class="homestay-hotel-info">
+                                                        <div class="homestay-hotel-distance">
+                                                            <p class="m-clear"><span class="homestay-distance">6.6 Km</span>
+                                                                <span>Distance From Center</span></p>
+                                                        </div>
+                                                        <div class="homestay-hotel-cost">
+                                                            <p class="m-clear"><span class="homestay-price">1,900 INR</span>
+                                                                <span>Price Per Night</span></p>
+                                                        </div>
+                                                        <!-- see detail temporary -->
+                                                        <div class="see-detail text-left">
+                                                            <span class="view-detail view-card-detail pointer" data-title="deepwelcome" data-req="wait">See All Details <i class="fa fa-chevron-down"></i> </span>
+                                                        </div>
+                                                        <!-- see detail temporary end -->
+                                                    </div>
+                                                </div>
+                                                <!-- hotel chart end-->
+                                                <!-- hotel see detail and button -->
+                                                <div class="see-detail">
+                                                    <div class="clearfix">
+                                                        <div class="pull-left">
+                                                            <img src="img/homestay-button.png" alt="" class="img-responsive" width="90">
+                                                            <!-- <span class="view-detail view-card-detail pointer">See All Details <i class="fa fa-chevron-down"></i></span> -->
+                                                        </div>
+                                                        <div class="pull-right">
+                                                            <a href="/bookings/home-stays-redirect?referer=hotels&amp;url=https%3A%2F%2Faffiliate.homestay.com%2Findia%2Fpune%2F75432-homestay-in-vishrantwadinear-dighi-jakat-naka-pune%3Futm_medium%3Daffiliate%26utm_source%3Dtravelibro-online-private-limited-global" target="_blank">
+                                                                <button class="btn btn-deal">View Deal</button>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- hotel see detail and button end-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- hotel back view -->
+                                <!-- <div class="hotel-back-view">
+                      <div id="small-loader" class="get-center">
+                        <img src="/assets/Untitled-1.gif">
+                      </div>
+                    </div> -->
+                                <!-- hotel back view end-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="hotel-card-holder relate">
+                            <div class="blur-overlay-bg-div"></div>
+                            <div class="hotel-flipper-holder">
+                                <div class="hotel-front-view">
+                                    <div class="row m-clear">
+                                        <div class="col-md-5 col-sm-5 col-pad-zero ">
+                                            <div class="slider-hotel homestay-slider">
+                                                <div class="item active" style="background-image: url(&quot;https://res-4.cloudinary.com/homestay/image/private/s--LPt1lMhd--/c_fit,h_800,q_jpegmini,w_800/v1/homestay/production/media/property_pictures/328497/1429957800_original.jpg&quot;)">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7 col-sm-7 col-pad-zero ">
+                                            <div class="hotel-information">
+                                                <!-- homestay room owner -->
+                                                <div class="relate">
+                                                    <div class="homestay-owner-img">
+                                                        <div class="room-owner-imgholder">
+                                                            <img src="https://res-2.cloudinary.com/homestay/image/private/s--WWaqX0Gt--/c_fill,g_center,h_76,q_100,w_76/v1/homestay/production/media/property_contact_profile_pictures/328496/1429957756_original.jpg" alt="" class="img-respnsive">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- homestay room owner end-->
+                                                <!-- hotel heading -->
+                                                <div class="hotel-list-heading">
+                                                    <h4 class="hotel-name">
+                              Deepwelcome
+                            </h4>
+                                                    <h5 class="hotel-extra-booking avenir-roman"><span class="avenir-medium">
+                              Deepali
+                            </span></h5>
+                                                    <div class="rate-by-star">
+                                                        <ul class="list-inline">
+                                                            <li><i class="fa fa-star color-white"></i></li>
+                                                            <li><i class="fa fa-star color-white"></i></li>
+                                                            <li><i class="fa fa-star color-white"></i></li>
+                                                            <li><i class="fa fa-star color-white"></i></li>
+                                                            <li><i class="fa fa-star-o color-white"></i></li>
+                                                        </ul>
+                                                        <!-- <span class="hotel-review ml10">12 <span>Reviews</span></span> -->
+                                                    </div>
+                                                </div>
+                                                <!-- hotel heading -->
+                                                <!-- hotel chart -->
+                                                <div class="hotel-chart-main homestay-hotel-chart">
+                                                    <div class="homestay-hotel-info">
+                                                        <div class="homestay-hotel-distance">
+                                                            <p class="m-clear"><span class="homestay-distance">6.6 Km</span>
+                                                                <span>Distance From Center</span></p>
+                                                        </div>
+                                                        <div class="homestay-hotel-cost">
+                                                            <p class="m-clear"><span class="homestay-price">1,900 INR</span>
+                                                                <span>Price Per Night</span></p>
+                                                        </div>
+                                                        <!-- see detail temporary -->
+                                                        <div class="see-detail text-left">
+                                                            <span class="view-detail view-card-detail pointer" data-title="deepwelcome" data-req="wait">See All Details <i class="fa fa-chevron-down"></i> </span>
+                                                        </div>
+                                                        <!-- see detail temporary end -->
+                                                    </div>
+                                                </div>
+                                                <!-- hotel chart end-->
+                                                <!-- hotel see detail and button -->
+                                                <div class="see-detail">
+                                                    <div class="clearfix">
+                                                        <div class="pull-left">
+                                                            <img src="img/homestay-button.png" alt="" class="img-responsive" width="90">
+                                                            <!-- <span class="view-detail view-card-detail pointer">See All Details <i class="fa fa-chevron-down"></i></span> -->
+                                                        </div>
+                                                        <div class="pull-right">
+                                                            <a href="/bookings/home-stays-redirect?referer=hotels&amp;url=https%3A%2F%2Faffiliate.homestay.com%2Findia%2Fpune%2F75432-homestay-in-vishrantwadinear-dighi-jakat-naka-pune%3Futm_medium%3Daffiliate%26utm_source%3Dtravelibro-online-private-limited-global" target="_blank">
+                                                                <button class="btn btn-deal">View Deal</button>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- hotel see detail and button end-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- hotel back view -->
+                                <!-- <div class="hotel-back-view">
+                      <div id="small-loader" class="get-center">
+                        <img src="/assets/Untitled-1.gif">
+                      </div>
+                    </div> -->
+                                <!-- hotel back view end-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button load-more text-center ptb20">
+                    <button class="btn">Load More..</button>
+                </div>
+            </div>
+            <!-- homestay card end-->
+        </div>
+    </div>

@@ -1,0 +1,135 @@
+<div class="notify-main relate">
+  <!-- <span class="close pop-close-btn notify-close" ng-click="$dismiss();"><i class="fa fa-times color-white"></i></span> -->
+  <div class="close pop-close-btn notify-close notify-closeimg" ng-click="$dismiss();">
+    <!--<img src="img/cancel.png" alt="Cancel" class="img-responsive">-->
+    X
+  </div>
+  <div class="text-center">
+    <div class="notify-imgsec">
+      <div class="notify-imgholder">
+        <div class="notify-control-nav">
+          <a href="" ng-if="allPhotos.photoSliderLength!==1"><i class="fa fa-angle-left prev-slide fa-3x color-white" ng-click="prevPhotoSlide(allPhotos);"></i></a>
+          <a href="" ng-if="allPhotos.photoSliderLength!==1"><i class="fa fa-angle-right next-slide fa-3x color-white" ng-click="nextPhotoSlide(allPhotos);"></i></a>
+        </div>
+        <!--<div class="blurnotify-imgholder" ng-if="listOfComments.type=='photo'">
+          <img ng-src="{{listOfComments.name|uploadpath}}" alt="" class="img-responsive">
+        </div>-->
+        <!-- <img ng-src="{{listOfComments.name|uploadpath}}" alt="" class="img-reponsive" ng-if="listOfComments.type=='photo'"> -->
+          <fade-img-loading blur="{{listOfComments.name|uploadpath:10:10:'cover'}}" image="{{listOfComments.name|uploadpath}}" ng-if="listOfComments.type=='photo'"></fade-img-loading>
+        <video controls="controls" autoplay ng-if="listOfComments.type=='video'">
+          <source src="{{listOfComments.name|trusted}}" type="video/mp4">
+        </video>
+        <!--<div class="blurnotify-imgholder" ng-if="listOfComments.type=='video'">
+          <img ng-src="{{listOfComments.thumbnail|uploadpath}}" alt="" class="img-responsive">
+        </div>-->
+      </div>
+    </div>
+    <div class="comment-like-notify bg-white">
+      <div class="like-comment-mainsec">
+        <div class="clearfix">
+          <div class="pull-left">
+            <ul class="notify-like">
+              <li><a href="" class="relate"><i class="fa color-blue" like-sound ng-class="listOfComments.likeDone ? 'fa-heart like-animate' : 'fa-heart-o'" ng-click="likePhoto(listOfComments,listOfComments.name,listOfComments.post,listOfComments._id)"></i>
+                <span></span>
+                <audio id="like-play">
+                  <source src="img/tiny1.mp3" type="audio/mp3">
+                </audio>
+              </a></li>
+              <!-- <li>
+                  <a href=""><img src="img/comments.png" alt="" height="20" class="img-responisve"></a>
+                </li> -->
+              <li>
+                <a href=""><img src="img/share.png" alt="" height="20" class="img-responisve"></a>
+              </li>
+            </ul>
+          </div>
+          <div class="pull-right">
+            <div class="notification-like" ng-init="showPhotoLikes={};">
+              <span class="notify-like-holder pointer avenir-roman" ng-click="showLikes=!showLikes; getLikes(allPhotos.newArray[allPhotos.photoSliderIndex]._id);editOption(showPhotoLikes);">
+                  <i class="fa fa-heart color-blue" ng-class="{'view-like' : showPhotoLikes.backgroundClick == true , '' : showPhotoLikes.backgroundClick == false}" ></i>
+                 <span> {{listOfComments.likeCount|filterCount}} </span> {{listOfComments.likeCount|singularPlural:'Likes'}}
+              <div class="like-dropdown" ng-if="showPhotoLikes.backgroundClick && listOfLikes.like.length > 0">
+                <ul>
+                  <li ng-repeat="listLikes in listOfLikes.like"><a ui-sref="mylife({'urlSlug':listLikes.urlSlug})"> {{listLikes.name}}</a></li>
+                </ul>
+              </div>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- comment section -->
+      <div class="comment-tag color-blue">
+        <!--<p class="m-clear avenir-roman" >Evening by the beach! :) with Sarvesh Bramhe & Gayatri Sakalkar - at Girgaon</p>-->
+        <p class="m-clear avenir-roman" ng-if="ongo.postString" ng-bind-html="ongo.postString"></p>
+        <p class="m-clear avenir-roman" ng-if="localongo.localpostString" ng-bind-html="localongo.localpostString"></p>
+      </div>
+      <div class="comment-sec">
+        <form autocomplete="off" ng-submit="postPhotosComment(listOfComments.name,text,listOfComments.post,listOfComments._id)" ng-if="template.isLoggedIn">
+          <div class="write-comment-text">
+            <div class="commenter-img">
+              <div class="commenter-imgholder">
+                <img ng-src="{{userData.profilePicture|uploadpath:45:47:'cover'}}" alt="" class="img-responsive">
+              </div>
+            </div>
+            <div class="comment-ur-text">
+              <!-- <textarea name="" id="enterComment" placeholder="Write a comment" class="form-control" ng-model="text"></textarea> -->
+              <input type="text" id="enterComment" placeholder="Write a comment" class="form-control" ng-model="text">
+              <find-tags ng-model="text" element-id="enterComment" enable="bothTagging">
+            </div>
+          </div>
+          <div class="clearfix comment-post">
+            <div class="pull-right">
+              <!-- <button class="btn btn-pink post-btn" ng-click="postPhotosComment(listOfComments.name,text,listOfComments.post,listOfComments._id)">Post</button> -->
+              <button class="btn btn-pink post-btn" type="submit">Post</button>
+            </div>
+          </div>
+        </form>
+        <div class="view-comment-scroll">
+          <div infinite-scroll="getMoreComments(listOfComments._id)" infinite-scroll-parent="true">
+            <div class="view-comment-list" ng-repeat="list in listOfComments.comment track by $index">
+              <div class="commenter-img">
+                <div class="commenter-imgholder">
+                  <img ng-src="{{list.user.profilePicture|uploadpath:45:47:'cover'}}" alt="" class="img-responsive">
+                </div>
+              </div>
+              <div class="comment-container">
+                <div class="commenter-text text-left relate">
+                  <p class="avenir-roman" ng-hide="$index==index"><span class="commenter-name color-blue avenir-heavy mr5">{{list.user.name|whoIsThis:list.user._id:userData._id}}</span>{{list.text}}</p>
+                  <div class="edit-text" ng-show="$index==index">
+                    <input type="text" ng-model="list.text" class="form-control">
+                    <span ng-click="editBox(-1);">Cancel</span>
+                    <button class="btn btn-pink" ng-click="editComment(list._id,list.text,list.type);">Done</button>
+                  </div>
+                  <div class="like-reply-line">
+                    <span class="color-blue avenir-roman mr5 pointer" ng-click="editBox($index);" ng-if="userData._id == list.user._id"><i class="fa fa-pencil"></i></span>
+                    <span class="color-blue avenir-roman mr5 pointer" ng-click="showDeletePop($index);" ng-if="userData._id == list.user._id"><i class="fa fa-trash"></i></span>
+                    <span class="time-stamp ml5 avenir-roman"><i class="fa fa-calendar color-grey mr5"></i><span>{{list.date|formatDate:'date'}}</span>                    | <i class="fa fa-clock-o mr5 color-grey"></i><span>{{list.date|formatDate:'time'}}</span></span>
+                  </div>
+                  <!-- COMMENT DELETE CONFIRMATION -->
+                  <div class="delete-comment-confirmation" ng-show="$index==indexDelete">
+                    <p>Do you want to Delete this Comment?</p>
+                    <div class="row-flex">
+                      <div class="col-flex">
+                        <span class="delete-confirmation pointer" ng-click="deleteComment(list._id,list.type);">YES</span>
+                      </div>
+                      <div class="col-flex">
+                        <span class="delete-confirmation pointer" ng-click="showDeletePop($index);">NO</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- COMMENT DELETE CONFIRMATION END -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- comment section end` -->
+    </div>
+    <!--<div class="comment-tag color-blue">
+      <p class="m-clear avenir-roman" ng-if="ongo.postString" ng-bind-html="ongo.postString"></p>
+      <p class="m-clear avenir-roman" ng-if="localongo.localpostString" ng-bind-html="localongo.localpostString"></p>
+    </div>-->
+  </div>
+</div>

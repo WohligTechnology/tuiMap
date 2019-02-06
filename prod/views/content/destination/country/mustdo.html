@@ -1,0 +1,45 @@
+<div class="min-hght">
+    <div class="container-fluid m-p0">
+        <div class="empty-travel-journey color-white" ng-if="countryDestData.mustDo.length == 0">
+            <div class="empty-ongo text-center">
+                <p class="empty-descp color-white">Never stop exploring.</p>
+                <p class="empty-descp color-white">
+                    {{countryDestData.name}}, a country we are yet to venture into, and put together the things you absolutely cannot miss.
+                </p>
+                <p class="empty-descp color-white">If you have visited this Country or in fact live there, do fill us in with your recommendations.</p>
+            </div>
+        </div>
+        <div class="destination-featured bg-white m-plr0" ng-if="countryDestData.mustDo.length > 0">
+            <h4 class="text-center fnt-22 color-pink">Top 10 In {{countryDestData.name}}</h4>
+            <div class="row m-m0" ng-init="index=-1">
+                <div class="col-md-4 col-sm-6 m-plr0" ng-repeat="must in countryDestData.mustDo track by $index">
+                    <div class="img-holder card relate">
+                        <div class="flip-holder" ng-class="($index==index)?'flipped':''" style='background:url("{{must.mainPhoto | uploadpath}}")'>
+                            <!-- <img src="{{must.mainPhoto|uploadpath:400:400:'cover'}}" alt="travel-libro" class="full-width"> -->
+                            <div class="front">
+                                <div class="pop-hover-css" ng-click="openCountry($index);">
+                                    <h4 class="title-head-left country-mustdo-title color-white">
+                      {{must.name}}
+                    </h4>
+                                </div>
+                                <div class="read-more right-bottom filpup">
+                                    <a class="color-white" ng-click="index=$index">Read</a>
+                                </div>
+                            </div>
+                            <div class="back" style="background:url('{{must.mainPhoto | uploadpath}}')">
+                                <div class="flipped-cont">
+                                    <div class="get-center full-width pr20 pl20">
+                                        <p>{{must.description}}</p>
+                                    </div>
+                                    <div class="read-more right-bottom flipdown">
+                                        <a class="color-white" ng-click="index=-1">Close</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

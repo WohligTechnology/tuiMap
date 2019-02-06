@@ -1,0 +1,193 @@
+<div class="edit-journeypop-main edit-local-main">
+  <!-- edit otg -->
+  <div class="edit-otg-sec">
+    <!-- edit otg info window -->
+    <!-- edit otg title -->
+    <div class="edit-otg-title">
+      <h4 class="avenir-roman text-center color-white">Edit Activity</h4>
+      <div class="pull-right">
+        <div class="close pop-close-btn notify-close" ng-click="$dismiss();"><img src="img/cancel.png" alt="Cancel" class="img-responsive"></div>
+      </div>
+    </div>
+    <!-- edit otg title end-->
+    <div class="edit-otg-info">
+      <div class="row">
+        <!-- search location sec -->
+        <div class="col-md-4 col-sm-6">
+          <div class="otg-search-location otg-bg-all">
+            <img src="img/localjourney/local-location.png" alt="" class="img-responsive icon-location" width="22">
+            <div class="search-by-category" ng-init="localongo.locationEdit = {};">
+              <input type="text" ng-model="localongo.checkIn.location" class="form-control" placeholder="Choose your location" ng-click="getLocation(); editOption(localongo.locationEdit);" ng-change="getLocation()">
+              <div class="search-otg-location" ng-show="showLocation &&  localongo.locationEdit.backgroundClick;">
+                <ul>
+                  <li ng-repeat="location in nearByLocation track by $index" ng-click="locationId(location);viewLocation();">
+                    <a href="" >{{location.name}}</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="category-location" ng-init="localongo.typeJourney= {};">
+              <input type="text" class="form-control" ng-model="localongo.checkIn.category" placeholder="Select Category" ng-click="editOption(localongo.typeJourney)">
+              <div class="dropdown-otg-category otg-local" ng-show="localongo.typeJourney.backgroundClick;">
+                <ul>
+                  <li ng-repeat="category in categoryList" ng-click="localongo.checkIn.category=category;"><a href="">{{category}}</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- search location sec end -->
+        <!-- tag friends sec -->
+        <div class="col-md-4 col-sm-6">
+          <div class="tag-journey-friend otg-bg-all">
+            <img src="img/localjourney/local-tag.png" alt="" class="img-responsive icon-tag" width="25">
+            <div class="tag-otg-friend">
+              <input type="text" class="form-control" placeholder="Tag Friends" ng-model="localongo.getSearchedList" ng-change="listTagfriend();">
+              <div class="tagfriend-count avenir-roman"><span>{{localongo.buddiesCount}}</span> Friends</div>
+              <div class="dropdown-tagfriend tagfriend-list" ng-show="viewListFriend">
+                <ul>
+                  <li ng-repeat="list in tagFriends track by $index">
+                    <div class="friend-listholder select-friend">
+                      <input type="checkbox" name="tag-list {{list.name}}" id="{{list._id}}" ng-model="list.checked"  ng-click="editTagFriends(list);">
+                      <label for="{{list._id}}" class="{{list.noEdit}}">
+                        <div class="friend-imgholder">
+                          <img ng-src="{{list.profilePicture|uploadpath:25}}" alt="" class="img-responsive">
+                        </div>
+                        <span class="color-blue avenir-roman">{{list.name}}</span>
+                      </label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- tagged buddy images -->
+            <div class="tagged-buddy-images">
+              <div class="buddy-tagged-view">
+                <div class="buddy-viewholder" ng-repeat="pic in localongo.buddies track by $index">
+                  <img ng-src="{{pic.profilePicture|uploadpath:34}}" alt="" class="img-responsive">
+                </div>
+              </div>
+            </div>
+            <!-- tagged buddy images end-->
+          </div>
+        </div>
+        <!-- tag friends sec end-->
+        <!-- otg thought sec -->
+        <div class="col-md-4 col-sm-12">
+          <div class="edit-otg-thought otg-color-cyan otg-bg-all">
+            <img src="img/localjourney/local-thought.png" alt="" class="img-responsive icon-thought" width="20">
+            <div class="otg-thought otg-color-cyan" ng-init="localongo.editArea={};localongo.editArea.backgroundClick = false">
+              <textarea maxlength="180" class="form-control edit-textarea" id="editTextarea" ng-model="localongo.thoughts" ng-click="editOption(localongo.editArea);" ng-class="{'opened-editarea': localongo.editArea.backgroundClick == true, '': localongo.editArea.backgroundClick == false}">{{localongo.thoughts}}</textarea>
+              <!-- hashtag in edit -->
+                <find-tags class="hashtag-edit" ng-model="localongo.thoughts" element-id="editTextarea" enable="hashTag" ng-show="localongo.editArea.backgroundClick;"></find-tags>
+              <!-- hashtag in edit end-->
+              <div class="thoughtCount"><span>{{localongo.thoughts.length}}</span><span> / 180</span></div>
+            </div>
+          </div>
+        </div>
+        <!-- otg thought sec end-->
+      </div>
+    </div>
+    <!-- edit otg info window end-->
+    <!-- edit otg photos and videos -->
+    <div class="otg-photo-video">
+      <div class="row">
+        <!-- photo sec -->
+        <div class="col-md-6 col-sm-6">
+          <div class="view-photo-sec otg-bg-all">
+            <div class="otg-photo-count">
+              <img src="img/localjourney/local-photo.png" alt="" class="img-responsive" width="25">
+              <span class="avenir-roman">({{localongo.photos.length}})</span>
+            </div>
+            <!-- flex slider for photo in 2 row -->
+            <div class="otg-photo-slider" ng-if="flexShow">
+              <flex-slider class="carousel" flex-slide="photo in photosArray track by $index" control-nav="false" slideshow="false">
+                <li>
+                  <div class="otg-slider-row row-flex" ng-repeat="slide in photo">
+                    <div class="otg-column col-flex" ng-repeat="column in slide">
+                      <div class="otg-photo-holder" >
+                        <img ng-src="{{column.name|uploadpath:300:300:'cover'}}" alt="" class="img-responsive get-center">
+                        <!-- add front caption -->
+                        <div class="otg-photo-caption" ng-hide="column._id==indexEditPhotoCap" ng-click="editMoreCaption(column._id);">
+                          <p class="color-white avenir-light m-clear" ng-if="!column.caption || column.caption==''">Add Captions</p>
+                          <p class="m-clear color-white avenir-roman text-ellipsis" ng-if="column.caption && !column.caption==''" title="{{column.caption}}">{{column.caption}}</p>
+                        </div>
+                        <!-- add front caption end -->
+                        <!-- add back caption -->
+                        <div class="otg-add-caption" ng-show="column._id==indexEditPhotoCap" ng-class="{'show-otg-caption' : indexEditPhotoCap==column._id, '' : indexEditPhotoCap!==column._id}">
+                          <div class="edit-otg-caption">
+                            <textarea name="" id="" maxlength="180" ng-model="column.caption" placeholder="Enter Captions" ng-change="editCaption(column);"></textarea>
+                            <p class="text-center m-center" ng-click="editMoreCaption(column._id);"><i class="fa fa-angle-down color-white fa-2x pointer"></i></p>
+                            <div class="text-typed-count">
+                              <span>{{column.caption.length}}</span>
+                              <span>/180</span>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- add back caption end-->
+                        <!-- add caption end-->
+                        <div class="delete-otg-photo" ng-hide="column._id==indexEditPhotoCap" ng-click="removeEditPic(column._id);">
+                          <i class="fa fa-trash-o"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </flex-slider>
+            </div>
+            <!-- flex slider for photo in 2 row end -->
+          </div>
+        </div>
+        <!-- photo sec end-->
+        <!-- video sec -->
+        <div class="col-md-6 col-sm-6">
+          <div class="view-video-sec otg-bg-all">
+            <div class="otg-video-count">
+              <img src="img/localjourney/local-video.png" alt="" class="img-responsive" width="25px">
+              <span class="avenir-roman">({{localongo.videos.length}})</span>
+            </div>
+            <!-- flexslider for video -->
+            <div class="video-otg-slider" ng-if="videoFlex">
+              <flex-slider flex-slide="video in localongo.videos track by $index" class="carsouel"  control-nav="false" slideshow="false">
+                <li>
+                  <div class="holder-otg-video">
+                    <img ng-src="{{video.thumbnail|uploadpath:335:334:'cover'}}" alt="" class="img-responsive">
+                    <!-- video front caption -->
+                    <div class="video-caption otg-photo-caption" ng-click="addEditVideoCaption(video._id);" ng-hide="video._id == indexEditVideoCap">
+                      <p class="color-white avenir-roman m-clear" ng-if="!video.caption || video.caption==''">Add Caption</p>
+                      <p class="color-white avenir-roman m-clear text-ellipsis" ng-if="video.caption && video.caption!==''">{{video.caption}}</p>
+                    </div>
+                    <!-- video front caption end-->
+                    <!-- video back add caption -->
+                    <div class="video-otg-caption otg-add-caption" ng-show="video._id == indexEditVideoCap" ng-class="{'show-otg-caption': indexEditVideoCap==video._id, '' : indexEditVideoCap!==video._id}" >
+                      <textarea name="" id="" maxlength="180" class="form-control" ng-model="video.caption" placeholder="Enter Captions" ng-change="editVideoCap(video);"></textarea>
+                      <p class="text-center m-center" ng-click="addEditVideoCaption(video._id);"><i class="fa fa-angle-down color-white fa-2x pointer"></i></p>
+                      <div class="text-typed-count">
+                        <span>180</span>
+                      </div>
+                    </div>
+                    <!-- video back add caption end-->
+                    <!-- delete video -->
+                    <div class="delete-otg-video delete-otg-photo" ng-click="removeEditVid(video._id)">
+                      <i class="fa fa-trash-o"></i>
+                    </div>
+                    <!-- delete video end -->
+                  </div>
+                </li>
+              </flex-slider>
+            </div>
+            <!-- flexslider for video end-->
+          </div>
+        </div>
+        <!-- video sec end-->
+      </div>
+    </div>
+    <!-- edit otg photos and videos end-->
+  </div>
+  <!-- edit otg end-->
+  <!-- save or cancel otg -->
+  <div class="save-cancel-otg text-center">
+    <a href="" class="color-white" ng-click="$dismiss();">Cancel</a>
+    <button class="btn btn-cyan btn-more" ng-click="saveLocalEdit();">Save</button>
+  </div>
+  <!-- save or cancel otg end-->
+</div>

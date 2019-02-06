@@ -1,0 +1,140 @@
+<section class="login-bg rl img-holder mt-60" auto-height>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 hidden-sm hidden-xs">
+                <div class="login-ht">
+                    <div class="mockup-video relate">
+                        <img src="img/iMac.png" alt="" class="img-responsive">
+                        <div class="agentintro-vimeo agentlogin-vimeo">
+                            <iframe src="https://player.vimeo.com/video/223403225?color=11d3cb&title=0&byline=0&portrait=0" width="100%" height="308px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="text-cont ab hide">
+                        <div class="pull-right">
+                            <div class="android-ios">
+                                <img src="img/libro-home/android-ios.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="login-ht">
+                    <div class="get-center full-width">
+                        <div class="partnerlogin-title text-center mb10">
+                            <h3 class="avenir-heavy color-white">TraveLibro for Partners</h3>
+                            <span class="avenir color-white">Travel Agent | Tour Operator | Local Guide</span>
+                        </div>
+                        <div class="login-signup-tab">
+                            <uib-tabset active="activeJustified">
+                                <uib-tab index="0" heading="Login" ng-click="reset();">
+                                    <div class="login-form agent-signup">
+                                        <form name="loginForm" ng-submit="loginAsAgent(agentLoginForm)" autocomplete="off">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                              <i class="fa fa-envelope color-white" aria-hidden="true"></i>
+                            </span>
+                                                    <input type="email" class="form-control color-white" id="inputGroupSuccess4" aria-describedby="Emaild Id" placeholder="Email Id" ng-model="agentLoginForm.email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                              <i class="fa fa-lock color-white fnt-20" aria-hidden="true"></i>
+                            </span>
+                                                    <input type="password" class="form-control color-white" placeholder="Password" ng-model="agentLoginForm.password">
+                                                </div>
+                                                <div class="forgot-link pt10 text-right">
+                                                    <a ui-sref="forgot-password-email" class="color-white avenir-roman">Forgot Password?</a>
+                                                </div>
+                                            </div>
+                                            <div class="login-error-veri" ng-if="showError.show">
+                                                <p>*{{showError.msg}}.</p>
+                                            </div>
+                                            <div class="btn-login mt25">
+                                                <input type="submit" class="btn btn-outline color-white avenir-roman" value="Login">
+                                                </button>
+                                            </div>
+                                            <!-- <div class="loginsign-toggle">
+                        <span>or</span>
+                        <a ui-sref="login" class="color-pink">Go To User Login</a>
+                      </div> -->
+                                        </form>
+                                    </div>
+                                </uib-tab>
+                                <uib-tab index="1" heading="Sign Up" ng-click="reset();">
+                                    <div class="login-form agent-signup">
+                                        <form name="signUpForm" ng-submit="registerAsAgent(agentSignUpForm)" autocomplete="off">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                              <i class="fa fa-user color-white" aria-hidden="true"></i>
+                            </span>
+                                                    <input type="text" class="form-control color-white" id="inputGroupSuccess4" aria-describedby="Company Name" placeholder="Company Name" ng-model="agentSignUpForm.companyName" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                              <i class="fa fa-envelope color-white" aria-hidden="true"></i>
+                            </span>
+                                                    <input type="email" class="form-control color-white" id="inputGroupSuccess4" aria-describedby="Emaild Id" placeholder="Email Id" ng-model="agentSignUpForm.email" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                              <i class="fa fa-lock color-white fnt-20" aria-hidden="true"></i>
+                            </span>
+                                                    <input type="password" class="form-control color-white" placeholder="Password" ng-model="agentSignUpForm.password" required>
+                                                </div>
+                                            </div>
+                                            <div class="terms-condt">
+                                                <div class="checkbox">
+                                                    <label class="color-white">
+                                                        <input type="checkbox" id="tnc" ng-model="agentSignUpForm.terms" required/>
+                                                        <label for="tnc" class=" avenir-roman">I accept the <a ui-sref="termscondition" target="_blank" class="white-link">Terms &amp; Conditions</a> and <a ui-sref="privacypolicy" target="_blank" class="white-link">Privacy Policy</a> of the website.</label>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="login-error-veri" ng-if="showError.show">
+                                                <p>*{{showError.msg}}.</p>
+                                            </div>
+                                            <div class="btn-login color-white mt25" ng-class="{'not-allowed': signUpForm.$invalid, 'pointer': !signUpForm.$invalid}">
+                                                <input type="submit" class="btn btn-outline color-white avenir-roman inline-block" value="Register" ng-disabled="signUpForm.$invalid">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </uib-tab>
+                                <!-- <uib-tab index="2" heading="Register As Partner" data-toggle="tooltip" title="Travel Agent | Tour Operator | Local Guide"
+                  class="pointer login-partner-tooltip">
+                </uib-tab>
+              </uib-tabset> vigneshkasthuri2009@gmail.com-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-contact ab">
+            <ul class="list-unstyled list-inline avenir-black">
+                <li>
+                    <a ui-sref="destination" class="color-white">Destinations</a>
+                </li>
+                <li>
+                    <!--<a href="https://travelibro.com/bookings/{{'?accessToken=' + accessToken}}" ng-if="accessToken" class="color-white">Bookings</a>-->
+                    <a ng-click="bookingLink();" class="color-white">Bookings</a>
+                </li>
+                <li>
+                    <a ui-sref="popularitinerary" class="color-white">Itineraries</a>
+                </li>
+                <li>
+                    <a href="https://travelibro.com/blog" class="color-white">Blogs</a>
+                </li>
+                <li>
+                    <a ui-sref="about" class="color-white">About Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>

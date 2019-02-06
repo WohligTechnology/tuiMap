@@ -1,0 +1,17 @@
+<div class="single-notification">
+  <div class="container m-plr0">
+    <div class="row m-m0">
+      <div class="col-md-offset-2 col-md-8 col-xs-12 m-plr0">
+        <journey-post post="post" ng-if="post.type=='travel-life'" get-comments-data="openCommentSection(post)" get-likes-data="openLikeSection(post)" class="single-journey-post"></journey-post>
+        <post-local-life class="single-local-post" ongolocal="post" local-view="localView" ng-if="post.type=='local-life'" open-comment-section="openCommentSection(post)"
+          open-like-section="openLikeSection(post)"></post-local-life>
+        <div class="" ng-if="postScrollData.viewList">
+          <comment-like-section post="post" user-data='userData' post-scroll-data="postScrollData" view-card-comment="viewCardComment" view-card-like='viewCardLike'
+            list-of-comments="listOfComments" list-of-likes="listOfLikes" get-card="getCard" show-like-show='showLikeShow'></comment-like-section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="backdrop-close" ng-class="{'view-backdrop':viewCardComment==true || viewCardLike==true,'':viewCardComment==false || viewCardLike==false}"
+  ng-click="closeBackDrop();"></div>

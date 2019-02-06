@@ -54,7 +54,6 @@ var jsArray = [
   './bower_components\intl-tel-input\build\js\intlTelInput.js',
   './bower_components/intl-tel-input/lib/libphonenumber/build/utils.js',
   './bower_components/international-phone-number/releases/international-phone-number.js',
-  './node_modules/ng-intl-tel-input/dist/ng-intl-tel-input.js',
   './js/app.js',
   './js/language.js',
   './js/controllers.js',
@@ -94,7 +93,7 @@ var connect = require("gulp-connect");
 var browserSync = require("browser-sync").create();
 var rename = require('gulp-rename');
 
-var templateCacheBootstrap = "myApp.run(['$templateCache', function($templateCache) {";
+var templateCacheBootstrap = "firstapp.run(['$templateCache', function($templateCache) {";
 
 gulp.task('imagemin', function () {
 

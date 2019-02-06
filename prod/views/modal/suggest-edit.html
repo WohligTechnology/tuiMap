@@ -1,0 +1,22 @@
+<div class="outer-report suggest-edit">
+    <div class="close pop-close-btn notify-close notify-closeimg" ng-click="$dismiss();suggest.text=''">
+        <img src="img/cancel.png" alt="Cancel" class="img-responsive">
+    </div>
+    <h4 class="thank-you color-white" ng-hide="showme">Suggest An Edit</h4>
+    <h4 class="thank-you color-white" ng-show="showme">Thank You</h4>
+    <div class="outer-report-cont" ng-hide="showme">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+                <textarea type="text" class="form-control" placeholder="If you think we've got some details wrong, suggest an edit" rows="6" ng-model="suggest.text"></textarea>
+                <div class="button mt20 mb10">
+                    <button class="btn btn-pink" ng-click="showme=true;saveSuggest();">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="outer-report-cont" ng-show="showme">
+        <p class="color-darkgrey"> Your Edit Has Been Submitted</p>
+    </div>
+</div>

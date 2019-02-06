@@ -1,0 +1,369 @@
+<div class="profile-list-main" ng-class="{'bg-black white-full' : activeMenu == 'countries-visited' || activeMenu == 'bucket-list', '' : activeMenu !== 'countries-visited' || activeMenu !== 'bucketList'}"
+  ng-init="searchCard.name=''">
+  <!-- profile tab strip -->
+  <div class="profile-tab-strip bg-white">
+    <div class="container-fluid">
+      <div class="clearfix">
+        <div class="pull-left">
+          <div class="list-profile-tab">
+            <ul>
+              <li><a ng-click="changeStatus('following',followingList);" ng-class="{'active-list': activeMenu == 'following'}">Following - <span class="avenir-heavy">{{count.following_count}}</span></a></li>
+              <li><a ng-click="changeStatus('followers',followersList);" ng-class="{'active-list': activeMenu == 'followers'}">Followers - <span class="avenir-heavy">{{count.followers_count}}</span></a></li>
+              <li><a ng-click="changeStatus('countries-visited')" ng-class="{'active-list': activeMenu == 'countries-visited'}">Countries Visited - <span class="avenir-heavy">{{count.countriesVisited_count}}</span></a></li>
+              <li><a ng-click="changeStatus('bucket-list')" ng-class="{'active-list': activeMenu == 'bucket-list'}">Bucket List - <span class="avenir-heavy">{{count.bucketList_count}}</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="pull-right">
+          <form>
+            <!-- search friend -->
+            <div class="search-friend" ng-if="activeMenu == 'following' || activeMenu == 'followers'">
+              <div class="follow-followers-holder">
+                <input type="text" placeholder="Search To Follow" ng-model="searchUsers.name" ng-change="searchToFollow(searchUsers.name,viewDropdown);"
+                  ng-if="activeMenu == 'following'" />
+                <input type="text" placeholder="Search Followers" ng-model="searchFriend.name" ng-change="getDropdown(viewDropdown)" ng-if="activeMenu == 'followers'"
+                />
+                <!--<input type="text" placeholder="Search Friend" ng-model="searchUser.name" ng-if="activeMenu=='followers'">-->
+                <span class="search-follow"><i class="fa fa-search"></i></span>
+                <span class="small-loader" ng-if="searchLoader">
+                  <img src="img/page.svg" alt="" width="25px" class="img-responsive">
+                </span>
+                <div class="dropdown-follow-followers" ng-if="viewDropdown.showDropdown;">
+                  <ul>
+                    <!--ng-repeat="list in searchList"-->
+                    <!--<li>
+                      <div class="clearfix">
+                        <div class="pull-left">
+                          <div class="profile-picholder">
+                            <img src="http://travelibro.com/api/upload/readFile?file=586b58c769ca876c57b0f527.jpg&width=25" alt="" class="img-responsive">
+                          </div>
+                          <div class="profile-detailed">
+                            <h4 class="profile-name avenir-roman color-dark-blue m-clear">Monish Shah</h4>
+                            <span class="color-light-grey avenir-roman profile-tag">@monish-shah</span>
+                          </div>
+                        </div>-->
+                    <!--<div class="pull-right">
+                          <button class="btn btn-pink following-btn"></i>Following</button>
+                        </div>-->
+                    <!--</div>
+                    </li>-->
+                    <!--ng-click="searchUser.open=false;searchFriend.name=list.name;searchCard.name=list.name"-->
+                    <li class="pointer" ng-repeat="list in searchList| filter:searchUsers.name">
+                      <div class="clearfix">
+                        <div class="pull-left">
+                          <div class="profile-picholder v-mid">
+                            <img ng-src="{{list.profilePicture|uploadpath:28:28:'cover'}}" alt="" class="img-responsive">
+                          </div>
+                          <div class="profile-detailed v-mid">
+                            <h4 class="profile-name avenir-roman color-dark-blue m-clear text-capitalize">{{list.name}}</h4>
+                            <span class="color-light-grey avenir-roman profile-tag">@{{list.urlSlug}}</span>
+                          </div>
+                        </div>
+                        <div class="pull-right">
+                          <button class="btn btn-pink following-btn entry-content" ng-click="followUnFollowUser(list,'fromFollowing',viewDropdown);"></i>{{list.following|followFollowingStatus}}</button>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- search friend end-->
+            <!-- add country -->
+            <div class="list-add-country" ng-if="activeMenu == 'countries-visited'">
+              <div class="bucket-visited-holder country-visit-holder" ng-init="viewCountryDropdown={};">
+                <input type="text" placeholder="Add Country Visited" ng-model="visitedCountry" ng-click="editOption(viewCountryDropdown)">
+                <span class="search-icon"><i class="fa fa-search"></i></span>
+                <div class="countryvisit-dropdown" ng-show="viewCountryDropdown.backgroundClick">
+                  <ul>
+                    <li ng-repeat="list in nationality | filter: visitedCountry">
+                      <div class="country-list clearfix relate">
+                        <span class="color-light-grey inline-block country-name pull-left">{{list.name}} </span>
+                        <div class="get-right pull-right">
+                          <div class="relate inline-block">
+                            <div class="custom-checkbox">
+                              <input type="checkbox" id="{{list._id}}" ng-model="list.countryVisited">
+                              <label for=" {{list._id}} " ng-click="addCountryVisited(list);"></label>
+                            </div>
+                          </div>
+                          <!-- <div class="relate inline-block">
+                                  <div class="bucket-list custom-checkbox-heart ">
+                                      <input type="checkbox" id="wish{{list._id}}" ng-model="list.bucketList" ng-click="updateBucketList(list) ">
+                                      <label for="wish{{list._id}}"></label>
+                                  </div>
+                              </div> -->
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- add country end-->
+            <!-- search bucketList -->
+            <div class="list-add-country" ng-if="activeMenu == 'bucket-list'">
+              <div class="bucket-visited-holder" ng-init="visitedBucketCountry={'outerClass':'outerBucket','innerClass':'innerBucket'};">
+                <input class="outerBucket" type="text" placeholder="Add To BucketList" ng-model="visitedCountry" ng-change="editOption1(visitedBucketCountry,'outerBucket','innerBucket')">
+                <span class="search-icon"><i class="fa fa-search"></i></span>
+                <div class="bucket-dropdown entry-content innerBucket" ng-show="visitedBucketCountry.backgroundClick">
+                  <ul>
+                    <li ng-repeat="list in nationality | filter: visitedCountry">
+                      <div class="country-list clearfix relate">
+                        <span class="color-light-grey inline-block country-name pull-left">{{list.name}} </span>
+                        <div class="get-right pull-right">
+                          <div class="relate inline-block">
+                            <div class="bucket-list custom-checkbox-heart">
+                              <input type="checkbox" id="wish{{list._id}}" ng-model="list.bucketList" ng-click="updateBucketList(list)">
+                              <label for="wish{{list._id}}"></label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- search bucketList end-->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- profile tab strip end -->
+  <!-- profile tab main -->
+  <div class="profile-tab-main">
+    <div class="container-fluid m-plr0">
+      <!-- following tab -->
+      <div class="follower-tab-main" ng-if="activeMenu == 'following'">
+        <div class="following-container" ng-repeat="list in followingList | filter:searchCard.name">
+          <div class="following-holder" style="background: url('{{list.profilePicture|uploadpath}}') no-repeat 50% 50%; background-size: cover;">
+            <!-- <div class="follow-imgholder pointer" ui-sref="mylife({'urlSlug':list.urlSlug})">
+              <img ng-src="{{list.profilePicture|uploadpath}}" class="img-responsive">
+            </div> -->
+            <div class="view-following-info">
+              <div class="following-detail text-center">
+                <h4 class="color-white avenir-heavy text-ellipsis pointer" title="{{list.name}}" ui-sref="mylife({'urlSlug':list.urlSlug})">{{list.name}}</h4>
+                <h5 class="avenir-medium color-white text-ellipsis" ng-if="list.homeCity && list.homeCountry.name">Lives In : <span>{{list.homeCity}},</span>
+                  <span>{{list.homeCountry.name}}</span>
+                </h5>
+              </div>
+              <div class="text-center">
+                <button class="btn btn-pink-outline color-white following-btn" ng-click="followUnFollowUser(list,'fromFollowing')">{{list.following|followFollowingStatus}}</button>
+              </div>
+              <!-- <div class="photos-location-sec clearfix">
+                <div class="pull-left photo-countlist">
+                  <div class="photo-loc">
+                    <img src="img/camera-blue.png" alt="Photos" height="15" class="v-mid">
+                    <span class="avenir-heavy color-dark-blue v-mid">{{list.count.photoCount}}</span> |
+                    <img src="img/location-blue.png" alt="Location" height="15" class="v-mid"> <span class="avenir-heavy color-dark-blue v-mid">{{list.count.checkInCount}}</span>
+                  </div>
+                </div>
+                <div class="pull-right photo-countfollow">
+                  <button class="btn btn-pink following-btn" ng-click="followUnFollowUser(list,'fromFollowing')">{{list.following|followFollowingStatus}}</button>
+                </div>
+              </div> -->
+              <div class="following-user-info">
+                <ul>
+                  <li>
+                    <span class="block user-count">{{list.count.photoCount}}</span>
+                    <span class="listing-text">Photos</span>
+                  </li>
+                  <li>
+                    <span class="block user-count">{{list.videos_count}}</span>
+                    <span class="listing-text">Videos</span>
+                  </li>
+                  <li>
+                    <span class="block user-count">{{list.count.followers}}</span>
+                    <span class="listing-text">Followers</span>
+                  </li>
+                  <li>
+                    <span class="block user-count">{{list.count.countriesVisited}}</span>
+                    <span class="listing-text">Countries</span>
+                  </li>
+                  <li>
+                    <span class="block user-count">{{list.count.journeysCreatedCount}}</span>
+                    <span class="listing-text">Journeys</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- following tab end-->
+      <!-- follower tab -->
+      <div class="follow-tab-main" ng-if="activeMenu == 'followers'">
+        <!-- PRIVATE PROFILE EMPTY SCREEN -->
+        <div class="empty-profile-journey private-accountempty" ng-if="!template.isMine && (userData.following==0 || userData.following==2 ) && userData.status=='private'">
+          <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+              <div class="private-accountcover text-center">
+                <h3>This account is Private.</h3>
+                <p>Follow to view their Travel and Local Life.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- PRIVATE PROFILE EMPTY SCREEN END -->
+        <div class="following-container" ng-repeat="list in followersList | filter:searchFriend.name">
+          <div class="following-holder" style="background: url('{{list.profilePicture|uploadpath}}') no-repeat 50% 50%; background-size: cover">
+            <!-- <div class="follow-imgholder pointer" ui-sref="mylife({'urlSlug':list.urlSlug})">
+              <img ng-src="{{list.profilePicture|uploadpath:104:108:'cover'}}" alt="{{list.nameFollow}}" class="img-responsive">
+            </div> -->
+            <div class="view-following-info">
+              <div class="following-detail text-center">
+                <h4 class="color-white avenir-heavy text-ellipsis pointer" title="{{list.name}}" ui-sref="mylife({'urlSlug':list.urlSlug})">{{list.name}}</h4>
+                <h5 ng-if="list.homeCity && list.homeCountry.name" class="color-white avenir-medium text-ellipsis">Lives In : <span>{{list.homeCity}}</span>, <span>{{list.homeCountry.name}}</span></h5>
+              </div>
+              <div class="text-center">
+                <button class="btn btn-pink-outline color-white following-btn" ng-click="followUnFollowUser(list,'fromFollowers')">{{list.following|followFollowingStatus}}</button>
+              </div>
+              <!-- <div class="photos-location-sec clearfix">
+                <div class="pull-left photo-countlist">
+                  <div class="photo-loc">
+                    <img src="img/camera-blue.png" alt="Photos" height="15" class="v-mid">
+                    <span class="avenir-heavy color-dark-blue v-mid">{{list.count.photoCount}}</span> |
+                    <img src="img/location-blue.png" alt="Location" height="15" class="v-mid"> <span class="avenir-heavy color-dark-blue v-mid">{{list.count.checkInCount}}</span>
+                  </div>
+                </div>
+                <div class="pull-right photo-countfollow">
+                  <button class="btn btn-pink following-btn" ng-click="followUnFollowUser(list,'fromFollowers')">{{list.following|followFollowingStatus}}</button>
+                </div>
+              </div> -->
+              <div class="following-user-info">
+                <ul>
+                  <li>
+                    <span class="block user-count">{{list.count.photoCount}}</span>
+                    <span class="listing-text">Photos</span>
+                  </li>
+                  <li>
+                    <span class="block user-count">{{list.videos_count}}</span>
+                    <span class="listing-text">Videos</span>
+                  </li>
+                  <li>
+                    <span class="block user-count">{{list.count.countriesVisited}}</span>
+                    <span class="listing-text">Countries</span>
+                  </li>
+                  <li>
+                    <span class="block user-count">{{list.count.followers}}</span>
+                    <span class="listing-text">Followers</span>
+                  </li>
+                  <li>
+                    <span class="block user-count">{{list.count.journeysCreatedCount}}</span>
+                    <span class="listing-text">Journeys</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- follower tab end -->
+      <!-- country visited -->
+      <div class="country-visited-tab" ng-if="activeMenu == 'countries-visited'">
+        <!-- PRIVATE PROFILE EMPTY SCREEN -->
+        <div class="empty-profile-journey private-accountempty" ng-if="!template.isMine && (userData.following==0 || userData.following==2 ) && userData.status=='private'">
+          <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+              <div class="private-accountcover text-center">
+                <h3>This account is Private.</h3>
+                <p>Follow to view their Travel and Local Life.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- PRIVATE PROFILE EMPTY SCREEN END -->
+        <div class="list-country-visited">
+          <div class="row m-m0">
+            <div class="col-md-3 col-sm-6 col-pad-zero" ng-repeat="country in countryVisitedList track by $index">
+              <div class="country-list-holder">
+                <div class="list-imgholder" style="background-image: url('{{country.countryId.countryBackgroundImage|uploadpath}}');">
+                  <!-- <fade-img-loading blur="{{country.countryId.countryBackgroundImage|uploadpath:10:10:'cover'}}" image="{{country.countryId.countryBackgroundImage|uploadpath:600:600:'cover'}}"></fade-img-loading> -->
+                  <!-- <img ng-src="{{country.countryId.countryCoverPhoto|uploadpath}}" alt="" class="img-responsive country-img">  -->
+                  <div class="list-info">
+                    <div class="clearfix">
+                      <div class="pull-left" ng-init="isEmpty=(country.year==-1)?true:((!country.year)?true:false)">
+                        <h4 class="avenir-heavy">{{country.countryId.name}} <span ng-if="!isEmpty">( {{country.year}} )</span>
+                        <span ng-if="isEmpty">( - )</span>
+                        <span>{{country.times}}</span>
+                      </h4>
+                      </div>
+                      <div class="pull-right">
+                        <div class="bucket-flag">
+                          <img ng-src="{{country.countryId.flag|uploadpath}}" alt="{{country.countryId.name}}" class="img-responsive" width="30">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- hover -->
+                  <div class="country-list" ng-if="template.isMine">
+                    <div class="get-center full-width text-center">
+                      <span class="year-remove avenir-medium" ng-click="updateCountryVisited(country.countryId._id);"><i class="fa fa-calendar block mb5"></i>
+                        Add Year
+                      </span>
+                      <span class="year-remove avenir-medium" ng-click="removeCountryVisit(country);"><i class="fa fa-trash-o block"></i>
+                        Remove
+                      </span>
+                    </div>
+                  </div>
+                  <!-- hover end-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- country visited end -->
+      <!-- bucket list -->
+      <div class="bucket-tab-main" ng-if="activeMenu == 'bucket-list'">
+        <!-- PRIVATE PROFILE EMPTY SCREEN -->
+        <div class="empty-profile-journey private-accountempty" ng-if="!template.isMine && (userData.following==0 || userData.following==2 ) && userData.status=='private'">
+          <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+              <div class="private-accountcover text-center">
+                <h3>This account is Private.</h3>
+                <p>Follow to view their Travel and Local Life.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- PRIVATE PROFILE EMPTY SCREEN END -->
+        <div class="bucket-list-main">
+          <div class="row m-m0">
+            <div class="col-md-3 col-sm-6 col-pad-zero" ng-repeat="bucket in bucketList track by $index" id="{{bucket._id}}">
+              <div class="bucket-list-holder">
+                <div class="list-imgholder" style="background-image: url('{{bucket.countryBackgroundImage|uploadpath}}');">
+                  <!-- <img ng-src="{{bucket.countryCoverPhoto|uploadpath:405:225:'cover'}}" alt="{{bucket.name}}" class="img-responsive country-img"> -->
+                  <div class="list-info">
+                    <div class="clearfix">
+                      <div class="pull-left">
+                        <h4 class="avenir-heavy">{{bucket.name}}</h4>
+                      </div>
+                      <div class="pull-right">
+                        <div class="bucket-flag">
+                          <img ng-src="{{bucket.flag|uploadpath}}" alt="{{bucket.name}}" width="30" class="img-responsive">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- hover -->
+                  <div class="country-list" ng-if="template.isMine">
+                    <div class="get-center">
+                      <span class="year-remove" ng-click="removeFromBucketList(bucket._id)"><i class="fa fa-trash-o block mb5"></i>
+                        Remove
+                      </span>
+                    </div>
+                  </div>
+                  <!-- hover end-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- bucket list end -->
+    </div>
+  </div>
+  <!-- profile tab main end -->
+</div>

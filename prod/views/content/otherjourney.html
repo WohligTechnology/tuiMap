@@ -1,0 +1,491 @@
+<div class="profile-main">
+  <div class="" ng-include="otherprofile.profileMain"></div>
+  <div class="container-fluid">
+    <div class="all-profile-detail">
+      <div class="bg-white">
+        <!-- journey travel-life -->
+        <div class="journey-tabs" ng-hide="showTravellife">
+          <!-- tabs -->
+          <div class="profile-tabs" id="tabs">
+            <span class="first-strip"></span>
+            <span class="sec-strip"></span>
+            <span class="third-strip"></span>
+            <span class="fourth-strip"></span>
+            <ul>
+              <li><a href="" class="tab-heading">Journey</a></li>
+              <li><a href="" class="tab-heading" ui-sref="othermoments">Moments</a></li>
+              <li><a href="" class="tab-heading" ui-sref="otherreviews">Reviews</a></li>
+              <!-- <li><a href="" class="tab-heading" ui-sref="holiday">Holiday Planner</a></li> -->
+            </ul>
+          </div>
+          <!-- end tabs -->
+          <div class="travel-local-life">
+            <div class="clearfix">
+              <div class="pull-left">
+                <div class="travel-life-btn inline-block mt5 ml20 mr20">
+                  <div class="pointer">
+                    <span class="btn-tab active-btn-travel"></span>
+                    <span>Travel Life</span>
+                  </div>
+                </div>
+                <div class="travel-life-btn inline-block mt5 ml20 mr20">
+                  <div class="pointer" ng-click="showTravellife = true;buildNow();">
+                    <span class="btn-tab"></span>
+                    <span>Local Life</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pull-right">
+                <div class="add-journey">
+                  <span class="pointer" ng-click="showMore = !showMore" ng-class="{'close-more' : showMore == true}"><i class="fa fa-plus"></i></span>
+                  <div class="add-more-journey" ng-show="showMore">
+                    <ul>
+                      <li><a href="">On The Go Journeys</a></li>
+                      <li><a href="">Upload An Itinerary</a></li>
+                      <li><a href="">Holiday Planner</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- user logged for first time -->
+          <!-- user logged for first time end -->
+          <div class="masonry-detail">
+            <div masonry preserve-order class="abc">
+              <div class="row">
+                <div class="masonry-brick col-md-4" ng-repeat="life in travelLife" >
+                  <div class="journey-masonry-brick">
+                    <div class="travel-life-part avenir-roman">
+                      <div class="travel-journey-heading">
+                        <p ng-hide="life.onJourney">{{life.heading}}</p>
+                        <p class="m-clear"><i class="fa fa-calendar"></i><span>{{life.timestampDate}}</span> | <i class="fa fa-clock-o"></i> <span>{{life.timestampHour}}</span></p>
+                      </div>
+                      <div class="travelled-journey relate" ng-hide="life.onJourney">
+                        <div class="travelled-imgholder">
+                          <img ng-src="{{life.imgTravelled}}" alt="" class="img-responsive m-center">
+                        </div>
+                        <div class="country-visited">
+                          <img ng-src="{{visit.imgFlag}}" alt="" height="30" ng-repeat="visit in life.countryVisit track by $index">
+                        </div>
+                        <div class="journey-tag-holder">
+                          <h4 class="m-clear text-capitalize">{{life.Travelledtag}}</h4>
+                          <div class="clearfix">
+                            <div class="pull-left">
+                              <div class="journey-collection">
+                                <ul>
+                                  <li>
+                                    <a href="">
+                                      <div class="">
+                                        <img src="img/camera.png" alt="Camera" width="18" class="mr5">
+                                        <span class="inline-block v-mid">{{life.photoCount}}</span>
+                                      </div>
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="">
+                                      <div class="">
+                                        <img src="img/video.png" alt="Video" width="18" class="mr5">
+                                        <span class="inline-block v-mid">{{life.videoCount}}</span>
+                                      </div>
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="">
+                                      <div class="">
+                                        <img src="img/location.png" alt="Location" width="18" class="mr5">
+                                        <span class="inline-block v-mid">{{life.locationVisited}}</span>
+                                      </div>
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="pull-right">
+                              <div class="journey-type inline-block">
+                                <ul>
+                                  <li>
+                                    <a href=""><img ng-src="{{life.itineraryType1}}" alt="" height="20"></a>
+                                  </li>
+                                  <li>
+                                    <a href=""><img ng-src="{{life.itineraryType2}}" alt="" height="20"></a>
+                                  </li>
+                                  <li>
+                                    <a href=""><img ng-src="{{life.itineraryType3}}" alt="" height="20"></a>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div class="days-spent inline-block">
+                                <p><span class="block">{{life.travelledDay}}</span> Days</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="onway-journey relate" ng-show="life.onJourney">
+                        <div class="onway-imgholder">
+                          <img ng-src="{{life.imgOnway}}" alt="" class="img-responsive m-center">
+                        </div>
+                        <div class="country-visited">
+                          <img ng-src="{{visit.imgFlag}}" alt="" height="30" ng-repeat="visit in life.countryVisit track by $index">
+                          <span class="" ng-show="life.onJourney">+4</span>
+                        </div>
+                        <div class="journey-tag-holder">
+                          <h3 class="m-clear text-capitalize">{{life.onwayTag}}</h3>
+                          <div class="clearfix">
+                            <div class="pull-left">
+                              <div class="journey-type">
+                                <ul>
+                                  <li>
+                                    <a href=""><img ng-src="{{life.itineraryType1}}" alt="" height="20"></a>
+                                  </li>
+                                  <li>
+                                    <a href=""><img ng-src="{{life.itineraryType2}}" alt="" height="20"></a>
+                                  </li>
+                                  <li>
+                                    <a href=""><img ng-src="{{life.itineraryType3}}" alt="" height="20"></a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="pull-right">
+                              <div class="journey-cost">
+                                <span>{{life.cost}}</span>
+                              </div>
+                              <div class="days-spent">
+                                <p><span class="block">{{life.spendingDay}}</span>Days</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="social-field-types">
+                        <div class="user-social-item clearfix">
+                          <div class="pull-left">
+                            <ul>
+                              <li><a href="" class="relate"><i class="fa color-blue" ng-class="post.likeDone ? 'fa-heart like-animate' : 'fa-heart-o'" ng-click="" like-sound></i>
+                                <span></span>
+                                <audio id="like-play">
+                                  <source src="img/tiny1.mp3" type="audio/mp3">
+                                </audio>
+                              </a></li>
+                              <li>
+                                <a href=""><img src="img/comments.png" alt="" height="18"></a>
+                              </li>
+                              <li>
+                                <a href=""><img src="img/reviews.png" alt="" height="18"></a>
+                              </li>
+                              <li>
+                                <a href=""><img src="img/share.png" alt="" height="18"></a>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="pull-right">
+                            <div class="">
+                              <span><img src="img/options.png" alt="" height="18"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="social-likes-reviews">
+                          <div class="clearfix">
+                            <div class="pull-left">
+                              <span class="color-blue mr10"><i class="fa fa-heart color-blue mr5"></i><b class="mr5">{{life.likes}}</b>Likes</span>
+                              <span class="color-blue"><img src="img/reviews.png" alt="" height="15" class="mr5 v-top">{{life.reviews}} ({{life.pointReview}}/5)</span>
+                            </div>
+                            <div class="pull-right">
+                              <img src="img/travel.png" alt="">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end journey travel-life -->
+        <!-- journey local life -->
+        <div class="journey-tabs" ng-show="showTravellife">
+          <!-- tabs -->
+          <div class="profile-tabs">
+            <span class="first-strip"></span>
+            <span class="sec-strip"></span>
+            <span class="third-strip"></span>
+            <span class="fourth-strip"></span>
+            <ul>
+              <li><a href="" class="tab-heading">Journey</a></li>
+              <li><a href="" class="tab-heading"  ui-sref="othermoments">Moments</a></li>
+              <li><a href="" class="tab-heading"  ui-sref="otherreviews">Reviews</a></li>
+              <!-- <li><a href="" class="tab-heading">Holiday Planner</a></li> -->
+            </ul>
+          </div>
+          <!-- end tabs -->
+          <div class="travel-local-life">
+            <div class="clearfix">
+              <div class="pull-left">
+                <div class="travel-life-btn inline-block mt5 ml20 mr20">
+                  <div class="pointer" ng-click="showTravellife = false">
+                    <span class="btn-tab"></span>
+                    <span>Travel Life</span>
+                  </div>
+                </div>
+                <div class="travel-life-btn inline-block mt5 ml20 mr20">
+                  <div class="pointer">
+                    <span class="btn-tab active-btn-local"></span>
+                    <span>Local Life</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pull-right">
+                <div class="add-more-life">
+                  <span class="pointer" ng-click="showlocalMore = !showlocalMore" ng-class="{'close-more' : showlocalMore == true}"><i class="fa fa-plus"></i></span>
+                  <div class="add-more-journey" ng-show="showlocalMore">
+                    <ul>
+                      <li><a href="">Check In</a></li>
+                      <li><a href="">Photos</a></li>
+                      <li><a href="">Videos</a></li>
+                      <li><a href="">Thoughts</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="local-life-main">
+            <div class="inline-block filter-local-life avenir-roman">
+              <form action="">
+                <div class="clearfix pt10 pl20 pr20">
+                  <div class="pull-right">
+                    <span class="clear-all pointer">Clear All</span>
+                  </div>
+                </div>
+                <!-- filter-month -->
+                <div class="filter-month">
+                  <span>Month's</span>
+                  <div class=" custom-select custom-select-local">
+                    <select class="" name="">
+                      <option>May 2016</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- filter-checkin -->
+                <div class="checkin-filter">
+                  <span>Check In's</span>
+                  <div class="local-filter-checkbox custom-checkbox">
+                    <input type="checkbox" id="beaches">
+                    <label for="beaches">Beaches</label>
+                  </div>
+                  <div class="local-filter-checkbox custom-checkbox">
+                    <input type="checkbox" id="airport">
+                    <label for="airport">airport</label>
+                  </div>
+                  <div class="local-filter-checkbox custom-checkbox">
+                    <input type="checkbox" id="Hotels">
+                    <label for="Hotels">Hotels &amp; Accommodation</label>
+                  </div>
+                  <div class="local-filter-checkbox custom-checkbox">
+                    <input type="checkbox" id="Restaurants">
+                    <label for="Restaurants">Restaurants &amp; Bars</label>
+                  </div>
+                  <div class="local-filter-checkbox custom-checkbox">
+                    <input type="checkbox" id="Parks">
+                    <label for="Parks">Natures &amp; Parks</label>
+                  </div>
+                  <div class="local-filter-checkbox custom-checkbox">
+                    <input type="checkbox" id="Landmarks">
+                    <label for="Landmarks">Sights &amp; Landmarks</label>
+                  </div>
+                  <div class="local-filter-checkbox custom-checkbox">
+                    <input type="checkbox" id="Museums">
+                    <label for="Museums">Museums &amp; Galleries</label>
+                  </div>
+                  <div class="local-filter-checkbox custom-checkbox">
+                    <input type="checkbox" id="Religious">
+                    <label for="Religious">Religious</label>
+                  </div>
+                  <div class="local-filter-checkbox custom-checkbox">
+                    <input type="checkbox" id="Shopping">
+                    <label for="Shopping">Shopping</label>
+                  </div>
+                  <span class="checkin-more pointer">More</span>
+                </div>
+                <!-- rating-filter -->
+                <div class="rating-filter">
+                  <span>Rating</span>
+                  <div class="local-filter-checkbox custom-checkbox">
+                    <input type="checkbox" id="five-star">
+                    <label for="five-star">
+                      <span>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="local-filter-checkbox custom-checkbox">
+                    <input type="checkbox" id="four-star">
+                    <label for="four-star">
+                      <span>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="local-filter-checkbox custom-checkbox">
+                    <input type="checkbox" id="three-star">
+                    <label for="three-star">
+                      <span>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="local-filter-checkbox custom-checkbox">
+                    <input type="checkbox" id="two-star">
+                    <label for="two-star">
+                      <span>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="local-filter-checkbox custom-checkbox">
+                    <input type="checkbox" id="one-star">
+                    <label for="one-star">
+                      <span>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+                <!-- more-filter-photo video thought -->
+                <div class="more-filter">
+                  <div class="local-filter-checkbox custom-checkbox">
+                    <input type="checkbox" id="photo">
+                    <label for="photo">Photos</label>
+                  </div>
+                  <div class="local-filter-checkbox custom-checkbox">
+                    <input type="checkbox" id="video">
+                    <label for="video">Videos</label>
+                  </div>
+                  <div class="local-filter-checkbox custom-checkbox">
+                    <input type="checkbox" id="thought">
+                    <label for="thought">Thoughts</label>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- post local-life -->
+            <div class="inline-block post-local-life">
+              <div class="relate">
+                <div class="bg-dark-cyan post-header-view">
+                  <div class="clearfix">
+                    <div class="pull-left">
+                      <div class="post-list-view">
+                        <ul class="list-inline">
+                          <li><img src="img/camera-blue.png" alt="" height="18" class="v-mid"><span class="font-bold inline-block v-mid">28</span></li>
+                          <li><img src="img/video-blue.png" alt="" height="18" class="v-mid"><span class="font-bold inline-block v-mid">28</span></li>
+                          <li><img src="img/location-blue.png" alt="" height="18" class="v-mid"><span class="font-bold inline-block v-mid">28</span></li>
+                          <li><img src="img/thought.png" alt="" height="18" class="v-mid"><span class="font-bold inline-block v-mid">28</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="pull-right">
+                      <div class="total-post">
+                        <span>Total Post's <b>128</b></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="scroll-local-life scrollme"  ng-scrollbar rebuild-on="rebuild:me">
+                  <div class="local-post">
+                    <div class="post-main" ng-repeat="post in localLife">
+                      <div class="heading-local-life avenir-roman">
+                        <p class="color-light-grey">{{post.heading}}</p>
+                        <p class="color-light-grey m-clear"><i class="fa fa-calendar mr5"></i><span class="mr5">{{post.timestampDate}}</span> | <i class="fa fa-clock-o mr5 ml5"></i> <span class="mr5">{{post.timestampHour}}</span></p>
+                        <div class="location circle-rounded bg-dark-cyan pointer">
+                          <img src="img/location-blue.png" alt="" height="18">
+                        </div>
+                      </div>
+                      <div class="post-imgholder">
+                        <img ng-src="{{post.imgWall}}" alt="" class="img-responsive">
+                      </div>
+                      <div class="local-post-slider">
+                        <flex-slider class="carousel" flex-slide="related in post.postSlider track by $index" item-width="136" animation="slide" item-margin="15" control-nav="false">
+                          <li>
+                            <div class="related-postholder">
+                              <img ng-src="{{related.imgRelated}}" alt="" class="img-responsive">
+                            </div>
+                          </li>
+                        </flex-slider>
+                      </div>
+                      <div class="post-social-type">
+                        <div class="post-social-item clearfix">
+                          <div class="pull-left">
+                            <div class="">
+                              <ul>
+                                <li><a href="" class="relate"><i class="fa color-blue" ng-class="post.likeDone ? 'fa-heart like-animate' : 'fa-heart-o'" ng-click="" like-sound></i>
+                                <spam></spam>
+                                <audio id="like-play">
+                                  <source src="img/tiny1.mp3" type="audio/mp3">
+                                </audio>
+                              </a></li>
+                                <li>
+                                  <a href=""><img src="img/comments.png" alt="" height="22"></a>
+                                </li>
+                                <li>
+                                  <a href=""><img src="img/share.png" alt="" height="22"></a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="pull-right">
+                            <div class="">
+                              <span><img src="img/options.png" alt="" height="18"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="post-socail-reviews">
+                          <div class="clearfix">
+                            <div class="pull-left">
+                              <span class="color-blue mr20"><i class="fa fa-heart color-blue mr5"></i><b class="mr5">{{post.likes}}</b>Likes</span>
+                              <div class="rating-localpost inline-block">
+                                <span class="color-blue font-bold mr5">Rating:</span>
+                                <uib-rating ng-model="rate" max="5" on-hover="hoveringOver(value)" on-leave="overStar = null"></uib-rating>
+                              </div>
+                            </div>
+                            <div class="pull-right">
+                              <img ng-src="{{post.travelledIcon}}" alt="" height="25">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end journey local life -->
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="delete-your-country">
+  <div class="delete-pop">
+    <h4>Are You Sure ?</h4>
+    <p ng-if="!removeText">This country will be removed from the map and the countries visited.</p>
+    <div class="row-flex">
+      <div class="col-flex">
+      <span class="delete-confirmation" ng-click="$dismiss();">Cancel</span>
+    </div>
+      <div class="col-flex">
+        <span class="delete-confirmation br0"  ng-click="removeCountryVisited(removeCountry);">Ok</span>
+      </div>
+    </div>
+  </div>
+</div>

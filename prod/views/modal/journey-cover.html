@@ -1,0 +1,34 @@
+<div class="choose-cover-photo avenir-roman">
+  <div class="cover-photo-main">
+    <div class="cover-heading clearfix">
+      <div class="pull-left">
+        <span class="color-white popup-title avenir-light text-capitalize" ng-hide="cropImage">Choose From {{journey.name}} Photos</span>
+        <span class="color-white popup-title avenir-light text-capitalize" ng-show="cropImage">{{journey.name}} Cover Photos</span>
+      </div>
+      <div class="pull-right">
+        <span class="close pop-close-btn notify-close" ng-click="$dismiss();"><img src="img/cancel.png" alt="Cancel" class="img-responsive"></span>
+      </div>
+    </div>
+    <div class="coverpic-scroll" ng-class="{'bg-white': cropImage==false,'':cropImage==true}">
+      <div class="cover-content">
+        <div class="cover-gallery-grid" ng-hide="cropImage">
+          <div class="choose-cover-pic inline-block" ng-repeat="img in journeyCoverPhotos.photos track by $index">
+            <img ng-src="{{img.name|uploadpath:150:150:'cover'}}" alt="Gallery" class="img-responsive" id="fileGallery" ng-click="cropCover(img.name);">
+          </div>
+        </div>
+        <div class="crop-cover-container">
+          <div class="selected-img-gallery" ng-show="cropImage">
+            <div class="cropped-Image">
+              <!-- <img-crop image="myImage" result-image="myCroppedImage"></img-crop> -->
+              <img ng-src="{{showCover|uploadpath}}" alt="" class="img-responsive">
+            </div>
+            <div class="cropped-save">
+              <span ng-click="viewPrev();" class="pointer">Cancel</span>
+              <button class="btn btn-pink btn-more btn-cover-save" ng-click="setJourneyCoverPhoto(journey._id,showCover)">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+<div class="shadow mt-60">
+  <div class="home-slide fullpage" full-page>
+    <section class="home section one rl" id="landing" ng-include="section.one"></section>
+    <section class="home section two slide2 rl" id="travellife" ng-include="section.two" style="background:url(../img/libro-home/slide/2.jpg)"></section>
+    <section class="home section three rl" style="background:url(../img/libro-home/slide/3.jpg)" id="locallife" ng-include="section.three"></section>
+    <section class="home section four rl" id="mylife" ng-include="section.four" style="background:url(../img/libro-home/slide/4.jpg)"></section>
+    <section class="home section five rl" id="contact" ng-include="section.five" style="background:url(../img/libro-home/slide/5.jpg)"></section>
+  </div>
+  <div class="slide4-none hidden-xs">
+    <div class="fixed-mobile">
+      <div class="mobile-video">
+        <div class="iphone-image">
+          <img src="img/libro-home/iPhone.png" alt="" />
+        </div>
+      
+            <div class="slide-video">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="videoplay videoplays rl">
+                <img src="img/libro-home/transparent-home.png" alt="" />
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="videoplay videoplays">
+                <video width="100%" height="400px" videoend id="video1" poster="img/libro-home/videos/travel-life.jpg">
+                  <source src="img/libro-home/videos/travellife.mp4"  type="video/mp4">
+                </video>
+                <a class="various color-pink fancybox.iframe vimeo" href="https://player.vimeo.com/video/207906141?title=0&amp;byline=0&amp;portrait=0" fancybox-box  width='500' height='281' webkitallowfullscreen mozallowfullscreen allowfullscreen ng-click="pauseVideo();">
+                  <div class="play-show">
+                      <i class="fa fa-play-circle" aria-hidden="true"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="videoplay videoplays">
+                <video poster="img/libro-home/videos/local-life.jpg" width="100%" height="400px" videoend id="video2">
+                  <source src="img/libro-home/videos/locallife.mp4"  type="video/mp4">
+                </video>
+                <a class="various color-cyan fancybox.iframe vimeo" href="https://player.vimeo.com/video/207905802?title=0&amp;byline=0&amp;portrait=0" fancybox-box  width='500' height='281' webkitallowfullscreen mozallowfullscreen allowfullscreen ng-click="pauseVideo();">
+                  <div class="play-show">
+                <i class="fa fa-play-circle" aria-hidden="true"></i>
+                </div>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="videoplay videoplays">
+                <video width="100%" height="400px" videoend id="video3" poster="img/libro-home/videos/my-life.jpg">
+                  <source src="img/libro-home/videos/mylife.mp4" type="video/mp4">
+                </video>
+                  <a class="various color-white fancybox.iframe vimeo" href="https://player.vimeo.com/video/207906010?title=0&amp;byline=0&amp;portrait=0" fancybox-box  width='500' height='281' webkitallowfullscreen mozallowfullscreen allowfullscreen ng-click="pauseVideo();">
+                  <div class="play-show">
+                  <i class="fa fa-play-circle" aria-hidden="true"></i>
+                </div>
+                 </a>
+              </div>
+            </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+            <div class="swiper-slide">
+               <div class="videoplay videoplays">
+                 </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      </div>
+      <div ng-click="muteVolume()">
+      <a class="volume-off-on" id="mute-video">
+        <i class="fa on-off" aria-hidden="true" ng-class="{'fa-microphone-slash': (!audioStatus.on), 'fa-microphone':(audioStatus.on)}"></i>
+      </a>
+      </div>
+    </div>
+  </div>
+  <div class="navigation-dots hidden-xs">
+    <span ng-click="changePage('home')" class="one"></span>
+    <span ng-click="changePage('travellife')" class="two"></span>
+    <span ng-click="changePage('locallife')" class="three"></span>
+    <span ng-click="changePage('mylife')" class="four"></span>
+    <span ng-click="changePage('share')" class="five"></span>
+  </div>
+  </div>

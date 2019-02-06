@@ -1,0 +1,269 @@
+<div class="agent-home relate {{addHomeBackdrop}} {{getBackdrop}}" scrolladd1class>
+    <div link-profile>
+        <!-- ng-style="{ 'background-image' : (userData.company.coverPhoto != '') ? 'url(\'{{userData.company.coverPhoto|uploadpath}}\')' : 'url(\'../img/agent/bg-user.jpg\')' }" -->
+        <div class="img-holder-agent bg-agent-home-img" ng-style="coverPhotoObj">
+            <div class="agt-card-posi">
+                <div class="agt-title-card get-center">
+                    <div class="circ-agtimg pointer" ui-sref="agent-setting">
+                        <img ng-src="{{userData.profilePicture|uploadpath}}" alt="{{userData.name}}" class="img-responsive" ng-if="template.isMine">
+                    </div>
+                    <a href="{{userData.profilePicture|uploadpath}}" fancybox-box class="fancybox" ng-if="!template.isMine">
+                        <div class="circ-agtimg">
+                            <img ng-src="{{userData.profilePicture|uploadpath}}" alt="{{userData.name}}" class="img-responsive">
+                        </div>
+                    </a>
+                    <h4 class="avenir-heavy text-capitalize">{{userData.name}}</h4><span ng-if="userData.company && userData.company.agentType">{{userData.company.agentType|stringForm}}</span>
+                    <p>{{userData.homeCity}}</p>
+                    <button class="btn btn-white-outline mr5" ui-sref="agent-setting" ng-if="template.isMine">Edit </button>
+                    <button class="btn btn-white-outline mr5" ng-click="followFollowing(userData)" ng-if="!template.isMine">{{userData.following | followFollowingStatus}}</button>
+                    <span><span class="avenir-heavy"> {{userData.followers_count}} </span> Followers </span>
+                </div>
+            </div>
+            <div class="agent-coverpic" ng-if="template.isMine">
+                <span class="color-white mr5"><i class="fa fa-plus"></i></span>
+                <div class="changecover-holder">
+                    <span class="color-white">Change cover photo</span>
+                    <span class="file-size">Min. Dimension (1200 x 500)</span>
+                    <upload-image ng-model="userData.coverPhoto" ng-callback="agentCoverPic(data);" allow-type="image/*" no-view class="pointer agentcover-uploadinput"></upload-image>
+                </div>
+                <!-- <div class="coversave-btn" ng-show="showCoverBtn">
+          <button type="button" name="button" class="btn btn-white-outline" ng-click="saveAgentCover(userData);">Save</button>
+        </div> -->
+            </div>
+            <div class="agentshare-profilelink">
+                <a ng-click="sharePost(userData.sharingUrl)" class="btn-shareagentlink"><img src="img/share-white.png" alt="Share" height="21"></a>
+            </div>
+        </div>
+        <!-- agent-user-fixednav -->
+        <div class="agent-home-nav {{agentFixednav}}">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-9 col-sm-9">
+                        <div class="agent-scroll">
+                            <ul class="list-inline" ng-init="analytics.option={};">
+                                <li ng-click="getTab(0);" ng-class="{'active': agthomeoptions.active=='agthome-itinerary'}">Itineraries </li>
+                                <li ng-click="getTab(1);  scrollDown();" ng-class="{'active': agthomeoptions.active=='agthome-tourpackages'}">Tours & Packages</li>
+                                <li ng-click="getTab(2)" ng-class="{'active': agthomeoptions.active=='agthome-photovideos'}"> Photos & Videos</li>
+                                <li ng-click="getTab(3)" ng-class="{'active': agthomeoptions.active=='agthome-testimonialreviews'}">Testimonials & Reviews</li>
+                                <li ng-click="getTab(4)" ng-class="{'active': agthomeoptions.active=='agthome-travelactivity'}" ng-if="template.isMine">My Activity</li>
+                                <li ng-click="getTab(4)" ng-class="{'active': agthomeoptions.active=='agthome-travelactivity'}" ng-if="!template.isMine">Travel Activity</li>
+                                <li ng-click="getTab(5)" ng-class="{'active': agthomeoptions.active=='agthome-leadmonitor'}" ng-if="template.isMine">Lead Monitor</li>
+                                <li ng-click="editOption(analytics.option);" ng-class="{'active': agthomeoptions.active=='agthome-analytics'}" class="relate" ng-if="template.isMine">Analytics
+                                    <div class="analytics-dropoptions" ng-show="analytics.option.backgroundClick">
+                                        <ul class="list-unstyled">
+                                            <li ng-click="getAgentScroll('profileview');">Profile Views</li>
+                                            <li ng-click="getAgentScroll('follower');">Followers</li>
+                                            <li ng-click="getAgentScroll('leads');">Leads</li>
+                                            <li ng-click="getAgentScroll('viewsdownload');">Views & Downloads</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <div class="mob-ml5">
+                            <ul class="list-inline pull-right mob-left">
+                                <li ng-click="getTab(7)" ng-class="{'active': agthomeoptions.active=='agthome-aboutus'}">About Us | Speciality </li>
+                                <!-- <li ng-click="getTab(7)" ng-class="{'active': agthomeoptions.active=='agthome-aboutus'}">Speciality</li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="agent-home-content " ng-include="agthome.innerView"></div>
+        <!-- Enquiry side tab -->
+        <!-- ng-if="!template.isMine" -->
+        <div class="side-enquiry" ng-if="!template.isMine">
+            <div class="enquiry-sidetab" ng-show="viewEnquiry" ng-class="{'view-enquiry-list' : viewEnquiry ,  ' ' : !viewEnquiry}">
+                <div class="enquirytab-head">
+                    <h4 class="avenir-roman color-blue">Enquire</h4>
+                </div>
+                <div class="user-enquireform">
+                    <form name="agentEnquiry">
+                        <div class="form-group">
+                            <div class="enquirytab-cmpny-inputholder">
+                                <input type="text" class="form-control color-blue" placeholder="Travelling To" ng-model="enquire.travellingTo">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="enquirytab-cmpny-inputholder">
+                                <input type="text" class="form-control color-blue" placeholder="Name" ng-model="enquire.name" required="">
+                                <div class="enquirytab-input-icon">
+                                    <i class="fa fa-user color-grey"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5 col-sm-5">
+                                <div class="form-group">
+                                    <div class="agentcompany-phone enquirytab-cmpny-inputholder ">
+                                        <input type="tel" class="form-control color-blue" placeholder="Contact No" ng-model="enquire.contactNo" ng-intl-tel-input>
+                                        <span id="error-msg1" class="hide intel-error" ng-if="!enquire.contactNo">Invalid number</span>
+                                        <div class="enquirytab-input-icon" hidden>
+                                            <i class="fa fa-phone color-grey"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7 col-sm-7">
+                                <div class="form-group">
+                                    <div class="enquirytab-cmpny-inputholder">
+                                        <input type="email" class="form-control color-blue" placeholder="Email" ng-model="enquire.email" required>
+                                        <div class="enquirytab-input-icon">
+                                            <i class="fa fa-envelope color-grey"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="enquirytab-cmpny-inputholder">
+                                <textarea class="form-control color-blue" placeholder="Further Instructions" ng-model="enquire.instructions"></textarea>
+                            </div>
+                        </div>
+                        <div class="enquirebutton">
+                            <button class="btn btn-pink" ng-click="sendEnquiry(enquire);" ng-disabled="agentEnquiry.$invalid"><i class="fa fa-share"></i> Send
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="enquirytab-btn" ng-click="showEnquiry();">
+                <a class="btn-transparent-dark-blue btn" ng-class="{'hide' : viewEnquiry}">Enquire</a>
+                <a class="btn-dark-blue btn close-size" ng-class="{'hide': !viewEnquiry}"><i class="fa fa-chevron-down mr5"></i> Close</a>
+            </div>
+        </div>
+        <!-- Enquiry side tab enD-->
+        <!-- ng-if="!template.isMine" -->
+        <!-- Contact Us side tab -->
+        <div class="side-contact avenir-roman" ng-if="!template.isMine">
+            <div class="contact-sidetab" ng-show="viewContact" ng-class="{'view-contact-list' : viewContact ,  ' ' : !viewContact}">
+                <div class="contacttab-head">
+                    <h4 class="avenir-heavy color-white">Contact</h4>
+                </div>
+                <div class="user-contactdetail">
+                    <h4 class="color-cyan avenir-heavy text-capitalize"> {{userData.name}}</h4>
+                    <p class="text-capitalize"> <span ng-if="userData.company.address != ''">{{userData.company.address}}</span> <span ng-if="userData.company.address == '' || !userData.company.address"> - </span></p>
+                    <p><i class="fa fa-phone mr5"></i><a href="tel:{{userData.company.contact}}" ng-if="userData.company.contact != ''">{{userData.company.contact}}</a> <span ng-if="userData.company.mobile != '' && userData.company.mobile">|</span> <a href="tel:{{userData.company.mobile}}" ng-if="userData.company.mobile != ''">{{userData.company.mobile}}</a> <span ng-if="userData.company.contact == '' && userData.company.mobile =='' || !userData.company.contact && !userData.company.mobile"> - </span></p>
+                    <p><i class="fa fa-envelope mr5"></i> <a ng-repeat="mails in userData.company.email track by $index" href="mailto:{{mails}}" ng-if="userData.company.email != ''" class="agent-contactmail"> {{mails}} <span class="email-separater" ng-if="userData.company.email.length>1" hide>| </span></a> <span ng-if="userData.company.email == ''"> - </span></p>
+                    <p><i class="fa fa-globe mr5"></i> <a href="{{userData.company.website}}" target="_blank" ng-if="userData.company.website != '' "> {{userData.company.website}}</a> <span ng-if="userData.company.website == '' || !userData.company.website"> - </span></p>
+                </div>
+            </div>
+            <div class="contacttab-btn" ng-click="showContact();">
+                <a class="btn-transparent-dark-blue btn" ng-class="{'hide' : viewContact}">Contact Us</a>
+                <a class="btn-dark-blue btn close-size" ng-class="{'hide': !viewContact}"><i class="fa fa-chevron-down mr5"></i> Close</a>
+            </div>
+        </div>
+        <!-- Contact Us tab enD-->
+    </div>
+    <!-- modal on load -->
+    <!-- modal button -->
+    <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#getModal">Open Modal</button> -->
+    <!-- modal button end -->
+    <!-- modal start -->
+    <div class="modal fade" id="getModal" role="dialog">
+        <div class="modal-dialog modal-lg agent-modal-bg">
+            <!-- Modal content-->
+            <div class="modal-content avenir-roman">
+                <div class="modal-body">
+                    <div class="agtmodal-title text-center">
+                        <div class="agtmodal-imgholder">
+                            <img src="img/default_Images_2.jpg" alt="" class="img-responsive">
+                        </div>
+                        <h4 class="modal-title">Lifestyle Holidays</h4>
+                    </div>
+                    <div class="agtmodal-content">
+                        <div class="modal-textcontent">
+                            <h4 class="color-cyan avenir-heavy m-clear">Welcome to TraveLibro</h4>
+                            <p class="avenir-roman color-white">A travel global ecosystem that connects travel enthusiasts of all types to each other and to travel agents as well. We are very excited to have you on board with us in our journey to help travellers explore the world. Through TraveLibro, take your services to our esteemed users, a global audiencec of travellers.</p>
+                        </div>
+                        <div class="modal-textcontent">
+                            <h4 class="color-cyan avenir-heavy m-clear">90 Day Trial Period Of Our Premium Offering</h4>
+                            <p class="color-white avenir-roman m-clear">While we have three packages on offer: </p>
+                            <div class="modal-package">
+                                <div class="modal-packagebox">
+                                    <div class="modal-packageholder">
+                                        <img src="img/basic-icon.png" alt="" class="img-responsive">
+                                    </div>
+                                    <p class="avenir-heavy m-clear">Basic</p>
+                                    <p class="avenir-roman">Free</p>
+                                </div>
+                                <div class="modal-packagebox">
+                                    <div class="modal-packageholder advanced-icon">
+                                        <img src="img/advanced-icon.png" alt="" class="img-responsive">
+                                    </div>
+                                    <p class="avenir-heavy m-clear">Advanced</p>
+                                    <p class="avenir-roman">$149 per Q</p>
+                                </div>
+                                <div class="modal-packagebox">
+                                    <div class="modal-packageholder">
+                                        <img src="img/premium-icon.png" alt="" class="img-responsive">
+                                    </div>
+                                    <p class="avenir-heavy m-clear">Premium</p>
+                                    <p class="avenir-roman">$249 per Q</p>
+                                </div>
+                            </div>
+                            <p>As a gesture of goodwill we would like to offer you a <span class="color-cyan">  free trial period of 90 days for our Premium package</span> to give you an idea of how using the TraveLibro platform can benefit you in the best possible way.</p>
+                        </div>
+                        <div class="modal-textcontent">
+                            <div class="agtmodal-list">
+                                <p class="color-cyan m-clear">During these 90 days you will be able to access all the features of the Premium account:</p>
+                                <div class="listholder-modal clearfix">
+                                    <div class="row">
+                                        <div class="col-md-7 col-sm-6 col-xs-12">
+                                            <div class="modal-listholder modal-listborder">
+                                                <ul>
+                                                    <li>Upload Unlimited Itineraries</li>
+                                                    <li>Featured Tours & Packages on Popular Agents Pages</li>
+                                                    <li>Feature Tours & Packages on Destination Pages</li>
+                                                    <li>List on Popular Agent</li>
+                                                    <li>Lead Monitor - Access to TraveLibro Audience</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <div class="modal-listholder">
+                                                <ul>
+                                                    <li>Upload Unlimited Tours & Packages</li>
+                                                    <li>Analyse Profile Views</li>
+                                                    <li>Connect with Followers</li>
+                                                    <li>Lead Analytics</li>
+                                                    <li>Analyse Views & Downloads</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-textcontent">
+                            <p>These tours and packages along with your foremost and popular itineraries will help prospective travellers to browse through and choose you as their travel agent when they search fir that particular destination.</p>
+                        </div>
+                        <div class="modal-textcontent">
+                            <p>Apart from this, you will receive an in-depth business analysis of month-by-month-activity, leads from prospective clients to engage with and details of activities on your page ass well</p>
+                        </div>
+                        <div class="modal-textcontent">
+                            <h4 class="color-cyan avenir-heavy m-clear">End of Trial Period</h4>
+                            <p>We will further notify you three weeks in advance before the trial period expires to choose between the advanced or premium, as per your preference. Furthermore, if at the end of the trial period you choose not to upgrade your account, you can yet benefit of our services using the basic account.</p>
+                        </div>
+                        <div class="modal-textcontent">
+                            <h4 class="color-cyan avenir-heavy m-clear">Best Wishes</h4>
+                            <p>We are eager to see your business grow and hope our association lasts for a lifetime.</p>
+                        </div>
+                    </div>
+                    <div class="agtmodal-base text-center">
+                        <button type="button" class="btn btn-pink btn-more" data-dismiss="modal">Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal on load end -->
+<!-- Enquiry request sents successfully -->
+<div class="request-successful" hidden>
+    <h4>Request Sent Successfully</h4>
+</div>
+<!-- Enquiry request sents successfully end-->

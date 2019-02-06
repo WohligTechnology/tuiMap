@@ -1,0 +1,45 @@
+<div class="mustdo-modal">
+  <div class="close pop-close-btn notify-close notify-closeimg visible-xs" ng-click="$dismiss();">
+    <!--<img src="img/cancel.png" alt="Cancel" class="img-responsive">-->
+    X
+  </div>
+  <div class="pb22">
+    <div class="row">
+      <div class="col-md-10 col-sm-9">
+        <div class="flex-slider">
+          <div class="holder-places">
+            <div class="img-holder-place">
+              <flex-slider flex-slide="item in countryMustDoImg track by $index" slider-id="slider" prev-text="" next-text="" sync="#carousel"
+                slideshow="true" animation="slide">
+                <li class="relate">
+                  <img ng-src="{{item.mainPhoto|uploadpath}}" alt="Travelibro" class="full-width">
+                  <div class="overlay-slider"></div>
+                  <div class="destination-desc-modal">
+                    <h4 class="title-head mt-clear">
+                      {{item.name}}
+                    </h4>
+                    <p class="cont-place">{{item.description}}</p>
+                    <p class="cont-place text-right fnt-12 m-clear" ng-class="{'hide': item.imageCredit=='','show':item.imageCredit!==''}">
+                      Image Courtesy: <a href="{{item.imageCredit}}" class="color-white" target="_blank">{{item.imageCredit}}</a >
+                </p>
+              </div>
+                </li>
+              </flex-slider>
+      </div>
+    </div>
+  </div>
+  </div>
+      <div class="col-md-2 col-sm-3">
+        <div class="musto-thumbnail">
+          <flex-slider flex-slide="item in countryMustDoImg track by $index" animation="slide" animation-loop="false" item-width="100" item-margin="0" as-nav-for="#slider" slideshow="true" control-nav="false" prev-text="" next-text="" slider-id="carousel"  animation-loop="false">
+            <li>
+              <div class="img-holder-place">
+                <img ng-src="{{item.mainPhoto|uploadpath}}" alt="Travelibro">
+              </div>
+            </li>
+          </flex-slider>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

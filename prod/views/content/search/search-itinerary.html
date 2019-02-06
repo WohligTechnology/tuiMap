@@ -1,0 +1,127 @@
+<div class="search-itinerary" infinite-scroll="loadMoreSearch('search-itinerary');" infinite-scroll-disabled='searchScroll.busy'>
+  <div class="row" masonry preserve-order>
+    <div class="col-md-4 col-sm-6 masonry-brick" ng-repeat="itinerary in viewSearchedItinerary track by $index">
+      <!-- itinerary FINAL CARD -->
+      <div class="travel-life-part blog-post bg-white avenir-roman overflow search-itinerary-card {{itinerary.type}}" ng-if="itinerary.type=='quick-itinerary' || itinerary.type=='detail-itinerary'">
+        <div class="travel-journey-heading relate">
+          <p class="text-capitalize">{{itinerary.name| capitalize}} ({{post.duration}} {{itinerary.duration|singularPlural:'Days'}})</p>
+          <!-- <div class="editor-logo user-logo pointer" ng-click="searchProfile(itinerary);">
+            <img ng-src="{{itinerary.user.profilePicture|uploadpath:45:45:'cover'}}" alt="{{itinerary.user.name}}" class="img-responsive">
+          </div> -->
+          <!-- <div class="inline-block editor-subdetail">
+            <div class="clearfix">
+              <div class="pull-left">
+                <h4 class="font-bold color-dark-blue text-capitalize m-clear mb5 heading-name pointer" ng-click="searchProfile(itinerary);">{{itinerary.user.name}}</h4>
+              </div>
+              <div class="pull-right">
+                <span class="follow-following color-blue text-capitalize">{{itinerary.follower}}</span>
+              </div>
+            </div>
+            <p class="m-clear journey-timestamp"><i class="fa fa-calendar mr5"></i><span class="mr5">{{itinerary.startTime | date : 'dd MMM, yyyy'}}</span> | <i class="fa fa-clock-o mr5 ml5"></i> <span>{{itinerary.startTime | date :'hh:mm a'}}</span></p>
+          </div> -->
+        </div>
+        <div class="onway-journey relate" ng-click="searchIti(itinerary);">
+          <div class="itinerary-creator-detail">
+            <div class="editor-logo user-logo pointer v-mid" ui-sref="mylife({'urlSlug':post.user.urlSlug})">
+              <img ng-src="{{itinerary.user.profilePicture|uploadpath:45:45:'cover'}}" alt="{{itinerary.user.name}}" class="full-width">
+            </div>
+            <h4 class="font-bold color-dark-blue m-clear heading-name text-capitalize pointer" ui-sref="mylife({'urlSlug':itinerary.user.urlSlug})">{{itinerary.user.name}}</h4>
+          </div>
+          <div class="onway-imgholder">
+            <img ng-src="{{itinerary.coverPhoto|uploadpath:370:340:'cover'}}" alt="" class="full-width m-center">
+          </div>
+          <!-- <div class="country-badges">
+            <div class="country-visited">
+              <img ng-src="{{visit.country.flag|uploadpath}}" alt="" height="30">
+              <span class="" ng-if="visit.country.length > 3">+4</span>
+            </div>
+          </div> -->
+          <!-- journey tag holder  -->
+          <!-- <div class="journey-tag-holder" hidden>
+            <div class="days-spent pull-right">
+              <p><span class="block">{{itinerary.duration}}</span>Days</p>
+            </div>
+            <h4 class="m-clear text-capitalize">{{itinerary.name| capitalize}}</h4>
+            <div class="clearfix journey-travelling-type">
+              <div class="row">
+                <div class="col-xs-5">
+                  <div class="pull-left">
+                    <div class="journey-type m0">
+                      <ul>
+                        <li ng-repeat="type in itinerary.itineraryType|limitTo:3">
+                          <a href=""><img ng-src="{{type|kindOfJourney:'white'}}" alt="" height="20"></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-7">
+                  <div class="" ng-if="itinerary.type=='quick-itinerary'">
+                    <div class="quick-itinerary-tag">
+                      <h4>Quick</h4>
+                      <p>Itinerary</p>
+                    </div>
+                    <div class="date-quick-itinerary">
+                      {{itinerary.month}} {{itinerary.year}}
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <div class="journey-cost" ng-if="itinerary.currency!='' && itinerary.cost!='' && itinerary.currency!='0'">
+                      <span>{{itinerary.currency}}</span>
+                      <span>{{itinerary.cost | number}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <!-- journey tag holder end -->
+        </div>
+        <div class="social-field-types">
+          <div class="user-social-item clearfix">
+            <div class="pull-left">
+              <ul>
+                <li><a href="" class="relate pointer"  ng-click="likeUnlikeActivity(itinerary);"><i class="fa color-blue" ng-class="itinerary.likeDone ? 'fa-heart like-animate' : 'fa-heart-o'"  like-sound></i>
+                <span></span>
+                <audio id="like-play">
+                  <source src="img/tiny1.mp3" type="audio/mp3">
+                </audio>
+              </a></li>
+                <li class="pointer">
+                  <a href="" ng-click="getCommentsData(itinerary)"><img src="img/comments.png" alt="" height="18"></a>
+                </li>
+                <!-- <li>
+                  <a href=""><img src="img/reviews.png" alt="" height="18"></a>
+                </li> -->
+                <li>
+                  <a ng-click="sharePost(itinerary.sharingUrl)"><img src="img/share.png" alt="" height="18"></a>
+                </li>
+              </ul>
+            </div>
+            <div class="pull-right">
+              <div class="">
+                <span><img src="img/options.png" alt="" class="pointer"></span>
+              </div>
+            </div>
+          </div>
+          <div class="social-likes-reviews avenir-heavy">
+            <div class="clearfix">
+              <div class="pull-left">
+                <span class="color-blue mr10 pointer" ng-click="getLikesData(itinerary);"><i class="fa fa-heart color-blue mr5"></i><b class="mr5">{{itinerary.likeCount}}</b>Likes</span>
+                <span class="color-blue mr10 pointer" ng-click="getCommentsData(itinerary)"><img src="img/comments.png" alt="" height="14"><b class=""> {{itinerary.commentCount}} </b> Comments</span>
+                <!-- <span class="color-blue"><img src="img/reviews.png" alt="" height="15" class="mr5 v-top">{{post.userReviewCount}} Reviews ({{post.userReviewCount}}/5)</span> -->
+              </div>
+              <!-- <div class="pull-right">
+                <img src="img/travel.png" alt="">
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  itinerary FINAL CARD END -->
+    </div>
+  </div>
+  <div class="pagination-loader" ng-if="paginationLoader">
+    <img src="img/page.svg" alt="Loading..." width="50px" class="img-responsive m-center">
+  </div>
+</div>

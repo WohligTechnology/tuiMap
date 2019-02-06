@@ -1,0 +1,319 @@
+<div class="profile-main" id="moments">
+  <!-- <div class="" ng-include="profile.profileMain"></div> -->
+  <div class="moments-main">
+    <div class="container-fluid m-p0">
+      <div class="all-profile-detail">
+        <div class="bg-white">
+          <!-- tabs -->
+          <div class="profile-tabs moments-active" id="tabs">
+            <span class="first-strip"></span>
+            <span class="sec-strip"></span>
+            <span class="third-strip"></span>
+            <span class="fourth-strip"></span>
+            <ul>
+              <li><a class="tab-heading" ng-click="getTab(0); ">Journey</a></li>
+              <li><a class="tab-heading" ng-click="getTab(1); ">Moments</a></li>
+              <li><a class="tab-heading" ng-click="getTab(2); ">Reviews</a></li>
+              <!-- <li><a  class="tab-heading" ng-click="getTab(3); ">Holiday Planner</a></li> -->
+            </ul>
+          </div>
+          <!-- end tabs -->
+          <!-- moments view tab -->
+          <div class="moments-tab">
+            <div class="btn-view-moments pointer" ng-click="changeMomentTypeView(1)">
+              <span class="btn-tab" ng-class="{'active-btn-all': momentView ==1}"></span>
+              <span>All</span>
+            </div>
+            <div class="btn-view-moments pointer" ng-click="changeMomentTypeView(2)">
+              <span class="btn-tab" ng-class="{'active-btn-travel': momentView ==2}"></span>
+              <span>Travel Life</span>
+            </div>
+            <div class="btn-view-moments pointer" ng-click="changeMomentTypeView(3)">
+              <span class="btn-tab" ng-class="{'active-btn-local': momentView ==3}"></span>
+              <span>Local Life</span>
+            </div>
+            <!-- back button -->
+            <div class="pull-right" ng-if="viewMonth">
+              <button class="btn btn-outline-blue btn-more" ng-click="showMonthView();" ng-if="momentView==1">Back</button>
+              <button class="btn btn-pink btn-more" ng-click="showMonthView();" ng-if="momentView==2">Back</button>
+              <button class="btn btn-cyan btn-more" ng-click="showMonthView();" ng-if="momentView==3">Back</button>
+            </div>
+            <!-- back button end -->
+          </div>
+          <!-- moments view tab end -->
+          <!-- moment all view -->
+          <div class="container m-plr0">
+            <div class="moment-view">
+              <div class="moment-all-view m-plr0" ng-if="momentView == 1 && viewMonth==false" infinite-scroll="getMoreMoments(allMoments)">
+                <!-- empty all view profile user login for first time  -->
+                <div class="empty-moment-all empty-profile-moment text-center" ng-if="allMoments.arr[0].token==-1 && (template.isMine || (userData.following==1 && userData.status=='private') || userData.status=='public')">
+                  <div class="row m-m0">
+                    <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6">
+                      <h3 class="color-pink empty-title">Unwind​ B​y Rewinding</h3>
+                      <p class="empty-descp">Revisit and reminisce the days gone by through brilliant pictures and videos of your travel and local
+                        life.
+                      </p>
+                      <p class="empty-descp">This space will get populated when you capture your Travel and Local life using the TraveLibro App.</p>
+                      <div class="journey-downloadicon">
+                        <ul class="list-unstyled list-inline text-center color-pink">
+                          <li class="">
+                            Download App
+                          </li>
+                          <li>
+                            <a href="https://itunes.apple.com/in/app/travelibro/id1056641759" target="_blank" class="color-pink">
+                              <i class="fa fa-apple"></i>
+                            </a>
+                          </li>
+                          <li>|</li>
+                          <li>
+                            <a href="https://play.google.com/store/apps/details?id=com.ascra.app.travellibro" class="color-pink" target="_blank">
+                              <i class="fa fa-android"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <!--<p class="empty-descp">This space will get populated when you capture your Travel and Local Life using the TraveLibro App.</p>
+                        <div class="journey-downloadicon">
+                          <ul class="list-unstyled list-inline text-center color-pink">
+                            <li class="">
+                              Download App
+                            </li>
+                            <li>
+                              <a href="https://itunes.apple.com/in/app/travelibro/id1056641759" target="_blank" class="color-pink">
+                                <i class="fa fa-apple"></i>
+                              </a>
+                            </li>
+                            <li>|</li>
+                            <li>
+                              <a href="https://play.google.com/store/apps/details?id=com.ascra.app.travellibro" class="color-pink" target="_blank">
+                                <i class="fa fa-android"></i>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>-->
+                    </div>
+                  </div>
+                </div>
+                <!-- empty all view profile user login for first time -->
+                <!-- PRIVATE PROFILE EMPTY SCREEN -->
+                <div class="empty-profile-journey private-accountempty" ng-if="!template.isMine && (userData.following==0 || userData.following==2 ||userData.following==undefined || userData.following==null) && userData.status=='private'">
+                  <div class="row m-m0">
+                    <div class="col-md-offset-2 col-md-8">
+                      <div class="private-accountcover text-center">
+                        <h3>This account is Private.</h3>
+                        <p>Follow to view their Travel and Local Life.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- PRIVATE PROFILE EMPTY SCREEN END -->
+                <div ng-if="allMoments.arr.length!==0 && (template.isMine || (userData.following==1 && userData.status=='private') || userData.status=='public')">
+                  <div class="month-collage" ng-repeat="singleObject in allMoments.arr track by $index" ng-click="getPerMonthMoments(singleObject,'all');"
+                    ng-if="singleObject.token!=-1 && viewMonth == false">
+                    <h4 class="month-name"><span class="avenir-heavy">{{singleObject.token|momentsDate}}</span> <span class="monthname-count">({{singleObject.count}})</span></h4>
+                    <div class="collage-month-view">
+                      <div class="flex-wrap-container">
+                        <div class="row" ng-init="len=singleObject.data.length;data = (len <12) ? len : len-len%12;">
+                          <div class="col-xs-1" ng-repeat="img in singleObject.data|limitTo:data  track by $index">
+                            <div class="moment-imgholder relate">
+                              <img ng-src="{{img.name|uploadpath:80:80:'cover'}}" alt="" class="img-responsive" ng-if="img.type=='photo'">
+                              <img ng-src="{{img.thumbnail|uploadpath:80:80:'cover'}}" alt="" class="img-responsive" ng-if="img.type=='video'">
+                              <span ng-if="img.type=='video'" class="get-center moment-videoicon"><i class="fa fa-play-circle fa-2x color-white"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- moment all view end -->
+              <!-- moment travel view  -->
+              <div class="moment-travel-main" ng-if="momentView == 2 && viewMonth==false" infinite-scroll="getMoreMoments(travelLifeMoments)">
+                <!-- empty travel view profile user login for first time  -->
+                <div class="empty-moment-travel empty-profile-moment text-center" ng-if="travelLifeMoments.arr.length==0 && (template.isMine || (userData.following==1 && userData.status=='private') || userData.status=='public')">
+                  <div class="row">
+                    <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6">
+                      <h3 class="color-pink empty-title">Travel Becomes A Reason To Take Pictures And Store Them</h3>
+                      <p class="empty-descp">Some memories are worth sharing, travel surely tops the list. Your travels will not only inspire you
+                        to explore more of the world, you may just move another soul or two!</p>
+                      <p class="empty-descp">This space will get populated when you capture your Travel and Local life using the TraveLibro App.</p>
+                      <div class="journey-downloadicon">
+                        <ul class="list-unstyled list-inline text-center color-pink">
+                          <li class="">
+                            Download App
+                          </li>
+                          <li>
+                            <a href="https://itunes.apple.com/in/app/travelibro/id1056641759" target="_blank" class="color-pink">
+                              <i class="fa fa-apple"></i>
+                            </a>
+                          </li>
+                          <li>|</li>
+                          <li>
+                            <a href="https://play.google.com/store/apps/details?id=com.ascra.app.travellibro" class="color-pink" target="_blank">
+                              <i class="fa fa-android"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- empty travel view profile user login for first time-->
+
+                <!-- PRIVATE PROFILE EMPTY SCREEN -->
+                <div class="empty-profile-journey private-accountempty" ng-if="!template.isMine && (userData.following==0 || userData.following==2 || userData.following==undefined || userData.following==null) && userData.status=='private'">
+                  <div class="row">
+                    <div class="col-md-offset-2 col-md-8">
+                      <div class="private-accountcover text-center">
+                        <h3>This account is Private.</h3>
+                        <p>Follow to view their Travel and Local Life.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- PRIVATE PROFILE EMPTY SCREEN END -->
+
+
+                <!--<div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-3 col-sm-4" >-->
+                <div ng-if="travelLifeMoments.arr.length!==0 && (template.isMine || (userData.following==1 && userData.status=='private') || userData.status=='public')">
+                  <div class="row">
+                    <div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="view in travelLifeMoments.arr" ng-click="getJournItiMoments(view);" ng-if="!viewMonth">
+                      <div class="moment-travel-view">
+                        <div class="moment-travelimgholder pointer">
+                          <div class="img-backholder">
+                            <div class="backholder-height" ng-if="view.type==undefined">
+                              <img ng-src="{{view.coverPhoto|uploadpath:230:230:'cover'}}" alt="" class="img-responsive" ng-if="view.coverPhoto!=null">
+                              <img ng-src="{{view.startLocationPic|uploadpath:230:230:'cover'}}" alt="" class="img-responsive" ng-if="view.coverPhoto==null">
+                            </div>
+                            <div class="backholder-height" ng-if="view.type!=''">
+                              <img ng-src="{{view.photos.name|uploadpath:230:230:'cover'}}" alt="" class="img-responsive" ng-if="view.photos!=null">
+                            </div>
+                          </div>
+                          <div class="img-frontholder">
+                            <img src="img/moment-travel.png" alt="" class="img-responsive">
+                          </div>
+                        </div>
+                        <div class="travel-info avenir-roman">
+                          <span class="pull-right">({{view.mediaCount}})</span>
+                          <h4 class="avenir-heavy text-capitalize">{{view.name}} </h4>
+                          <span class="color-light-grey">{{view.startTime|formatDate:'date'}}</span>
+                        </div>
+                        <!--</div>
+                  </div>
+                </div>-->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- moment travel view end  -->
+              <!-- moment local view  -->
+              <div class="moment-local-main" ng-if="momentView == 3 && viewMonth==false" infinite-scroll="getMoreMoments(localLifeMoments)">
+                <!-- empty local view profile user login for first time  -->
+                <div class="empty-moment-local empty-profile-moment text-center" ng-if="localLifeMoments.arr[0].token==-1 && (template.isMine || (userData.following==1 && userData.status=='private') || userData.status=='public')">
+                  <div class="row">
+                    <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6">
+                      <h3 class="color-cyan empty-title">Suspended In Time</h3>
+                      <p class="empty-descp">Beautiful memories created through fabulous pictures and videos of those precious moments shared with
+                        family, friends and yourself.</p>
+                      <p class="empty-descp">This space will get populated when you capture your Travel and Local Life using the TraveLibro App.</p>
+                      <div class="journey-downloadicon">
+                        <ul class="list-unstyled list-inline text-center color-cyan">
+                          <li class="">
+                            Download App
+                          </li>
+                          <li>
+                            <a href="https://itunes.apple.com/in/app/travelibro/id1056641759" target="_blank" class="color-cyan">
+                              <i class="fa fa-apple"></i>
+                            </a>
+                          </li>
+                          <li>|</li>
+                          <li>
+                            <a href="https://play.google.com/store/apps/details?id=com.ascra.app.travellibro" class="color-cyan" target="_blank">
+                              <i class="fa fa-android"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- empty local view profile user login for first time-->
+
+                <!-- PRIVATE PROFILE EMPTY SCREEN -->
+                <div class="empty-profile-journey private-accountempty" ng-if="!template.isMine && (userData.following==0 || userData.following==2 || userData.following==undefined || userData.following==null) && userData.status=='private'">
+                  <div class="row">
+                    <div class="col-md-offset-2 col-md-8">
+                      <div class="private-accountcover text-center">
+                        <h3>This account is Private.</h3>
+                        <p>Follow to view their Travel and Local Life.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- PRIVATE PROFILE EMPTY SCREEN END -->
+                <!--<div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-3 col-sm-4" >-->
+                <div ng-if="localLifeMoments.arr.length!==0 && (template.isMine || (userData.following==1 && userData.status=='private') || userData.status=='public')">
+                  <div class="row">
+                    <div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="moment in localLifeMoments.arr" ng-click="getPerMonthMoments(moment,'local');"
+                      ng-if="moment.token!=-1 && viewMonth==false">
+                      <div class="moment-local-view">
+                        <div class="moment-localimgholder pointer">
+                          <div class="img-backholder">
+                            <img ng-src="{{moment.data[0].name|uploadpath:230:230:'cover'}}" alt="" class="img-responsive" ng-if="moment.data[0].type=='photo'">
+                            <!--<img ng-src="{{moment.data[0].thumbnail|uploadpath:180:180:'cover'}}" alt="" class="img-responsive" style="border:2px solid red"
+                          ng-if="moment.data[0].type=='video'">-->
+                            <img ng-src="{{moment.data[0].thumbnail|uploadpath:180:180:'cover'}}" alt="" class="img-responsive" ng-if="moment.data[0].type=='video'">
+                          </div>
+                          <div class="img-frontholder">
+                            <img src="img/moment-local.png" alt="" class="img-responsive">
+                          </div>
+                        </div>
+                        <div class="local-info text-center avenir-roman">
+                          <h4>{{moment.token|momentsDate}} <span>({{moment.count}})</span></h4>
+                        </div>
+                        <!--</div>
+                  </div>
+                </div>-->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="month-view-moments" ng-if="viewMonth">
+                <span ng-if="momentView!=2">
+                  <h4><span class="avenir-heavy">{{token|momentsDate}}</span> <span class="monthname-count">({{count}})</span></h4>
+                </span>
+                <span ng-if="momentView==2">
+                  <h4><span class="avenir-heavy">{{token}}</span> <span class="monthname-count">({{count}})</span></h4>
+                </span>
+                <div class="month-view-pic collage-month-view" infinite-scroll="getMorePhotos(album)">
+                  <div class="flex-wrap-container">
+                    <div class="row">
+                      <div class="col-xs-2" ng-repeat="monthMoments in album.perMonthMoments track by $index">
+                        <div class="singleMonth-imgholder relate" ng-click="getPhotosCommentData(monthMoments._id, $index, album.perMonthMoments.length,album.perMonthMoments)">
+                          <img ng-src="{{monthMoments.name|uploadpath:170:170:'cover'}}" alt="" class="img-responsive" ng-if="monthMoments.type=='photo'">
+                          <img ng-src="{{monthMoments.thumbnail|uploadpath:170:170:'cover'}}" alt="" class="img-responsive" ng-if="monthMoments.type=='video'">
+                          <span ng-if="monthMoments.type=='video'" class="get-center moment-videoicon"><i class="fa fa-play-circle fa-3x color-white"></i></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- moment local view end -->
+          <div class="pagination-loader" ng-if="paginationLoader">
+            <img src="img/page.svg" alt="Loading..." width="35px" class="img-responsive m-center">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

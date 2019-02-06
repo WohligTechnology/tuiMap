@@ -1,0 +1,72 @@
+<div class="second min-hght">
+<div class="container-fluid m-p0">
+  <div class="destination-nav second destin-fixednav-country bg-grey">
+    <div class="row m-m0">
+        <div class="col-md-8 col-sm-8 m-plr0">
+        <div class="destination-scroll pl20">
+           <ul class="list-inline">
+            <li ng-click="getTab('features-cities')" ng-class="{'active': countryoptions.active=='features-cities'}">Featured Cities</li>
+            <li ng-click="getTab('must-dos')" ng-class="{'active': countryoptions.active=='must-dos'}">Must Dos</li>
+            <li ng-click="getTab('itineraries')" ng-class="{'active': countryoptions.active=='itineraries'}">Itineraries</li>
+            <li ng-click="getTab('best-time-to-visit')" ng-class="{'active': countryoptions.active=='best-time-to-visit'}">Best Time To Visit</li>
+          </ul>
+        </div>
+      </div>
+        <div class="col-md-4 col-sm-4 hidden-xs m-plr0">
+          <div class="pr20">
+            <form action="">
+              <div class="input-search relate" ng-init="viewDestinationCountry={'outerClass':'outerDestCountry','innerClass':'innerDestCountry'}">
+                <div class="input-group outerDestCountry">
+                  <input type="text" class="form-control" placeholder="Search Destination" ng-model="dest.viewDestination" ng-change="callDestination();" ng-click="editOption(viewDestinationCountry,'outerDestCountry','innerDestCountry')">
+                  <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                  <span ng-if="searchLoader" class="small-loader">
+                    <img src="img/page.svg" width="25px" alt="" class="img-responsive">
+                  </span>
+                </div>
+                <div class="dropdown-destination innerDestCountry" ng-show="viewDestinationCountry.backgroundClick;">
+                  <ul>
+                    <li ng-repeat="dest in destinationList  track by $index">
+                      <span ng-if="dest.isCity==true" ng-click="countryView(dest.urlSlug,dest.isCity);">{{dest.name}}</span>
+                      <span ng-if="dest.isCity==false" ng-click="countryView(dest.urlSlug,dest.isCity);">{{dest.name}}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="destination-featured m-p0">
+             <div class="empty-travel-journey color-white" ng-if="countryDestData.featuredCities.length == 0">
+                     <div class="empty-ongo text-center">  
+                  <p class="empty-descp color-white">“I’m in love with cities I’ve never been to & people I’ve never met.”</p>
+                  <p class="empty-descp color-white">
+                    Like you, we can't wait to explore every corner of the globe; and do it all over again! While a lot has been experienced, we still have miles to go.
+                  </p>
+                                    <p class="empty-descp color-white">
+                    We can't wait to explore {{countryDestData.name}}, and be assured we'll keep you posted as soon as we do.
+                  </p>
+              </div>
+          </div>
+    <div class="head-title-all pt20 bg-white" ng-if="countryDestData.featuredCities.length > 0">
+      <!-- <h4 class="text-center fnt-22">Featured Cities</h4> -->
+    </div>
+      <div class="destination-holder bg-white plr30 pt20">
+        <div class="row m-m0">
+          <div class="col-md-4 col-sm-6 m-plr0" ng-repeat="feature in countryDestData.featuredCities ">
+            <div class="img-holder relate" ng-click="countryView(feature.urlSlug,dest.isCity)" style="background:url('{{feature.cityDisplayPhoto | uploadpath}}') #a0a0a0">
+              <!-- <img alt="travel-libro" ng-src="{{feature.cityCoverPhoto|uploadpath:400:400:'cover'}}" class="full-width"> -->
+              <h4 class="title-head-left country-featured-title color-white text-capitalize">
+                {{feature.name}}
+              </h4>
+              <div class="read-more left-bottom">
+                <p class="itinerary-must-count m-clear color-white avenir-roman">Must Do : <span class="avenir-heavy">{{feature.mustDoCount}}</span> | Itineraries : <span class="avenir-heavy">{{feature.itineraryCount}}</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="booking-bg one mt-60 pt70 rl img-holder">
+  <div class="overlay colorblue ab"></div>
+  <div class="text-cont ab text-center top10">
+    <h3 class="color-white avenir-heavy text-shadow fnt-60 no-margin">
+      Bookings
+    </h3>
+  </div>
+  <div class="container">
+    <div class="menu-booking ab">
+      <ul class="list-unstyled avenir-medium">
+        <li ng-repeat="submenu in bookingnav track by $index">
+          <a ui-sref="{{submenu.anchor}}" class="color-white" ng-if="submenu.anchor">{{submenu.name}}</a>
+            <a ng-href="{{submenu.link}}{{'?accessToken=' + accessToken}}" class="color-white"  ng-if="submenu.link && accessToken" target="{{submenu.target}}">{{submenu.name}}</a>
+            <a ng-href="{{submenu.link}}" class="color-white" ng-if="submenu.link && !accessToken" target="{{submenu.target}}">{{submenu.name}}</a>
+        </li>
+      </ul>
+      <!-- <ul class="list-unstyled avenir-medium">
+        <li>
+          <a href="http://flights.travelibro.com/en-GB/flights/#/result?originplace=&destinationplace=" target="_blank" class="color-white">Flights</a>
+        </li>
+        <li>
+          <a href="https://travelibro.com/bookings/hotels" class="color-white">Hotels</a>
+        </li>
+        <li>
+          <a href="http://flights.travelibro.com/en-GB/carhire/#/result?originplace=&destinationplace=" target="_blank" class="color-white">Cars</a>
+        </li>
+        <li>
+          <a href="https://travelibro.com/bookings/home-stays" class="color-white">Homestay</a>
+        </li>
+        <li>
+          <a href="https://travelibro.com/bookings/tours-and-excursions" class="color-white">Tours and Excursions</a>
+        </li>
+        <li>
+          <a href="https://travelibro.com/bookings/vacation-rentals" class="color-white">Vacation Rentals</a>
+        </li>
+      </ul> -->
+    </div>
+    <div class="menu-contact ab wid90">
+      <ul class="list-unstyled list-inline avenir-black text-center">
+        <li>
+          <img src="img/libro-home/booking/logo1.png" alt="">
+        </li>
+        <li>
+          <img src="img/libro-home/booking/logo2.png" alt="">
+        </li>
+        <li>
+          <img src="img/libro-home/booking/logo3.png" alt="">
+        </li>
+        <li>
+          <img src="img/libro-home/booking/logo4.png" alt="">
+        </li>
+        <li>
+          <img src="img/libro-home/booking/logo5.png" alt="">
+        </li>
+        <li>
+          <img src="img/libro-home/booking/logo6.png" alt="">
+        </li>
+        <li>
+          <img src="img/libro-home/booking/logo7.png" alt="">
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div ng-include="template.footer" class="template footer"></div>
+</div>

@@ -1,0 +1,207 @@
+<div class="message-page ">
+  <!-- Background-tint for delete -->
+  <div class="backdrop-popup" ng-show="showDeleteMessage" ng-click="deleteMessage()"></div>
+  <!-- Background-tint for delete enD -->
+
+  <div class="container-fluid">
+    <!-- MESSAGE HEADER -->
+    <div class="message-header">
+      <div class="row">
+        <div class="col-md-4 pad-zero">
+
+          <!-- List of friend header -->
+          <div class="listfriend-header clearfix" ng-hide="showNewMessage">
+            <!-- Search Input  -->
+            <div class="listfriend-search pull-left">
+              <div class="message-inputholder input-group">
+                <span class="input-group-addon search-input"><i class="fa fa-search"></i></span>
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+            </div>
+            <!-- Search Input END -->
+
+            <!-- Write new message btn -->
+            <div class="listfriend-newmessage-btn pull-right" ng-click="newMessage()">
+              <i class="fa fa-pencil-square-o"></i>
+            </div>
+            <!-- Write new message btn end -->
+          </div>
+          <!-- List of friend header  END-->
+
+          <!-- NEW MESSAGE HEADER -->
+          <div class="new-message-header" ng-show="showNewMessage">
+            <div class="newmsg-header-content clearfix">
+              <span class="newmsg-header-option pull-left" ng-click="newMessage()"><i class="fa fa-times"></i></span>
+              <span class="newmsg-header-content">New Message</span>
+              <span class="newmsg-header-option pull-right"> Next </span>
+            </div>
+          </div>
+          <!-- NEW MESSAGE HEADER END -->
+        </div>
+
+        <div class="col-md-8 pad-zero">
+
+          <!-- Chat-box header -->
+          <div class="chatbox-header clearfix" ng-show="viewMessageChat">
+            <h4>
+              <img src="img/follower.jpg" alt="" class="chat-header-profile">
+              <span>Andrea Christina</span>
+            </h4>
+            <ul class="list-inline pull-right chat-option-icons">
+              <li><a><i class="fa fa-camera color-white"></i></a></li>
+              <li><a ng-click="deleteMessage()"><i class="fa fa-trash-o color-white"></i></a></li>
+              <!-- <li><a><i class="fa fa-info-circle color-white"></i></a></li> -->
+            </ul>
+          </div>
+          <!-- Chat-box header enD -->
+        </div>
+      </div>
+    </div>
+    <!-- MESSAGE HEADER END -->
+
+
+    <div class="row">
+      <div class="col-md-4 pad-zero">
+
+        <div class="relate">
+
+          <!-- NEW MESSAGE section -->
+          <div class="newmessage-section" ng-show="showNewMessage">
+            <div class="newmessage-listview">
+              <div class="newmsg-input-holder">
+                <input type="text" class="form-control " placeholder="Write to:">
+              </div>
+              <div class="follower-list-scroll">
+                <ul class="avenir-roman">
+                  <li ng-repeat="follower in followerList track by $index">
+                    <div class="follower-msg-select relate">
+                      <input type="checkbox" id="{{follower.name}}" name="" />
+                      <label for="{{follower.name}}">
+                          <div class="follower-imgholder">
+                            <img ng-src="{{follower.profilePic}}" alt="" class="get-center">
+                          </div>
+                          <span class="follower-name">
+                            <span class="follower-username">{{follower.name}}</span>
+                            <span class="follower-at-tag">@user-name</span></span>
+                        </label>
+                    </div>
+                  </li>
+              </div>
+            </div>
+          </div>
+          <!-- NEW MESSAGE section END -->
+
+          <!-- List of followers to message view -->
+          <div class="list-of-friends" ng-hide="showNewMessage">
+            <!-- Followers List -->
+            <div class="listfriend-div">
+
+              <!-- FOLLOWER CARD -->
+              <div class="listfriend-card" ng-repeat="follower in followerList track by $index" ng-click="showMessageChat(follower)">
+                <!-- Follwer card img holder -->
+                <div class="listfriend-imgcard">
+                  <img ng-src="{{follower.profilePic}}" alt="" class="get-center">
+                </div>
+                <!-- Follwer card img holder end -->
+                <!-- Follwer card details -->
+                <div class="listfriend-detailcard">
+                  <div class="listfriend-countbadge">
+                    <span class="msg-countbadge">20</span>
+                  </div>
+                  <div class="">
+                    <p class="listfriend-follower">{{follower.name}}</p>
+                    <p class="listfriend-msg">Whasssssup?</p>
+                  </div>
+                  <div class="listfriend-message-timestamp">
+                    <p class="m-clear"><i class="fa fa-calendar"></i><span class="ml5 ">{{follower.timeStampDate}}</span> | <i class="fa fa-clock-o "></i> <span>{{follower.timeStampTime}}</span></p>
+                  </div>
+                </div>
+                <!-- Follwer card details end -->
+              </div>
+              <!-- FOLLOWER CARD END -->
+
+            </div>
+            <!-- Followers List end-->
+          </div>
+          <!-- List of followers to message view end -->
+        </div>
+      </div>
+      <div class="col-md-8 pad-zero">
+        <div class="relate">
+          <div class="message-chat-section">
+
+            <!-- Blank message display -->
+            <div class="message-empty-section" ng-hide="viewMessageChat">
+              <div class="empty-msg-box">
+                <h3 class="color-pink"><i class="fa fa-envelope color-darkgrey"></i> Stay Connected!</h3>
+                <p class="color-darkgrey">Interact and share interesting content with your buddies and followers on TraveLibro.</p>
+              </div>
+            </div>
+            <!-- Blank message display end -->
+
+            <!-- CHAT VIEW -->
+            <div class="chat-box" ng-show="viewMessageChat">
+              <!-- MESSAGE VIEW BOX -->
+              <div class="message-chatbox">
+                <!-- Timestamp for chat -->
+                <div class="chat-timestamp">
+                  <p class="m-clear"><i class="fa fa-calendar"></i><span class="ml5 ">14 Jan, 2015</span> | <i class="fa fa-clock-o "></i> <span> 1.20 pm</span></p>
+                </div>
+                <!-- Timestamp for chat end -->
+
+                <!-- NEW MESSAGEE BOX -->
+                <div class="new-message-box clearfix" ng-repeat="newMsg in userMessage track by $index">
+                  <!-- MESSAGE RECIEVED BUBBLE -->
+                  <div class="message-bubble message-recieved-bubble" ng-if="newMsg.msgType == 'recieved'">
+                    <p>{{newMsg.msgText}}</p>
+                    <div class="listfriend-message-timestamp">
+                      <p class="m-clear"><i class="fa fa-clock-o "></i> <span>{{newMsg.msgStampTime}}</span></p>
+                    </div>
+                  </div>
+                  <!-- MESSAGE RECIEVED BUBBLE  END-->
+
+                  <!-- MESSAGE SENT BUBBLE -->
+                  <div class="message-bubble message-sent-bubble" ng-if="newMsg.msgType=='sent'">
+                    <p>{{newMsg.msgText}}</p>
+                    <div class="listfriend-message-timestamp">
+                      <p class="m-clear"><i class="fa fa-clock-o"></i> <span>{{newMsg.msgStampTime}}</span></p>
+                    </div>
+                  </div>
+                  <!-- MESSAGE SENT BUBBLE END -->
+                </div>
+                <!-- NEW MESSAGEE BOX END -->
+              </div>
+              <!-- MESSAGE VIEW BOX END -->
+
+              <!-- message type input box -->
+              <div class="message-typebox-position">
+                <div class="input-group message-typebox">
+                  <textarea class="form-control" placeholder="Your message..."></textarea>
+                  <span class="input-group-btn">
+                    <button class="btn btn-pink btn-message-send" type="button"><i class="fa fa-location-arrow color-white" aria-hidden="true"></i></button>
+                  </span>
+                </div>
+              </div>
+              <!-- message type input box end -->
+            </div>
+            <!-- CHAT VIEW END -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DELETE MSG BOX -->
+    <div class="msg-delete-popup" ng-show="showDeleteMessage">
+      <div class="msg-popup-box relate">
+        <span class="msg-delete-popup-close pointer" ng-click="deleteMessage();"><i class="fa fa-times"></i></span>
+        <h3 class="">Delete Chat?</h3>
+        <div class="msg-delete-btnbox">
+          <button type="button" name="button" class="btn btn-more btn-delete-msg">Yes</button>
+          <button type="button" name="button" class="btn btn-more btn-delete-msg" ng-click="deleteMessage();">No</button>
+        </div>
+      </div>
+    </div>
+    <!-- DELETE MSG BOX END -->
+  </div>
+  <!-- container-fluid end -->
+</div>

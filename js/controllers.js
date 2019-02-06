@@ -20,7 +20,7 @@ var map;
 var center = {};
 var centers = [];
 markers[0] = {};
-angular.module('phonecatControllers', ['templateservicemod', 'mylife', 'ongojourney', 'commontask', 'anchorSmoothScroll', 'infinite-scroll', 'navigationservice', 'travelibroservice', 'cfp.loadingBar', 'ui.bootstrap', 'ui.select', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angularFileUpload', 'ngImgCrop', 'mappy', 'wu.masonry', 'ngScrollbar', 'ksSwiper', 'ui.tinymce', 'ngFadeImgLoading', 'internationalPhoneNumber', 'ngIntlTelInput'])
+angular.module('phonecatControllers', ['templateservicemod', 'mylife', 'ongojourney', 'commontask', 'anchorSmoothScroll', 'infinite-scroll', 'navigationservice', 'travelibroservice', 'cfp.loadingBar', 'ui.bootstrap', 'ui.select', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angularFileUpload', 'ngImgCrop', 'mappy', 'wu.masonry', 'ngScrollbar', 'ksSwiper', 'ui.tinymce', 'ngFadeImgLoading', 'internationalPhoneNumber'])
   .run(['$anchorScroll', function ($anchorScroll) {
     $anchorScroll.yOffset = 50; // always scroll by 50 extra pixels
   }])

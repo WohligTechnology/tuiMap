@@ -1,0 +1,93 @@
+<div class="quickitinerary-notify-main">
+  <div class="notify-main">
+    <span class="close pop-close-btn notify-close" ng-click="$dismiss();"><img src="img/cancel.png" alt="Cancel" class="img-responsive"></span>
+    <div class="container-fluid">
+      <div class="bg-white">
+        <div class="notify-imgsec">
+          <div class="notify-imgholder">
+            <img ng-src="{{listOfComments.name|uploadpath}}" alt="Andrea" class="img-reponsive">
+          </div>
+          <p>{{listOfComments.comments}}</p>
+        </div>
+        <div class="comment-like-notify">
+          <div class="like-comment-mainsec">
+            <div class="clearfix">
+              <div class="pull-left">
+                <ul class="notify-like">
+                  <li><a href="" class="relate"><i class="fa color-blue" ng-class="listOfComments.likeDone ? 'fa-heart like-animate' : 'fa-heart-o'" ng-click="likePhoto(listOfComments.name,ongo._id,listOfComments._id)" like-sound></i>
+                    <span></span>
+                    <audio id="like-play">
+                      <source src="img/tiny1.mp3" type="audio/mp3">
+                    </audio>
+                  </a></li>
+                  <li>
+                    <a href=""><img src="img/comments.png" alt="" height="20" class="img-responisve"></a>
+                  </li>
+                  <li>
+                    <a href=""><img src="img/share.png" alt="" height="20" class="img-responisve"></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="pull-right">
+                <div class="notification-like">
+                  <span class="notify-like-holder pointer avenir-roman" ng-click="showLikes=!showLikes;getLikes(ongo._id)">
+                    <i class="fa fa-heart color-blue" ng-class="{'view-like' : showLikes == true , '' : showLikes == false}" ></i>
+                   <span>{{listOfComments.like.length|filterCount}}   </span>{{listOfComments.like.length|singularPlural:'Likes'}}
+                  <div class="like-dropdown" ng-show="showLikes">
+                    <ul>
+                      <li ng-repeat="listLikes in listOfLikes.like"><a href="">{{listLikes.name}}</a></li>
+                    </ul>
+                  </div>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- comment section -->
+          <div class="comment-sec">
+            <div class="write-comment-text">
+              <div class="commenter-img">
+                <div class="commenter-imgholder">
+                  <img ng-src="{{profile.profilePicture|uploadpath:45:47:'cover'}}" alt="" class="img-responsive">
+                </div>
+              </div>
+              <div class="comment-ur-text">
+                <textarea name="" id="enterComment" placeholder="Write a comment" class="form-control" ng-model="text"></textarea>
+              </div>
+            </div>
+            <div class="clearfix comment-post">
+              <div class="pull-right">
+                <button class="btn btn-pink post-btn" ng-click=postPhotosComment(listOfComments.name,text,listOfComments.post,listOfComments._id)>Post</button>
+              </div>
+            </div>
+            <div class="view-comment-list" ng-repeat="list in listOfComments.comment">
+              <div class="commenter-img">
+                <div class="commenter-imgholder">
+                  <img ng-src="{{list.user.profilePicture|uploadpath:45:47:'cover'}}" alt="" class="img-responsive">
+                </div>
+              </div>
+              <div class="comment-container">
+                <div class="commenter-text">
+                  <!--<p class="avenir-roman"><span class="commenter-name color-blue avenir-heavy mr5">Andreas Christina</span>Lorem ipsum dolor sit amet,
+                    consectetur adipisicing elit. Qui consectetur, iste asperiores similique et veniam tempora nisi. Dignissimos
+                    vel, nesciunt fugit odio nobis modi earum nisi iste soluta deserunt at.</p>-->
+                  <p class="avenir-roman"><span class="commenter-name color-blue avenir-heavy mr5">{{list.user.name}}</span>{{list.text}}</p>
+                  <div class="like-reply-line">
+                    <span class="color-blue avenir-roman mr5 pointer">Like</span>
+                    <span class="color-blue avenir-roman mr5 pointer">Reply</span>
+                    <span class="time-stamp ml5 avenir-roman"><i class="fa fa-calendar color-grey mr5"></i><span>{{list.date|formatDate:'date'}}</span>                    | <i class="fa fa-clock-o mr5 color-grey"></i><span>{{list.date|formatDate:'time'}}</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- comment section end` -->
+        </div>
+        <div class="comment-tag color-blue">
+          <!--<p class="m-clear avenir-roman" >Evening by the beach! :) with Sarvesh Bramhe & Gayatri Sakalkar - at Girgaon</p>-->
+          <p class="m-clear avenir-roman" ng-bind-html="ongo.postString"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

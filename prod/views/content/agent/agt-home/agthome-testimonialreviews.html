@@ -1,0 +1,116 @@
+<div class="agt-home-testimonialreviews bg-white" infinite-scroll="getMoreAgentData();" infinite-scroll-disabled="scroll.busy">
+    <div class="">
+        <!-- WRITE TESTIMONIAL -->
+        <div class="write-testimonial " ng-class="{'bg-white' : reviewData.length == 0}">
+            <div class="container">
+                <div class="color-white clearfix">
+                    <div class="pull-left avenir-heavy" ng-if="reviewData.length != 0">
+                        <h2 class="color-blue">{{avgRating.averageRating}} / 10 <span class="font-sz18">({{avgRating.totalReviews}} {{avgRating.totalReviews | singularPlural:'Reviews'}})</span></h2>
+                    </div>
+                    <!-- ng-if="!template.isMine" -->
+                    <div class="pull-right" ng-if="!template.isMine">
+                        <div class="writetestimonial-card">
+                            <div class="testimonial-closed" ng-click="addTestimonial();" ng-class="{'view-testimonial' : showTestimonial , '' : !showTestimonial}">
+                                <p class="posi-relative m-clear">Write A Testimonial<i class="testimonial-droparrow fa fa-angle-down" ng-class="{'fa-angle-up' : showTestimonial, 'fa-angle-down': !showTestimonial }" aria-hidden="true"></i></p>
+                            </div>
+                            <div class="testimonial-open range-custom" ng-show="showTestimonial">
+                                <div class="give-rating text-center clearfix">
+                                    <span class="font-sz10 color-cyan">Rate This Agent</span>
+                                    <input ng-init="review.rating=7" type="range" min="1" max="10" step="1" ng-model="review.rating" required>
+                                    <span class="pull-left color-grey">1</span>
+                                    <span class="pull-right color-grey">10</span>
+                                </div>
+                                <div class="testimonial-rating text-center">
+                                    <p class="color-pink font-sz24">{{review.rating}}/10</p>
+                                </div>
+                                <div class="review-textarea text-center">
+                                    <form name="agentReview">
+                                        <span class="color-cyan">Add Your review </span>
+                                        <textarea ng-init="review.testimonial = ''" id="textareaChars" maxlength="300" placeholder="Fill me in ..." class="form-control review-text" ng-model="review.testimonial" required></textarea>
+                                        <div class="review-count clearfix">
+                                            <span class="pull-left font-sz10">
+                        Min 150 Characters
+                      </span>
+                                            <span class="pull-right font-sz10">{{review.testimonial.length}}/300</span>
+                                        </div>
+                                        <button class="btn btn-dark-blue btn-more post-review" ng-click="saveTestimonial(review)" ng-disabled="agentReview.$invalid">POST</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- WRITE TESTIMONIAL END-->
+        <!-- EMPTY AGENT INTRO -->
+        <div class="empty-intro bg-white agt-home-testimonialreiewsintro" ng-if="reviewData.length == 0 && template.isMine">
+            <div class="container">
+                <div class="text-center">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-6">
+                            <h3 class="color-blue">
+                  What are clients saying?</h3>
+                            <p class="color-blue">Clients who have experienced your tours and packages can rate their experiences with you and leave a testimonial. This space will help attract more clients based on your ratings.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- EMPTY AGENT INTRO  END-->
+        <!-- EMPTY USER INTRO -->
+        <div class="empty-intro agt-home-testimonialreiewsintro bg-white  avenir-roman" ng-if="reviewData.length == 0 && !template.isMine" ng-class="isMine?{'padding-top':'60px'}:''">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-8">
+                        <div class="agt-user-intro">
+                            <h3 class="color-blue avenir-heavy text-capitalize">{{userData.name}}</h3>
+                            <p class="color-blue">has not recieved any testimonials yet.</p>
+                            <p class="color-pink avenir-heavy font-sz18">Be the first to rate your experience with them!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- EMPTY USER INTRO END -->
+        <!-- TESTIMONIAL CARDS  -->
+        <div class="container testimonial-holder" ng-if="reviewData.length != 0">
+            <div masonry preserve-order class="masonry-main">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 masonry-brick" ng-repeat="review in reviewData track by $index">
+                        <div class="testimonial-card">
+                            <div class="testimonial-comment">
+                                <p class="testimonial-quote">
+                                    <q>{{review.testimonial}}</q>
+                                </p>
+                            </div>
+                            <div class="testimonial-details clearfix">
+                                <div class="pull-left">
+                                    <div class="testprofile-holder">
+                                        <img ng-src="{{review.byUser.profilePicture|uploadpath:200:200:'cover'}}" alt="{{review.byUser.name}}" class="img-responsive">
+                                    </div>
+                                    <div class="testprofile-name">
+                                        <p class="text-capitalize">{{review.byUser.name}}</p>
+                                        <span class="text-ellipsis">{{review.byUser.homeCity}}</span>
+                                    </div>
+                                </div>
+                                <div class="pull-right">
+                                    <div class="testimonial-rate">
+                                        <p class="">{{review.rating}}/10</p>
+                                        <span class="avenir-heavy">Rated</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- TESTIMONIAL CARDS END  -->
+    </div>
+    <!-- PAGINATION LOADER -->
+    <div class="" ng-if="template.paginationLoader">
+        <img src="img/page.svg" alt="" class="m-center img-responsive" width="25px">
+    </div>
+    <!-- PAGINATION LOADER END -->
+</div>

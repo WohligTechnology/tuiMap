@@ -1,0 +1,137 @@
+<div class="" ng-class="{'highlighted-post': json.journeyHighLight==ongo._id, '': json.journeyHighLight!==ongo._id}">
+  <!--{{ongo.class}}--Add this as class if any problem comes in in velow div-->
+  <div id="{{ongo._id}}" class="ongo-journey-card" ng-if="ongo.type=='travel-life'" ng-class="{'hasLatLng':ongo.latlong && ongo.latlong.lat}">
+    <!-- card header -->
+    <div class="ongo-card-header">
+      <span class="mr5 day-journey">Day {{ongo.day}}</span>
+    </div>
+
+    <a target="_blank" ng-href="{{ongo.infoLink}}" class="info-float-right">
+      <span class="white-border"><i class="fa icon-fit icon-round icon-white tui-info" ></i></span>
+    </a>
+
+    <div class="cost-effect" ng-if="ongo.cost == 'Free'">{{ongo.cost}}</div>
+    <div class="info-text" ng-if="ongo.infoText">
+      <hr>
+      <div ng-class="{'pad-btner': ongo.cost == 'Paid'}">{{ongo.infoText}}</div>
+    </div>
+    <button class="btn btn-fly btn-primary" type="button" ng-if="ongo.cost == 'Paid'">Buy Now</button>
+    <!-- card header end -->
+    <!-- card main -->
+    <div class="ongo-card-main">
+
+      <div class="card-imgholder pointer" ng-if="ongo.photos && ongo.photos.length==0 && ongo.showMap && ongo.checkIn && ongo.checkIn.lat ">
+
+        <fade-img-loading blur="{{ongo.imageUrl}}" image="{{ongo.imageUrl}}"></fade-img-loading>
+      </div>
+
+      <div class="card-imgholder pointer" ng-if="ongo.photos.length>0 && ongo.onDisplay=='photos'" ng-click="getPhotosCommentData(ongo.photosVideos[index]._id, index, ongo.photosVideos.length, ongo.photosVideos)">
+
+        <fade-img-loading blur="{{ongo.photosVideos[index].name}}" image="{{ongo.photosVideos[index].name}}"></fade-img-loading>
+      </div>
+      <div class="video-ongo-journey relate {{removeVideoButton}}" ng-if="ongo.videos.length>0 && ongo.onDisplay=='videos'">
+        <brightcove-player poster="{{ongo.photosVideos[index].thumbnail}}" account-id="4554541995001" player-id="default" video-id="{{ongo.photosVideos[index].name}}"></brightcove-player>
+        <div class="youtube-icon get-center" hidden>
+          <!-- <span><i class="fa fa-youtube-play fa-4x color-pink"></i></span> -->
+          <img src="img/ongojourney/play-journey.png" alt="Play Journey" width="40" class="img-responsive">
+        </div>
+      </div>
+      <!-- ongo img end-->
+      <!-- related img if less then 5-->
+      <div class="relate-pic" ng-if="(ongo.photosVideos.length>1)&&(ongo.photosVideos.length<=5)">
+        <div class="related-ongo-slider" ng-repeat="relatePic in ongo.photosVideos track by $index">
+          <img style="background-image:url('{{relatePic.thumbnail}}')" alt="" class="img-responsive pointer" ng-if="ongo.photosVideos[$index] && ongo.photosVideos[$index].thumbnail"
+            ng-click="changeImage($index,'videos')">
+          <img style="background-image:url('{{relatePic.name}}')" alt="" class="img-responsive pointer" ng-if="!(ongo.photosVideos[$index] && ongo.photosVideos[$index].thumbnail)"
+            ng-click="changeImage($index,'photos')">
+        </div>
+      </div>
+      <!-- related img end if less then 5-->
+      <!-- related img if more then 5 then slider-->
+      <div class="related-imgslider" ng-if="ongo.photosVideos.length>5">
+        <flex-slider flex-slide="slide in ongo.photosVideos track by $index" item-width="99" class="related-slide carousel" animation="true"
+          item-margin="5" control-nav="false">
+          <!-- put/remove item width 99 if needed -->
+          <li>
+            <div class="related-ongo-slider">
+              <!--<img ng-src="{{slide.name|uploadpath:99:99:'cover'}}" alt="" class="img-responsive pointer">-->
+              <img ng-src="{{slide.thumbnail|uploadpath:99:99:'cover'}}" alt="" class="img-responsive pointer" ng-if="ongo.photosVideos[$index] && ongo.photosVideos[$index].thumbnail"
+                ng-click="changeImage($index,'videos')">
+              <img ng-src="{{slide.name|uploadpath:99:99:'cover'}}" alt="" class="img-responsive pointer" ng-if="!(ongo.photosVideos[$index] && ongo.photosVideos[$index].thumbnail)"
+                ng-click="changeImage($index,'photos')">
+            </div>
+          </li>
+        </flex-slider>
+      </div>
+      <!-- related img end if more then 5 then slider-->
+      <!-- ongo journey video -->
+      <!--<div class="" ng-if="ongo.videos.length>0">
+      <div class="video-ongo-journey relate {{removeVideoButton}}" ng-click="playVideo(ongo._id,$parent.index);">
+        <video id="{{ongo._id}}_{{index}}" poster="{{ongo.videos[index].thumbnail|uploadpath}}" controls="controls" width="550">
+          <source src="{{ongo.videos[index].name| trusted}}" type="video/mp4">
+        </video>
+        <div class="youtube-icon get-center">
+          <span><i class="fa fa-youtube-play fa-4x color-pink"></i></span>
+        </div>
+      </div>
+    </div>-->
+      <!-- ongo journey video end-->
+    </div>
+    <!-- card main end-->
+    <!-- card footer -->
+
+    <!-- card footer end-->
+  </div>
+</div>
+<!-- card-ongo-main -->
+<!-- ongo journey join -->
+<div class="ongo-journey-join" ng-if="ongo.type=='join'">
+  <div class="relate join-relate">
+    <div class="journey-pic-imgholder profile-imgholder">
+      <img ng-src="{{ongo.postCreator.profilePicture|uploadpath:80:85:'cover'}}" alt="" class="img-responsive">
+    </div>
+    <div class="join-tag">
+      <img ng-src="img/ongojourney/hi-image.png" alt="" class="img-responsive" width="60">
+    </div>
+  </div>
+  <div class="join-card text-center">
+    <h4>{{ongo.user.name }} <span class="block">has joined this journey</span></h4>
+  </div>
+</div>
+<!-- ongo journey join end-->
+
+<!-- ongo journey left -->
+<div class="ongo-journey-left" ng-if="ongo.type=='left'">
+  <div class="relate">
+    <div class="journey-pic-imgholder profile-imgholder">
+      <img ng-src="{{ongo.postCreator.profilePicture|uploadpath:80:85:'cover'}}" alt="" class="img-responsive">
+    </div>
+    <div class="left-tag">
+      <img src="img/ongojourney/bye-image.png" alt="Bye Bye" class="img-responsive" width="70">
+    </div>
+  </div>
+  <div class="journey-left text-center">
+    <h4 class="avenir-roman">{{ongo.user.name}}</h4>
+    <p class="m-clear avenir-roman">
+      <!-- <i class="fa fa-calendar mr5"></i> -->
+      <span>{{ongo.UTCModified|formatDate: 'date'}}</span> |
+      <!-- <i class="fa fa-clock-o mr5"></i> -->
+      <span>{{ongo.UTCModified|formatDate: 'time'}}</span></p>
+  </div>
+</div>
+<!-- ongo journey left end-->
+<!--on go journey-change -->
+<div class="ongo-journey-change text-center" ng-if="ongo.type=='cityChange'">
+  <div class="journey-change">
+    <h4 class="color-white">{{ongo.location}}</h4>
+  </div>
+  <p ng-if="ongo.distanceTime">{{ongo.distanceTime}}</p>
+</div>
+<!-- on go journey-change end -->
+<!-- on go journey main end-->
+<!-- close comment wala backdrop div -->
+<div class="close-comment-backdrop" ng-click="closeBackDrop();"></div>
+<!-- close comment wala backdrop div end-->
+<!--close like wala backdrop div-->
+<!--<div class="close-like-backdrop" ng-click="getLikesData({'post':ongo})"></div>-->
+<!--close like wala backdrop div end-->

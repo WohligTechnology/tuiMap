@@ -1,0 +1,138 @@
+<div class="">
+  <div class="container-fluid">
+    <div class="profile-photo-section relate">
+      <div class="profile-pic relate">
+        <div class="profile-imgholder ">
+          <img src="img/profile-main.png" alt="" class="img-responsive">
+        </div>
+        <img src="img/flag.png" alt="" class="flag img-responsive">
+        <img src="img/wave-profile.png" alt="" width="40" class="wave img-responsive">
+      </div>
+      <div class="profile-more-detail text-center">
+        <h3 class="color-blue m-clear font-bold avenir-medium ">Amit Duxctronn</h3>
+        <h5 class="color-pink avenir-roman">Lives In: <i class="fa fa-map-marker mr5"></i><span>Mumbai</span></h5>
+      </div>
+    </div>
+    <div class="user-travel-detail relate">
+      <ul>
+        <li class="text-center">
+          <div class="travel-inside">
+            <span class="avenir-heavy color-blue">302</span>
+            <span class="block avenir-roman color-blue mt5">Following</span>
+          </div>
+        </li>
+        <li class="text-center">
+          <div class="travel-inside">
+            <span class="avenir-heavy color-blue">302</span>
+            <span class="block avenir-roman color-blue mt5">Followers</span>
+          </div>
+        </li>
+        <li class="text-center">
+          <div class="travel-inside">
+            <span class="avenir-heavy color-blue">28</span>
+            <span class="block avenir-roman color-blue mt5">Countries Visited</span>
+          </div>
+        </li>
+        <li class="text-center">
+          <div class="travel-inside">
+            <span class="avenir-heavy color-blue">4</span>
+            <span class="block avenir-roman color-blue mt5">Bucket List</span>
+          </div>
+        </li>
+        <li class="text-center">
+          <div class="travel-inside">
+            <span class="avenir-heavy color-blue">302</span>
+            <span class="block avenir-roman color-blue mt5">Journeys Created</span>
+          </div>
+        </li>
+        <li class="text-center">
+          <div class="travel-inside">
+            <span class="avenir-heavy color-blue">302</span>
+            <span class="block avenir-roman color-blue mt5">Check-Ins</span>
+          </div>
+        </li>
+        <li class="text-center">
+          <div class="travel-inside">
+            <span class="avenir-heavy color-blue">1302</span>
+            <span class="block avenir-roman color-blue mt5">Photos</span>
+          </div>
+        </li>
+        <li class="text-center">
+          <div class="travel-inside">
+            <span class="avenir-heavy color-blue">32</span>
+            <span class="block avenir-roman color-blue mt5">Reviews</span>
+          </div>
+        </li>
+        <li class="text-center">
+          <div class="travel-inside">
+            <span class="avenir-heavy color-blue">302</span>
+            <span class="block avenir-roman color-blue mt5">Itineraries</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="all-profile-detail">
+      <div class="more-about-me">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+              <div class="text-center">
+                <div class="more-detail" ng-show="getMore">
+                  <p class="avenir-roman">Amit loves to travel and explore the <img src="img/island.png" alt="" width="30" /> <b>Island &amp; Beach</b>. He usually goes <img src="img/more-road.png" alt="" width="30" /> <b>Where the road takes</b> him, tagging his <img src="img/bus.png"
+                      alt="" width="30" /> <b>Family</b> along. His idea of a holiday is to go out of his way to see his favourite artist perform at a <img src="img/dj.png" alt="" width="30" /> <b>Music Festival</b>.</p>
+                </div>
+                <span class="djb-font get-more pointer" ng-click="getMore = !getMore">more about me... <img src="img/more-about-me.png" alt="" height="35" class="" ng-class="{'abt-me': getMore == true}"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white">
+        <div class="vector-section ">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="vector-map vector-map-full">
+                <div class="text-right mr10 mb10">
+                  <span class="color-blue fz12 mr10"><i class="fa fa-check color-pink mr5"></i> Been There</span>
+                  <span class="color-blue fz12 ml10"><i class="fa fa-heart color-blue mr5"></i> Would Love To Go</span>
+                </div>
+                <mappy data="data" map-data="mapPathData" key="metric" colors="heatmapColors" humanize-fn="mapDataHumanizeFn(val)"></mappy>
+              </div>
+            </div>
+            <!-- <div class="col-md-3">
+              <div class="wish-country-visit">
+                <form>
+                  <input type="text" class="visit-input" placeholder="Add Country Visited">
+                  <button class="btn btn-pink">Add</button>
+                  <div class="visited-country-list avenir-roman">
+                    <ul>
+                      <li ng-repeat="list in bucketList">
+                        <div class="country-list">
+                          <span class="color-blue inline-block country-name">{{list.countryName}}</span>
+                          <div class="get-right">
+                            <div class="relate inline-block mr10">
+                              <div class="custom-checkbox">
+                                <input type="checkbox" id="{{list.countryName}}">
+                                <label for="{{list.countryName}}"></label>
+                              </div>
+                            </div>
+                            <div class="relate inline-block">
+                              <div class="bucket-list custom-checkbox-heart">
+                                <input type="checkbox" id="wish{{list.countryName}}">
+                                <label for="wish{{list.countryName}}"></label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </form>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

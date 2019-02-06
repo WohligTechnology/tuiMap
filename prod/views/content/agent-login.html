@@ -1,0 +1,384 @@
+<div class="agent-login" ng-class="{'agent-login-failbackdrop': agentloginView==2, '': agentloginView!==2}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
+                <div class="bg-agent bg-white avenir-roman">
+                    <!-- VERIFICATION CODE START -->
+                    <div class="agt-verification-code" ng-if="agentloginView==0 && isVerified != true">
+                        <div class="text-center">
+                            <h3 class="color-blue avenir-heavy">Verification</h3>
+                            <p>A 4-digit Verification code has been sent
+                                <br> to your registered email address</p>
+                            <form name="otp" ng-submit="submitOtp(verify)">
+                                <div class="veri-box">
+                                    <input type="text" name="a" class="veri-code-box form-control" maxlength="1" ng-model="verify.a" required>
+                                    <input type="text" name="b" class="veri-code-box form-control" maxlength="1" ng-model="verify.b" required>
+                                    <input type="text" name="c" class="veri-code-box form-control" maxlength="1" ng-model="verify.c" required>
+                                    <input type="text" name="d" class="veri-code-box form-control" maxlength="1" ng-model="verify.d" required>
+                                </div>
+                                <p>If you haven't recieved a verification code yet,
+                                    <br> Click here to
+                                    <a class="color-blue" ng-click="requestOtp()">
+                                        <u>Re-send</u>
+                                    </a>
+                                </p>
+                                <div class="marg-tp30 clearfix">
+                                    <input type="submit" class="btn btn-blue-outline btn-more" ng-disabled="otp.a.$invalid || otp.b.$invalid || otp.c.$invalid || otp.d.$invalid">
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- VERIFICATION CODE END -->
+                    <!-- VERIFIED SUCCESS START -->
+                    <div class="verification-complete" ng-if="agentloginView==1">
+                        <div class="text-center">
+                            <h3 class="color-blue avenir-heavy">Verification</h3>
+                            <img src="img/verified.png" alt="Verified" class="mt20 mb20 img-responsive m-center">
+                            <p class="color-blue avenir-roman">Your account has been <span class="block">successfully verified</span></p>
+                            <div class="button-panel clearfix">
+                                <button class="btn btn-blue-outline btn-more pull-right" ng-click="agentSec(3)">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- VERIFIED SUCCESS END -->
+                    <!-- VERIFIED ERROR START -->
+                    <div class="verification-complete" ng-if="agentloginView==2">
+                        <div class="text-center">
+                            <h3 class="color-blue avenir-heavy">Verification Code Error</h3>
+                            <p class="color-pink">Incorrect Verification Code entered.
+                                <br> Kindly re-enter the correct code.</p>
+                            <!-- <img src="img/verified.png" alt="Verified" class="mt20 mb20 img-responsive m-center"> -->
+                            <p class="color-blue avenir-roman">Click here to
+                                <a class="color-blue">
+                                    <u>Re-send</u>
+                                </a> Verification Code</p>
+                            <div class="veri-error-btn text-center">
+                                <!--button-panel-->
+                                <button class="btn btn-more btn-pink" ng-click="agentSec(0)">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- VERIFIED ERROR END -->
+                    <!-- SELECT CITY START -->
+                    <div class="city" ng-if="agentloginView==3">
+                        <div class="text-center">
+                            <h3 class="color-blue avenir-heavy">Head Office Location</h3>
+                            <div class="select-your-nation select-your-city">
+                                <div class="nation-city">
+                                    <ui-select ng-model="userDetails.homeCity" theme="bootstrap" ng-value="userDetails.homeCity">
+                                        <ui-select-match placeholder="Search City">{{$select.selected.description}}</ui-select-match>
+                                        <ui-select-choices repeat="city.description as city in cities | filter:searchCity" ng-click="agentSec(4);" refresh="searchByKey($select.search)" refresh-delay="0">
+                                            <span class="color-light-grey">{{city.description}}</span>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                                <!-- <div class="search-nation select-city">
+                  <input type="text" class="form-control avenir-roman" placeholder="Search City" ng-model="searchCity" ng-value="userDetails.homeCity"
+                    ng-change="searchByKey(searchCity)">
+                </div> -->
+                                <!-- <ul class="avenir-roman ">
+                  <li ng-repeat="city in cities | filter:searchCity track by $index">
+                    <div class="nation-select relate">
+                      <input type="radio" id="{{city.id}}" name="city" ng-value="city.description" ng-model="userDetails.homeCity" />
+                      <label for="{{city.id}}">
+                        <span class="color-blue">{{city.description}}</span>
+                      </label>
+                    </div>
+                  </li>
+                </ul> -->
+                            </div>
+                            <div class="button-panel clearfix">
+                                <button class="btn btn-blue-outline btn-more pull-right" ng-click="agentSec(4)" ng-disabled="!userDetails.homeCity">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SELECT CITY SEND -->
+                    <!-- COMPANY DETAILS START -->
+                    <div class="agent-cmpny-det" ng-if="agentloginView==4">
+                        <div class="text-center">
+                            <h3 class="color-blue avenir-heavy">Company Details</h3>
+                            <div class="company-details">
+                                <form name="userDetailsForm">
+                                    <div class="form-group">
+                                        <div class="agent-cmpny-inputholder">
+                                            <input type="text" class="form-control color-blue" placeholder="Company Name*" ng-model="userDetails.company.name" required name="name">
+                                            <p ng-if="userDetailsForm.name.$invalid">Name cannot be empty</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="agent-cmpny-inputholder">
+                                            <textarea class="form-control color-blue" placeholder="Address*" ng-model="userDetails.company.address" required name="address"></textarea>
+                                        </div>
+                                        <p class="text-left mt5 color-pink" ng-if="userDetailsForm.address.$invalid && userDetailsForm.address.$touched">Address cannot be empty</p>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5 col-sm-5">
+                                            <div class="form-group">
+                                                <div class="agent-cmpny-inputholder agentcompany-phone">
+                                                    <input type="text" id="phone1" name="phone" class="form-control color-blue" placeholder="Contact No*" ng-model="userDetails.company.contact" ng-intl-tel-input ng-change="isValidNo(userDetails.company.contact,'1')" required>
+                                                    <!--<span id="valid-msg1" class="hide intel-error"><i class="fa fa-check"></i> Valid</span>-->
+                                                    <!-- <span id="error-msg1" class="hide intel-error">Invalid number</span> -->
+                                                    <!-- <div class="agent-input-icon">
+                            <i class="fa fa-phone color-grey"></i>
+                          </div> -->
+                                                </div>
+                                                <span class="color-pink" ng-if="userDetailsForm.phone.$invalid && userDetailsForm.phone.$touched">Empty or Invalid Contact Number</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7 col-sm-7">
+                                            <div class="form-group">
+                                                <div class="agent-cmpny-inputholder agentcompany-phone">
+                                                    <input type="text" id="phone2" class="form-control color-blue" placeholder="Mobile No" ng-model="userDetails.company.mobile" ng-intl-tel-input ng-change="isValidNo(userDetails.company.mobile,'2')">
+                                                    <span id="error-msg2" class="hide intel-error">Invalid number</span>
+                                                    <!-- <div class="agent-input-icon">
+                            <i class="fa fa-phone color-grey"></i>
+                          </div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="mail-register clearfix">
+                                            <label class="avenir-roman"><span class="">Registered Email:</span> <span class="color-blue">{{userData.email}}</span></label>
+                                            <a class="email-info"><span ng-click="showdetailInfo()"><i class="fa fa-info-circle"></i></span>
+                      <div class="agentemail-infobox">All communication mails will be delivered to Registered and Alternate Emails</div>
+                      </a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group"></div>
+                                    <div class="form-group">
+                                        <div class="agent-cmpny-inputholder alternatemail">
+                                            <label for="" class="alternate-mail avenir-roman">Alternate Emails for Commmunication</label>
+                                            <ui-select multiple ng-model="userDetails.company.email" theme="bootstrap" tagging="tagHandler">
+                                                <ui-select-match placeholder="Alternate Emails">{{$item.name}}</ui-select-match>
+                                                <ui-select-choices repeat="email in []" refresh="" refresh-delay="0" hidden>
+                                                    <span>{{userDetails.company.email}}</span>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                            <!--<input type="email" class="form-control color-blue" placeholder="Email" ng-model="userDetails.company.email" name="email"
+                        required>-->
+                                            <!--<span class="error" ng-show="userDetails.company.email=='' && userDetailsForm.email.$touched">Required!</span>
+                      <span class="error" ng-show="userDetailsForm.email.$error.email && userDetailsForm.email.$touched">Not valid email!</span>-->
+                                            <div class="agent-input-icon">
+                                                <i class="fa fa-envelope color-grey"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span ng-hide="!emailExist">Email Already Entered</span>
+                                    <div class="form-group">
+                                        <div class="agent-cmpny-inputholder">
+                                            <input type="url" class="form-control color-blue" placeholder="Website (E.g: http://www.yoursite.com)" ng-model="userDetails.company.website">
+                                            <div class="agent-input-icon">
+                                                <i class="fa fa-globe color-grey"></i>
+                                            </div>
+                                            <span ng-show="userDetailsForm.company.website.$touched && userDetailsForm.company.website.$invalid">This url is invalid.</span>
+                                        </div>
+                                    </div>
+                                    <!-- your bussiness model -->
+                                    <div class="agent-cmpny-inputholder business-model">
+                                        <ui-select multiple ng-model="userDetails.company.agentType" theme="bootstrap" on-select="checkme();" required>
+                                            <ui-select-match placeholder="Select Your Business Model*">{{$item}}</ui-select-match>
+                                            <ui-select-choices repeat="model in businessModel | filter:searchModel">
+                                                <span class="color-light-grey">{{model}}</span>
+                                            </ui-select-choices>
+                                        </ui-select>
+                                        <div class="agent-input-icon">
+                                            <i class="fa fa-suitcase color-grey"></i>
+                                        </div>
+                                    </div>
+                                    <!-- your bussiness model end-->
+                                </form>
+                            </div>
+                            <div class="button-panel clearfix">
+                                <button class="btn btn-blue-outline btn-more pull-left" ng-click="agentSec(3)">Previous</button>
+                                <button class="btn btn-blue-outline btn-more pull-right" ng-click="agentSec(5)" ng-disabled="userDetailsForm.$invalid ">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- COMPANY DETAILS END -->
+                    <!-- AGENT LOGO UPLOAD START-->
+                    <div class="agent-logoupload text-center " ng-if="agentloginView==5 ">
+                        <h3 class="color-blue avenir-heavy ">Upload Company Logo</h3>
+                        <div class="text-center ">
+                            <div class="cropArea" ng-show="showImage.val">
+                                <div class="text-right">
+                                    <span class="color-dark-blue pointer" ng-click="removePhoto()">Cancel</span>
+                                </div>
+                                <img-crop image="myImage" result-image="uploadme.src" area-type="square"></img-crop>
+                            </div>
+                            <!-- <div class="show ">
+                <img ng-src="{{myCroppedCompLogo}} " />
+              </div> -->
+                            <div class="upload-section " ng-hide="showImage.val">
+                                <div class="upload-btn ">
+                                    <div class="relate inline-block mr10 select-photo ">
+                                        <button class="btn btn-dark-blue pointer avenir-roman ">Add</button>
+                                        <input type="file" class="getfile pointer" id="fileInput1" class="getfile pointer" fileread="uploadme.src" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="button-panel clearfix ">
+                                <button class="btn btn-blue-outline btn-more pull-left " ng-click="agentSec(4) ">Previous</button>
+                                <!-- put in download btn -->
+                                <!-- ng-click="uploadFile();saveUserData(userData) " -->
+                                <button class="btn btn-blue-outline btn-more pull-right " ng-click="uploadFile(uploadme.src,userDetails,showImage.val) ">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- AGENT LOGO UPLOAD END -->
+                    <!-- ABOUT AGENT -->
+                    <div class="agent-about " ng-if="agentloginView==6 ">
+                        <div class="text-center ">
+                            <h3 class="color-blue avenir-heavy text-capitalize">About {{userDetails.company.name}}</h3>
+                            <div class="form-group " ng-init="userDetails.company.about = ''">
+                                <div class="agent-about-inputholder ">
+                                    <textarea name=" " id="textareaChars " maxlength="500 " placeholder="Fill me in ... " class="form-control
+                  color-blue" ng-model="userDetails.company.about"></textarea>
+                                </div>
+                                <span class="pull-right font-sz10 mt10 " id="remainingC ">{{userDetails.company.about.length}}/ 500</span>
+                            </div>
+                            <div class="button-panel clearfix ">
+                                <button class="btn btn-blue-outline btn-more pull-left " ng-click="agentSec(5) ">Previous</button>
+                                <button class="btn btn-blue-outline btn-more pull-right " ng-click="agentSec(7) ">Next</button>
+                                <!-- put in DOne btn -->
+                                <!-- ng-click="uploadFile();saveUserData(userData) " -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ABOUT AGENT END -->
+                    <!-- CATEGORY START 1 : Category Of Specialization-->
+                    <div class="agent-category " ng-if="agentloginView==7 ">
+                        <!-- category page1 -->
+                        <div class="cat-special ">
+                            <div class="agt-cat-indicators ">
+                                <ul>
+                                    <li>
+                                        <a href=" " class="one "></a>
+                                    </li>
+                                    <li>
+                                        <a href=" " class=" "></a>
+                                    </li>
+                                    <li>
+                                        <a href=" " class=" "></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="text-center ">
+                                <h3 class="color-blue avenir-heavy ">Category Of Specialization</h3>
+                                <div class="row ">
+                                    <div class="col-md-offset-1 col-md-10 ">
+                                        <div class="row ">
+                                            <div class="col-md-4 col-sm-4 col-xs-4 " ng-repeat="agtcat in categoriesSpecial track by $index ">
+                                                <div class="agtbg-holder pointer" ng-click="selectCategory(agtcat)">
+                                                    <figure>
+                                                        <div class="agt-imgholder {{agtcat.class}}">
+                                                            <img ng-src="{{agtcat.agtcatImg}}" alt="{{agtcat.name}} " width="{{agtcat.catwidth}}" class="img-responsive m-center">
+                                                        </div>
+                                                        <figcaption class="color-blue avenir-heavy ">{{agtcat.name}}</figcaption>
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="button-panel loginbtn-panel clearfix ">
+                                    <button class="btn btn-blue-outline btn-more pull-left " ng-click="agentSec(6) ">Previous</button>
+                                    <button class="btn btn-blue-outline btn-more pull-right " ng-disabled="disableSpecialization" ng-click="agentSec(8)">Next</button>
+                                    <!-- put in done btn -->
+                                    <!-- ng-click="uploadFile();saveUserData(userData) " -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- category page1 end -->
+                    </div>
+                    <!-- CATEGORY END 1-->
+                    <!-- CATEGORY START 2 : Countries Of Specialization-->
+                    <div class="agent-category " ng-if="agentloginView==8 ">
+                        <!-- category page2 -->
+                        <div class="cat-special ">
+                            <div class="agt-cat-indicators ">
+                                <ul>
+                                    <li>
+                                        <a href=" " class="one " ng-click="agentSec(7) "></a>
+                                    </li>
+                                    <li>
+                                        <a href=" " class="two "></a>
+                                    </li>
+                                    <li>
+                                        <a href=" " class=" "></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="category-countrylist ">
+                                <h3 class="color-blue avenir-heavy text-center ">Countries Of Specialization</h3>
+                                <div class="row ">
+                                    <div class="col-md-12 ">
+                                        <uib-accordion close-others="oneAtATime ">
+                                            <uib-accordion-group class="panel-default " is-open="status.open " ng-repeat="continent in countriesByContinent track by $index ">
+                                                <uib-accordion-heading>
+                                                    <div class="agtaccord-title color-blue avenir-roman ">{{ continent.name }}
+                                                        <i class="pull-right fa " ng-class="{ 'fa fa-chevron-up': status.open, 'fa fa-chevron-down':
+                  !status.open} "></i>
+                                                    </div>
+                                                </uib-accordion-heading>
+                                                <div class="country-tabs">
+                                                    <button ng-repeat="country in continent.countries track by $index " class="btn btn-blue-outline
+                  btn-more btn-zerorad btn-catcountry pull-left mr5 mb5 flex-auto {{country.class}}" ng-click="selectCountry(country)"><span>{{country.name}}</span></button>
+                                                </div>
+                                            </uib-accordion-group>
+                                        </uib-accordion>
+                                    </div>
+                                </div>
+                                <div class="button-panel loginbtn-panel clearfix ">
+                                    <button class="btn btn-blue-outline btn-more pull-left " ng-click="agentSec(7) ">Previous</button>
+                                    <button class="btn btn-blue-outline btn-more pull-right " ng-disabled="disableCountries" ng-click="agentSec(9) ">Next</button>
+                                    <!-- add to Done btn  -->
+                                    <!-- ng-click="uploadFile();saveUserData(userData) " -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- category page2 end -->
+                    </div>
+                    <!-- CATEGORY END 2-->
+                    <!-- CATEGORY START 3 : Services-->
+                    <div class="agent-category " ng-if="agentloginView==9 ">
+                        <!-- category page3 -->
+                        <div class="agt-services ">
+                            <div class="agt-cat-indicators ">
+                                <ul>
+                                    <li>
+                                        <a href=" " class="one " ng-click="agentSec(7) "></a>
+                                    </li>
+                                    <li>
+                                        <a href=" " class="two " ng-click="agentSec(8) "></a>
+                                    </li>
+                                    <li>
+                                        <a href=" " class="three "></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="text-center ">
+                                <h3 class="color-blue avenir-heavy ">Services</h3>
+                                <div class="row ">
+                                    <div class="col-md-12 ">
+                                        <div class="service-box ">
+                                            <button ng-repeat="agtServices in agtServicesSpcl track by $index " class="btn btn-blue-outline btn-more
+                  btn-bluehover flex-auto mr10 mb10 {{agtServices.class}}" ng-click="selectServices(agtServices)">{{agtServices.name}}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="button-panel loginbtn-panel clearfix ">
+                                    <button class="btn btn-blue-outline btn-more pull-left " ng-click="agentSec(8) ">Previous</button>
+                                    <button class="btn btn-blue-outline btn-more pull-right " ng-disabled="disableServices" ng-click="saveAgentData(userDetails)">Done</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- category page3 end -->
+                    </div>
+                    <!-- CATEGORY END 3-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

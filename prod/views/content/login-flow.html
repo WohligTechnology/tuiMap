@@ -1,0 +1,26 @@
+<section class="loginflow-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8">
+        <div class="text-center loginflow-content">
+          <div class="img-holder">
+            <img ng-src="{{userData.profilePicture|uploadpath}}" alt="" class="img-responsive">
+          </div>
+          <p>Hi {{userData.name}}, We have updated the app for a quicker and faster log-in process. </p>
+          <p>Please link your existing account to either of the options.</p>
+          <div class="social-login-button">
+            <ul class="list-unstyled list-inline">
+              <li ng-click="socialLogin('loginFacebook')">
+                <a><img src="img/libro-home/facebook.png" alt="Travelibro"></a>
+              </li>
+              <li ng-click="socialLogin('loginGoogle')">
+                <a><img src="img/libro-home/google.png" alt="Travelibro"></a>
+              </li>
+            </ul>
+          </div>
+          <p>Your account will automatically be linked to your log-in choice and all existing data migrated.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

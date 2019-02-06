@@ -1,0 +1,63 @@
+<div class="destination relate mt-60" scrolladd1class scrolladd2class>
+  <div ng-class="ntMustdo" scrolldown>
+    <div class="img-holder-destination bg-destination-city-img relate" style="background:url('{{cityDestData.cityCoverPhoto|uploadpath}}')" ng-if="cityDestinationView">
+      <div class="overlay-landing">
+      </div>
+      <div class="get-center country-title">
+        <h4 class="color-white title-head">{{cityDestData.name}}</h4>
+      </div>
+      <div class="scrolldown color-white text-center">
+        <div class="right-label">
+          <a class="color-white" ng-click="openCont();">Read</a>
+        </div>
+      </div>
+      <div class="slide-cont-dest" ng-class="{'open-cont': isopencont}">
+        <div class="hght-destination-scroll color-white">
+          <p class="text-justify">{{cityDestData.description}}</p>
+          <div class="right-label text-right">
+            <a class="color-white pad-40" ng-click="openCont();">Close</a>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="destination-nav second mustdo-not bg-white">
+        <div class="row m-m0">
+          <div class="col-md-8 col-sm-8 m-plr0">
+            <div class="destination-scroll pl20">
+              <ul class="list-inline">
+                <li ng-click="getTab(0)" ng-class="{'active': cityoptions.active=='must-dos'}">Must Dos</li>
+                <li ng-click="getTab(1)" ng-class="{'active': cityoptions.active=='hotels'}">Hotels</li>
+                <li ng-click="getTab(2)" ng-class="{'active': cityoptions.active=='restaurants'}">Restaurants</li>
+                <li ng-click="getTab(3)" ng-class="{'active': cityoptions.active=='itineraries'}">Itineraries</li>
+                <li ng-click="getTab(4); getBooking(cityDestData.name,cityDestData.country.name)" ng-class="{'active': cityoptions.active=='bookings'}">Bookings</li>
+                <li ng-click="getTab(5)" ng-class="{'active': cityoptions.active=='best-time-to-visit'}">Best Time To Visit</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 hidden-xs">
+            <div class="pr20">
+              <form action="">
+                <div class="input-search relate" ng-init="viewDestinationCity={'outerClass':'outerDestCity','innerClass':'innerDestCity'}">
+                  <div class="input-group outerDestCity">
+                    <input type="text" class="form-control" placeholder="Search Destination" ng-model="dest.viewDestination" ng-change="callDestination();" ng-click="editOption(viewDestinationCity,'outerDestCity','innerDestCity')">
+                    <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                    <span ng-if="searchLoader" class="small-loader">
+                      <img src="img/page.svg" alt="" width="25px" class="img-responsive">
+                    </span>
+                  </div>
+                  <div class="dropdown-destination innerDestCity" ng-show="viewDestinationCity.backgroundClick">
+                    <ul>
+                      <li ng-repeat="dest in destinationList  track by $index">
+                        <span ng-if="dest.isCity==true" ng-click="countryView(dest.urlSlug,dest.isCity);">{{dest.name}}</span>
+                        <span ng-if="dest.isCity==false" ng-click="countryView(dest.urlSlug,dest.isCity);">{{dest.name}}</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="destination-content" ng-include="destination.innerView"></div>
+  </div>

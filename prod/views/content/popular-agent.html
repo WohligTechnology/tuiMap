@@ -1,0 +1,47 @@
+<div class="destination popular-agent-sec mt-60" scrolldown>
+  <div class="img-holder-destination bg-agents relate">
+    <div class="overlay-landing"></div>
+    <div class="get-center country-title">
+      <h4 class="color-white title-head">Popular Agents</h4>
+    </div>
+ <div ng-include="template.footer" class="template footer"></div>
+    <div class="mouse-scrolldown color-white text-center" ng-click="scrollDown();">
+      <img src="img/mouse-scroll.png" alt="Travelibro">
+      <p>Scroll Down</p>
+    </div>
+  </div>
+</div>
+<div class="agent-07 tint-bg">
+  <div class="pb20 container second" infinite-scroll="getMoreAgents();" infinite-scroll-disabled="scrollAgent.busy">
+    <div class="row">
+      <div class="col-md-4 col-sm-6 mt10 pl10 pr10" ng-repeat="agent in allAgent track by $index">
+        <div class="agent-box mt20 relate">
+          <div class="pull-right btn-up">
+            <button class="btn btn-pink avenir-heavy text-shadow box-shadow">Follow</button>
+          </div>
+          <div class="img-popular-agent">
+            <img src="img/popularagent/popularagent.jpg" class="full-width" alt="travelibro" />
+          </div>
+          <div class="overlay-down">
+            <img ng-src="{{agent.profilePicture|uploadpath}}" alt="{{agent.name}}" class="logo-agents">
+            <div class="title-agent color-white">
+              <h4 class="m-clear avenir-heavy fnt-20">{{agent.name}}</h4>
+              <div class="title-cityagent" ng-if="agent.homeCity!=null && agent.homeCountry && agent.homeCountry.name!='null'">
+                <span class="color-white avenir-heavy"><i class="fa fa-map-marker" aria-hidden="true"></i> {{agent.homeCity}},</span>
+                <span class="color-white avenir-heavy">{{agent.homeCountry.name}}</span>
+              </div>
+            </div>
+            <div class="btn-btm">
+              <button class="btn btn-blue-outline btn-trans avenir-heavy">Connect</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- pagination loader -->
+  <div class="" ng-if="template.paginationLoader">
+      <img src="img/page.svg" alt="" class="m-center img-responsive" width="40px">
+  </div>
+  <!-- pagination loader end -->
+</div>

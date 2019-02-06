@@ -1,0 +1,179 @@
+<!-- holiday plan -->
+<div class="holiday-step">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
+        <div class="bg-white">
+          <div class="holiday-step1" ng-if="viewHoliday==1">
+            <div class="holiday-indicators">
+              <ul>
+                <li>
+                  <a href="" class="one"></a>
+                </li>
+                <li>
+                  <a href="" class="" ng-click="showHoliday(2)"></a>
+                </li>
+                <li>
+                  <a href="" class=""></a>
+                </li>
+                <li>
+                  <a href="" class=""></a>
+                </li>
+              </ul>
+            </div>
+            <div class="text-center avenir-roman">
+              <h3 class="color-blue avenir-black">Your kind of a holiday</h3>
+              <!-- <p class="color-blue avenir-roman">Lorem Ipsum is simply dummy text of<span class="block">the printing and typesetting industry.</span> </p> -->
+              <div class="row">
+                <div class="col-md-offset-1 col-md-10">
+                  <div class="travel-row-main">
+                    <div class="kind-holiday" ng-repeat="kind in holidayKindType">
+                      <div class="select-holiday {{kind.class}}" ng-click="getHoliday($index);">
+                        <figure>
+                          <div class="holiday-imgholder">
+                            <img ng-src="{{kind.img}}" alt="" class="img-responsive m-center">
+                          </div>
+                          <figcaption class="color-blue font-bold">{{kind.caption}}</figcaption>
+                        </figure>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="button-pane clearfix">
+                <button class="btn btn-outline-blue btn-more pull-right" ng-click="showHoliday(2);" ng-disabled="listOfCategories.travelConfig.kindOfHoliday.length==0">Next</button>
+              </div>
+            </div>
+          </div>
+          <div class="holiday-step2" ng-if="viewHoliday==2">
+            <div class="holiday-indicators">
+              <ul>
+                <li>
+                  <a href="" class="one" ng-click="showHoliday(1)"></a>
+                </li>
+                <li>
+                  <a href="" class="two"></a>
+                </li>
+                <li>
+                  <a href="" class="" ng-click="showHoliday(3)"></a>
+                </li>
+                <li>
+                  <a href="" class=""></a>
+                </li>
+              </ul>
+            </div>
+            <div class="text-center avenir-roman">
+              <h3 class="color-blue avenir-black">You usually go</h3>
+              <!-- <p class="color-blue avenir-roman">Lorem Ipsum is simply dummy text of<span class="block">the printing and typesetting industry.</span> </p> -->
+              <div class="usually-go">
+                <div class="row">
+                  <div class="col-md-offset-1 col-md-10">
+                    <div class="usually-go-holiday" ng-repeat="holiday in usuallygoHoliday">
+                      <div class="select-holiday {{holiday.class}}" ng-click="getUsually($index);">
+                        <figure>
+                          <div class="holiday-imgholder">
+                            <img ng-src="{{holiday.img}}" alt="" class="img-responsive m-center">
+                          </div>
+                          <figcaption class="color-blue font-bold">{{holiday.caption1}} <span class="block">{{holiday.caption2}}</span></figcaption>
+                        </figure>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="button-pane clearfix">
+              <button class="btn btn-outline-blue btn-more pull-left" ng-click="showHoliday(1)">Previous</button>
+              <button class="btn btn-outline-blue btn-more pull-right" ng-click="showHoliday(3);" ng-disabled="listOfCategories.travelConfig.usuallyGo.length==0">Next</button>
+            </div>
+          </div>
+          <div class="holiday-step3" ng-if="viewHoliday==3">
+            <div class="holiday-indicators">
+              <ul>
+                <li>
+                  <a href="" class="one" ng-click="showHoliday(1)"></a>
+                </li>
+                <li>
+                  <a href="" class="two" ng-click="showHoliday(2)"></a>
+                </li>
+                <li>
+                  <a href="" class="three"></a>
+                </li>
+                <li>
+                  <a href="" class="" ng-click="showHoliday(4)"></a>
+                </li>
+              </ul>
+            </div>
+            <div class="text-center avenir-roman">
+              <h3 class="color-blue avenir-black">Preference of travel</h3>
+              <!-- <p class="color-blue avenir-roman">Lorem Ipsum is simply dummy text of<span class="block">the printing and typesetting industry.</span> </p> -->
+              <div class="row">
+                <div class="col-md-offset-1 col-md-10">
+                  <div class="travel-row-main">
+                    <div class="preference-travel" ng-repeat="preference in travelPrefer">
+                      <div class="select-holiday {{preference.class}}" ng-click="getPreference($index);">
+                        <figure>
+                          <div class="holiday-imgholder">
+                            <img ng-src="{{preference.img}}" alt="" class="img-responsive m-center">
+                          </div>
+                          <figcaption class="color-blue font-bold">{{preference.caption}}</figcaption>
+                        </figure>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="button-pane clearfix">
+                <button class="btn btn-outline-blue btn-more pull-left" ng-click="showHoliday(2)">Previous</button>
+                <button class="btn btn-outline-blue btn-more pull-right" ng-click="showHoliday(4);" ng-disabled="listOfCategories.travelConfig.preferToTravel.length==0">Next</button>
+              </div>
+            </div>
+          </div>
+          <div class="holiday-step4" ng-if="viewHoliday==4">
+            <div class="holiday-indicators">
+              <ul>
+                <li>
+                  <a href="" class="one" ng-click="showHoliday(1)"></a>
+                </li>
+                <li>
+                  <a href="" class="two" ng-click="showHoliday(2)"></a>
+                </li>
+                <li>
+                  <a href="" class="three" ng-click="showHoliday(3)"></a>
+                </li>
+                <li>
+                  <a href="" class="four"></a>
+                </li>
+              </ul>
+            </div>
+            <div class="text-center avenir-roman">
+              <h3 class="color-blue avenir-black">Your ideal holiday type</h3>
+              <!-- <p class="color-blue avenir-roman">Lorem Ipsum is simply dummy text of<span class="block">the printing and typesetting industry.</span> </p> -->
+              <div class="row">
+                <div class="col-md-offset-1 col-md-10">
+                  <div class="travel-row-main">
+                    <div class="ideal-holiday" ng-repeat="ideal in idealHoliday">
+                      <div class="select-holiday {{ideal.class}}" ng-click="getideal($index);">
+                        <figure>
+                          <div class="holiday-imgholder">
+                            <img ng-src="{{ideal.img}}" alt="" class="img-responsive m-center">
+                            <figcaption class="color-blue font-bold">{{ideal.caption1}} <span class="block">{{ideal.caption2}}</span></figcaption>
+                          </div>
+                        </figure>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="button-pane clearfix">
+                <button class="btn btn-outline-blue btn-more pull-left" ng-click="showHoliday(3)">Previous</button>
+                <button class="btn btn-outline-blue btn-more pull-right" ng-click="saveUserData(listOfCategories);" ; ng-disabled="listOfCategories.travelConfig.holidayType.length==0">Done</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- holiday plan end -->

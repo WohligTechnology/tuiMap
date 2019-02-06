@@ -1,0 +1,24 @@
+<div class="itinerary-slider">
+  <flexslider class="carousel" flex-slide="slide in itinerarySlide track by $index" slider-id="sliderItinerary" sync="itineraryCarousel">
+    <li>
+      <div class="itinerary-slider-holder">
+        <img ng-src="{{slide.img}}" alt="" class="img-responsive">
+        <div class="itinerary-imgdescp">
+          <!-- <h4 class=""></h4> -->
+          <!-- <p></p> -->
+        </div>
+      </div>
+    </li>
+  </flexslider>
+  <div class="thumbnail-itinerary-slider">
+    <flexslider class="carousel" flex-slide="slide in itinerarySlide track by $index" as-nav-for="sliderItinerary" slider-id="itineraryCarousel">
+      <li>
+        <div class="">
+          <div class="thumbnail-slider-holder">
+            <img ng-src="{{slide.img}}" alt="" class="img-responsive">
+          </div>
+        </div>
+      </li>
+    </flexslider>
+  </div>
+</div>
